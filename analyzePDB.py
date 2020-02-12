@@ -180,6 +180,8 @@ class AnalyzePDB:
 
 
         # Computing covariance matrix for all of the 
+        if args.verbose:
+            print('Generating covariance matrix')
         gCovarianceMatrix = GenerateCovarianceMatrix()
         covarianceMatrix = gCovarianceMatrix.calcCovarianceMatrix(
                         differenceDistanceList
@@ -187,6 +189,7 @@ class AnalyzePDB:
         np.save('CovarianceMatrix.npy', covarianceMatrix)
 
         if args.verbose:
+            print('Reference used: ' + args.reference)
             print(covarianceMatrix)
             print('Total Computation Time: %s seconds'\
                 %(time.time() -start_time))
