@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Generate Difference Matrix
 # Author: Darren Trieu Nguyen
-# Version: 0.3
+# Version: 0.4
 # Function: Takes in two DistanceMatrix.npy files and calculates the difference
 #           between them, then plots
 
@@ -13,6 +13,8 @@ import pandas as pd
 import time
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
+import mpld3
+from mpld3 import plugins
 
 """ Class that houses Generate Difference Matrix
 """
@@ -101,7 +103,7 @@ class GenerateDifferenceMatrix:
 
         blueRedColorMap = LinearSegmentedColormap('BlueRed', cdict)
 
-        plt.figure()
+        fig = plt.figure()
         plt.title(differenceMatrixName)
         plt.imshow(differenceMatrix, 
                            cmap=blueRedColorMap,
@@ -111,10 +113,15 @@ class GenerateDifferenceMatrix:
         ax = plt.gca();
         ax.grid(which='major', color='k', linestyle='dashed', linewidth=0.5)
         plt.savefig(differenceMatrixName + '.pdf',format='pdf')
-        plt.close()
 
+        plugins.connect(fig, plugins.MousePosition(fontsize=14))
+        mpld3.save_html(fig, differenceMatrixName + '.html')
+
+        plt.close() 
         print('Computation complete, distance difference plot outputted to: '\
             + differenceMatrixName + '.pdf')
+        print('Interactive plot outputted to: '\
+            + differenceMatrixName + '.html')
 
         return differenceMatrixName
 
