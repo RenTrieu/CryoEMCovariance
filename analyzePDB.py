@@ -17,6 +17,7 @@ from pdbReader import PDBReader
 from generateDistanceMatrix import GenerateDistanceMatrix
 from generateDifferenceMatrix import GenerateDifferenceMatrix
 from generateCovarianceMatrix import GenerateCovarianceMatrix
+from plotGenerator import PlotGenerator
 
 """ Class that houses Analyze PDB
 """
@@ -53,6 +54,13 @@ class AnalyzePDB:
         parser.add_argument('-v', '--verbose', 
                             help='Increases output verbosity',\
                             action='store_true')
+        parser.add_argument('-p', '--plot',
+                            action='store_true',
+                            help='If option is specified, will output plots'\
+                            ' for all matricies generated.')
+        parser.add_argument('--scale', type=int, default=1500,
+                            help='Specifies the elements (per axis) to which'\
+                            ' the plot will be scaled')
         parser.add_argument('--processes',
                             dest='processQuantity',
 
@@ -177,7 +185,16 @@ class AnalyzePDB:
                     args.verbose
                 )
             differenceDistanceList[index] += '.npy'
+            differenceMatrixList[index] = \
+                np.load(str(differenceDistanceList[index]))
 
+        # Plotting distance difference matrices if specified
+        if args.plot:
+            pGenerator = PlotGenerator()
+            for index, differenceMatrix in enumerate(differenceMatrixList):
+                pGenerator.plotMatrix(differenceMatrix, 
+                                      differenceDistanceList[index][:-4],
+                                      args.verbose)
 
         # Computing covariance matrix for all of the 
         if args.verbose:
@@ -187,6 +204,24 @@ class AnalyzePDB:
                         differenceDistanceList
                     )
         np.save('CovarianceMatrix.npy', covarianceMatrix)
+
+        # Plotting covariance matrix if specified
+        if args.plot:
+            if covarianceMatrix.size > 4:
+                print('Outputting covariance matrix plot')
+                pGenerator.plotMatrix(covarianceMatrix, 
+                                      'CovarianceMatrix',
+                                      args.verbose,
+                                      args.scale)
+            else:
+                print('Dimensions of Covariance Matrix are too small to plot.')
+
+
+        # Creating a map between covariance coordinate and residue pairs
+        # x -> index of one covariance axis of n length
+        # Residue Pair Indices Given by:
+        #   First Index: floor(x/n)
+        #   Second Index: x % n - 1
 
         if args.verbose:
             print('Reference used: ' + args.reference)
