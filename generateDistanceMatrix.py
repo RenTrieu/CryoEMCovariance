@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Generate Distance Matrix
 # Author: Darren Trieu Nguyen
-# Version: 0.3
+# Version: 0.6
 # Function: Takes in a formatted PDB file (stripped down to alpha carbons)
 #           And outputs
 
@@ -20,39 +20,6 @@ from functools import partial
 """ Class that houses Generate Distance Matrix 
 """
 class GenerateDistanceMatrix:
-
-    """ Initialization function
-        Handles options from the CLI
-    """
-    def __init__(self):
-        if __name__ == '__main__':
-            version = 0.3
-
-            # Parsing the CLI for options and parameters
-            parser = argparse.ArgumentParser(description='Generate a distance'\
-                    ' matrix for a given pdb file')
-            parser.add_argument('pdb', metavar='pdb',
-                                help='pdb file used to generate'\
-                                ' the distance matrix')
-            parser.add_argument('-v', '--verbose', 
-                                help='Increases output verbosity',\
-                                action='store_true')
-            parser.add_argument('--processes',
-                                dest='processQuantity',
-                                default=os.cpu_count(),
-                                const=1,
-                                action='store',
-                                nargs='?',
-                                type=int,
-                                help='The number of separate processes the'\
-                                ' computation will be split into')
-
-            args = parser.parse_args()
-
-            self.generateMatrix(args.pdb, args.verbose, args.processQuantity)
-
-            if args.verbose:
-                print('%s seconds' %(time.time() - start_time))
 
     """ Generates a distance matrix based off of the pdb file passed
     """
@@ -106,4 +73,35 @@ class GenerateDistanceMatrix:
             )
         return matrixRow
 
-generateDMatrix = GenerateDistanceMatrix()
+""" Handles options from the CLI when called as a script
+"""
+if __name__ == '__main__':
+    version = 0.6
+
+    # Parsing the CLI for options and parameters
+    parser = argparse.ArgumentParser(description='Generate a distance'\
+        ' matrix for a given pdb file')
+    parser.add_argument('pdb', metavar='pdb',
+                    help='pdb file used to generate'\
+                    ' the distance matrix')
+    parser.add_argument('-v', '--verbose', 
+                    help='Increases output verbosity',\
+                    action='store_true')
+    parser.add_argument('--processes',
+                    dest='processQuantity',
+                    default=os.cpu_count(),
+                    const=1,
+                    action='store',
+                    nargs='?',
+                    type=int,
+                    help='The number of separate processes the'\
+                    ' computation will be split into')
+
+    args = parser.parse_args()
+
+    gDistanceMatrix = GenerateDistanceMatrix()
+
+    start_time = time.time()
+    gDistanceMatrix.generateMatrix(args.pdb, args.verbose, args.processQuantity)
+    if args.verbose:
+        print('%s seconds' %(time.time() - start_time))

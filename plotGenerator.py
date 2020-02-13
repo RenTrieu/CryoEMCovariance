@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Plot Generator
 # Author: Darren Trieu Nguyen
-# Version: 0.4
+# Version: 0.6
 # Function: To take a matrix and plot it according to parameters passed
 
 import time
@@ -88,7 +88,7 @@ class PlotGenerator:
 """ Handles options from the CLI when called as a script
 """
 if __name__ == "__main__":
-    version = 0.5
+    version = 0.6
 
     # Parsing the CLI for options and parameters
     parser = argparse.ArgumentParser(description='Generate a'\

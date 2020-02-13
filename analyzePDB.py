@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Analyze PDB
 # Author: Darren Trieu Nguyen
-# Version: 0.3
+# Version: 0.6
 # Function: Handles the overhead management, taking in PDB files and
 #           running the scripts necessary to output a covariance matrix plot
 
@@ -29,7 +29,7 @@ class AnalyzePDB:
     def __init__(self):
 
         start_time = time.time()
-        version = 0.3
+        version = 0.6
 
         # Parsing the CLI for options and parameters
         parser = argparse.ArgumentParser(
@@ -178,15 +178,13 @@ class AnalyzePDB:
         differenceMatrixList = [None]*len(comparisonList)
         for index, comparison in enumerate(comparisonList):
             gDifferenceMatrix = GenerateDifferenceMatrix()
-            differenceDistanceList[index] = \
+            differenceMatrixList[index], differenceDistanceList[index] = \
                 gDifferenceMatrix.generateMatrix(
                     comparison[0][:-4] + 'FormattedDistanceMatrix.npy', \
                     comparison[1][:-4] + 'FormattedDistanceMatrix.npy', \
                     args.verbose
                 )
             differenceDistanceList[index] += '.npy'
-            differenceMatrixList[index] = \
-                np.load(str(differenceDistanceList[index]))
 
         # Plotting distance difference matrices if specified
         if args.plot:

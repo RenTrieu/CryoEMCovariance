@@ -14,36 +14,6 @@ import os
 """
 class GenerateCovarianceMatrix:
 
-    """ Initialization function
-        Handles options from the CLI
-    """
-    def __init__(self):
-        if __name__ == '__main__':
-            version = 0.3
-
-            # Parsing the CLI for options and parameters
-            parser = argparse.ArgumentParser(description='Generate a'\
-                ' covariance matrix for a given distance difference matrix')
-            parser.add_argument('npy', metavar='npy', nargs='+',
-                                help='npy file(s) that contain distance'\
-                                'difference matrix(ices)')
-            parser.add_argument('-v', '--verbose',
-                               help='Increases output verbosity',\
-                               action='store_true')
-            parser.add_argument('--processes',
-                                dest='processQuantity',
-                                default=os.cpu_count(),
-                                const=1,
-                                action='store',
-                                nargs='?',
-                                type=int,
-                                help='The number of separate processes the'
-                                ' computation will be split into')
-
-            args = parser.parse_args()
-
-            print(self.calcCovarianceMatrix(args.npy))
-                
     """ Extracts the distance difference values from a given difference
         matrix and outputs it into a list
     """
@@ -71,5 +41,32 @@ class GenerateCovarianceMatrix:
         covarianceMatrix = np.cov(distDiffListList, rowvar=False)
         return covarianceMatrix
         
+""" Handles options from the CLI when called as a script
+"""
+if __name__ == '__main__':
+    version = 0.6
 
-gCovarianceMatrix = GenerateCovarianceMatrix()
+    # Parsing the CLI for options and parameters
+    parser = argparse.ArgumentParser(description='Generate a'\
+        ' covariance matrix for a given distance difference matrix')
+    parser.add_argument('npy', metavar='npy', nargs='+',
+                        help='npy file(s) that contain distance'\
+                        'difference matrix(ices)')
+    parser.add_argument('-v', '--verbose',
+                       help='Increases output verbosity',\
+                       action='store_true')
+    parser.add_argument('--processes',
+                        dest='processQuantity',
+                        default=os.cpu_count(),
+                        const=1,
+                        action='store',
+                        nargs='?',
+                        type=int,
+                        help='The number of separate processes the'
+                        ' computation will be split into')
+    args = parser.parse_args()
+
+    gCovarianceMatrix = GenerateCovarianceMatrix()
+
+    print(gCovarianceMatrix.calcCovarianceMatrix(args.npy))
+

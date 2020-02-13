@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Generate Difference Matrix
 # Author: Darren Trieu Nguyen
-# Version: 0.4
+# Version: 0.6
 # Function: Takes in two DistanceMatrix.npy files and calculates the difference
 #           between them, then plots
 
@@ -11,6 +11,7 @@ import math
 import numpy as np
 import pandas as pd
 import time
+from plotGenerator import PlotGenerator
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 import mpld3
@@ -20,39 +21,10 @@ from mpld3 import plugins
 """
 class GenerateDifferenceMatrix:
 
-    """ Initialization function
-        Handles options from the CLI
-    """
-    def __init__(self):
-        if __name__ == '__main__':
-            version = 0.3
-
-            # Parsing the CLI for options and parameters
-            parser = argparse.ArgumentParser(description='Generate a'\
-                    ' difference matrix for the given DistanceMatrix.npy'\
-                    ' files and create a plot')
-            parser.add_argument('npy1', metavar='npy1',
-                                help='First npy file used to generate the'\
-                                ' difference matrix')
-            parser.add_argument('npy2', metavar='npy2',
-                                help='Second npy file used to generate the'\
-                                ' difference matrix')
-            parser.add_argument('-v', '--verbose',
-                                help='Increases output verbosity',\
-                                action='store_true')
-            args = parser.parse_args()
-
-            self.plotMatrix(args.npy1, args.npy2, args.verbose)
-       
-            if args.verbose:
-                print('%s seconds' %(time.time() - start_time))
-
     """ Calculates a difference matrix from the passed distance matrices
         Plots it
     """
     def generateMatrix(self, npy1, npy2, verbose):
-
-        start_time = time.time()
 
         # Loading the distance matrices from the passed parameters
 
@@ -82,48 +54,34 @@ class GenerateDifferenceMatrix:
         print('Saving difference matrix to: ' + differenceMatrixName + '.npy')
         np.save(differenceMatrixName, differenceMatrix)
 
-        # Defining color values
-        vmin = -5
-        vmax = 5
-        cdict = {'blue':  ((0.0, 0.0, 0.0),
-                           (0.25, 0.0, 0.0),
-                           (0.5, 0.8, 1.0),
-                           (0.75, 1.0, 1.0),
-                           (1.0, 0.4, 1.0)),
-                 'green': ((0.0, 0.0, 0.0),
-                           (0.25, 0.0, 0.0),
-                           (0.5, 0.9, 0.9),
-                           (0.75, 0.0, 0.0),
-                           (1.0, 0.0, 0.0)),
-                 'red':  ((0.0, 0.0, 0.4),
-                          (0.25, 1.0, 1.0),
-                          (0.5, 1.0, 0.8),
-                          (0.75, 0.0, 0.0),
-                          (1.0, 0.0, 0.0))}
+        return differenceMatrix, differenceMatrixName
 
-        blueRedColorMap = LinearSegmentedColormap('BlueRed', cdict)
+""" Handles options from the CLI when called as a script
+"""
+if __name__ == '__main__':
+    version = 0.6
 
-        fig = plt.figure()
-        plt.title(differenceMatrixName)
-        plt.imshow(differenceMatrix, 
-                           cmap=blueRedColorMap,
-                           vmin=vmin, 
-                           vmax=vmax)
-        plt.colorbar()
-        ax = plt.gca();
-        ax.grid(which='major', color='k', linestyle='dashed', linewidth=0.5)
-        plt.savefig(differenceMatrixName + '.pdf',format='pdf')
+    # Parsing the CLI for options and parameters
+    parser = argparse.ArgumentParser(description='Generate a'\
+            ' difference matrix for the given DistanceMatrix.npy'\
+            ' files and create a plot')
+    parser.add_argument('npy1', metavar='npy1',
+                        help='First npy file used to generate the'\
+                        ' difference matrix')
+    parser.add_argument('npy2', metavar='npy2',
+                        help='Second npy file used to generate the'\
+                        ' difference matrix')
+    parser.add_argument('-v', '--verbose',
+                        help='Increases output verbosity',\
+                        action='store_true')
+    args = parser.parse_args()
 
-        plugins.connect(fig, plugins.MousePosition(fontsize=14))
-        mpld3.save_html(fig, differenceMatrixName + '.html')
+    # Generating Difference Matrix
 
-        plt.close() 
-        print('Computation complete, distance difference plot outputted to: '\
-            + differenceMatrixName + '.pdf')
-        print('Interactive plot outputted to: '\
-            + differenceMatrixName + '.html')
+    gDifferenceMatrix = GenerateDifferenceMatrix()
 
-        return differenceMatrixName
+    start_time = time.time()
+    gDifferenceMatrix.generateMatrix(args.npy1, args.npy2, args.verbose)
+    if args.verbose:
+        print('%s seconds' %(time.time() - start_time))
 
-
-gDifferenceMatrix = GenerateDifferenceMatrix()
