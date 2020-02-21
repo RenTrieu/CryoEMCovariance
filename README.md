@@ -31,7 +31,6 @@ Notes:
       does successfully display the corresponding Covariance Matrix, it does so
       extremely slowly. Here, I was viewing `CovarianceMatrix.html` with 1500^2
       points and on my laptop (Dell XPS 13 9350 Intel i7 8th Gen Processor).
---- 
 In-Development Notes/Changes:
     - Removing matplotlib dependencies in `plotGenerator.py`
     - Implemented mpl3d as a plotting package for `plotGenerator.py`
@@ -46,7 +45,6 @@ Version 0.6
 -----------
 Notes:
     - Forked from Version 0.3 (creating new repository)
----
 Changes:
     - Reimplemented the modular structure from Version 0.5, but kept the
       base calculation code used in 0.3 
@@ -60,7 +58,6 @@ Things are kind of broken here due to attempted handling of
 redundant residue cases. I attempted implementations of Schubert's online
 algorithm to remedy memory problems encountered by processing large/multiple
 pdb files.
----
 Changes:
     - Made plotting modular
     - Added options for plotting, scaling, and handling directories
@@ -74,13 +71,11 @@ Changes:
 Version 0.3
 -----------
 - First functional version that computes covariance matrices
----
 Notes:
     - Forked from the code that Rick Wayne Baker provided
     - Runs 2VGL.pdb and 2XA7.pdb comparison in the order of 10 minutes,
       a large improvement over the reported several hours from the original
       code
----
 Changes:
     - Reduced O(N^3) runtime to approximately O(N^2) (without libraries) 
       by removing a redundant calculation
