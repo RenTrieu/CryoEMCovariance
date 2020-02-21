@@ -10,6 +10,7 @@ import argparse
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 
+from bokeh.io import show
 from bokeh.plotting import figure, output_file, show
 from bokeh.models import LinearColorMapper, LogTicker, ColorBar, HoverTool, ColumnDataSource
 
@@ -43,32 +44,12 @@ class PlotGenerator:
         if scale is not None:
             npy = self.rescaleMatrix(npy, scale)
 
+        # Interactive Plot Tools
+        TOOLS = 'hover,save,pan,box_zoom,reset,wheel_zoom'
+
         # Defining color values
         vmin = -5
         vmax = 5
-
-        # Old Color Map TODO: Take out
-        cdict = {'blue': ((0.0, 0.0, 0.0),
-                          (0.25, 0.0, 0.0),
-                          (0.5, 0.8, 1.0),
-                          (0.75, 1.0, 1.0),
-                          (1.0, 0.4, 1.0)),
-                 'green': ((0.0, 0.0, 0.0),
-                           (0.25, 0.0, 0.0),
-                           (0.5, 0.9, 0.9),
-                           (0.75, 0.0, 0.0),
-                           (1.0, 0.0, 0.0)),
-                 'red':  ((0.0, 0.0, 0.4),
-                          (0.25, 1.0, 1.0),
-                          (0.5, 1.0, 0.8),
-                          (0.75, 0.0, 0.0),
-                          (1.0, 0.0, 0.0))}
-        cdict['alpha'] = ((0.0, 1.0, 1.0), 
-                          (0.5, 0.3, 0.3),
-                          (1.0, 1.0, 1.0))
-
-        blueRedColorMap = LinearSegmentedColormap('BlueRed', cdict)
-        blueRedColorMap.set_bad(color='black')
 
         # New Color Map Bokeh
         blueRedColors = ['#AA0000', '#990000', '#880000', '#770000',
@@ -100,7 +81,8 @@ class PlotGenerator:
 
         plot = figure(x_range=(-0.5, len(npy)-0.5),
                       y_range=(-0.5, len(npy)-0.5),
-                      toolbar_location=None)
+                      tools=TOOLS, 
+                      toolbar_location='below')
         plot.rect(x='x', y='y', width=1, height=1,
                   source=source,
                   fill_color={'field': 'covValues', 'transform' : color_mapper},
@@ -109,7 +91,10 @@ class PlotGenerator:
         color_bar = ColorBar(color_mapper=color_mapper, ticker=LogTicker(),
                              label_standoff=12, 
                              border_line_color=None, location=(0,0))
+        plot.add_layout(color_bar, 'right')
 
+        output_file(fileName + '.html')
+        show(plot)
         print('Computation complete, plot outputted to: '\
             + fileName + '.html')
 
