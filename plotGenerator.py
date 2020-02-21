@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Plot Generator
 # Author: Darren Trieu Nguyen
-# Version: 0.6
+# Version: 0.7
 # Function: To take a matrix and plot it according to parameters passed
 
 import time
@@ -9,8 +9,10 @@ import numpy as np
 import argparse
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
-import mpld3
-from mpld3 import plugins
+
+from bokeh.plotting import figure, output_file, show
+from bokeh.models import LinearColorMapper, LogTicker, ColorBar, HoverTool, ColumnDataSource
+
 from PIL import Image
 
 
@@ -44,6 +46,8 @@ class PlotGenerator:
         # Defining color values
         vmin = -5
         vmax = 5
+
+        # Old Color Map TODO: Take out
         cdict = {'blue': ((0.0, 0.0, 0.0),
                           (0.25, 0.0, 0.0),
                           (0.5, 0.8, 1.0),
@@ -66,29 +70,53 @@ class PlotGenerator:
         blueRedColorMap = LinearSegmentedColormap('BlueRed', cdict)
         blueRedColorMap.set_bad(color='black')
 
-        fig = plt.figure()
-        plt.title(fileName)
-        plt.imshow(npy,
-                   cmap=blueRedColorMap,
-                   vmin=vmin, 
-                   vmax=vmax)
-        plt.colorbar()
-        ax = plt.gca();
-        ax.grid(which='major', color='k', linestyle='dashed', linewidth=0.5)
-        plt.savefig(fileName + '.pdf',format='pdf')
+        # New Color Map Bokeh
+        blueRedColors = ['#AA0000', '#990000', '#880000', '#770000',
+                         '#660000', '#550000', '#440000', '#330000',
+                         '#220000', '#110000', '#000000', '#000011',
+                         '#000022', '#000033', '#000044', '#000055',
+                         '#000066', '#000077', '#000088', '#000099',
+                         '#0000AA']
+        #vmin = np.amin(npy)
+        #vmax = np.amax(npy)
 
-        plugins.connect(fig, plugins.MousePosition(fontsize=14))
-        mpld3.save_html(fig, fileName + '.html')
+        # Reformatting data for plotting
 
-        plt.close()
+        xyPairList = [None]*npy.shape[0]*npy.shape[1]
+        covValues = [None]*npy.shape[0]*npy.shape[1]
+        for i in range(0, npy.shape[0]):
+            for j in range(0, npy.shape[1]):
+                xyPairList[i+j*npy.shape[0]] = (i, j)
+
+        source = ColumnDataSource(data={
+            'x' : np.transpose(xyPairList)[0],
+            'y' : np.transpose(xyPairList)[1],
+            'covValues' : npy.flatten()
+        })
+
+        # Plotting
+        color_mapper = LinearColorMapper(palette=blueRedColors, 
+                                   low=vmin, high=vmax)
+
+        plot = figure(x_range=(-0.5, len(npy)-0.5),
+                      y_range=(-0.5, len(npy)-0.5),
+                      toolbar_location=None)
+        plot.rect(x='x', y='y', width=1, height=1,
+                  source=source,
+                  fill_color={'field': 'covValues', 'transform' : color_mapper},
+                  line_color=None)
+
+        color_bar = ColorBar(color_mapper=color_mapper, ticker=LogTicker(),
+                             label_standoff=12, 
+                             border_line_color=None, location=(0,0))
 
         print('Computation complete, plot outputted to: '\
-            + fileName + '.pdf')
+            + fileName + '.html')
 
 """ Handles options from the CLI when called as a script
 """
 if __name__ == "__main__":
-    version = 0.6
+    version = 0.7
 
     # Parsing the CLI for options and parameters
     parser = argparse.ArgumentParser(description='Generate a'\

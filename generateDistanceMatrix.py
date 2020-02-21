@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Generate Distance Matrix
 # Author: Darren Trieu Nguyen
-# Version: 0.6
+# Version: 0.7
 # Function: Takes in a formatted PDB file (stripped down to alpha carbons)
 #           And outputs
 
@@ -76,7 +76,7 @@ class GenerateDistanceMatrix:
 """ Handles options from the CLI when called as a script
 """
 if __name__ == '__main__':
-    version = 0.6
+    version = 0.7
 
     # Parsing the CLI for options and parameters
     parser = argparse.ArgumentParser(description='Generate a distance'\

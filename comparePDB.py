@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Compare PDB
 # Author: Darren Trieu Nguyen
-# Version: 0.3
+# Version: 0.7
 # Function: Takes in two PDB files to compare
 #           Outputs two edited PDB files that are aligned for calculation
 
@@ -20,7 +20,7 @@ class ComparePDB:
     """
     def __init__(self):
         if __name__ == '__main__':
-            version = 0.3
+            version = 0.7
             
             # Parsing the CLI for options and parameters
             parser = argparse.ArgumentParser(

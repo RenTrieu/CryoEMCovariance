@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Analyze PDB
 # Author: Darren Trieu Nguyen
-# Version: 0.6
+# Version: 0.7
 # Function: Handles the overhead management, taking in PDB files and
 #           running the scripts necessary to output a covariance matrix plot
 
@@ -29,7 +29,7 @@ class AnalyzePDB:
     def __init__(self):
 
         start_time = time.time()
-        version = 0.6
+        version = 0.7
 
         # Parsing the CLI for options and parameters
         parser = argparse.ArgumentParser(
