@@ -12,7 +12,7 @@ from matplotlib.colors import LinearSegmentedColormap
 
 from bokeh.io import show
 from bokeh.plotting import figure, output_file, show
-from bokeh.models import LinearColorMapper, LogTicker, ColorBar, HoverTool, ColumnDataSource
+from bokeh.models import LinearColorMapper, BasicTicker, ColorBar, HoverTool, ColumnDataSource
 
 from PIL import Image
 
@@ -88,9 +88,11 @@ class PlotGenerator:
                   fill_color={'field': 'covValues', 'transform' : color_mapper},
                   line_color=None)
 
-        color_bar = ColorBar(color_mapper=color_mapper, ticker=LogTicker(),
+        color_bar = ColorBar(color_mapper=color_mapper, 
                              label_standoff=12, 
-                             border_line_color=None, location=(0,0))
+                             border_line_color=None, location=(0,0),
+                             ticker=BasicTicker(\
+                                desired_num_ticks=len(blueRedColors)))
         plot.add_layout(color_bar, 'right')
 
         output_file(fileName + '.html')
