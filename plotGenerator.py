@@ -44,6 +44,7 @@ class PlotGenerator:
         if scale is not None:
             npy = self.rescaleMatrix(npy, scale)
 
+        # TODO: Add tool tips
         # Interactive Plot Tools
         TOOLS = 'hover,save,pan,box_zoom,reset,wheel_zoom'
 
@@ -58,6 +59,26 @@ class PlotGenerator:
                          '#000022', '#000033', '#000044', '#000055',
                          '#000066', '#000077', '#000088', '#000099',
                          '#0000AA']
+        """
+        blueRedColors = ['#FF1111', '#EE2222', '#DD3333', '#CC4444',
+                         '#BB5555', '#AA8888', '#999999', '#AAAAAA',
+                         '#BBBBBB', '#CCCCCC', '#FFFFFF', '#CCCCCC',
+                         '#BBBBBB', '#AAAAAA', '#999999', '#8888AA',
+                         '#5555BB', '#4444CC', '#3333DD', '#2222EE',
+                         '#1111FF']
+        """
+
+
+
+        """
+        blueRedColors = ['#AA1111', '#992222', '#883333', '#774444',
+                         '#665555', '#556666', '#447777', '#338888',
+                         '#229999', '#11AAAA', '#FFFFFF', '#AAAA11',
+                         '#999922', '#888833', '#777744', '#666655',
+                         '#555566', '#444477', '#333388', '#222299',
+                         '#1111AA']
+        """
+
         #vmin = np.amin(npy)
         #vmax = np.amax(npy)
 

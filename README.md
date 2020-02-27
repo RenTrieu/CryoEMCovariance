@@ -76,6 +76,11 @@ Changes:
     - Started implementations of Schubert's Online Algorithm (currently
       does not pass tests)
 
+Citations:
+    
+    - Schubert's Online Algorithm for Covariance: 
+      https://dl.acm.org/doi/10.1145/3221269.3223036
+
 Version 0.3
 -----------
 - First functional version that computes covariance matrices
