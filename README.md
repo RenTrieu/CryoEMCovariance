@@ -44,6 +44,14 @@ In-Development Notes/Changes:
     - Implemented base Bokeh plotting capabilites in `plotGenerator.py`
     - Implementing interactive plots using Bokeh
 
+To Do:
+
+    - Compare binned/scaled plots with non-scaled plot to make sure no 
+      information is lost during binning/averaging
+    - Get residue pair information to print out in tooltips for toyModel
+    - Read Chimera documentation to try to map matrix/plot information into
+      the protein structure
+
 Version 0.6
 -----------
 Notes:
