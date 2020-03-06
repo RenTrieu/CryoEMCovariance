@@ -128,9 +128,9 @@ class PDBReader:
                 5, 'right')
         else:
             atomIndex = self.formatField(row['Atom Number'], 5, 'right')
-            posNumber = self.formatField(row['Positional Label'], 3, 'letterCenter')
-            resName = self.formatField(row['Amino Acid'], 3, 'left')
-            chainID = self.formatField(row['Chain'], 1, 'left')
+        posNumber = self.formatField(row['Positional Label'], 3, 'letterCenter')
+        resName = self.formatField(row['Amino Acid'], 3, 'left')
+        chainID = self.formatField(row['Chain'], 1, 'left')
         if (math.isnan(float(row['Residue Number']))):
             resSeq = self.formatField(-1.0, 4, 'right')
         elif (isinstance(row['Residue Number'], float)
