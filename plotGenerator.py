@@ -53,13 +53,22 @@ class PlotGenerator:
         vmax = 5
 
         # New Color Map Bokeh
+        """ # Original Color Map
         blueRedColors = ['#AA0000', '#990000', '#880000', '#770000',
                          '#660000', '#550000', '#440000', '#330000',
                          '#220000', '#110000', '#000000', '#000011',
                          '#000022', '#000033', '#000044', '#000055',
                          '#000066', '#000077', '#000088', '#000099',
                          '#0000AA']
-        #blueRedColors = ['#FFFFFF'
+        """
+        blueRedColors = ['#FF0000', '#FF1111', '#FF2222', '#FF3333',
+                         '#FF4444', '#FF5555', '#FF6666', '#FF7777',
+                         '#FF8888', '#FF9999', '#FFAAAA', '#FFBBBB',
+                         '#FFCCCC', '#FFDDDD', '#FFEEEE', '#FFFFFF', 
+                         '#EEEEFF', '#DDDDFF', '#CCCCFF', '#BBBBFF',
+                         '#AAAAFF', '#9999FF', '#8888FF', '#7777FF',
+                         '#6666FF', '#5555FF', '#4444FF', '#3333FF',
+                         '#2222FF', '#1111FF', '#0000FF']
 
         #vmin = np.amin(npy)
         #vmax = np.amax(npy)
