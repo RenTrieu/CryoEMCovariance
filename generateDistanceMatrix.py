@@ -36,9 +36,6 @@ class GenerateDistanceMatrix:
         pdbr = PDBReader()
         
         pdbFrame = pdbr.PDBToDataFrame(pdb, verbose)
-        with open('pdbFrameTest.txt', 'w') as f:
-            f.write(pdbFrame.to_string())
-        f.close()
 
         # Parallelizing the distance calculation
         with Pool(processes=processQuantity) as pool:
