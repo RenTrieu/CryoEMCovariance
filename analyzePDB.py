@@ -57,13 +57,12 @@ class AnalyzePDB:
         parser.add_argument('-p', '--plot',
                             action='store_true',
                             help='If option is specified, will output plots'\
-                            ' for all matricies generated.')
+                            ' for all matrices generated.')
         parser.add_argument('--scale', type=int, default=1500,
                             help='Specifies the elements (per axis) to which'\
                             ' the plot will be scaled')
         parser.add_argument('--processes',
                             dest='processQuantity',
-
                             action='store',
                             nargs='?',
                             type=int,
@@ -185,6 +184,16 @@ class AnalyzePDB:
                     args.verbose
                 )
             differenceDistanceList[index] += '.npy'
+
+        # Creating a mapping from covariance index to a tuple of residue pairs
+        print('Generating covariance index to residue pair map')
+        covMapDict = {}
+        n = 0
+        for i in range(differenceMatrixList[0][0].size):
+            for j in range(i + 1, differenceMatrixList[0][0].size):
+                covMapDict[n] = (i,j)
+                n += 1
+        np.save("covMapDict.npy", covMapDict)
 
         # Plotting distance difference matrices if specified
         if args.plot:
