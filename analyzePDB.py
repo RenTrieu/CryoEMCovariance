@@ -219,7 +219,8 @@ class AnalyzePDB:
                 pGenerator.plotMatrix(covarianceMatrix, 
                                       'CovarianceMatrix',
                                       args.verbose,
-                                      args.scale)
+                                      scale=args.scale,
+                                      residueMapName='covMapDict.npy')
             else:
                 print('Dimensions of Covariance Matrix are too small to plot.')
 

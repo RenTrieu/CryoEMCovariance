@@ -38,7 +38,7 @@ class PlotGenerator:
 
     """ Plots the passed matrix
     """
-    def plotMatrix(self, npy, fileName, verbose, scale=None):
+    def plotMatrix(self, npy, fileName, verbose, scale=None, residueMapName=None):
 
         # Rescales matrix if a scale/length is specified
         if scale is not None:
@@ -53,14 +53,6 @@ class PlotGenerator:
         vmax = 5
 
         # New Color Map Bokeh
-        """ # Original Color Map
-        blueRedColors = ['#AA0000', '#990000', '#880000', '#770000',
-                         '#660000', '#550000', '#440000', '#330000',
-                         '#220000', '#110000', '#000000', '#000011',
-                         '#000022', '#000033', '#000044', '#000055',
-                         '#000066', '#000077', '#000088', '#000099',
-                         '#0000AA']
-        """
         blueRedColors = ['#FF0000', '#FF1111', '#FF2222', '#FF3333',
                          '#FF4444', '#FF5555', '#FF6666', '#FF7777',
                          '#FF8888', '#FF9999', '#FFAAAA', '#FFBBBB',
@@ -73,33 +65,50 @@ class PlotGenerator:
         #vmin = np.amin(npy)
         #vmax = np.amax(npy)
 
-        # Loading map from covariance index to residue pairs
-        distMap = np.transpose(list(
-                    np.load('covMapDict.npy', allow_pickle=True).item().values()
-                  ))
-        covMapX = np.array([[(i, j) for i in distMap[0]] for j in distMap[0]])
-        covMapX = covMapX.reshape(covMapX.shape[0]*covMapX.shape[1], covMapX.shape[2])
-
-        covMapY = np.array([[(i, j) for i in distMap[1]] for j in distMap[1]])
-        covMapY = covMapY.reshape(covMapY.shape[0]*covMapY.shape[1], covMapY.shape[2])
-
-        
-
         # Reformatting data for plotting
 
         xyPairList = [None]*npy.shape[0]*npy.shape[1]
-        covValues = [None]*npy.shape[0]*npy.shape[1]
+
+        # Creating list
         for i in range(0, npy.shape[0]):
             for j in range(0, npy.shape[1]):
                 xyPairList[i+j*npy.shape[0]] = (i, j)
 
-        source = ColumnDataSource(data={
-            'x' : np.transpose(xyPairList)[0],
-            'y' : np.transpose(xyPairList)[1],
-            'covValues' : npy.flatten(),
-            'covMapX' : covMapX,
-            'covMapY' : covMapY
-        })
+        if residueMapName is not None:
+            # Loading map from covariance index to residue pairs
+            distMap = np.transpose(list(
+                        np.load(residueMapName, allow_pickle=True).item().values()
+                      ))
+
+            # Moving residue pairs along one axis into covMapX
+            covMapX = np.array([[(i, j) for i in distMap[0]] for j in distMap[0]])
+            covMapX = covMapX.reshape(covMapX.shape[0]*covMapX.shape[1], covMapX.shape[2])
+
+            # Moving residue pairs along the other axis into covMapY
+            covMapY = np.array([[(i, j) for i in distMap[1]] for j in distMap[1]])
+            covMapY = covMapY.reshape(covMapY.shape[0]*covMapY.shape[1], covMapY.shape[2])
+
+            # Defining fields to be displayed in hover tooltips
+            source = ColumnDataSource(data={
+                'x' : np.transpose(xyPairList)[0],
+                'y' : np.transpose(xyPairList)[1],
+                'covValues' : npy.flatten(),
+                'covMapX' : covMapX,
+                'covMapY' : covMapY
+            })
+            tooltipList = [('xCoord', '@x'), ('yCoord', '@y'),
+                           ('Covariance Value', '@covValues'),
+                           ('xResiduePair', '@covMapX'),
+                           ('yResiduePair', '@covMapY')]
+        else:
+            # Defining fields to be displayed in hover tooltips
+            source = ColumnDataSource(data={
+                'x' : np.transpose(xyPairList)[0],
+                'y' : np.transpose(xyPairList)[1],
+                'covValues' : npy.flatten()
+            })
+            tooltipList = [('xCoord', '@x'), ('yCoord', '@y'),
+                           ('Distance Difference Value', '@covValues')]
 
         # Plotting
         color_mapper = LinearColorMapper(palette=blueRedColors, 
@@ -108,7 +117,8 @@ class PlotGenerator:
         plot = figure(x_range=(-0.5, len(npy)-0.5),
                       y_range=(-0.5, len(npy)-0.5),
                       tools=TOOLS, 
-                      toolbar_location='below')
+                      toolbar_location='below',
+                      tooltips=tooltipList)
         plot.rect(x='x', y='y', width=1, height=1,
                   source=source,
                   fill_color={'field': 'covValues', 'transform' : color_mapper},
@@ -119,7 +129,14 @@ class PlotGenerator:
                              border_line_color=None, location=(0,0),
                              ticker=BasicTicker(\
                                 desired_num_ticks=len(blueRedColors)))
+
         plot.add_layout(color_bar, 'right')
+
+        """
+        plot.add_tools(HoverTool(
+            tooltips=[('covValue', '@covValues')]
+        ))
+        """
 
         output_file(fileName + '.html')
         show(plot)
