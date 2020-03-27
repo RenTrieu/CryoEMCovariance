@@ -49,6 +49,9 @@ To Do:
     - Compare binned/scaled plots with non-scaled plot to make sure no 
       information is lost during binning/averaging
     - Get residue pair information to print out in tooltips for toyModel
+    - Plot covariance matrix and distance difference matrix simultaneously,
+      updating the distance difference matrix for particular residue pairs
+      by clicking the corresponding point on the covariance matrix
     - Read Chimera documentation to try to map matrix/plot information into
       the protein structure
 
