@@ -189,8 +189,8 @@ class AnalyzePDB:
         print('Generating covariance index to residue pair map')
         covMapDict = {}
         n = 0
-        for i in range(differenceMatrixList[0][0].size):
-            for j in range(i + 1, differenceMatrixList[0][0].size):
+        for i in range(0, differenceMatrixList[0][0].size-1):
+            for j in range(i+1, differenceMatrixList[0][0].size):
                 covMapDict[n] = (i,j)
                 n += 1
         np.save("covMapDict.npy", covMapDict)

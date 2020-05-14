@@ -76,30 +76,23 @@ class PlotGenerator:
 
         if residueMapName is not None:
             # Loading map from covariance index to residue pairs
-            distMap = np.transpose(list(
+            distMap = list(
                         np.load(residueMapName, allow_pickle=True).item().values()
-                      ))
+                      )
 
-            # Moving residue pairs along one axis into covMapX
-            covMapX = np.array([[(i, j) for i in distMap[0]] for j in distMap[0]])
-            covMapX = covMapX.reshape(covMapX.shape[0]*covMapX.shape[1], covMapX.shape[2])
-
-            # Moving residue pairs along the other axis into covMapY
-            covMapY = np.array([[(i, j) for i in distMap[1]] for j in distMap[1]])
-            covMapY = covMapY.reshape(covMapY.shape[0]*covMapY.shape[1], covMapY.shape[2])
-
+            covMap = np.array([[(ti, tj) for ti in distMap] for tj in distMap])
+            covMap = covMap.reshape(covMap.shape[0]*covMap.shape[1], -1)
+            
             # Defining fields to be displayed in hover tooltips
             source = ColumnDataSource(data={
                 'x' : np.transpose(xyPairList)[0],
                 'y' : np.transpose(xyPairList)[1],
                 'covValues' : npy.flatten(),
-                'covMapX' : covMapX,
-                'covMapY' : covMapY
+                'covMap' : covMap
             })
             tooltipList = [('xCoord', '@x'), ('yCoord', '@y'),
                            ('Covariance Value', '@covValues'),
-                           ('xResiduePair', '@covMapX'),
-                           ('yResiduePair', '@covMapY')]
+                           ('residuePair' , '@covMap')]
         else:
             # Defining fields to be displayed in hover tooltips
             source = ColumnDataSource(data={
