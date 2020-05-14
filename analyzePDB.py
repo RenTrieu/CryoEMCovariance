@@ -172,7 +172,7 @@ class AnalyzePDB:
             gDistanceMatrix.generateMatrix(pdb[:-4] + 'Formatted.pdb', 
                                             args.verbose, 
                                             args.processQuantity)
-        
+
         differenceDistanceList = [None]*len(comparisonList)
         differenceMatrixList = [None]*len(comparisonList)
         for index, comparison in enumerate(comparisonList):
