@@ -1,0 +1,73 @@
+Reading from: RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNA.pdb
+Writing to: RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNA.csv
+Reading from: RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNA.csv
+Deleting: RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNA.csv
+Reading from: RetaMatrix/Complex_stronghelix_final-Num-coot-1_RmNA.pdb
+Writing to: RetaMatrix/Complex_stronghelix_final-Num-coot-1_RmNA.csv
+Reading from: RetaMatrix/Complex_stronghelix_final-Num-coot-1_RmNA.csv
+Deleting: RetaMatrix/Complex_stronghelix_final-Num-coot-1_RmNA.csv
+Removing side chains for RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNA.pdb
+Stripping down to alpha carbons for RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNA.pdb
+Removing side chains for RetaMatrix/Complex_stronghelix_final-Num-coot-1_RmNA.pdb
+Stripping down to alpha carbons for RetaMatrix/Complex_stronghelix_final-Num-coot-1_RmNA.pdb
+appending: A
+appending: B
+appending: C
+appending: D
+appending: E
+appending: F
+appending: G
+appending: H
+appending: I
+appending: J
+appending: K
+appending: L
+Common Chains: {'K', 'J', 'H', 'C', 'L', 'F', 'E', 'I', 'D', 'A', 'B', 'G'}
+commonDict.keys(): dict_keys(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'O'])
+Uncommon Chains: {'O', 'M'}
+Chain O not common
+Chain M not common
+Writing to: RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNAFormatted.pdb
+Writing to: RetaMatrix/Complex_stronghelix_final-Num-coot-1_RmNAFormatted.pdb
+Reading from: RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNAFormatted.pdb
+Writing to: RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNAFormatted.csv
+Reading from: RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNAFormatted.csv
+Deleting: RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNAFormatted.csv
+Redundant Residues detected: Computing with Atom Numbers instead
+DEBUG: {'K', 'J', 'H', 'C', 'L', 'F', 'E', 'I', 'D', 'A', 'B', 'G'}
+Found chain A
+Found chain B
+Found chain C
+Found chain D
+Found chain E
+Found chain F
+Found chain G
+Found chain H
+Found chain I
+Found chain J
+Found chain K
+Found chain L
+Reading from: RetaMatrix/Complex_stronghelix_final-Num-coot-1_RmNAFormatted.pdb
+Writing to: RetaMatrix/Complex_stronghelix_final-Num-coot-1_RmNAFormatted.csv
+Reading from: RetaMatrix/Complex_stronghelix_final-Num-coot-1_RmNAFormatted.csv
+Deleting: RetaMatrix/Complex_stronghelix_final-Num-coot-1_RmNAFormatted.csv
+Redundant Residues detected: Computing with Atom Numbers instead
+DEBUG: {'K', 'J', 'H', 'C', 'L', 'F', 'E', 'I', 'D', 'A', 'B', 'G'}
+Detected the following chains common to all pdb files:
+Chain: K Max Residue: 63795
+Chain: J Max Residue: 61881
+Chain: H Max Residue: 58742
+Chain: C Max Residue: 46055
+Chain: L Max Residue: 64547
+Chain: F Max Residue: 53767
+Chain: E Max Residue: 52438
+Chain: I Max Residue: 60712
+Chain: D Max Residue: 48887
+Chain: A Max Residue: 22801
+Chain: B Max Residue: 41832
+Chain: G Max Residue: 56463
+Calculating distance matrix for: RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNAFormatted.pdb
+Reading from: RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNAFormatted.pdb
+Writing to: RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNAFormatted.csv
+Reading from: RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNAFormatted.csv
+Deleting: RetaMatrix/Backtrack_semifinal_fixed-coot-9-F__0006_RmNAFormatted.csv

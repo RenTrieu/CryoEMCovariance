@@ -78,6 +78,7 @@ class ComparePDB:
             )
             pdbFrameFilteredList[index] = pdbFrameFiltered
 
+
         # Figuring out the length of the largest pdb frame so we don't go out
         # of bounds later
         pdbMaxLength = 0
@@ -99,14 +100,20 @@ class ComparePDB:
                 except IndexError:
                     commonAminoAcidList[index] = False
 
+
         # Creating a dictionary of chains and residue numbers common
         # between all pdb files
         commonDict = {}
+
+        # Checking to see which chains and their corresponding residue ranges 
+        # are common to all pdb files 
         for index, pdbFrame in enumerate(pdbFrameList):
             for chain in sorted(str(i) for i in list(set(pdbFrame['Chain']))):
                 chainFrame = pdbFrameList[index].loc[pdbFrameList[index]['Chain']\
                                 .str.strip() == chain]
-                pdbResidueSet = set(chainFrame['Residue Number'])
+
+                pdbResidueSet = set([int(x) for x \
+                                    in set(chainFrame['Residue Number'])])
 
                 if chain not in commonDict:
                     commonDict[chain] = pdbResidueSet
@@ -114,41 +121,57 @@ class ComparePDB:
                     commonDict[chain] = \
                         commonDict[chain].intersection(pdbResidueSet)
 
+        # Creating a set of all possible chains in the set of pdb files
+        commonChains = set()
+        for index, pdbFrame in enumerate(pdbFrameList):
+            for chain in sorted(str(i) for i in list(set(pdbFrame['Chain']))):
+                commonChains.update(chain)
+        for index, pdbFrame in enumerate(pdbFrameList):
+            commonChains = commonChains.intersection(set(pdbFrame['Chain']))
+
+        uncommonChains = set(commonDict.keys()).difference(commonChains)
+        for chain in uncommonChains:
+            commonDict.pop(chain)
+            print('Chain ' + str(chain) + ' not common')
+
         # Removing amino acids that do not match
         for index, pdbFrame in enumerate(pdbFrameList):
 
-            pdbFrame.loc[commonAminoAcidList]
+            #pdbFrame.loc[commonAminoAcidList]
     
             pdbCommon = []
             # Residue numbers are only unique within a given chain so we iterate 
             # through the chains to filter
-            # TODO: Add handling for extra chains (chains that are not common 
-            #       to all files
             for chain in sorted(str(i) for i in list(set(pdbFrame['Chain']))):
-                chainFrame = pdbFrameList[index].loc[pdbFrameList[index]['Chain']\
-                                .str.strip() == chain]
+                if (chain in commonDict.keys()):
+                    chainFrame = pdbFrameList[index].loc[\
+                                        pdbFrameList[index]['Chain']\
+                                    .str.strip() == chain]
 
-                pdbIndexSet = set(chainFrame['Residue Number'])
+                    pdbIndexSet = [int(i) for i \
+                                   in set(chainFrame['Residue Number'])]
 
-                pdbCommonBool = pd.Series(
-                        sorted(pdbIndexSet)
-                    ).isin(commonDict[chain])
+                    pdbCommonBool = pd.Series(
+                            sorted(pdbIndexSet)
+                        ).isin(commonDict[chain])
 
-                pdbFrameFilteredList[index] = pd.concat(
-                    [pdbFrameFilteredList[index], 
-                    chainFrame.loc[pdbCommonBool.array]]
-                )
-            # Printing out the reformatted PDB files
+                    pdbFrameFilteredList[index] = pd.concat(
+                        [pdbFrameFilteredList[index], 
+                        chainFrame.loc[pdbCommonBool.array]]
+                    )
+
+        # Printing out the reformatted PDB files
+        for index, pdbFrame in enumerate(pdbFrameList):
             pdbr.DataFrameToPDB(pdbList[index], 
                                 pdbFrameFilteredList[index], 
                                 verbose)
 
-            # This line is only here for testing
-            # After the convertAminoAcidSeq is determined to work
-            # higher level analysis must be done to determine where it should be
-            # called
-            # TODO: Higher level analysis
-            # self.convertAminoAcidSeq(pdb1FrameFiltered)
+        # This line is only here for testing
+        # After the convertAminoAcidSeq is determined to work
+        # higher level analysis must be done to determine where it should be
+        # called
+        # TODO: Higher level analysis
+        # self.convertAminoAcidSeq(pdb1FrameFiltered)
 
 
     """ Converts the given DataFrame object to an amino acid sequence

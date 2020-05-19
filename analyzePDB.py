@@ -148,9 +148,13 @@ class AnalyzePDB:
                     print('Redundant Residues detected: '\
                           + 'Computing with Atom Numbers instead')
                 numberIndex = 'Atom Number'
+
             for chain in list(pdbFrame['Chain']):
                 if chain not in chainList:
                     chainList.append(chain)
+                    if args.verbose:
+                        print('Recognizing common chain ' + str(chain))
+
             for chain in list(set(pdbFrame['Chain'])):
                 pdbMax = pd.to_numeric(pdbFrame[numberIndex]\
                                         .where(pdbFrame['Chain']==chain).dropna(),
@@ -159,6 +163,14 @@ class AnalyzePDB:
                     residueDict[chain] = int(pdbMax)
                 elif pdbMax > residueDict[chain]:
                     residueDict[chain] = int(pdbMax)
+
+            pdbFrame.to_csv(pdb + '.csv')
+
+        if args.verbose:
+            print('Detected the following chains common to all pdb files:')
+            for chain in residueDict.keys():
+                print('Chain: ' + str(chain) \
+                      + ' Max Residue: ' + str(residueDict[chain]))
 
 
         # Generating distance matrices for all passed pdb files
