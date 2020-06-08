@@ -54,6 +54,8 @@ To Do:
       by clicking the corresponding point on the covariance matrix
     - Read Chimera documentation to try to map matrix/plot information into
       the protein structure
+    - Shift indices from starting with 0 to starting with 1 to match pdb format
+      numbering
 
 Version 0.6
 -----------
