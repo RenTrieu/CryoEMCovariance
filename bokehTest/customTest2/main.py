@@ -97,6 +97,10 @@ code="""
     source.change.emit();
 """)
 
+# Double click call back for moving from distance difference matrices to
+# covariance matrices
+
+
 slider = Slider(start=0, end=len(npyList)-1, value=0, step=1, title="index")
 slider.js_on_change('value', sliderCallback)
 

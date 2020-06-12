@@ -58,7 +58,7 @@ class AnalyzePDB:
                             action='store_true',
                             help='If option is specified, will output plots'\
                             ' for all matrices generated.')
-        parser.add_argument('--scale', type=int, default=1500,
+        parser.add_argument('--scale', type=int,
                             help='Specifies the elements (per axis) to which'\
                             ' the plot will be scaled')
         parser.add_argument('--processes',
@@ -224,6 +224,14 @@ class AnalyzePDB:
                     )
         np.save('CovarianceMatrix.npy', covarianceMatrix)
 
+        # Setting up default resolution for covariance matrix if none is
+        # specified
+        if args.scale is None:
+            scale = ((differenceMatrixList[0][0].size)
+                     *(differenceMatrixList[0][0].size-1))/2
+        else:
+            scale = args.scale
+        print('Choosing scale of: ' + str(scale))
         # Plotting covariance matrix if specified
         if args.plot:
             if covarianceMatrix.size > 4:
@@ -231,7 +239,7 @@ class AnalyzePDB:
                 pGenerator.plotMatrix(covarianceMatrix, 
                                       'CovarianceMatrix',
                                       args.verbose,
-                                      scale=args.scale,
+                                      scale=scale,
                                       residueMapName='covMapDict.npy')
             else:
                 print('Dimensions of Covariance Matrix are too small to plot.')
