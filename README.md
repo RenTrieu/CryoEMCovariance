@@ -43,6 +43,8 @@ In-Development Notes/Changes:
     - Adding Bokeh plotting dependencies in `plotGenerator.py`
     - Implemented base Bokeh plotting capabilites in `plotGenerator.py`
     - Implementing interactive plots using Bokeh
+    - Changed default scaling from being 1500 units down each axis to
+      matching the real resolution of the covariance matrix
 
 To Do:
 
