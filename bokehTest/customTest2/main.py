@@ -4,6 +4,7 @@ from bokeh.models import (ColumnDataSource, CustomJS, Slider,
                           LinearColorMapper, BasicTicker, ColorBar, 
                           HoverTool, Button)
 from bokeh.plotting import figure, output_file, show
+from bokeh.events import Tap, DoubleTap
 import numpy as np
 import pandas as pd
 
@@ -99,6 +100,8 @@ code="""
 
 # Double click call back for moving from distance difference matrices to
 # covariance matrices
+# TODO: Check on either possible python code call backs
+#       or pass all generated covariance submatrices to click callback
 
 
 slider = Slider(start=0, end=len(npyList)-1, value=0, step=1, title="index")

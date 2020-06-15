@@ -49,6 +49,11 @@ class CovSubmatrix:
         # Generating submatrix
         self.generateSubmatrix(args.covMatrix, args.covMap, args.residuePair)
 
+        # TODO: Add option to take a list of residue pairs and recursively
+        # make submatrices for those residue pairs
+        # TODO: Make a folder for these submatrices to be outputted to
+        # TODO: Take a "base" directory in which to make this folder
+
     """ Generates a submatrix for the given residuePair from the given
         covMatrix
     """
