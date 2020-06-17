@@ -113,11 +113,21 @@ class AnalyzePDB:
             else:
                 args.reference = args.directory + '/' + args.reference
 
-        # Checking to see if the passed output directory exists, if not
-        # creates it
-        # TODO: Output directory not functional yet
-        #if not os.path.exists(args.outDirectory):
-        #    os.mkdir(args.outDirectory)
+        # Parsing outputDirectory and converting relative paths to
+        # absolute paths if applicable
+        if args.outDirectory is not None:
+            outDirectory = args.outDirectory
+            if os.getcwd() not in outDirectory:
+                outDirectory = os.path.join(os.getcwd(), outDirectory)
+
+            # Creating outDirectory if it doesn't already exist
+            relativePath = outDirectory.split('/') \
+                           [len(outDirectory.split('/'))-1]
+            if len(relativePath) <= 0:
+                relativePath = outDirectory.split('/') \
+                           [len(outDirectory.split('/'))-2]
+            if relativePath not in os.listdir():       
+                os.mkdir(outDirectory)
 
         cPDB = ComparePDB()
         
@@ -143,7 +153,8 @@ class AnalyzePDB:
             # If there are redundancies in the residues, that means that the
             # pdbFrame should be handled as if it were not stripped
             numberIndex = 'Residue Number'
-            if len(list(pdbFrame[numberIndex])) > len(set(pdbFrame[numberIndex])):
+            if len(list(pdbFrame[numberIndex])) > \
+                                             len(set(pdbFrame[numberIndex])):
                 if args.verbose:
                     print('Redundant Residues detected: '\
                           + 'Computing with Atom Numbers instead')
@@ -157,7 +168,7 @@ class AnalyzePDB:
 
             for chain in list(set(pdbFrame['Chain'])):
                 pdbMax = pd.to_numeric(pdbFrame[numberIndex]\
-                                        .where(pdbFrame['Chain']==chain).dropna(),
+                                    .where(pdbFrame['Chain']==chain).dropna(),
                                        errors='coerce').max()
                 if chain not in residueDict.keys():
                     residueDict[chain] = int(pdbMax)

@@ -38,34 +38,43 @@ class CovSubmatrix:
                             ' the mapping from the rows/columns of the' \
                             ' covariance matrix to each of their residue pairs'
         )
-        parser.add_argument('--residuePairList', 
+        parser.add_argument('--residuePairList', nargs='?',
                             help='The residue pair with which to generate' \
                             ' the covariance submatrix. Should be given in' \
                             ' form of a list of tuples. Ex: \'[(1,5)]\''
         )
-
-        parser.add_argument('--outputDirectory', 
+        parser.add_argument('-a', '--allResidues', \
+                            help='If specified, ignores --residuePairList' \
+                            ' option and iterates through all residue pairs' \
+                            ' in the given covariance matrix', \
+                            action='store_true'
+        )
+        parser.add_argument('--outputDirectory', \
                             help='The relative directory in which to output' \
-                            ' the covariance submatrices',
-                            default=''
+                            ' the covariance submatrices', \
+                            default='subMatrices'
         )
 
         args = parser.parse_args()
 
         # Generating submatrix
         self.generateSubmatrix(args.covMatrix, args.covMap, \
-                               args.residuePairList, args.outputDirectory)
+                               args.residuePairList, args.outputDirectory, \
+                               args.allResidues)
 
     """ Generates a submatrix for the given residuePair from the given
         covMatrix
     """
     def generateSubmatrix(self, covMatrix, covMap, \
-                          residuePairList, outputDirectory):
+                          residuePairList, outputDirectory, allResidues):
 
         # Loading .npy files and parsing using the information given 
         covMatrix = np.load(covMatrix, allow_pickle=True)
         covMap = np.load(covMap, allow_pickle=True).item()
-        residuePairList = literal_eval(residuePairList)
+        if allResidues:
+            residuePairList = [covMap[columnIndex] for columnIndex in covMap.keys()]
+        else:
+            residuePairList = literal_eval(residuePairList)
 
         # Parsing outputDirectory and converting relative paths to
         # absolute paths if applicable
@@ -89,6 +98,7 @@ class CovSubmatrix:
         for i, residuePair in enumerate(residuePairList):
 
             # Checking to see if residue pair exists in the covariance matrix
+            residueKey = None
             for key in covMap.keys():
                 if covMap[key] == residuePair:
                     residueKey = key
