@@ -7,15 +7,39 @@ from bokeh.plotting import figure, output_file, show
 from bokeh.events import Tap, DoubleTap
 import numpy as np
 import pandas as pd
+import os
 
+
+# TODO: Generalize the inputs that this takes:
+#-----------------------------------------------------------------
 # Naming the output file
 output_file('js_on_change.html')
 
 # Loading in data
-npyNameList = ['testData1.npy', 'testData2.npy', 'testData3.npy'] # TODO: Change the matrix input
+curPath = os.getcwd()
+
+#npyNameList = ['testData1.npy', 'testData2.npy', 'testData3.npy'] # TODO: Change the matrix input
+
+# Loading distance difference matrices
+npyPath = os.path.join(curPath, 'ddMatrices')
+npyNameList = os.listdir(npyPath)
+
 npyList = [None]*len(npyNameList)
 for i, npyName in enumerate(npyNameList):
-    npyList[i] = np.load(npyName)
+    npyList[i] = np.load(os.path.join(npyPath, npyName))
+
+# Loading covariance matrices
+covPath = os.path.join(curPath, 'subMatrices')
+covNameList = os.listdir(covPath)
+
+covList = [None]*len(covNameList)
+for i, covName in enumerate(covNameList):
+    covList[i] = np.load(os.path.join(covPath, covName))
+
+covMapDict = np.load('covMapDict.npy', allow_pickle=True).item()
+invCovMapDict = {str(value): key for key, value in covMapDict.items()}
+
+#-----------------------------------------------------------------
 
 # Interactive Plot Tools
 TOOLS = 'hover,save,pan,box_zoom,reset,wheel_zoom'
@@ -75,7 +99,7 @@ plot.rect(x='x', y='y', width=1, height=1,
 plot.add_layout(color_bar, 'right')
 
 # Creating ColumnDataSource to pass the covValues of all matrices
-# to the callback
+# to the slider and button callback
 matrixDict = {}
 for i, npy in enumerate(npyList):
     if i not in matrixDict.keys():
@@ -85,6 +109,24 @@ matrixDF = pd.DataFrame(
            )
 
 matrixSource = ColumnDataSource(matrixDF)
+
+# Creating ColumnDataSource to pass the covariance submatrix covValues 
+# to the click callback
+covarianceDict = {}
+for i, cov in enumerate(covList):
+    if i not in covarianceDict.keys():
+        covarianceDict[str(i)] = covList[i].flatten()
+covarianceDF = pd.DataFrame(
+                    covarianceDict
+               )
+
+covarianceSource = ColumnDataSource(covarianceDF)
+
+# Creating ColumnDataSource to pass the covariance submatrix mapping from
+# indices to residuePairs
+covMapDF = pd.DataFrame.from_records([invCovMapDict], index='(0, 1)')
+covMapSource = ColumnDataSource(covMapDF)
+print(covMapDF.index)
 
 # Setting up slider callback for switching between matrices
 sliderCallback = CustomJS(args=dict(source=source, matrixSource=matrixSource), 
@@ -102,7 +144,34 @@ code="""
 # covariance matrices
 # TODO: Check on either possible python code call backs
 #       or pass all generated covariance submatrices to click callback
-
+clickCallback = CustomJS(args=dict(source=source, \
+                                   covarianceSource=covarianceSource, \
+                                   covMapSource=covMapSource), \
+code="""
+    var data = source.data;
+    var covValues = data['covValues'];
+    var axesLength = Math.sqrt(data['covValues'].length);
+    var xCoord = Math.floor(cb_obj.x + 0.5);
+    var yCoord = Math.floor(cb_obj.y + 0.5);
+    console.log('Tap at: ' + xCoord + ', ' + yCoord);
+    if ((xCoord != yCoord) && (xCoord >= 0) && (xCoord < axesLength)
+         && (yCoord >= 0) && (yCoord < axesLength)) {
+        if (xCoord > yCoord) {
+            var temp = xCoord;
+            xCoord = yCoord;
+            yCoord = temp;
+        }
+        var coordString = '(' + xCoord + ', ' + yCoord + ')';
+        var covIndex = covMapSource.data[coordString][0];
+        console.log('coordString: ' + coordString);
+        console.log(covIndex);
+        console.log(covarianceSource.data[covIndex]);
+        for (var i = 0; i < covValues.length; i++) {
+            covValues[i] = covarianceSource.data[covIndex][i];
+        }
+        source.change.emit();
+    }
+""")
 
 slider = Slider(start=0, end=len(npyList)-1, value=0, step=1, title="index")
 slider.js_on_change('value', sliderCallback)
@@ -113,5 +182,7 @@ buttonForward = Button(label="Forward", button_type="success")
 buttonBar = row(buttonBack, buttonForward)
 
 layout = column(plot, buttonBar, slider)
+
+plot.js_on_event('tap', clickCallback)
 
 show(layout)
