@@ -4,7 +4,7 @@ from bokeh.models import (ColumnDataSource, CustomJS, Slider,
                           LinearColorMapper, BasicTicker, ColorBar, 
                           HoverTool, Button)
 from bokeh.plotting import figure, output_file, show
-from bokeh.events import Tap, DoubleTap
+from bokeh.events import Tap, DoubleTap, ButtonClick
 import numpy as np
 import pandas as pd
 import os
@@ -126,7 +126,6 @@ covarianceSource = ColumnDataSource(covarianceDF)
 # indices to residuePairs
 covMapDF = pd.DataFrame.from_records([invCovMapDict], index='(0, 1)')
 covMapSource = ColumnDataSource(covMapDF)
-print(covMapDF.index)
 
 # Setting up slider callback for switching between matrices
 sliderCallback = CustomJS(args=dict(source=source, matrixSource=matrixSource), 
@@ -171,17 +170,92 @@ code="""
         }
         source.change.emit();
     }
+    console.log('cb_obj: ' + cb_obj);
+    console.log('cb_data: ' + cb_data);
 """)
+
 
 slider = Slider(start=0, end=len(npyList)-1, value=0, step=1, title="index")
 slider.js_on_change('value', sliderCallback)
 
+# Using js_link to link the index value across all model properties
+#slider.js_link('value', plot.glyph, 'index')
+
+# Distance Difference Matrix Display
+# If the distance difference matrix is not on display (i.e. covariance
+# submatrices
+ddCallback = CustomJS(args=dict(source=source,\
+                                matrixSource=matrixSource, \
+                                slider=slider), \
+code="""
+    var data = source.data;
+    var f = slider.value.toString();
+    var covValues = data['covValues'];
+    for (var i = 0; i < covValues.length; i++) {
+        covValues[i] = matrixSource.data[f][i];
+    }
+    source.change.emit();
+""")
+
+
+# Reset button callback
+resetCallback = CustomJS(args=dict(source=source, \
+                                   matrixSource=matrixSource, \
+                                   slider=slider), \
+code="""
+    var data = source.data;
+    slider.value = 0;
+    var f = slider.value.toString();
+    var covValues = data['covValues'];
+    for (var i = 0; i < covValues.length; i++) {
+        covValues[i] = matrixSource.data[f][i];
+    }
+    source.change.emit();
+""")
+
+# Forward Button Callback (Moves DD Index forward by 1)
+forwardCallback = CustomJS(args=dict(source=source,\
+                                     matrixSource=matrixSource, \
+                                     slider=slider), \
+code="""
+    var data = source.data;
+    slider.value = slider.value + 1;
+    var f = slider.value.toString();
+    var covValues = data['covValues'];
+    for (var i = 0; i < covValues.length; i++) {
+        covValues[i] = matrixSource.data[f][i];
+    }
+    source.change.emit();
+""")
+
+# Backward Button Callback (Moves DD Index backward by 1)
+backwardCallback = CustomJS(args=dict(source=source,\
+                                      matrixSource=matrixSource, \
+                                      slider=slider), \
+code="""
+    var data = source.data;
+    slider.value = slider.value - 1;
+    var f = slider.value.toString();
+    var covValues = data['covValues'];
+    for (var i = 0; i < covValues.length; i++) {
+        covValues[i] = matrixSource.data[f][i];
+    }
+    source.change.emit();
+""")
+
 buttonBack = Button(label="Back", button_type="success")
+buttonBack.js_on_event(ButtonClick, backwardCallback)
+buttonDD = Button(label="Show Distance Difference", button_type="success")
+buttonDD.js_on_event(ButtonClick, ddCallback)
 buttonForward = Button(label="Forward", button_type="success")
+buttonForward.js_on_event(ButtonClick, forwardCallback)
 
-buttonBar = row(buttonBack, buttonForward)
+buttonBar = row(buttonBack, buttonDD, buttonForward)
 
-layout = column(plot, buttonBar, slider)
+buttonReset = Button(label="Reset", button_type="success")
+buttonReset.js_on_event(ButtonClick, resetCallback)
+
+layout = column(plot, buttonBar, slider, buttonReset)
 
 plot.js_on_event('tap', clickCallback)
 
