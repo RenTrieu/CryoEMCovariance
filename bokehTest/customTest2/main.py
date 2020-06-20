@@ -170,7 +170,7 @@ code="""
         for (var i = 0; i < covValues.length; i++) {
             covValues[i] = covarianceSource.data[covIndex][i];
         }
-        title.text = 'Covariance Submatrix: Residue: ' + coordString;
+        title.text = 'Covariance Submatrix: Residue Pair: ' + coordString;
         source.change.emit();
     }
 """)
@@ -196,7 +196,6 @@ code="""
     title.text = 'Distance Difference Matrix: ' + matrixNameList[slider.value];
     source.change.emit();
 """)
-
 
 # Reset button callback
 resetCallback = CustomJS(args=dict(source=source, \
