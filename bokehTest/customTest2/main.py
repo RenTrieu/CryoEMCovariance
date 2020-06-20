@@ -2,7 +2,7 @@
 from bokeh.layouts import column, row
 from bokeh.models import (ColumnDataSource, CustomJS, Slider, 
                           LinearColorMapper, BasicTicker, ColorBar, 
-                          HoverTool, Button)
+                          HoverTool, Button, Title)
 from bokeh.plotting import figure, output_file, show
 from bokeh.events import Tap, DoubleTap, ButtonClick
 import numpy as np
@@ -17,8 +17,6 @@ output_file('js_on_change.html')
 
 # Loading in data
 curPath = os.getcwd()
-
-#npyNameList = ['testData1.npy', 'testData2.npy', 'testData3.npy'] # TODO: Change the matrix input
 
 # Loading distance difference matrices
 npyPath = os.path.join(curPath, 'ddMatrices')
@@ -72,7 +70,7 @@ source = ColumnDataSource(data={
     'covValues' : npyList[0].flatten()
 })
 tooltipList = [('xCoord', '@x'), ('yCoord', '@y'),
-               ('Distance Difference Value', '@covValues')]
+               ('Magnitude', '@covValues')]
 
 # Defining color map
 color_mapper = LinearColorMapper(palette=blueRedColors, 
@@ -94,6 +92,9 @@ plot.rect(x='x', y='y', width=1, height=1,
           source=source,
           fill_color={'field': 'covValues', 'transform' : color_mapper},
           line_color=None)
+
+plot.title = Title(text='Distance Difference Matrix: ' + npyNameList[0], \
+                   align='center')
 
 
 plot.add_layout(color_bar, 'right')
@@ -145,7 +146,8 @@ code="""
 #       or pass all generated covariance submatrices to click callback
 clickCallback = CustomJS(args=dict(source=source, \
                                    covarianceSource=covarianceSource, \
-                                   covMapSource=covMapSource), \
+                                   covMapSource=covMapSource, \
+                                   title=plot.title), \
 code="""
     var data = source.data;
     var covValues = data['covValues'];
@@ -168,25 +170,22 @@ code="""
         for (var i = 0; i < covValues.length; i++) {
             covValues[i] = covarianceSource.data[covIndex][i];
         }
+        title.text = 'Covariance Submatrix: Residue: ' + coordString;
         source.change.emit();
     }
-    console.log('cb_obj: ' + cb_obj);
-    console.log('cb_data: ' + cb_data);
 """)
-
 
 slider = Slider(start=0, end=len(npyList)-1, value=0, step=1, title="index")
 slider.js_on_change('value', sliderCallback)
-
-# Using js_link to link the index value across all model properties
-#slider.js_link('value', plot.glyph, 'index')
 
 # Distance Difference Matrix Display
 # If the distance difference matrix is not on display (i.e. covariance
 # submatrices
 ddCallback = CustomJS(args=dict(source=source,\
                                 matrixSource=matrixSource, \
-                                slider=slider), \
+                                matrixNameList=npyNameList, \
+                                slider=slider, \
+                                title=plot.title), \
 code="""
     var data = source.data;
     var f = slider.value.toString();
@@ -194,6 +193,7 @@ code="""
     for (var i = 0; i < covValues.length; i++) {
         covValues[i] = matrixSource.data[f][i];
     }
+    title.text = 'Distance Difference Matrix: ' + matrixNameList[slider.value];
     source.change.emit();
 """)
 
@@ -201,7 +201,9 @@ code="""
 # Reset button callback
 resetCallback = CustomJS(args=dict(source=source, \
                                    matrixSource=matrixSource, \
-                                   slider=slider), \
+                                   matrixNameList=npyNameList, \
+                                   slider=slider, \
+                                   title=plot.title), \
 code="""
     var data = source.data;
     slider.value = 0;
@@ -210,13 +212,16 @@ code="""
     for (var i = 0; i < covValues.length; i++) {
         covValues[i] = matrixSource.data[f][i];
     }
+    title.text = 'Distance Difference Matrix: ' + matrixNameList[0];
     source.change.emit();
 """)
 
 # Forward Button Callback (Moves DD Index forward by 1)
 forwardCallback = CustomJS(args=dict(source=source,\
                                      matrixSource=matrixSource, \
-                                     slider=slider), \
+                                     matrixNameList=npyNameList, \
+                                     slider=slider, \
+                                     title=plot.title), \
 code="""
     var data = source.data;
     slider.value = slider.value + 1;
@@ -225,13 +230,16 @@ code="""
     for (var i = 0; i < covValues.length; i++) {
         covValues[i] = matrixSource.data[f][i];
     }
+    title.text = 'Distance Difference Matrix: ' + matrixNameList[slider.value];
     source.change.emit();
 """)
 
 # Backward Button Callback (Moves DD Index backward by 1)
 backwardCallback = CustomJS(args=dict(source=source,\
                                       matrixSource=matrixSource, \
-                                      slider=slider), \
+                                      matrixNameList=npyNameList, \
+                                      slider=slider, \
+                                      title=plot.title), \
 code="""
     var data = source.data;
     slider.value = slider.value - 1;
@@ -240,9 +248,11 @@ code="""
     for (var i = 0; i < covValues.length; i++) {
         covValues[i] = matrixSource.data[f][i];
     }
+    title.text = 'Distance Difference Matrix: ' + matrixNameList[slider.value];
     source.change.emit();
 """)
 
+# Creating buttons and linking them to their corresponding callbacks
 buttonBack = Button(label="Back", button_type="success")
 buttonBack.js_on_event(ButtonClick, backwardCallback)
 buttonDD = Button(label="Show Distance Difference", button_type="success")
@@ -258,5 +268,7 @@ buttonReset.js_on_event(ButtonClick, resetCallback)
 layout = column(plot, buttonBar, slider, buttonReset)
 
 plot.js_on_event('tap', clickCallback)
+
+# Fix indices
 
 show(layout)
