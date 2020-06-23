@@ -96,6 +96,8 @@ class CovSubmatrix:
 
         # Looping over all given residuePairs to generate submatrices
         for i, residuePair in enumerate(residuePairList):
+            print('i: ' + str(i))
+            print('residuePair: ' + str(residuePair))
 
             # Checking to see if residue pair exists in the covariance matrix
             residueKey = None

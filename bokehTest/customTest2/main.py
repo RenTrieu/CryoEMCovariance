@@ -8,6 +8,7 @@ from bokeh.events import Tap, DoubleTap, ButtonClick
 import numpy as np
 import pandas as pd
 import os
+import re
 
 
 # TODO: Generalize the inputs that this takes:
@@ -27,8 +28,32 @@ for i, npyName in enumerate(npyNameList):
     npyList[i] = np.load(os.path.join(npyPath, npyName))
 
 # Loading covariance matrices
+# TODO: Order covNameList
 covPath = os.path.join(curPath, 'subMatrices')
-covNameList = os.listdir(covPath)
+covNameList = sorted(os.listdir(covPath))
+
+# Attempting to natural sort
+# Lambda function from 
+# https://stackoverflow.com/questions/4836710/
+# is-there-a-built-in-function-for-string-natural-sort
+
+natSort = lambda covName: [int(t) if t.isdigit() else t  \
+                     for t in re.split('(\d+)', covName)]
+covNameSplitList = [natSort(covName) for covName in covNameList]
+digitIndex = 0
+for i, labelPart in enumerate(covNameSplitList[0]):
+    if str(labelPart).isdigit():
+        digitIndex = i
+covNameSplitList.sort(key = lambda x: x[1])
+for i, covName in enumerate(covNameSplitList):
+    covNameString = ''
+    for j, part in enumerate(covName):
+        covNameString = covNameString + str(part)
+    covNameList[i] = covNameString
+    
+
+print('covNameSplitList: ' + str(covNameSplitList))
+print('covNameList: ' + str(covNameList))
 
 covList = [None]*len(covNameList)
 for i, covName in enumerate(covNameList):
@@ -129,7 +154,11 @@ covMapDF = pd.DataFrame.from_records([invCovMapDict], index='(0, 1)')
 covMapSource = ColumnDataSource(covMapDF)
 
 # Setting up slider callback for switching between matrices
-sliderCallback = CustomJS(args=dict(source=source, matrixSource=matrixSource), 
+sliderCallback = CustomJS(args=dict(source=source, \
+                                    matrixSource=matrixSource, \
+                                    matrixNameList=npyNameList, \
+                                    title=plot.title), \
+                                    
 code="""
     var data = source.data;
     var f = cb_obj.value.toString();
@@ -137,6 +166,7 @@ code="""
     for (var i = 0; i < covValues.length; i++) {
         covValues[i] = matrixSource.data[f][i];
     }
+    title.text = 'Distance Difference Matrix: ' + matrixNameList[cb_obj.value];
     source.change.emit();
 """)
 
