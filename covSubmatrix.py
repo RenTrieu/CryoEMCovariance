@@ -126,14 +126,16 @@ class CovSubmatrix:
             print('subMatrix: ' + str(subMatrix[0][0]))
 
             # Putting the covariance values into the submatrix
-            xIndex = int(0)
-            yIndex = int(axesLength)-1
+            xIndex = 1
+            yIndex = int(0)
+            minXIndex = xIndex
             for covValue in covValues:
                 subMatrix[yIndex][xIndex] = covValue
                 subMatrix[xIndex][yIndex] = covValue
-                if xIndex+1 == yIndex:
-                    xIndex = 0
-                    yIndex -= 1
+                if xIndex+1 == axesLength:
+                    minXIndex += 1
+                    xIndex = minXIndex
+                    yIndex += 1
                 else:
                     xIndex += 1
 

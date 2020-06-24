@@ -28,7 +28,6 @@ for i, npyName in enumerate(npyNameList):
     npyList[i] = np.load(os.path.join(npyPath, npyName))
 
 # Loading covariance matrices
-# TODO: Order covNameList
 covPath = os.path.join(curPath, 'subMatrices')
 covNameList = sorted(os.listdir(covPath))
 
@@ -44,14 +43,13 @@ digitIndex = 0
 for i, labelPart in enumerate(covNameSplitList[0]):
     if str(labelPart).isdigit():
         digitIndex = i
-covNameSplitList.sort(key = lambda x: x[1])
+covNameSplitList.sort(key = lambda x: x[digitIndex])
 for i, covName in enumerate(covNameSplitList):
     covNameString = ''
     for j, part in enumerate(covName):
         covNameString = covNameString + str(part)
     covNameList[i] = covNameString
     
-
 print('covNameSplitList: ' + str(covNameSplitList))
 print('covNameList: ' + str(covNameList))
 
