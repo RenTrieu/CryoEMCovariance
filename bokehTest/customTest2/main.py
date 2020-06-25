@@ -205,7 +205,10 @@ code="""
         for (var i = 0; i < covValues.length; i++) {
             covValues[i] = covarianceSource.data[covIndex][i];
         }
-        title.text = 'Covariance Submatrix: Residue Pair: ' + coordString;
+        xCoord += 1;
+        yCoord += 1;
+        var displayString = '(' + xCoord + ', ' + yCoord + ')';
+        title.text = 'Covariance Submatrix: Residue Pair: ' + displayString;
         source.change.emit();
     }
 """)
