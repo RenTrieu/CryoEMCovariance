@@ -2,9 +2,10 @@
 from bokeh.layouts import column, row
 from bokeh.models import (ColumnDataSource, CustomJS, Slider, 
                           LinearColorMapper, BasicTicker, ColorBar, 
-                          HoverTool, Button, Title)
+                          HoverTool, Button, Title, FactorRange)
 from bokeh.plotting import figure, output_file, show
 from bokeh.events import Tap, DoubleTap, ButtonClick
+from bokeh.core.properties import Enum
 import numpy as np
 import pandas as pd
 import os
@@ -50,9 +51,6 @@ for i, covName in enumerate(covNameSplitList):
         covNameString = covNameString + str(part)
     covNameList[i] = covNameString
     
-print('covNameSplitList: ' + str(covNameSplitList))
-print('covNameList: ' + str(covNameList))
-
 covList = [None]*len(covNameList)
 for i, covName in enumerate(covNameList):
     covList[i] = np.load(os.path.join(covPath, covName))
@@ -84,13 +82,21 @@ xyPairList = [None]*npyList[0].shape[0]*npyList[0].shape[1]
 # Creating list
 for i in range(0, npyList[0].shape[0]):
     for j in range(0, npyList[0].shape[1]):
-        xyPairList[i+j*npyList[0].shape[0]] = (i, j)
+        xyPairList[i+j*npyList[0].shape[0]] = (i+1, j+1)
+
+# Reshaping source values in order to shift incides from starting with 0 to
+# starting with 1
+xVals = np.transpose(xyPairList)[0]
+yVals = np.transpose(xyPairList)[1]
+covVals = npyList[0].flatten()
+
+axesLength = int(np.sqrt(len(covVals)))
 
 # Defining fields to be displayed in hover tooltips
 source = ColumnDataSource(data={
-    'x' : np.transpose(xyPairList)[0],
-    'y' : np.transpose(xyPairList)[1],
-    'covValues' : npyList[0].flatten()
+    'x' : xVals.flatten(),
+    'y' : yVals.flatten(),
+    'covValues' : covVals.flatten()
 })
 tooltipList = [('xCoord', '@x'), ('yCoord', '@y'),
                ('Magnitude', '@covValues')]
@@ -106,8 +112,8 @@ color_bar = ColorBar(color_mapper=color_mapper,
                         desired_num_ticks=len(blueRedColors)))
 
 # Plotting 
-plot = figure(x_range=(-0.5, len(npyList[0])-0.5),
-              y_range=(-0.5, len(npyList[0])-0.5),
+plot = figure(x_range=(0.5, axesLength+0.5),
+              y_range=(0.5, axesLength+0.5),
               tools=TOOLS, 
               toolbar_location='below',
               tooltips=tooltipList)
@@ -161,6 +167,7 @@ code="""
     var data = source.data;
     var f = cb_obj.value.toString();
     var covValues = data['covValues'];
+    var axesLength = Math.sqrt(covValues.length);
     for (var i = 0; i < covValues.length; i++) {
         covValues[i] = matrixSource.data[f][i];
     }
@@ -180,11 +187,11 @@ code="""
     var data = source.data;
     var covValues = data['covValues'];
     var axesLength = Math.sqrt(data['covValues'].length);
-    var xCoord = Math.floor(cb_obj.x + 0.5);
-    var yCoord = Math.floor(cb_obj.y + 0.5);
+    var xCoord = Math.floor(cb_obj.x - 0.5);
+    var yCoord = Math.floor(cb_obj.y - 0.5);
     console.log('Tap at: ' + xCoord + ', ' + yCoord);
-    if ((xCoord != yCoord) && (xCoord >= 0) && (xCoord < axesLength)
-         && (yCoord >= 0) && (yCoord < axesLength)) {
+    if ((xCoord != yCoord) && (xCoord >= 0) && (xCoord < axesLength+1)
+         && (yCoord >= 0) && (yCoord < axesLength+1)) {
         if (xCoord > yCoord) {
             var temp = xCoord;
             xCoord = yCoord;
