@@ -4,6 +4,15 @@
 ChangeLog
 =========
 
+Version 0.8
+-----------
+To Do:
+
+- Add proper logging
+- Read Chimera documentation to try to map matrix/plot information into
+  the protein structure
+
+
 Version 0.7
 -----------
 Notes:
@@ -32,6 +41,14 @@ Notes:
   does successfully display the corresponding Covariance Matrix, it does so
   extremely slowly. Here, I was viewing `CovarianceMatrix.html` with 1500^2
   points and on my laptop (Dell XPS 13 9350 Intel i7 8th Gen Processor).
+- I successfully created the interface that displays distance difference
+  matrices and the corresponding covariance submatrix for a given residue pair
+  on click. I'm currently unhappy in that all of the covariance submatrices
+  have to be pregenerated through the `covSubmatrix.py` script and can't be
+  generated on the spot in the interface, but it is functional. Currently,
+  the interface uses raw .npy matrix files for distance difference matrices
+  and covariance submatrices and has not been integrated with the rest of the
+  scripts.
 
 In-Development Notes/Changes:
 
@@ -54,10 +71,9 @@ To Do:
 - ~~Plot covariance matrix and distance difference matrix simultaneously,
   updating the distance difference matrix for particular residue pairs
   by clicking the corresponding point on the covariance matrix~~
-- Read Chimera documentation to try to map matrix/plot information into
-  the protein structure
 - ~~Shift indices from starting with 0 to starting with 1 to match pdb format
   numbering~~
+- Reintegrate interface into the rest of the suite of scripts
 
 Version 0.6
 -----------
