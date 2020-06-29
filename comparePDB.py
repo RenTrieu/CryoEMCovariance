@@ -43,7 +43,7 @@ class ComparePDB:
     """ Takes in a list of paths to pdb files, compares the n number of passed 
         pdb files
     """
-    def compare(self, pdbList, strip, verbose, path=None):
+    def compare(self, pdbList, strip, verbose, inPath=None, outPath=None):
 
         # Reads the csv files into a Pandas dataframe
         # (Dataframes will allow for better manipulations for further
@@ -55,10 +55,10 @@ class ComparePDB:
         
         pdbFrameList = [None]*len(pdbList)
         for index, pdb in enumerate(pdbList):
-            if path is None:
+            if inPath is None:
                 pdbFrame = pdbr.PDBToDataFrame(pdb, verbose)
             else:
-                pdbFrame = pdbr.PDBToDataFrame(os.path.join(path, pdb), verbose)
+                pdbFrame = pdbr.PDBToDataFrame(os.path.join(inPath, pdb), verbose)
             pdbFrameList[index] = pdbFrame
 
         pdbFrameFilteredList = [None]*len(pdbList)
@@ -161,10 +161,10 @@ class ComparePDB:
                         chainFrame.loc[pdbCommonBool.array]]
                     )
 
-        # Adding path onto names in pdbList
-        if path is not None:
+        # Adding output path onto names in pdbList
+        if outPath is not None:
             for i, pdb in enumerate(pdbList):
-                pdbList[i] = os.path.join(path, pdb)
+                pdbList[i] = os.path.join(outPath, pdb)
 
         # Printing out the reformatted PDB files
         for index, pdbFrame in enumerate(pdbFrameList):

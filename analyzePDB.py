@@ -144,7 +144,8 @@ class AnalyzePDB:
             if pdb != args.reference:
                 comparisonList[index] = (args.reference, pdb)
         comparisonList = list(filter(None, comparisonList))
-        cPDB.compare(args.pdb, args.strip, args.verbose, path=directory)
+        cPDB.compare(args.pdb, args.strip, args.verbose, \
+                     inPath=directory, outPath=outDirectory)
 
         # Finding the largest residue number in all passed pdb files
         # for each chain that is common to all pdb files
@@ -185,8 +186,6 @@ class AnalyzePDB:
                     residueDict[chain] = int(pdbMax)
                 elif pdbMax > residueDict[chain]:
                     residueDict[chain] = int(pdbMax)
-
-            pdbFrame.to_csv(pdb + '.csv')
 
         if args.verbose:
             print('Detected the following chains common to all pdb files:')
@@ -264,7 +263,13 @@ class AnalyzePDB:
         else:
             scale = args.scale
         print('Choosing scale of: ' + str(scale))
+
         # Plotting covariance matrix if specified
+        if directory is None:
+            covMapString = 'covMapDict.npy'
+        else:
+            covMapString = os.path.join(directory, 'covMapDict.npy')
+
         if args.plot:
             if covarianceMatrix.size > 4:
                 print('Outputting covariance matrix plot')
@@ -272,7 +277,7 @@ class AnalyzePDB:
                                       'CovarianceMatrix',
                                       args.verbose,
                                       scale=scale,
-                                      residueMapName='covMapDict.npy')
+                                      residueMapName=covMapString)
             else:
                 print('Dimensions of Covariance Matrix are too small to plot.')
 
