@@ -6,16 +6,24 @@
 
 import time
 import numpy as np
+import pandas as pd
+import os
+import re
+
 import argparse
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 
 from bokeh.io import show
+from bokeh.layouts import column, row
 from bokeh.plotting import figure, output_file, show
-from bokeh.models import LinearColorMapper, BasicTicker, ColorBar, HoverTool, ColumnDataSource
+from bokeh.models import (ColumnDataSource, CustomJS, Slider, 
+                          LinearColorMapper, BasicTicker, ColorBar, 
+                          HoverTool, Button, Title, FactorRange)
+from bokeh.events import Tap, DoubleTap, ButtonClick
+from bokeh.core.properties import Enum
 
 from PIL import Image
-
 
 """ Class that houses Plot Generator
 """

@@ -7,6 +7,7 @@
 
 import argparse
 import sys
+import os
 import math
 import numpy as np
 import pandas as pd
@@ -24,12 +25,16 @@ class GenerateDifferenceMatrix:
     """ Calculates a difference matrix from the passed distance matrices
         Plots it
     """
-    def generateMatrix(self, npy1, npy2, verbose):
+    def generateMatrix(self, npy1, npy2, verbose, path=None):
 
         # Loading the distance matrices from the passed parameters
 
-        distanceMatrix1 = np.load(npy1)
-        distanceMatrix2 = np.load(npy2)
+        if path is None:
+            distanceMatrix1 = np.load(npy1)
+            distanceMatrix2 = np.load(npy2)
+        else:
+            distanceMatrix1 = np.load(os.path.join(path, npy1))
+            distanceMatrix2 = np.load(os.path.join(path, npy2))
 
         # If there is a path as part of the name of npy2, removes it
         npy2 = npy2.split('/')[len(npy2.split('/'))-1]
@@ -45,11 +50,16 @@ class GenerateDifferenceMatrix:
                                    + npy2[0:(len(npy2)-27)]
         else:
             differenceMatrixName = npy1 + '_Minus_' + npy2
+            if path is not None:
+                differenceMatrixName = os.path.join(path, differenceMatrixName)
 
         differenceMatrix = np.subtract(distanceMatrix1, distanceMatrix2)
 
         if verbose:
             print(differenceMatrix)
+
+        if path is not None:
+            differenceMatrixName = os.path.join(path, differenceMatrixName)
 
         print('Saving difference matrix to: ' + differenceMatrixName + '.npy')
         np.save(differenceMatrixName, differenceMatrix)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: PDB Reader
 # Author: Darren Trieu Nguyen
-# Version: 0.5
+# Version: 0.7
 # Description: A compilation of useful functions for reading/writing
 #              from/to PDB files
 

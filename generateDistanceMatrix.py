@@ -23,7 +23,7 @@ class GenerateDistanceMatrix:
 
     """ Generates a distance matrix based off of the pdb file passed
     """
-    def generateMatrix(self, pdb, verbose, processQuantity):
+    def generateMatrix(self, pdb, verbose, processQuantity, path=None):
 
         start_time = time.time()
 
@@ -44,7 +44,10 @@ class GenerateDistanceMatrix:
             matrix = np.asarray(pool.map(calcDistancePartial, 
                 range(len(pdbFrame.index))))
 
-        np.save(pdb[:-4] + 'DistanceMatrix', matrix)
+        if path is None:
+            np.save(pdb[:-4] + 'DistanceMatrix', matrix)
+        else:
+            np.save(os.path.join(path, pdb[:-4] + 'DistanceMatrix'), matrix)
 
         if verbose:
             print(matrix)

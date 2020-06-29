@@ -7,6 +7,7 @@
 
 import argparse
 import sys
+import os
 import numpy as np
 import pandas as pd
 from pdbReader import PDBReader
@@ -42,7 +43,7 @@ class ComparePDB:
     """ Takes in a list of paths to pdb files, compares the n number of passed 
         pdb files
     """
-    def compare(self, pdbList, strip, verbose):
+    def compare(self, pdbList, strip, verbose, path=None):
 
         # Reads the csv files into a Pandas dataframe
         # (Dataframes will allow for better manipulations for further
@@ -54,7 +55,10 @@ class ComparePDB:
         
         pdbFrameList = [None]*len(pdbList)
         for index, pdb in enumerate(pdbList):
-            pdbFrame = pdbr.PDBToDataFrame(pdb, verbose)
+            if path is None:
+                pdbFrame = pdbr.PDBToDataFrame(pdb, verbose)
+            else:
+                pdbFrame = pdbr.PDBToDataFrame(os.path.join(path, pdb), verbose)
             pdbFrameList[index] = pdbFrame
 
         pdbFrameFilteredList = [None]*len(pdbList)
@@ -136,9 +140,6 @@ class ComparePDB:
 
         # Removing amino acids that do not match
         for index, pdbFrame in enumerate(pdbFrameList):
-
-            #pdbFrame.loc[commonAminoAcidList]
-    
             pdbCommon = []
             # Residue numbers are only unique within a given chain so we iterate 
             # through the chains to filter
@@ -159,6 +160,11 @@ class ComparePDB:
                         [pdbFrameFilteredList[index], 
                         chainFrame.loc[pdbCommonBool.array]]
                     )
+
+        # Adding path onto names in pdbList
+        if path is not None:
+            for i, pdb in enumerate(pdbList):
+                pdbList[i] = os.path.join(path, pdb)
 
         # Printing out the reformatted PDB files
         for index, pdbFrame in enumerate(pdbFrameList):

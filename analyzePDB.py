@@ -97,10 +97,7 @@ class AnalyzePDB:
             for pdbFile in os.listdir(args.directory):
                 extension = pdbFile[(len(pdbFile)-4):len(pdbFile)].rstrip()
                 if extension == '.pdb':
-                    if args.directory[-1:] == '/':
-                        args.pdb.append(args.directory + pdbFile)           
-                    else:
-                        args.pdb.append(args.directory + '/' + pdbFile)
+                    args.pdb.append(pdbFile)
         except AttributeError:
             pass
 
@@ -118,7 +115,11 @@ class AnalyzePDB:
         if args.outDirectory is not None:
             outDirectory = args.outDirectory
             if os.getcwd() not in outDirectory:
-                outDirectory = os.path.join(os.getcwd(), outDirectory)
+                if args.directory is not None:
+                    directory = os.path.join(os.getcwd(), args.directory)
+                else:
+                    directory = os.getcwd()
+                outDirectory = os.path.join(directory, outDirectory)
 
             # Creating outDirectory if it doesn't already exist
             relativePath = outDirectory.split('/') \
@@ -126,8 +127,12 @@ class AnalyzePDB:
             if len(relativePath) <= 0:
                 relativePath = outDirectory.split('/') \
                            [len(outDirectory.split('/'))-2]
-            if relativePath not in os.listdir():       
+            if relativePath not in os.listdir(directory):       
                 os.mkdir(outDirectory)
+        else:
+            outDirectory = None
+            
+        print('outDirectory: ' + str(outDirectory))
 
         cPDB = ComparePDB()
         
@@ -139,7 +144,7 @@ class AnalyzePDB:
             if pdb != args.reference:
                 comparisonList[index] = (args.reference, pdb)
         comparisonList = list(filter(None, comparisonList))
-        cPDB.compare(args.pdb, args.strip, args.verbose)
+        cPDB.compare(args.pdb, args.strip, args.verbose, path=directory)
 
         # Finding the largest residue number in all passed pdb files
         # for each chain that is common to all pdb files
@@ -147,8 +152,14 @@ class AnalyzePDB:
         residueDict = {}
         chainList = []
         for pdb in args.pdb:
-            pdbFrame = pdbReader.PDBToDataFrame(pdb[:-4] + 'Formatted.pdb',
-                                                args.verbose)
+            if outDirectory is None:
+                pdbFrame = pdbReader.PDBToDataFrame(pdb[:-4] + 'Formatted.pdb',
+                                                    args.verbose)
+            else:
+                pdbFrame = pdbReader.PDBToDataFrame(\
+                            os.path.join(outDirectory, \
+                                pdb[:-4]+'Formatted.pdb'), \
+                            args.verbose)
 
             # If there are redundancies in the residues, that means that the
             # pdbFrame should be handled as if it were not stripped
@@ -183,7 +194,6 @@ class AnalyzePDB:
                 print('Chain: ' + str(chain) \
                       + ' Max Residue: ' + str(residueDict[chain]))
 
-
         # Generating distance matrices for all passed pdb files
         for pdb in args.pdb:
             gDistanceMatrix = GenerateDistanceMatrix()
@@ -194,7 +204,8 @@ class AnalyzePDB:
                 )
             gDistanceMatrix.generateMatrix(pdb[:-4] + 'Formatted.pdb', 
                                             args.verbose, 
-                                            args.processQuantity)
+                                            args.processQuantity,
+                                            path=outDirectory)
 
         differenceDistanceList = [None]*len(comparisonList)
         differenceMatrixList = [None]*len(comparisonList)
@@ -204,9 +215,12 @@ class AnalyzePDB:
                 gDifferenceMatrix.generateMatrix(
                     comparison[0][:-4] + 'FormattedDistanceMatrix.npy', \
                     comparison[1][:-4] + 'FormattedDistanceMatrix.npy', \
-                    args.verbose
+                    args.verbose, path=outDirectory
                 )
             differenceDistanceList[index] += '.npy'
+            if outDirectory is not None:
+                differenceDistanceList[index] = \
+                    os.path.join(outDirectory, differenceDistanceList[index])
 
         # Creating a mapping from covariance index to a tuple of residue pairs
         print('Generating covariance index to residue pair map')
@@ -216,7 +230,10 @@ class AnalyzePDB:
             for j in range(i+1, differenceMatrixList[0][0].size):
                 covMapDict[n] = (i,j)
                 n += 1
-        np.save("covMapDict.npy", covMapDict)
+        if args.directory is None:
+            np.save('covMapDict.npy', covMapDict)
+        else:
+            np.save(os.path.join(args.directory, 'covMapDict.npy'), covMapDict)
 
         # Plotting distance difference matrices if specified
         if args.plot:
@@ -233,7 +250,11 @@ class AnalyzePDB:
         covarianceMatrix = gCovarianceMatrix.calcCovarianceMatrix(
                         differenceDistanceList
                     )
-        np.save('CovarianceMatrix.npy', covarianceMatrix)
+        if args.directory is None:
+            np.save('CovarianceMatrix.npy', covarianceMatrix)
+        else:
+            np.save(os.path.join(args.directory, 'CovarianceMatrix.npy'), \
+                    covarianceMatrix)
 
         # Setting up default resolution for covariance matrix if none is
         # specified
