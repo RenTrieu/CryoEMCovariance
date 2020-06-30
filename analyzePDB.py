@@ -11,6 +11,7 @@ import time
 import os
 import numpy as np
 import pandas as pd
+import logging
 from itertools import combinations
 from comparePDB import ComparePDB
 from pdbReader import PDBReader
@@ -46,7 +47,7 @@ class AnalyzePDB:
                             help='Specifies a directory (relative path)'\
                             ' in which all pdb files present will be read'\
                             ' to compare')
-        parser.add_argument('--outDirectory', nargs='?',
+        parser.add_argument('--outDirectory', nargs='?', default='ddMatrices',
                             help='Specifies a directory to which files will'\
                             ' be outputted')
         parser.add_argument('--strip', help='Removes side chains',\
@@ -54,6 +55,10 @@ class AnalyzePDB:
         parser.add_argument('-v', '--verbose', 
                             help='Increases output verbosity',\
                             action='store_true')
+        parser.add_argument('--log', nargs='?', default='WARNING',
+                            help='Controls logging verbosity based off of'\
+                            ' log message priority. Levels include:'\
+                            'DEBUG, INFO, WARNING, ERROR, CRITICAL')
         parser.add_argument('-p', '--plot',
                             action='store_true',
                             help='If option is specified, will output plots'\
@@ -68,8 +73,6 @@ class AnalyzePDB:
                             type=int,
                             help='The number of separate processes the'\
                             ' distance matrix computation will be split into')
-        # TODO: Fix Reference, doesn't work properly, Only Default reference 
-        #       works
         parser.add_argument('--reference', 
                             help='Specifies the pdb file to be used as a'\
                             ' for comparison')
@@ -132,9 +135,26 @@ class AnalyzePDB:
         else:
             outDirectory = None
             
-        print('outDirectory: ' + str(outDirectory))
+        if args.verbose: print('outDirectory: ' + str(outDirectory))
 
-        cPDB = ComparePDB()
+        # Initializing log file
+        logFile = self.__class__.__name__ + '.log'
+        if args.directory is not None:
+            logFile = os.path.join(directory, logFile)
+        else:
+            logFile = logFile
+
+        # Initializing logging
+        logLevel = args.log
+        logger = logging.getLogger(self.__class__.__name__)
+
+        numeric_level = getattr(logging, logLevel.upper(), None)
+        if not isinstance(numeric_level, int):
+            raise ValueError('Invalid log level: %s' % logLevel)
+        logging.basicConfig(filename=logFile, filemode='w', \
+                            level=numeric_level)
+
+        cPDB = ComparePDB(logLevel=logLevel, logFile=logFile)
         
         # Creating a list of tuples containing all unique combinations of the
         # PDB files to calculate all combinations of distance difference 
@@ -280,7 +300,6 @@ class AnalyzePDB:
                                       residueMapName=covMapString)
             else:
                 print('Dimensions of Covariance Matrix are too small to plot.')
-
 
         # Creating a map between covariance coordinate and residue pairs
         # x -> index of one covariance axis of n length

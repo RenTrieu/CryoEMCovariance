@@ -10,6 +10,7 @@ import sys
 import os
 import numpy as np
 import pandas as pd
+import logging
 from pdbReader import PDBReader
 
 """ Class that houses Compare PDB
@@ -19,7 +20,7 @@ class ComparePDB:
     """ Initialization function
         Handles options from the CLI
     """
-    def __init__(self):
+    def __init__(self, logLevel=None, logFile=None):
         if __name__ == '__main__':
             version = 0.7
             
@@ -28,22 +29,64 @@ class ComparePDB:
                 description='Compare two PDB files'
             )
             parser.add_argument('pdb', metavar='file', nargs='+',
-                            help='pdb file(s) to compare')
+                                help='pdb file(s) to compare')
             parser.add_argument('--strip', help='Removes side chains',\
                                 action='store_true')
             parser.add_argument('-v', '--verbose', 
                                 help='Increases output verbosity',\
                                 action='store_true')
+            parser.add_argument('--log', nargs='?', default='WARNING',
+                                help='Controls logging verbosity based off of'\
+                                ' log message priority. Levels include:'\
+                                'DEBUG, INFO, WARNING, ERROR, CRITICAL')
+
             args = parser.parse_args()
 
+            # Initializing log file and log level
+            if logLevel is None:
+                logLevel = args.log
+            if logFile is None:
+                logFile = self.__class__.__name__ + '.log'
+
+            # Initalizing logging
+            logger = logging.getLogger(self.__class__.__name__)
+
+            numeric_level = getattr(logging, logLevel.upper(), None)
+            if not isinstance(numeric_level, int):
+                raise ValueError('Invalid log level: %s' % logLevel)
+            logging.basicConfig(filename=logFile, filemode='w', \
+                                level=numeric_level)
+            self.logger = logger
             # TODO: Doesn't accurately compare unless the stripped flag is true
             #       Fix that lol
             self.compare(args.pdb, args.strip, args.verbose)
 
+        else:
+            # TODO: This doesn't get passed to compare because they're not
+            #       called in the same scope
+            # Initializing log file and log level
+            if logLevel is None:
+                logLevel = 'WARNING'
+            if logFile is None:
+                logFile = self.__class__.__name__ + '.log'
+
+            # Initalizing logging
+            logger = logging.getLogger(self.__class__.__name__)
+
+            numeric_level = getattr(logging, logLevel.upper(), None)
+            if not isinstance(numeric_level, int):
+                raise ValueError('Invalid log level: %s' % logLevel)
+            logging.basicConfig(filename=logFile, filemode='a', \
+                                level=numeric_level)
+            self.logger = logger
+
     """ Takes in a list of paths to pdb files, compares the n number of passed 
         pdb files
     """
-    def compare(self, pdbList, strip, verbose, inPath=None, outPath=None):
+    def compare(self, pdbList, strip, verbose, 
+                inPath=None, outPath=None):
+
+        self.logger.warning('test2')
 
         # Reads the csv files into a Pandas dataframe
         # (Dataframes will allow for better manipulations for further
@@ -92,7 +135,6 @@ class ComparePDB:
             
         # Creating a boolean list that denotes which amino acids are common
         # to all PDB files
-
         commonAminoAcidList = [None]*pdbMaxLength
         for index in range(pdbMaxLength):
             commonAminoAcidList[index] = True
