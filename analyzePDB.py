@@ -144,15 +144,25 @@ class AnalyzePDB:
         else:
             logFile = logFile
 
-        # Initializing logging
+        # Initializing logging handlers
+
         logLevel = args.log
         logger = logging.getLogger(self.__class__.__name__)
 
         numeric_level = getattr(logging, logLevel.upper(), None)
         if not isinstance(numeric_level, int):
             raise ValueError('Invalid log level: %s' % logLevel)
-        logging.basicConfig(filename=logFile, filemode='w', \
-                            level=numeric_level)
+
+        fileHandler = logging.FileHandler(filename=logFile, mode='w')
+        fileHandler.setLevel(logLevel)
+
+        formatter = logging.Formatter(
+                        '[%(asctime)s] - %(name)s - %(levelname)s - %(message)s'
+                    )
+        fileHandler.setFormatter(formatter)
+
+        logger.addHandler(fileHandler)
+        logger.warning('test')
 
         cPDB = ComparePDB(logLevel=logLevel, logFile=logFile)
         
@@ -312,6 +322,5 @@ class AnalyzePDB:
             print(covarianceMatrix)
             print('Total Computation Time: %s seconds'\
                 %(time.time() -start_time))
-
 
 analyzePDB = AnalyzePDB()
