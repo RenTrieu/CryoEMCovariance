@@ -16,7 +16,7 @@ from matplotlib.colors import LinearSegmentedColormap
 
 from bokeh.io import show
 from bokeh.layouts import column, row
-from bokeh.plotting import figure, output_file, show
+from bokeh.plotting import figure, output_file, save
 from bokeh.models import (ColumnDataSource, CustomJS, Slider, 
                           LinearColorMapper, BasicTicker, ColorBar, 
                           HoverTool, Button, Title, FactorRange)
@@ -140,7 +140,7 @@ class PlotGenerator:
         """
 
         output_file(fileName + '.html')
-        show(plot)
+        save(plot)
         print('Computation complete, plot outputted to: '\
             + fileName + '.html')
 

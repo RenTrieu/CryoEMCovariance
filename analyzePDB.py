@@ -164,7 +164,9 @@ class AnalyzePDB:
         logger.addHandler(fileHandler)
         logger.warning('test')
 
-        cPDB = ComparePDB(logLevel=logLevel, logFile=logFile)
+        print('Create cPDB')
+        cPDB = ComparePDB()
+        print('After create cPdb')
         
         # Creating a list of tuples containing all unique combinations of the
         # PDB files to calculate all combinations of distance difference 

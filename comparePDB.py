@@ -11,6 +11,7 @@ import os
 import numpy as np
 import pandas as pd
 import logging
+import inspect
 from pdbReader import PDBReader
 
 """ Class that houses Compare PDB
@@ -20,7 +21,7 @@ class ComparePDB:
     """ Initialization function
         Handles options from the CLI
     """
-    def __init__(self, logLevel=None, logFile=None):
+    def __init__(self):
         if __name__ == '__main__':
             version = 0.7
             
@@ -43,10 +44,8 @@ class ComparePDB:
             args = parser.parse_args()
 
             # Initializing log file and log level
-            if logLevel is None:
-                logLevel = args.log
-            if logFile is None:
-                logFile = self.__class__.__name__ + '.log'
+            logLevel = args.log
+            logFile = None
 
             # Initalizing logging
             logger = logging.getLogger(self.__class__.__name__)
@@ -54,30 +53,31 @@ class ComparePDB:
             numeric_level = getattr(logging, logLevel.upper(), None)
             if not isinstance(numeric_level, int):
                 raise ValueError('Invalid log level: %s' % logLevel)
-            logging.basicConfig(filename=logFile, filemode='w', \
-                                level=numeric_level)
+            if logFile is not None:
+                logging.basicConfig(filename=logFile, filemode='w', \
+                                    level=numeric_level)
+            else:
+                logging.basicConfig(level=numeric_level)
+
             self.logger = logger
             # TODO: Doesn't accurately compare unless the stripped flag is true
             #       Fix that lol
             self.compare(args.pdb, args.strip, args.verbose)
 
         else:
-            # TODO: This doesn't get passed to compare because they're not
-            #       called in the same scope
-            # Initializing log file and log level
-            if logLevel is None:
-                logLevel = 'WARNING'
-            if logFile is None:
-                logFile = self.__class__.__name__ + '.log'
-
             # Initalizing logging
-            logger = logging.getLogger(self.__class__.__name__)
-
-            numeric_level = getattr(logging, logLevel.upper(), None)
-            if not isinstance(numeric_level, int):
-                raise ValueError('Invalid log level: %s' % logLevel)
-            logging.basicConfig(filename=logFile, filemode='a', \
-                                level=numeric_level)
+            frame = inspect.currentframe().f_back
+            try:
+                try:
+                    self_obj = frame.f_locals['self']
+                    logName = type(self_obj).__name__
+                except KeyError:
+                    logName = self.__class__.__name__
+            finally:
+                del frame
+                    
+            logger = logging.getLogger(logName + '.' \
+                                       + str(self.__class__.__name__))
             self.logger = logger
 
     """ Takes in a list of paths to pdb files, compares the n number of passed 
