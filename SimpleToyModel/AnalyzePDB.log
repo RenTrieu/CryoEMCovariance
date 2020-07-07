@@ -1,53 +1,83 @@
-[2020-07-07 13:16:18,489] - AnalyzePDB - INFO - Logger Initialized
-[2020-07-07 13:16:18,489] - AnalyzePDB - INFO - outDirectory: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices
-[2020-07-07 13:16:18,602] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-2.pdb
-[2020-07-07 13:16:18,602] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-2.pdb
-[2020-07-07 13:16:18,607] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-1.pdb
-[2020-07-07 13:16:18,607] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-1.pdb
-[2020-07-07 13:16:18,610] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-4.pdb
-[2020-07-07 13:16:18,610] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-4.pdb
-[2020-07-07 13:16:18,614] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-3.pdb
-[2020-07-07 13:16:18,614] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-3.pdb
-[2020-07-07 13:16:18,618] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-2.pdb
-[2020-07-07 13:16:18,618] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-2.pdb
-[2020-07-07 13:16:18,621] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-1.pdb
-[2020-07-07 13:16:18,621] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-1.pdb
-[2020-07-07 13:16:18,625] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-4.pdb
-[2020-07-07 13:16:18,625] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-4.pdb
-[2020-07-07 13:16:18,628] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-3.pdb
-[2020-07-07 13:16:18,628] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-3.pdb
-[2020-07-07 13:16:18,704] - AnalyzePDB - INFO - Recognizing common chain A
-[2020-07-07 13:16:18,844] - AnalyzePDB - INFO - Detected the following chains common to all pdb files:
-[2020-07-07 13:16:18,844] - AnalyzePDB - INFO - Chain: A Max Residue: 6
-[2020-07-07 13:16:18,844] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.pdb
-[2020-07-07 13:16:19,005] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.pdb
-[2020-07-07 13:16:19,176] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.pdb
-[2020-07-07 13:16:19,355] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.pdb
-[2020-07-07 13:16:19,535] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.pdb
-[2020-07-07 13:16:19,718] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.pdb
-[2020-07-07 13:16:19,910] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.pdb
-[2020-07-07 13:16:20,089] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.pdb
-[2020-07-07 13:16:20,273] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-1.npy
-[2020-07-07 13:16:20,276] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-4.npy
-[2020-07-07 13:16:20,279] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-3.npy
-[2020-07-07 13:16:20,282] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-2.npy
-[2020-07-07 13:16:20,285] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-1.npy
-[2020-07-07 13:16:20,288] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-4.npy
-[2020-07-07 13:16:20,290] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-3.npy
-[2020-07-07 13:16:20,291] - AnalyzePDB - INFO - Generating covariance index to residue pair map
-[2020-07-07 13:16:20,333] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-1.html
-[2020-07-07 13:16:20,361] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-4.html
-[2020-07-07 13:16:20,390] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-3.html
-[2020-07-07 13:16:20,419] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-2.html
-[2020-07-07 13:16:20,447] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-1.html
-[2020-07-07 13:16:20,475] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-4.html
-[2020-07-07 13:16:20,503] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-3.html
-[2020-07-07 13:16:20,503] - AnalyzePDB - INFO - Generating covariance matrix
-[2020-07-07 13:16:20,506] - AnalyzePDB - INFO - Choosing scale of: 15.0
-[2020-07-07 13:16:20,506] - AnalyzePDB - INFO - Outputting covariance matrix plot
-[2020-07-07 13:16:20,537] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: CovarianceMatrix.html
-[2020-07-07 13:16:20,537] - AnalyzePDB - INFO - Reference used: toy-model-2-2.pdb
-[2020-07-07 13:16:20,537] - AnalyzePDB - INFO - [[ 5.53826827e-08  1.55701373e-05 -5.52161937e-05 -1.45278897e-05
+[2020-07-07 16:52:41,290] - AnalyzePDB - INFO - Logger Initialized
+[2020-07-07 16:52:41,290] - AnalyzePDB - INFO - outDirectory: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices
+[2020-07-07 16:52:41,390] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-2.pdb
+[2020-07-07 16:52:41,390] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-2.pdb
+[2020-07-07 16:52:41,394] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-1.pdb
+[2020-07-07 16:52:41,395] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-1.pdb
+[2020-07-07 16:52:41,398] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-4.pdb
+[2020-07-07 16:52:41,398] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-4.pdb
+[2020-07-07 16:52:41,401] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-3.pdb
+[2020-07-07 16:52:41,401] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-3.pdb
+[2020-07-07 16:52:41,405] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-2.pdb
+[2020-07-07 16:52:41,405] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-2.pdb
+[2020-07-07 16:52:41,408] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-1.pdb
+[2020-07-07 16:52:41,408] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-1.pdb
+[2020-07-07 16:52:41,411] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-4.pdb
+[2020-07-07 16:52:41,411] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-4.pdb
+[2020-07-07 16:52:41,414] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-3.pdb
+[2020-07-07 16:52:41,414] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-3.pdb
+[2020-07-07 16:52:41,481] - AnalyzePDB - INFO - Recognizing common chain A
+[2020-07-07 16:52:41,586] - AnalyzePDB - INFO - Detected the following chains common to all pdb files:
+[2020-07-07 16:52:41,586] - AnalyzePDB - INFO - Chain: A Max Residue: 6
+[2020-07-07 16:52:41,586] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.pdb
+[2020-07-07 16:52:41,741] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.pdb
+[2020-07-07 16:52:41,913] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.pdb
+[2020-07-07 16:52:42,090] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.pdb
+[2020-07-07 16:52:42,269] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.pdb
+[2020-07-07 16:52:42,448] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.pdb
+[2020-07-07 16:52:42,625] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.pdb
+[2020-07-07 16:52:42,804] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.pdb
+[2020-07-07 16:52:42,985] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-1.npy
+[2020-07-07 16:52:42,988] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-4.npy
+[2020-07-07 16:52:42,990] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-3.npy
+[2020-07-07 16:52:42,993] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-2.npy
+[2020-07-07 16:52:42,995] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-1.npy
+[2020-07-07 16:52:42,998] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-4.npy
+[2020-07-07 16:52:43,000] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-3.npy
+[2020-07-07 16:52:43,001] - AnalyzePDB - INFO - Generating covariance index to residue pair map
+[2020-07-07 16:52:43,047] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-1.html
+[2020-07-07 16:52:43,073] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-4.html
+[2020-07-07 16:52:43,101] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-3.html
+[2020-07-07 16:52:43,130] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-2.html
+[2020-07-07 16:52:43,159] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-1.html
+[2020-07-07 16:52:43,187] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-4.html
+[2020-07-07 16:52:43,220] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-3.html
+[2020-07-07 16:52:43,220] - AnalyzePDB - INFO - Generating covariance matrix
+[2020-07-07 16:52:43,223] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 6.0
+[2020-07-07 16:52:43,223] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/subMatrices/subMatrix0.npy
+[2020-07-07 16:52:43,224] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 6.0
+[2020-07-07 16:52:43,224] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/subMatrices/subMatrix1.npy
+[2020-07-07 16:52:43,224] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 6.0
+[2020-07-07 16:52:43,225] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/subMatrices/subMatrix2.npy
+[2020-07-07 16:52:43,225] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 6.0
+[2020-07-07 16:52:43,225] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/subMatrices/subMatrix3.npy
+[2020-07-07 16:52:43,226] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 6.0
+[2020-07-07 16:52:43,226] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/subMatrices/subMatrix4.npy
+[2020-07-07 16:52:43,226] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 6.0
+[2020-07-07 16:52:43,227] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/subMatrices/subMatrix5.npy
+[2020-07-07 16:52:43,227] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 6.0
+[2020-07-07 16:52:43,227] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/subMatrices/subMatrix6.npy
+[2020-07-07 16:52:43,228] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 6.0
+[2020-07-07 16:52:43,228] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/subMatrices/subMatrix7.npy
+[2020-07-07 16:52:43,228] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 6.0
+[2020-07-07 16:52:43,229] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/subMatrices/subMatrix8.npy
+[2020-07-07 16:52:43,229] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 6.0
+[2020-07-07 16:52:43,229] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/subMatrices/subMatrix9.npy
+[2020-07-07 16:52:43,230] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 6.0
+[2020-07-07 16:52:43,230] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/subMatrices/subMatrix10.npy
+[2020-07-07 16:52:43,230] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 6.0
+[2020-07-07 16:52:43,230] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/subMatrices/subMatrix11.npy
+[2020-07-07 16:52:43,231] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 6.0
+[2020-07-07 16:52:43,231] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/subMatrices/subMatrix12.npy
+[2020-07-07 16:52:43,232] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 6.0
+[2020-07-07 16:52:43,232] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/subMatrices/subMatrix13.npy
+[2020-07-07 16:52:43,232] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 6.0
+[2020-07-07 16:52:43,232] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/subMatrices/subMatrix14.npy
+[2020-07-07 16:52:43,233] - AnalyzePDB - INFO - Choosing scale of: 15.0
+[2020-07-07 16:52:43,233] - AnalyzePDB - INFO - Outputting covariance matrix plot
+[2020-07-07 16:52:43,262] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: CovarianceMatrix.html
+[2020-07-07 16:52:43,262] - AnalyzePDB - INFO - Reference used: toy-model-2-2.pdb
+[2020-07-07 16:52:43,262] - AnalyzePDB - INFO - [[ 5.53826827e-08  1.55701373e-05 -5.52161937e-05 -1.45278897e-05
    6.72853597e-05  7.91666979e-09  1.48705213e-05  1.47124293e-05
    1.21456371e-04  0.00000000e+00  0.00000000e+00  8.60398960e-05
    0.00000000e+00  8.51846071e-05  2.36624752e-05]
@@ -107,4 +137,4 @@
    1.01050747e+00  6.88430027e-05  1.29313381e-01  1.27938621e-01
    1.05617911e+00  0.00000000e+00  0.00000000e+00  7.48199048e-01
    0.00000000e+00  7.40761494e-01  2.05767815e-01]]
-[2020-07-07 13:16:20,540] - AnalyzePDB - INFO - Total Computation Time: 2.0526187419891357 seconds
+[2020-07-07 16:52:43,265] - AnalyzePDB - INFO - Total Computation Time: 1.9758164882659912 seconds

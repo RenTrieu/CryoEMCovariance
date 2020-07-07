@@ -18,6 +18,7 @@ from pdbReader import PDBReader
 from generateDistanceMatrix import GenerateDistanceMatrix
 from generateDifferenceMatrix import GenerateDifferenceMatrix
 from generateCovarianceMatrix import GenerateCovarianceMatrix
+from covSubmatrix import CovSubmatrix
 from plotGenerator import PlotGenerator
 
 """ Class that houses Analyze PDB
@@ -50,6 +51,9 @@ class AnalyzePDB:
         parser.add_argument('--outDirectory', nargs='?', default='ddMatrices',
                             help='Specifies a directory to which files will'\
                             ' be outputted')
+        parser.add_argument('--subDirectory', nargs='?', default='subMatrices',
+                            help='Specifies a dirctory to which covariance'\
+                            ' submatrices will be outputted')
         parser.add_argument('--strip', help='Removes side chains',\
                             action='store_true')
         parser.add_argument('-v', '--verbose',
@@ -132,8 +136,28 @@ class AnalyzePDB:
                            [len(outDirectory.split('/'))-2]
             if relativePath not in os.listdir(directory):       
                 os.mkdir(outDirectory)
+            relativePath = None
         else:
             outDirectory = None
+
+        # Parsing and converting relative paths to
+        # absolute paths if applicable
+        if args.subDirectory is not None:
+            subDirectory = args.subDirectory
+            if os.getcwd() not in subDirectory:
+                subDirectory = os.path.join(directory, subDirectory)
+
+            # Creating subDirectory if it doesn't already exist
+            relativePath = subDirectory.split('/') \
+                           [len(subDirectory.split('/'))-1]
+            if len(relativePath) <= 0:
+                relativePath = subDirectory.split('/') \
+                           [len(subDirectory.split('/'))-2]
+            if relativePath not in os.listdir(directory):       
+                os.mkdir(subDirectory)
+            relativePath = None
+        else:
+            subDirectory = None
 
         # Initializing log file
         logFile = self.__class__.__name__ + '.log'
@@ -151,6 +175,7 @@ class AnalyzePDB:
         if not isinstance(numeric_level, int):
             raise ValueError('Invalid log level: %s' % logLevel)
 
+        # Logging File Handler
         fileHandler = logging.FileHandler(filename=logFile, mode='w')
         fileHandler.setLevel(numeric_level)
         logger.setLevel(numeric_level)
@@ -161,6 +186,7 @@ class AnalyzePDB:
         fileHandler.setFormatter(formatter)
         logger.addHandler(fileHandler)
 
+        # Logging Stream Handler
         streamHandler = logging.StreamHandler()
         if numeric_level >= getattr(logging, 'WARNING', None):
             streamHandler.setLevel(getattr(logging, 'WARNING', None))
@@ -168,8 +194,6 @@ class AnalyzePDB:
             streamHandler.setLevel(numeric_level)
         else:
             streamHandler.setLevel(getattr(logging, 'WARNING', None))
-
-
         logger.addHandler(streamHandler)
 
         logger.info('Logger Initialized')
@@ -276,7 +300,7 @@ class AnalyzePDB:
                 pGenerator.plotMatrix(differenceMatrix, 
                                       differenceDistanceList[index][:-4])
 
-        # Computing covariance matrix for all of the 
+        # Computing covariance matrix for all of the residue pairs
         logger.info('Generating covariance matrix')
         gCovarianceMatrix = GenerateCovarianceMatrix()
         covarianceMatrix = gCovarianceMatrix.calcCovarianceMatrix(
@@ -287,6 +311,14 @@ class AnalyzePDB:
         else:
             np.save(os.path.join(args.directory, 'CovarianceMatrix.npy'), \
                     covarianceMatrix)
+
+        # Generating covariance submatrices 
+        covSubmatrix = CovSubmatrix()
+        covSubmatrix.generateSubmatrix(covarianceMatrix,
+                                       covMapDict,
+                                       subDirectory,
+                                       allResidues=True,
+                                       baseDirectory=directory)
 
         # Setting up default resolution for covariance matrix if none is
         # specified

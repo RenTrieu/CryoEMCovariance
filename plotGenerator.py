@@ -15,6 +15,7 @@ import inspect
 import argparse
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
+from covSubmatrix import CovSubmatrix
 
 from bokeh.io import show
 from bokeh.layouts import column, row

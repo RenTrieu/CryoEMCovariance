@@ -13,6 +13,8 @@ import argparse
 import sys
 import os
 import time
+import logging
+import inspect
 import numpy as np
 from ast import literal_eval
 
@@ -23,54 +25,79 @@ class CovSubmatrix:
     """ Initialization function
     """
     def __init__(self):
-        start_time = time.time()
-        version = 0.7
+        # When called directly from script
+        if __name__ == '__main__':
+            version = 0.7
 
-        # Parsing the CLI for options and parameters
-        parser = argparse.ArgumentParser(
-            description='Splits covariance matrix into submatrix' \
-            ' corresponding to a given residue pair'
-        )
-        parser.add_argument('covMatrix', metavar='file',
-                            help='.npy file containing the covariance matrix'
-        )
-        parser.add_argument('covMap', help='.npy file (dictionary) containing' \
-                            ' the mapping from the rows/columns of the' \
-                            ' covariance matrix to each of their residue pairs'
-        )
-        parser.add_argument('--residuePairList', nargs='?',
-                            help='The residue pair with which to generate' \
-                            ' the covariance submatrix. Should be given in' \
-                            ' form of a list of tuples. Ex: \'[(1,5)]\''
-        )
-        parser.add_argument('-a', '--allResidues', \
-                            help='If specified, ignores --residuePairList' \
-                            ' option and iterates through all residue pairs' \
-                            ' in the given covariance matrix', \
-                            action='store_true'
-        )
-        parser.add_argument('--outputDirectory', \
-                            help='The relative directory in which to output' \
-                            ' the covariance submatrices', \
-                            default='subMatrices'
-        )
+            # Parsing the CLI for options and parameters
+            parser = argparse.ArgumentParser(
+                description='Splits covariance matrix into submatrix' \
+                ' corresponding to a given residue pair'
+            )
+            parser.add_argument('covMatrix', metavar='file',
+                                help='.npy file containing the covariance' \
+                                ' matrix'
+            )
+            parser.add_argument('covMap', help='.npy file (dictionary)' \
+                                ' containing the mapping from the' \
+                                ' rows/columns of the covariance matrix' \
+                                ' to each of their residue pairs'
+            )
+            parser.add_argument('--residuePairList', nargs='?',
+                                help='The residue pair with which to generate' \
+                                ' the covariance submatrix. Should be given' \
+                                ' in form of a list of tuples. Ex: \'[(1,5)]\''
+            )
+            parser.add_argument('-a', '--allResidues', \
+                                help='If specified, ignores --residuePairList' \
+                                ' option and iterates through all residue' \
+                                ' pairs in the given covariance matrix', \
+                                action='store_true'
+            )
+            parser.add_argument('--outputDirectory', \
+                                help='The relative directory in which to' \
+                                ' output the covariance submatrices', \
+                                default='subMatrices'
+            )
 
-        args = parser.parse_args()
+            args = parser.parse_args()
 
-        # Generating submatrix
-        self.generateSubmatrix(args.covMatrix, args.covMap, \
-                               args.residuePairList, args.outputDirectory, \
-                               args.allResidues)
+            # Generating submatrix
+            start_time = time.time()
+            self.generateSubmatrix(args.covMatrix, args.covMap, \
+                                   args.outputDirectory, args.residuePairList, \
+                                   args.allResidues)
+            logger.info('%s seconds' %(time.time() - start_time))
+
+        # When called from another script
+        else:
+            # Initalizing logging
+            frame = inspect.currentframe().f_back
+            try:
+                try:
+                    self_obj = frame.f_locals['self']
+                    logName = type(self_obj).__name__
+                except KeyError:
+                    logName = self.__class__.__name__
+            finally:
+                del frame
+                    
+            logger = logging.getLogger(logName + '.' \
+                                       + str(self.__class__.__name__))
+            self.logger = logger
 
     """ Generates a submatrix for the given residuePair from the given
         covMatrix
     """
     def generateSubmatrix(self, covMatrix, covMap, \
-                          residuePairList, outputDirectory, allResidues):
+                          outputDirectory, residuePairList=None, 
+                          allResidues=True, baseDirectory=None):
 
         # Loading .npy files and parsing using the information given 
-        covMatrix = np.load(covMatrix, allow_pickle=True)
-        covMap = np.load(covMap, allow_pickle=True).item()
+        if isinstance(covMatrix, str):
+            covMatrix = np.load(covMatrix, allow_pickle=True)
+        if isinstance(covMap, str):
+            covMap = np.load(covMap, allow_pickle=True).item()
         if allResidues:
             residuePairList = [covMap[columnIndex] for columnIndex in covMap.keys()]
         else:
@@ -87,7 +114,15 @@ class CovSubmatrix:
         if len(relativePath) <= 0:
             relativePath = outputDirectory.split('/') \
                        [len(outputDirectory.split('/'))-2]
-        if relativePath not in os.listdir():       
+
+        if baseDirectory is None:
+            dirList = os.listdir()
+        else:
+            dirList = os.listdir(baseDirectory)
+
+        if relativePath not in dirList:       
+            print('relativePath: ' + relativePath)
+            print('osListDir: ' + str(os.listdir()))
             os.mkdir(outputDirectory)
 
         if not isinstance(residuePairList, list):
@@ -96,34 +131,35 @@ class CovSubmatrix:
 
         # Looping over all given residuePairs to generate submatrices
         for i, residuePair in enumerate(residuePairList):
-            print('i: ' + str(i))
-            print('residuePair: ' + str(residuePair))
+            self.logger.debug('i: ' + str(i))
+            self.logger.debug('residuePair: ' + str(residuePair))
 
             # Checking to see if residue pair exists in the covariance matrix
             residueKey = None
             for key in covMap.keys():
                 if covMap[key] == residuePair:
                     residueKey = key
-                    print('Match at key: ' + str(key))
+                    self.logger.debug('Match at key: ' + str(key))
 
             # If the residue pair doesn't exist, then exit
             # Otherwise, extract the covariance values corresponding to the
             # residue pair to form a covariance submatrix
             if residueKey is None:
-                print('Could not find residue pair: ' + str(residuePair))
+                self.logger.critical('Could not find residue pair: ' \
+                                     + str(residuePair))
                 sys.exit()
             else:
                 covValues = covMatrix[residueKey]
-                print('Covariance Matrix at key: ' + str(covValues))
+                self.logger.debug('Covariance Matrix at key: ' + str(covValues))
 
             # Initializing the covariance submatrix
             axesLength = max(np.roots([1, -1, -2*len(covValues)]))
-            print('Axes Length: ' + str(axesLength))
+            self.logger.info('Axes Length: ' + str(axesLength))
 
             subMatrix = np.reshape(np.zeros(int(axesLength)*int(axesLength)),
                         (int(axesLength), int(axesLength)))
 
-            print('subMatrix: ' + str(subMatrix[0][0]))
+            self.logger.debug('subMatrix: ' + str(subMatrix[0][0]))
 
             # Putting the covariance values into the submatrix
             xIndex = 1
@@ -139,8 +175,10 @@ class CovSubmatrix:
                 else:
                     xIndex += 1
 
-            fullOutputString = os.path.join(outputDirectory, 'subMatrix' + str(i) + '.npy')
-            print('Outputting Covariance Submatrix at: ' + fullOutputString)
+            fullOutputString = os.path.join(outputDirectory, 'subMatrix' \
+                                            + str(i) + '.npy')
+            self.logger.info('Outputting Covariance Submatrix at: ' \
+                             + fullOutputString)
             np.save(fullOutputString, subMatrix)
 
 covSubmatrix = CovSubmatrix()
