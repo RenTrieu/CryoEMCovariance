@@ -52,9 +52,6 @@ class AnalyzePDB:
                             ' be outputted')
         parser.add_argument('--strip', help='Removes side chains',\
                             action='store_true')
-        parser.add_argument('-v', '--verbose', 
-                            help='Increases output verbosity',\
-                            action='store_true')
         parser.add_argument('--log', nargs='?', default='WARNING',
                             help='Controls logging verbosity based off of'\
                             ' log message priority. Levels include:'\
@@ -263,8 +260,7 @@ class AnalyzePDB:
             pGenerator = PlotGenerator()
             for index, differenceMatrix in enumerate(differenceMatrixList):
                 pGenerator.plotMatrix(differenceMatrix, 
-                                      differenceDistanceList[index][:-4],
-                                      args.verbose)
+                                      differenceDistanceList[index][:-4])
 
         # Computing covariance matrix for all of the 
         logger.info('Generating covariance matrix')
