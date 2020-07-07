@@ -52,6 +52,9 @@ class AnalyzePDB:
                             ' be outputted')
         parser.add_argument('--strip', help='Removes side chains',\
                             action='store_true')
+        parser.add_argument('-v', '--verbose',
+                            help='Increases output verbosity',\
+                            action='store_true')
         parser.add_argument('--log', nargs='?', default='WARNING',
                             help='Controls logging verbosity based off of'\
                             ' log message priority. Levels include:'\
@@ -157,11 +160,22 @@ class AnalyzePDB:
                     )
         fileHandler.setFormatter(formatter)
         logger.addHandler(fileHandler)
+
+        streamHandler = logging.StreamHandler()
+        if numeric_level >= getattr(logging, 'WARNING', None):
+            streamHandler.setLevel(getattr(logging, 'WARNING', None))
+        elif args.verbose:
+            streamHandler.setLevel(numeric_level)
+        else:
+            streamHandler.setLevel(getattr(logging, 'WARNING', None))
+
+
+        logger.addHandler(streamHandler)
+
         logger.info('Logger Initialized')
         logger.info('outDirectory: ' + str(outDirectory))
 
         cPDB = ComparePDB()
-        
 
         # Creating a list of tuples containing all unique combinations of the
         # PDB files to calculate all combinations of distance difference 

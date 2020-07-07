@@ -8,10 +8,8 @@ Version 0.8
 -----------
 To Do:
 
-- Add proper logging
 - Read Chimera documentation to try to map matrix/plot information into
   the protein structure
-
 
 Version 0.7
 -----------
@@ -73,6 +71,7 @@ To Do:
   by clicking the corresponding point on the covariance matrix~~
 - ~~Shift indices from starting with 0 to starting with 1 to match pdb format
   numbering~~
+- ~~Add proper logging~~
 - Reintegrate interface into the rest of the suite of scripts
 
 Version 0.6
