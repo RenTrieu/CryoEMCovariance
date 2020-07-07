@@ -9,6 +9,8 @@ import numpy as np
 import pandas as pd
 import os
 import re
+import logging
+import inspect
 
 import argparse
 import matplotlib.pyplot as plt
@@ -29,6 +31,72 @@ from PIL import Image
 """
 class PlotGenerator:
 
+    """ Initialization function
+    """
+    def __init__(self):
+        # When called directly from script
+        if __name__ == "__main__":
+            version = 0.7
+
+            # Parsing the CLI for options and parameters
+            parser = argparse.ArgumentParser(description='Generate a'\
+                        ' plot describing the passed matrix, displayed'\
+                        ' according to the passed parameters')
+            parser.add_argument('npy', metavar='npy',
+                                help='npy file containing the matrix to be'\
+                                ' plotted')
+            parser.add_argument('fileName', metavar='fileName',
+                                help='the name of the output file (excluding'\
+                                ' extensions')
+            parser.add_argument('--log', nargs='?', default='WARNING',
+                                help='Controls logging verbosity based off of'\
+                                ' log message priority. Levels include:'\
+                                'DEBUG, INFO, WARNING, ERROR, CRITICAL')
+            args = parser.parse_args()
+
+            # Initializing log file and log level
+            logLevel = args.log
+            logFile = None
+
+            # Initalizing logging
+            logger = logging.getLogger(self.__class__.__name__)
+
+            numeric_level = getattr(logging, logLevel.upper(), None)
+            if not isinstance(numeric_level, int):
+                raise ValueError('Invalid log level: %s' % logLevel)
+            if logFile is not None:
+                logging.basicConfig(filename=logFile, filemode='w', \
+                                    level=numeric_level)
+            else:
+                logging.basicConfig(level=numeric_level)
+
+            self.logger = logger
+
+            # Generating plot
+
+            start_time = time.time()
+            npy = np.load(args.npy)
+            self.plotMatrix(npy, args.fileName)
+
+            logger.info('%s seconds' %(time.time() - start_time))
+
+        # When called from another script
+        else:
+            # Initializing logging
+            frame = inspect.currentframe().f_back
+            try:
+                try:
+                    self_obj = frame.f_locals['self']
+                    logName = type(self_obj).__name__
+                except KeyError:
+                    logName = self.__class__.__name__
+            finally:
+                del frame
+                    
+            logger = logging.getLogger(logName + '.' \
+                                       + str(self.__class__.__name__))
+            self.logger = logger
+
     """ Rescales a matrix to the specified dimensions
     """
     def rescaleMatrix(self, npy, length):
@@ -46,7 +114,7 @@ class PlotGenerator:
 
     """ Plots the passed matrix
     """
-    def plotMatrix(self, npy, fileName, verbose, scale=None, residueMapName=None):
+    def plotMatrix(self, npy, fileName, scale=None, residueMapName=None):
 
         # Rescales matrix if a scale/length is specified
         if scale is not None:
@@ -141,36 +209,7 @@ class PlotGenerator:
 
         output_file(fileName + '.html')
         save(plot)
-        print('Computation complete, plot outputted to: '\
-            + fileName + '.html')
+        self.logger.info('Computation complete, plot outputted to: '\
+                         + fileName + '.html')
 
-""" Handles options from the CLI when called as a script
-"""
-if __name__ == "__main__":
-    version = 0.7
-
-    # Parsing the CLI for options and parameters
-    parser = argparse.ArgumentParser(description='Generate a'\
-                ' plot describing the passed matrix, displayed'\
-                ' according to the passed parameters')
-    parser.add_argument('npy', metavar='npy',
-                        help='npy file containing the matrix to be'\
-                        ' plotted')
-    parser.add_argument('fileName', metavar='fileName',
-                        help='the name of the output file (excluding'\
-                        ' extensions')
-    parser.add_argument('-v', '--verbose',
-                        help='Increases output verbosity',
-                        action='store_true')
-    args = parser.parse_args()
-
-    # Generating plot
-    pGenerator = PlotGenerator()   
-
-    start_time = time.time()
-    npy = np.load(args.npy)
-    pGenerator.plotMatrix(npy, args.fileName, args.verbose)
-
-    if args.verbose:
-        print('%s seconds' %(time.time() - start_time))
-
+pGenerator = PlotGenerator()   

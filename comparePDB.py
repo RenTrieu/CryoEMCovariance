@@ -22,6 +22,7 @@ class ComparePDB:
         Handles options from the CLI
     """
     def __init__(self):
+        # When called directly from script
         if __name__ == '__main__':
             version = 0.7
             
@@ -64,6 +65,7 @@ class ComparePDB:
             #       Fix that lol
             self.compare(args.pdb, args.strip)
 
+        # When called from another script
         else:
             # Initalizing logging
             frame = inspect.currentframe().f_back

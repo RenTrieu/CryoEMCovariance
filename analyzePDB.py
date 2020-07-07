@@ -184,13 +184,11 @@ class AnalyzePDB:
         chainList = []
         for pdb in args.pdb:
             if outDirectory is None:
-                pdbFrame = pdbReader.PDBToDataFrame(pdb[:-4] + 'Formatted.pdb',
-                                                    args.verbose)
+                pdbFrame = pdbReader.PDBToDataFrame(pdb[:-4] + 'Formatted.pdb')
             else:
                 pdbFrame = pdbReader.PDBToDataFrame(\
                             os.path.join(outDirectory, \
                                 pdb[:-4]+'Formatted.pdb'))
-                            
 
             # If there are redundancies in the residues, that means that the
             # pdbFrame should be handled as if it were not stripped
@@ -229,7 +227,6 @@ class AnalyzePDB:
                 + pdb[:-4] + 'Formatted.pdb'
             )
             gDistanceMatrix.generateMatrix(pdb[:-4] + 'Formatted.pdb', 
-                                            args.verbose, 
                                             args.processQuantity,
                                             path=outDirectory)
 
@@ -241,7 +238,7 @@ class AnalyzePDB:
                 gDifferenceMatrix.generateMatrix(
                     comparison[0][:-4] + 'FormattedDistanceMatrix.npy', \
                     comparison[1][:-4] + 'FormattedDistanceMatrix.npy', \
-                    args.verbose, path=outDirectory
+                    path=outDirectory
                 )
             differenceDistanceList[index] += '.npy'
             if outDirectory is not None:
@@ -288,7 +285,7 @@ class AnalyzePDB:
                      *(differenceMatrixList[0][0].size-1))/2
         else:
             scale = args.scale
-        print('Choosing scale of: ' + str(scale))
+        logger.info('Choosing scale of: ' + str(scale))
 
         # Plotting covariance matrix if specified
         if directory is None:
@@ -298,14 +295,14 @@ class AnalyzePDB:
 
         if args.plot:
             if covarianceMatrix.size > 4:
-                print('Outputting covariance matrix plot')
+                logger.info('Outputting covariance matrix plot')
                 pGenerator.plotMatrix(covarianceMatrix, 
                                       'CovarianceMatrix',
-                                      args.verbose,
                                       scale=scale,
                                       residueMapName=covMapString)
             else:
-                print('Dimensions of Covariance Matrix are too small to plot.')
+                logger.error('Dimensions of Covariance Matrix are' \
+                             ' too small to plot.')
 
         # Creating a map between covariance coordinate and residue pairs
         # x -> index of one covariance axis of n length
@@ -317,5 +314,6 @@ class AnalyzePDB:
         logger.info(covarianceMatrix)
         logger.info('Total Computation Time: %s seconds'\
                     %(time.time() -start_time))
+        print('Complete')
 
 analyzePDB = AnalyzePDB()

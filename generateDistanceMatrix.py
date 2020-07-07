@@ -13,6 +13,8 @@ import pandas as pd
 import subprocess
 import time
 import os
+import logging
+import inspect
 from pdbReader import PDBReader
 from multiprocessing import Pool, TimeoutError
 from functools import partial
@@ -21,11 +23,79 @@ from functools import partial
 """
 class GenerateDistanceMatrix:
 
+    """ Initialization function
+        Handles options from the CLI
+    """
+    def __init__(self):
+        # When called directly from script
+        if __name__ == '__main__':
+            version = 0.7
+
+            # Parsing the CLI for options and parameters
+            parser = argparse.ArgumentParser(description='Generate a distance'\
+                ' matrix for a given pdb file')
+            parser.add_argument('pdb', metavar='pdb',
+                            help='pdb file used to generate'\
+                            ' the distance matrix')
+            parser.add_argument('--processes',
+                            dest='processQuantity',
+                            default=os.cpu_count(),
+                            const=1,
+                            action='store',
+                            nargs='?',
+                            type=int,
+                            help='The number of separate processes the'\
+                            ' computation will be split into')
+            parser.add_argument('--log', nargs='?', default='WARNING',
+                                help='Controls logging verbosity based off of'\
+                                ' log message priority. Levels include:'\
+                                'DEBUG, INFO, WARNING, ERROR, CRITICAL')
+            args = parser.parse_args()
+
+            # Initializing log file and log level
+            logLevel = args.log
+            logFile = None
+
+            # Initalizing logging
+            logger = logging.getLogger(self.__class__.__name__)
+
+            numeric_level = getattr(logging, logLevel.upper(), None)
+            if not isinstance(numeric_level, int):
+                raise ValueError('Invalid log level: %s' % logLevel)
+            if logFile is not None:
+                logging.basicConfig(filename=logFile, filemode='w', \
+                                    level=numeric_level)
+            else:
+                logging.basicConfig(level=numeric_level)
+
+            self.logger = logger
+
+            # Generating Distance Matrix 
+
+            start_time = time.time()
+            self.generateMatrix(args.pdb, args.processQuantity)
+            logger.info('%s seconds' %(time.time() - start_time))
+
+        # When called from another script
+        else:
+            # Initializing logging
+            frame = inspect.currentframe().f_back
+            try:
+                try:
+                    self_obj = frame.f_locals['self']
+                    logName = type(self_obj).__name__
+                except KeyError:
+                    logName = self.__class__.__name__
+            finally:
+                del frame
+                    
+            logger = logging.getLogger(logName + '.' \
+                                       + str(self.__class__.__name__))
+            self.logger = logger
+
     """ Generates a distance matrix based off of the pdb file passed
     """
-    def generateMatrix(self, pdb, verbose, processQuantity, path=None):
-
-        start_time = time.time()
+    def generateMatrix(self, pdb, processQuantity, path=None):
 
         # Reads the csv files into a Pandas dataframe
         # (Dataframes will allow for better manipulations for further
@@ -52,8 +122,7 @@ class GenerateDistanceMatrix:
         else:
             np.save(os.path.join(path, pdb[:-4] + 'DistanceMatrix'), matrix)
 
-        if verbose:
-            print(matrix)
+        self.logger.debug(matrix)
 
     """ Runs the distances calculation for a particular amino acid
         with all other amino acids
@@ -76,35 +145,5 @@ class GenerateDistanceMatrix:
             )
         return matrixRow
 
-""" Handles options from the CLI when called as a script
-"""
-if __name__ == '__main__':
-    version = 0.7
+gDistanceMatrix = GenerateDistanceMatrix()
 
-    # Parsing the CLI for options and parameters
-    parser = argparse.ArgumentParser(description='Generate a distance'\
-        ' matrix for a given pdb file')
-    parser.add_argument('pdb', metavar='pdb',
-                    help='pdb file used to generate'\
-                    ' the distance matrix')
-    parser.add_argument('-v', '--verbose', 
-                    help='Increases output verbosity',\
-                    action='store_true')
-    parser.add_argument('--processes',
-                    dest='processQuantity',
-                    default=os.cpu_count(),
-                    const=1,
-                    action='store',
-                    nargs='?',
-                    type=int,
-                    help='The number of separate processes the'\
-                    ' computation will be split into')
-
-    args = parser.parse_args()
-
-    gDistanceMatrix = GenerateDistanceMatrix()
-
-    start_time = time.time()
-    gDistanceMatrix.generateMatrix(args.pdb, args.verbose, args.processQuantity)
-    if args.verbose:
-        print('%s seconds' %(time.time() - start_time))
