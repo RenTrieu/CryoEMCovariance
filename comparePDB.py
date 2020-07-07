@@ -62,7 +62,7 @@ class ComparePDB:
             self.logger = logger
             # TODO: Doesn't accurately compare unless the stripped flag is true
             #       Fix that lol
-            self.compare(args.pdb, args.strip, args.verbose)
+            self.compare(args.pdb, args.strip)
 
         else:
             # Initalizing logging
@@ -83,10 +83,7 @@ class ComparePDB:
     """ Takes in a list of paths to pdb files, compares the n number of passed 
         pdb files
     """
-    def compare(self, pdbList, strip, verbose, 
-                inPath=None, outPath=None):
-
-        self.logger.warning('test2')
+    def compare(self, pdbList, strip, inPath=None, outPath=None):
 
         # Reads the csv files into a Pandas dataframe
         # (Dataframes will allow for better manipulations for further
@@ -99,9 +96,9 @@ class ComparePDB:
         pdbFrameList = [None]*len(pdbList)
         for index, pdb in enumerate(pdbList):
             if inPath is None:
-                pdbFrame = pdbr.PDBToDataFrame(pdb, verbose)
+                pdbFrame = pdbr.PDBToDataFrame(pdb)
             else:
-                pdbFrame = pdbr.PDBToDataFrame(os.path.join(inPath, pdb), verbose)
+                pdbFrame = pdbr.PDBToDataFrame(os.path.join(inPath, pdb))
             pdbFrameList[index] = pdbFrame
 
         pdbFrameFilteredList = [None]*len(pdbList)
@@ -116,10 +113,10 @@ class ComparePDB:
             if strip:
                 pdbFrameList[index] = pdbFrame.loc[\
                             ((pdbFrame['Positional Label'] == 'CA'))]
-                if verbose:
-                    print('Removing side chains for ' + pdbList[index])
-                    print('Stripping down to alpha carbons for '\
-                            + pdbList[index])
+                self.logger.info('Removing side chains for ' \
+                                 + pdbList[index])
+                self.logger.info('Stripping down to alpha carbons for '\
+                                 + pdbList[index])
             pdbFrameFiltered = pd.DataFrame(
                 columns=list(pdbFrame.columns.values)
             )
@@ -178,7 +175,7 @@ class ComparePDB:
         uncommonChains = set(commonDict.keys()).difference(commonChains)
         for chain in uncommonChains:
             commonDict.pop(chain)
-            print('Chain ' + str(chain) + ' not common')
+            self.logger.info('Chain ' + str(chain) + ' not common')
 
         # Removing amino acids that do not match
         for index, pdbFrame in enumerate(pdbFrameList):
@@ -211,8 +208,7 @@ class ComparePDB:
         # Printing out the reformatted PDB files
         for index, pdbFrame in enumerate(pdbFrameList):
             pdbr.DataFrameToPDB(pdbList[index], 
-                                pdbFrameFilteredList[index], 
-                                verbose)
+                                pdbFrameFilteredList[index])
 
         # This line is only here for testing
         # After the convertAminoAcidSeq is determined to work

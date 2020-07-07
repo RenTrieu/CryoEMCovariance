@@ -134,8 +134,6 @@ class AnalyzePDB:
                 os.mkdir(outDirectory)
         else:
             outDirectory = None
-            
-        if args.verbose: print('outDirectory: ' + str(outDirectory))
 
         # Initializing log file
         logFile = self.__class__.__name__ + '.log'
@@ -154,20 +152,20 @@ class AnalyzePDB:
             raise ValueError('Invalid log level: %s' % logLevel)
 
         fileHandler = logging.FileHandler(filename=logFile, mode='w')
-        fileHandler.setLevel(logLevel)
+        fileHandler.setLevel(numeric_level)
+        logger.setLevel(numeric_level)
 
         formatter = logging.Formatter(
                         '[%(asctime)s] - %(name)s - %(levelname)s - %(message)s'
                     )
         fileHandler.setFormatter(formatter)
-
         logger.addHandler(fileHandler)
-        logger.warning('test')
+        logger.info('Logger Initialized')
+        logger.info('outDirectory: ' + str(outDirectory))
 
-        print('Create cPDB')
         cPDB = ComparePDB()
-        print('After create cPdb')
         
+
         # Creating a list of tuples containing all unique combinations of the
         # PDB files to calculate all combinations of distance difference 
         # matrices
@@ -176,7 +174,7 @@ class AnalyzePDB:
             if pdb != args.reference:
                 comparisonList[index] = (args.reference, pdb)
         comparisonList = list(filter(None, comparisonList))
-        cPDB.compare(args.pdb, args.strip, args.verbose, \
+        cPDB.compare(args.pdb, args.strip, \
                      inPath=directory, outPath=outDirectory)
 
         # Finding the largest residue number in all passed pdb files
@@ -191,24 +189,23 @@ class AnalyzePDB:
             else:
                 pdbFrame = pdbReader.PDBToDataFrame(\
                             os.path.join(outDirectory, \
-                                pdb[:-4]+'Formatted.pdb'), \
-                            args.verbose)
+                                pdb[:-4]+'Formatted.pdb'))
+                            
 
             # If there are redundancies in the residues, that means that the
             # pdbFrame should be handled as if it were not stripped
             numberIndex = 'Residue Number'
             if len(list(pdbFrame[numberIndex])) > \
                                              len(set(pdbFrame[numberIndex])):
-                if args.verbose:
-                    print('Redundant Residues detected: '\
-                          + 'Computing with Atom Numbers instead')
+                    
+                logger.info('Redundant Residues detected: '\
+                             + 'Computing with Atom Numbers instead')
                 numberIndex = 'Atom Number'
 
             for chain in list(pdbFrame['Chain']):
                 if chain not in chainList:
                     chainList.append(chain)
-                    if args.verbose:
-                        print('Recognizing common chain ' + str(chain))
+                    logger.info('Recognizing common chain ' + str(chain))
 
             for chain in list(set(pdbFrame['Chain'])):
                 pdbMax = pd.to_numeric(pdbFrame[numberIndex]\
@@ -219,20 +216,18 @@ class AnalyzePDB:
                 elif pdbMax > residueDict[chain]:
                     residueDict[chain] = int(pdbMax)
 
-        if args.verbose:
-            print('Detected the following chains common to all pdb files:')
-            for chain in residueDict.keys():
-                print('Chain: ' + str(chain) \
-                      + ' Max Residue: ' + str(residueDict[chain]))
+        logger.info('Detected the following chains common to all pdb files:')
+        for chain in residueDict.keys():
+            logger.info('Chain: ' + str(chain) \
+                        + ' Max Residue: ' + str(residueDict[chain]))
 
         # Generating distance matrices for all passed pdb files
         for pdb in args.pdb:
             gDistanceMatrix = GenerateDistanceMatrix()
-            if args.verbose:
-                print(
-                    'Calculating distance matrix for: '\
-                    + pdb[:-4] + 'Formatted.pdb'
-                )
+            logger.info(
+                'Calculating distance matrix for: '\
+                + pdb[:-4] + 'Formatted.pdb'
+            )
             gDistanceMatrix.generateMatrix(pdb[:-4] + 'Formatted.pdb', 
                                             args.verbose, 
                                             args.processQuantity,
@@ -254,7 +249,7 @@ class AnalyzePDB:
                     os.path.join(outDirectory, differenceDistanceList[index])
 
         # Creating a mapping from covariance index to a tuple of residue pairs
-        print('Generating covariance index to residue pair map')
+        logger.info('Generating covariance index to residue pair map')
         covMapDict = {}
         n = 0
         for i in range(0, differenceMatrixList[0][0].size-1):
@@ -275,8 +270,7 @@ class AnalyzePDB:
                                       args.verbose)
 
         # Computing covariance matrix for all of the 
-        if args.verbose:
-            print('Generating covariance matrix')
+        logger.info('Generating covariance matrix')
         gCovarianceMatrix = GenerateCovarianceMatrix()
         covarianceMatrix = gCovarianceMatrix.calcCovarianceMatrix(
                         differenceDistanceList
@@ -319,10 +313,9 @@ class AnalyzePDB:
         #   First Index: floor(x/n)
         #   Second Index: x % n - 1
 
-        if args.verbose:
-            print('Reference used: ' + args.reference)
-            print(covarianceMatrix)
-            print('Total Computation Time: %s seconds'\
-                %(time.time() -start_time))
+        logger.info('Reference used: ' + args.reference)
+        logger.info(covarianceMatrix)
+        logger.info('Total Computation Time: %s seconds'\
+                    %(time.time() -start_time))
 
 analyzePDB = AnalyzePDB()

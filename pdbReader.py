@@ -10,21 +10,43 @@ import numpy as np
 import pandas as pd
 import subprocess
 import math
+import logging
+import inspect
 
 """ Class that manages reading/writing from/to PDB files
 """
 class PDBReader:
+
+    """ Initialization function
+        Used to initialize logger
+        Logging verbosity is determined by parent logger
+    """
+    def __init__(self):
+        # Initalizing logging
+        frame = inspect.currentframe().f_back
+        try:
+            try:
+                self_obj = frame.f_locals['self']
+                logName = type(self_obj).__name__
+            except KeyError:
+                logName = self.__class__.__name__
+        finally:
+            del frame
+
+        logger = logging.getLogger(logName + '.' \
+                                   + str(self.__class__.__name__))
+        self.logger = logger
+
     
     """ Takes in a DataFrame object and writes it into a PDB file
-        Takes in a boolean (verbose) to determine verbosity of output
         Returns PDB file path
     """
-    def DataFrameToPDB(self, pdb, pdbFrame, verbose, autoName=True):
+    def DataFrameToPDB(self, pdb, pdbFrame, autoName=True):
         if autoName:
             fileName = pdb[:-4]+'Formatted.pdb'
         else:
             fileName = pdb
-        if verbose: print('Writing to: '+ fileName)
+        self.logger.debug('Writing to: '+ fileName)
         with open(fileName, 'w') as pdbFormatted:
             for row in range(0, len(pdbFrame.index)):
                 pdbFormatted.write(\
@@ -36,32 +58,30 @@ class PDBReader:
 
 
     """ Takes in a String detailing the relative path of a pdb file
-        Takes in a boolean (verbose) to determine verbosity of output
         Reads information into a Pandas DataFrame
         Returns DataFrame
     """
-    def PDBToDataFrame(self, pdb, verbose):
-        pdbCSV = self.PDBToCSV(pdb, verbose)
-        if verbose: print("Reading from: " + pdbCSV)
+    def PDBToDataFrame(self, pdb):
+        pdbCSV = self.PDBToCSV(pdb)
+        self.logger.debug("Reading from: " + pdbCSV)
         pdbFrame = pd.read_csv(pdbCSV, error_bad_lines=False)
-        if verbose: print("Deleting: " + pdbCSV)
+        self.logger.debug("Deleting: " + pdbCSV)
         subprocess.call(["rm", pdbCSV])
         return pdbFrame
 
 
     """ Takes in a String detailing the relative path of a pdb file 
         Writes information into a csv file along with hardcoded headers
-        Takes in boolean (verbose) to determine verbosity of output
         Returns a String path to the csv file
     """
-    def PDBToCSV(self, pdb, verbose):
+    def PDBToCSV(self, pdb):
         pdbCSV = pdb[:-3]+'csv'
 
         # Reading values from file
         with open(pdb, 'r') as pdbFile:
-            if verbose: print('Reading from: ' + pdb)
+            self.logger.debug('Reading from: ' + pdb)
             with open(pdbCSV, 'w') as pdbCSVFile:
-                if verbose: print('Writing to: ' + pdbCSV)
+                self.logger.debug('Writing to: ' + pdbCSV)
                 for line in pdbFile:
                     pdbCSVFile.write(self.lineToCSV(line))
         pdbFile.close()

@@ -36,9 +36,9 @@ class GenerateDistanceMatrix:
         pdbr = PDBReader()
         
         if path is None:
-            pdbFrame = pdbr.PDBToDataFrame(pdb, verbose)
+            pdbFrame = pdbr.PDBToDataFrame(pdb)
         else:
-            pdbFrame = pdbr.PDBToDataFrame(os.path.join(path, pdb), verbose)
+            pdbFrame = pdbr.PDBToDataFrame(os.path.join(path, pdb))
 
         # Parallelizing the distance calculation
         with Pool(processes=processQuantity) as pool:
