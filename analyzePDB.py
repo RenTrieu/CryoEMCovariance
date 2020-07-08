@@ -20,6 +20,8 @@ from generateDifferenceMatrix import GenerateDifferenceMatrix
 from generateCovarianceMatrix import GenerateCovarianceMatrix
 from covSubmatrix import CovSubmatrix
 from plotGenerator import PlotGenerator
+from plotInterface import PlotInterface
+
 
 """ Class that houses Analyze PDB
 """
@@ -345,6 +347,14 @@ class AnalyzePDB:
             else:
                 logger.error('Dimensions of Covariance Matrix are' \
                              ' too small to plot.')
+
+        # Generating Interface
+        pInterface = PlotInterface()
+        if args.plot:
+            pInterface.plotMatrix('output.html', 
+                                  outDirectory, 
+                                  subDirectory, 
+                                  covMapDict)
 
         # Creating a map between covariance coordinate and residue pairs
         # x -> index of one covariance axis of n length
