@@ -1,0 +1,360 @@
+[2020-07-13 13:09:38,965] - AnalyzePDB - INFO - Logger Initialized
+[2020-07-13 13:09:38,965] - AnalyzePDB - INFO - outDirectory: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices
+[2020-07-13 13:09:39,728] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-3.pdb
+[2020-07-13 13:09:39,728] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-3.pdb
+[2020-07-13 13:09:39,732] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-4.pdb
+[2020-07-13 13:09:39,732] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-4.pdb
+[2020-07-13 13:09:39,736] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-2.pdb
+[2020-07-13 13:09:39,736] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-2.pdb
+[2020-07-13 13:09:39,739] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-2.pdb
+[2020-07-13 13:09:39,739] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-2.pdb
+[2020-07-13 13:09:39,743] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-4.pdb
+[2020-07-13 13:09:39,743] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-4.pdb
+[2020-07-13 13:09:39,746] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-3.pdb
+[2020-07-13 13:09:39,746] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-3.pdb
+[2020-07-13 13:09:39,749] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-1.pdb
+[2020-07-13 13:09:39,749] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-1.pdb
+[2020-07-13 13:09:39,753] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-1.pdb
+[2020-07-13 13:09:39,753] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-1.pdb
+[2020-07-13 13:09:39,844] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3Formatted.pdb
+[2020-07-13 13:09:39,845] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3Formatted.csv
+[2020-07-13 13:09:39,888] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3Formatted.csv
+[2020-07-13 13:09:39,893] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3Formatted.csv
+[2020-07-13 13:09:39,908] - AnalyzePDB - INFO - Recognizing common chain A
+[2020-07-13 13:09:39,916] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-4Formatted.pdb
+[2020-07-13 13:09:39,916] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-4Formatted.csv
+[2020-07-13 13:09:39,956] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-4Formatted.csv
+[2020-07-13 13:09:39,961] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-4Formatted.csv
+[2020-07-13 13:09:39,998] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-2Formatted.pdb
+[2020-07-13 13:09:39,999] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-2Formatted.csv
+[2020-07-13 13:09:40,035] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-2Formatted.csv
+[2020-07-13 13:09:40,040] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-2Formatted.csv
+[2020-07-13 13:09:40,059] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-2Formatted.pdb
+[2020-07-13 13:09:40,060] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-2Formatted.csv
+[2020-07-13 13:09:40,089] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-2Formatted.csv
+[2020-07-13 13:09:40,093] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-2Formatted.csv
+[2020-07-13 13:09:40,122] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-4Formatted.pdb
+[2020-07-13 13:09:40,122] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-4Formatted.csv
+[2020-07-13 13:09:40,167] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-4Formatted.csv
+[2020-07-13 13:09:40,172] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-4Formatted.csv
+[2020-07-13 13:09:40,194] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-3Formatted.pdb
+[2020-07-13 13:09:40,195] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-3Formatted.csv
+[2020-07-13 13:09:40,238] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-3Formatted.csv
+[2020-07-13 13:09:40,245] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-3Formatted.csv
+[2020-07-13 13:09:40,279] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-1Formatted.pdb
+[2020-07-13 13:09:40,280] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-1Formatted.csv
+[2020-07-13 13:09:40,321] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-1Formatted.csv
+[2020-07-13 13:09:40,337] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-1Formatted.csv
+[2020-07-13 13:09:40,353] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-1Formatted.pdb
+[2020-07-13 13:09:40,354] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-1Formatted.csv
+[2020-07-13 13:09:40,392] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-1Formatted.csv
+[2020-07-13 13:09:40,397] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-1Formatted.csv
+[2020-07-13 13:09:40,413] - AnalyzePDB - INFO - Detected the following chains common to all pdb files:
+[2020-07-13 13:09:40,413] - AnalyzePDB - INFO - Chain: A Max Residue: 5
+[2020-07-13 13:09:40,413] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3Formatted.pdb
+[2020-07-13 13:09:40,628] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.8016478   6.0833813   9.57415511 12.92945498]
+ [ 3.8016478   0.          3.80190557  6.37149888  9.95096227]
+ [ 6.0833813   3.80190557  0.          3.80201026  6.90460904]
+ [ 9.57415511  6.37149888  3.80201026  0.          3.80188611]
+ [12.92945498  9.95096227  6.90460904  3.80188611  0.        ]]
+[2020-07-13 13:09:40,629] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-4Formatted.pdb
+[2020-07-13 13:09:40,855] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.8018723   5.86920991  8.77628355 12.41060687]
+ [ 3.8018723   0.          3.80190557  6.37149888  9.95096227]
+ [ 5.86920991  3.80190557  0.          3.80201026  6.90460904]
+ [ 8.77628355  6.37149888  3.80201026  0.          3.80188611]
+ [12.41060687  9.95096227  6.90460904  3.80188611  0.        ]]
+[2020-07-13 13:09:40,857] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-2Formatted.pdb
+[2020-07-13 13:09:41,050] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80138541  6.36471413  9.73936199 12.9972424 ]
+ [ 3.80138541  0.          3.8021895   6.90481998 10.47861351]
+ [ 6.36471413  3.8021895   0.          3.80201026  6.90460904]
+ [ 9.73936199  6.90481998  3.80201026  0.          3.80188611]
+ [12.9972424  10.47861351  6.90460904  3.80188611  0.        ]]
+[2020-07-13 13:09:41,051] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-2Formatted.pdb
+[2020-07-13 13:09:41,269] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80203761  6.68245239  9.67673881 12.87178931]
+ [ 3.80203761  0.          3.80190557  6.37149888  9.95096227]
+ [ 6.68245239  3.80190557  0.          3.80201026  6.90460904]
+ [ 9.67673881  6.37149888  3.80201026  0.          3.80188611]
+ [12.87178931  9.95096227  6.90460904  3.80188611  0.        ]]
+[2020-07-13 13:09:41,270] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-4Formatted.pdb
+[2020-07-13 13:09:41,501] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80203222  6.41183515  7.89381517 11.68923505]
+ [ 3.80203222  0.          3.8021895   6.90481998 10.47861351]
+ [ 6.41183515  3.8021895   0.          3.80201026  6.90460904]
+ [ 7.89381517  6.90481998  3.80201026  0.          3.80188611]
+ [11.68923505 10.47861351  6.90460904  3.80188611  0.        ]]
+[2020-07-13 13:09:41,503] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-3Formatted.pdb
+[2020-07-13 13:09:41,692] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80202446  7.17746104 10.1352735  13.67985705]
+ [ 3.80202446  0.          3.8021895   6.90481998 10.47861351]
+ [ 7.17746104  3.8021895   0.          3.80201026  6.90460904]
+ [10.1352735   6.90481998  3.80201026  0.          3.80188611]
+ [13.67985705 10.47861351  6.90460904  3.80188611  0.        ]]
+[2020-07-13 13:09:41,693] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-1Formatted.pdb
+[2020-07-13 13:09:41,896] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80161137  7.15688557  8.9506664  12.22787508]
+ [ 3.80161137  0.          3.80190557  6.37149888  9.95096227]
+ [ 7.15688557  3.80190557  0.          3.80201026  6.90460904]
+ [ 8.9506664   6.37149888  3.80201026  0.          3.80188611]
+ [12.22787508  9.95096227  6.90460904  3.80188611  0.        ]]
+[2020-07-13 13:09:41,897] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-1-1Formatted.pdb
+[2020-07-13 13:09:42,088] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80179024  6.90480543 10.47858531 13.80941425]
+ [ 3.80179024  0.          3.8021895   6.90481998 10.47861351]
+ [ 6.90480543  3.8021895   0.          3.80201026  6.90460904]
+ [10.47858531  6.90481998  3.80201026  0.          3.80188611]
+ [13.80941425 10.47861351  6.90460904  3.80188611  0.        ]]
+[2020-07-13 13:09:42,094] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00 -2.24501281e-04  2.14171384e-01  7.97871553e-01
+   5.18848102e-01]
+ [-2.24501281e-04  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [ 2.14171384e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [ 7.97871553e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [ 5.18848102e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]]
+[2020-07-13 13:09:42,094] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3_Minus_toy-model-2-4.npy
+[2020-07-13 13:09:42,099] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  2.62395276e-04 -2.81332837e-01 -1.65206885e-01
+  -6.77874229e-02]
+ [ 2.62395276e-04  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
+  -5.27651241e-01]
+ [-2.81332837e-01 -2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [-1.65206885e-01 -5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [-6.77874229e-02 -5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]]
+[2020-07-13 13:09:42,100] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3_Minus_toy-model-1-2.npy
+[2020-07-13 13:09:42,105] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00 -3.89810972e-04 -5.99071098e-01 -1.02583704e-01
+   5.76656685e-02]
+ [-3.89810972e-04  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [-5.99071098e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [-1.02583704e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [ 5.76656685e-02  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]]
+[2020-07-13 13:09:42,106] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3_Minus_toy-model-2-2.npy
+[2020-07-13 13:09:42,111] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00 -3.84419122e-04 -3.28453854e-01  1.68033993e+00
+   1.24021993e+00]
+ [-3.84419122e-04  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
+  -5.27651241e-01]
+ [-3.28453854e-01 -2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [ 1.68033993e+00 -5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [ 1.24021993e+00 -5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]]
+[2020-07-13 13:09:42,111] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3_Minus_toy-model-1-4.npy
+[2020-07-13 13:09:42,117] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00 -3.76660106e-04 -1.09407974e+00 -5.61118398e-01
+  -7.50402076e-01]
+ [-3.76660106e-04  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
+  -5.27651241e-01]
+ [-1.09407974e+00 -2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [-5.61118398e-01 -5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [-7.50402076e-01 -5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]]
+[2020-07-13 13:09:42,117] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3_Minus_toy-model-1-3.npy
+[2020-07-13 13:09:42,123] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  3.64317451e-05 -1.07350427e+00  6.23488707e-01
+   7.01579896e-01]
+ [ 3.64317451e-05  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [-1.07350427e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [ 6.23488707e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [ 7.01579896e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]]
+[2020-07-13 13:09:42,124] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3_Minus_toy-model-2-1.npy
+[2020-07-13 13:09:42,129] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00 -1.42435566e-04 -8.21424131e-01 -9.04430199e-01
+  -8.79959276e-01]
+ [-1.42435566e-04  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
+  -5.27651241e-01]
+ [-8.21424131e-01 -2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [-9.04430199e-01 -5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]
+ [-8.79959276e-01 -5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00]]
+[2020-07-13 13:09:42,129] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3_Minus_toy-model-1-1.npy
+[2020-07-13 13:09:42,132] - AnalyzePDB - INFO - Generating covariance index to residue pair map
+[2020-07-13 13:09:42,172] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3_Minus_toy-model-2-4.html
+[2020-07-13 13:09:42,205] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3_Minus_toy-model-1-2.html
+[2020-07-13 13:09:42,238] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3_Minus_toy-model-2-2.html
+[2020-07-13 13:09:42,271] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3_Minus_toy-model-1-4.html
+[2020-07-13 13:09:42,303] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3_Minus_toy-model-1-3.html
+[2020-07-13 13:09:42,344] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3_Minus_toy-model-2-1.html
+[2020-07-13 13:09:42,419] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/GapToyModel/ddMatrices/toy-model-2-3_Minus_toy-model-1-1.html
+[2020-07-13 13:09:42,419] - AnalyzePDB - INFO - Generating covariance matrix
+[2020-07-13 13:09:42,451] - AnalyzePDB.CovSubmatrix - DEBUG - i: 0
+[2020-07-13 13:09:42,451] - AnalyzePDB.CovSubmatrix - DEBUG - residuePair: (0, 1)
+[2020-07-13 13:09:42,451] - AnalyzePDB.CovSubmatrix - DEBUG - Match at key: 0
+[2020-07-13 13:09:42,451] - AnalyzePDB.CovSubmatrix - DEBUG - Covariance Matrix at key: [ 6.16984346e-08  5.69014603e-06 -3.78767027e-05 -9.52374646e-06
+ -2.62404019e-09 -4.92894696e-06 -4.87654618e-06  0.00000000e+00
+  0.00000000e+00  0.00000000e+00]
+[2020-07-13 13:09:42,452] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 5.0
+[2020-07-13 13:09:42,452] - AnalyzePDB.CovSubmatrix - DEBUG - subMatrix: 0.0
+[2020-07-13 13:09:42,452] - AnalyzePDB.CovSubmatrix - DEBUG - covMatrix Shape: (10, 10)
+[2020-07-13 13:09:42,452] - AnalyzePDB.CovSubmatrix - DEBUG - covValues: [ 6.16984346e-08  5.69014603e-06 -3.78767027e-05 -9.52374646e-06
+ -2.62404019e-09 -4.92894696e-06 -4.87654618e-06  0.00000000e+00
+  0.00000000e+00  0.00000000e+00]
+[2020-07-13 13:09:42,452] - AnalyzePDB.CovSubmatrix - DEBUG - len(covValues):10
+[2020-07-13 13:09:42,452] - AnalyzePDB.CovSubmatrix - DEBUG - shape of covValues: (10,)
+[2020-07-13 13:09:42,453] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/dtn067/CryoEMCovariance/GapToyModel/subMatrices/subMatrix0.npy
+[2020-07-13 13:09:42,456] - AnalyzePDB.CovSubmatrix - DEBUG - i: 1
+[2020-07-13 13:09:42,456] - AnalyzePDB.CovSubmatrix - DEBUG - residuePair: (0, 2)
+[2020-07-13 13:09:42,456] - AnalyzePDB.CovSubmatrix - DEBUG - Match at key: 1
+[2020-07-13 13:09:42,456] - AnalyzePDB.CovSubmatrix - DEBUG - Covariance Matrix at key: [5.69014603e-06 2.24804617e-01 1.98857440e-01 1.57619673e-01
+ 1.17778963e-05 2.21233754e-02 2.18881766e-02 0.00000000e+00
+ 0.00000000e+00 0.00000000e+00]
+[2020-07-13 13:09:42,456] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 5.0
+[2020-07-13 13:09:42,456] - AnalyzePDB.CovSubmatrix - DEBUG - subMatrix: 0.0
+[2020-07-13 13:09:42,456] - AnalyzePDB.CovSubmatrix - DEBUG - covMatrix Shape: (10, 10)
+[2020-07-13 13:09:42,457] - AnalyzePDB.CovSubmatrix - DEBUG - covValues: [5.69014603e-06 2.24804617e-01 1.98857440e-01 1.57619673e-01
+ 1.17778963e-05 2.21233754e-02 2.18881766e-02 0.00000000e+00
+ 0.00000000e+00 0.00000000e+00]
+[2020-07-13 13:09:42,457] - AnalyzePDB.CovSubmatrix - DEBUG - len(covValues):10
+[2020-07-13 13:09:42,457] - AnalyzePDB.CovSubmatrix - DEBUG - shape of covValues: (10,)
+[2020-07-13 13:09:42,457] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/dtn067/CryoEMCovariance/GapToyModel/subMatrices/subMatrix1.npy
+[2020-07-13 13:09:42,459] - AnalyzePDB.CovSubmatrix - DEBUG - i: 2
+[2020-07-13 13:09:42,459] - AnalyzePDB.CovSubmatrix - DEBUG - residuePair: (0, 3)
+[2020-07-13 13:09:42,460] - AnalyzePDB.CovSubmatrix - DEBUG - Match at key: 2
+[2020-07-13 13:09:42,460] - AnalyzePDB.CovSubmatrix - DEBUG - Covariance Matrix at key: [-3.78767027e-05  1.98857440e-01  7.92009440e-01  6.66212660e-01
+  3.46548730e-05  6.50950514e-02  6.44030108e-02  0.00000000e+00
+  0.00000000e+00  0.00000000e+00]
+[2020-07-13 13:09:42,460] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 5.0
+[2020-07-13 13:09:42,460] - AnalyzePDB.CovSubmatrix - DEBUG - subMatrix: 0.0
+[2020-07-13 13:09:42,460] - AnalyzePDB.CovSubmatrix - DEBUG - covMatrix Shape: (10, 10)
+[2020-07-13 13:09:42,460] - AnalyzePDB.CovSubmatrix - DEBUG - covValues: [-3.78767027e-05  1.98857440e-01  7.92009440e-01  6.66212660e-01
+  3.46548730e-05  6.50950514e-02  6.44030108e-02  0.00000000e+00
+  0.00000000e+00  0.00000000e+00]
+[2020-07-13 13:09:42,460] - AnalyzePDB.CovSubmatrix - DEBUG - len(covValues):10
+[2020-07-13 13:09:42,460] - AnalyzePDB.CovSubmatrix - DEBUG - shape of covValues: (10,)
+[2020-07-13 13:09:42,461] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/dtn067/CryoEMCovariance/GapToyModel/subMatrices/subMatrix2.npy
+[2020-07-13 13:09:42,463] - AnalyzePDB.CovSubmatrix - DEBUG - i: 3
+[2020-07-13 13:09:42,463] - AnalyzePDB.CovSubmatrix - DEBUG - residuePair: (0, 4)
+[2020-07-13 13:09:42,463] - AnalyzePDB.CovSubmatrix - DEBUG - Match at key: 3
+[2020-07-13 13:09:42,463] - AnalyzePDB.CovSubmatrix - DEBUG - Covariance Matrix at key: [-9.52374646e-06  1.57619673e-01  6.66212660e-01  5.91469914e-01
+  4.38473703e-05  8.23620628e-02  8.14864525e-02  0.00000000e+00
+  0.00000000e+00  0.00000000e+00]
+[2020-07-13 13:09:42,463] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 5.0
+[2020-07-13 13:09:42,463] - AnalyzePDB.CovSubmatrix - DEBUG - subMatrix: 0.0
+[2020-07-13 13:09:42,464] - AnalyzePDB.CovSubmatrix - DEBUG - covMatrix Shape: (10, 10)
+[2020-07-13 13:09:42,464] - AnalyzePDB.CovSubmatrix - DEBUG - covValues: [-9.52374646e-06  1.57619673e-01  6.66212660e-01  5.91469914e-01
+  4.38473703e-05  8.23620628e-02  8.14864525e-02  0.00000000e+00
+  0.00000000e+00  0.00000000e+00]
+[2020-07-13 13:09:42,464] - AnalyzePDB.CovSubmatrix - DEBUG - len(covValues):10
+[2020-07-13 13:09:42,464] - AnalyzePDB.CovSubmatrix - DEBUG - shape of covValues: (10,)
+[2020-07-13 13:09:42,464] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/dtn067/CryoEMCovariance/GapToyModel/subMatrices/subMatrix3.npy
+[2020-07-13 13:09:42,467] - AnalyzePDB.CovSubmatrix - DEBUG - i: 4
+[2020-07-13 13:09:42,467] - AnalyzePDB.CovSubmatrix - DEBUG - residuePair: (1, 2)
+[2020-07-13 13:09:42,467] - AnalyzePDB.CovSubmatrix - DEBUG - Match at key: 4
+[2020-07-13 13:09:42,467] - AnalyzePDB.CovSubmatrix - DEBUG - Covariance Matrix at key: [-2.62404019e-09  1.17778963e-05  3.46548730e-05  4.38473703e-05
+  2.30325575e-08  4.32639160e-05  4.28039673e-05  0.00000000e+00
+  0.00000000e+00  0.00000000e+00]
+[2020-07-13 13:09:42,467] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 5.0
+[2020-07-13 13:09:42,467] - AnalyzePDB.CovSubmatrix - DEBUG - subMatrix: 0.0
+[2020-07-13 13:09:42,467] - AnalyzePDB.CovSubmatrix - DEBUG - covMatrix Shape: (10, 10)
+[2020-07-13 13:09:42,468] - AnalyzePDB.CovSubmatrix - DEBUG - covValues: [-2.62404019e-09  1.17778963e-05  3.46548730e-05  4.38473703e-05
+  2.30325575e-08  4.32639160e-05  4.28039673e-05  0.00000000e+00
+  0.00000000e+00  0.00000000e+00]
+[2020-07-13 13:09:42,468] - AnalyzePDB.CovSubmatrix - DEBUG - len(covValues):10
+[2020-07-13 13:09:42,468] - AnalyzePDB.CovSubmatrix - DEBUG - shape of covValues: (10,)
+[2020-07-13 13:09:42,468] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/dtn067/CryoEMCovariance/GapToyModel/subMatrices/subMatrix4.npy
+[2020-07-13 13:09:42,470] - AnalyzePDB.CovSubmatrix - DEBUG - i: 5
+[2020-07-13 13:09:42,470] - AnalyzePDB.CovSubmatrix - DEBUG - residuePair: (1, 3)
+[2020-07-13 13:09:42,470] - AnalyzePDB.CovSubmatrix - DEBUG - Match at key: 5
+[2020-07-13 13:09:42,470] - AnalyzePDB.CovSubmatrix - DEBUG - Covariance Matrix at key: [-4.92894696e-06  2.21233754e-02  6.50950514e-02  8.23620628e-02
+  4.32639160e-05  8.12661135e-02  8.04021545e-02  0.00000000e+00
+  0.00000000e+00  0.00000000e+00]
+[2020-07-13 13:09:42,471] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 5.0
+[2020-07-13 13:09:42,471] - AnalyzePDB.CovSubmatrix - DEBUG - subMatrix: 0.0
+[2020-07-13 13:09:42,471] - AnalyzePDB.CovSubmatrix - DEBUG - covMatrix Shape: (10, 10)
+[2020-07-13 13:09:42,471] - AnalyzePDB.CovSubmatrix - DEBUG - covValues: [-4.92894696e-06  2.21233754e-02  6.50950514e-02  8.23620628e-02
+  4.32639160e-05  8.12661135e-02  8.04021545e-02  0.00000000e+00
+  0.00000000e+00  0.00000000e+00]
+[2020-07-13 13:09:42,471] - AnalyzePDB.CovSubmatrix - DEBUG - len(covValues):10
+[2020-07-13 13:09:42,471] - AnalyzePDB.CovSubmatrix - DEBUG - shape of covValues: (10,)
+[2020-07-13 13:09:42,471] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/dtn067/CryoEMCovariance/GapToyModel/subMatrices/subMatrix5.npy
+[2020-07-13 13:09:42,473] - AnalyzePDB.CovSubmatrix - DEBUG - i: 6
+[2020-07-13 13:09:42,473] - AnalyzePDB.CovSubmatrix - DEBUG - residuePair: (1, 4)
+[2020-07-13 13:09:42,473] - AnalyzePDB.CovSubmatrix - DEBUG - Match at key: 6
+[2020-07-13 13:09:42,474] - AnalyzePDB.CovSubmatrix - DEBUG - Covariance Matrix at key: [-4.87654618e-06  2.18881766e-02  6.44030108e-02  8.14864525e-02
+  4.28039673e-05  8.04021545e-02  7.95473805e-02  0.00000000e+00
+  0.00000000e+00  0.00000000e+00]
+[2020-07-13 13:09:42,474] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 5.0
+[2020-07-13 13:09:42,474] - AnalyzePDB.CovSubmatrix - DEBUG - subMatrix: 0.0
+[2020-07-13 13:09:42,474] - AnalyzePDB.CovSubmatrix - DEBUG - covMatrix Shape: (10, 10)
+[2020-07-13 13:09:42,474] - AnalyzePDB.CovSubmatrix - DEBUG - covValues: [-4.87654618e-06  2.18881766e-02  6.44030108e-02  8.14864525e-02
+  4.28039673e-05  8.04021545e-02  7.95473805e-02  0.00000000e+00
+  0.00000000e+00  0.00000000e+00]
+[2020-07-13 13:09:42,474] - AnalyzePDB.CovSubmatrix - DEBUG - len(covValues):10
+[2020-07-13 13:09:42,474] - AnalyzePDB.CovSubmatrix - DEBUG - shape of covValues: (10,)
+[2020-07-13 13:09:42,474] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/dtn067/CryoEMCovariance/GapToyModel/subMatrices/subMatrix6.npy
+[2020-07-13 13:09:42,477] - AnalyzePDB.CovSubmatrix - DEBUG - i: 7
+[2020-07-13 13:09:42,477] - AnalyzePDB.CovSubmatrix - DEBUG - residuePair: (2, 3)
+[2020-07-13 13:09:42,477] - AnalyzePDB.CovSubmatrix - DEBUG - Match at key: 7
+[2020-07-13 13:09:42,477] - AnalyzePDB.CovSubmatrix - DEBUG - Covariance Matrix at key: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+[2020-07-13 13:09:42,477] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 5.0
+[2020-07-13 13:09:42,477] - AnalyzePDB.CovSubmatrix - DEBUG - subMatrix: 0.0
+[2020-07-13 13:09:42,477] - AnalyzePDB.CovSubmatrix - DEBUG - covMatrix Shape: (10, 10)
+[2020-07-13 13:09:42,477] - AnalyzePDB.CovSubmatrix - DEBUG - covValues: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+[2020-07-13 13:09:42,477] - AnalyzePDB.CovSubmatrix - DEBUG - len(covValues):10
+[2020-07-13 13:09:42,477] - AnalyzePDB.CovSubmatrix - DEBUG - shape of covValues: (10,)
+[2020-07-13 13:09:42,477] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/dtn067/CryoEMCovariance/GapToyModel/subMatrices/subMatrix7.npy
+[2020-07-13 13:09:42,480] - AnalyzePDB.CovSubmatrix - DEBUG - i: 8
+[2020-07-13 13:09:42,480] - AnalyzePDB.CovSubmatrix - DEBUG - residuePair: (2, 4)
+[2020-07-13 13:09:42,480] - AnalyzePDB.CovSubmatrix - DEBUG - Match at key: 8
+[2020-07-13 13:09:42,480] - AnalyzePDB.CovSubmatrix - DEBUG - Covariance Matrix at key: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+[2020-07-13 13:09:42,480] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 5.0
+[2020-07-13 13:09:42,480] - AnalyzePDB.CovSubmatrix - DEBUG - subMatrix: 0.0
+[2020-07-13 13:09:42,480] - AnalyzePDB.CovSubmatrix - DEBUG - covMatrix Shape: (10, 10)
+[2020-07-13 13:09:42,480] - AnalyzePDB.CovSubmatrix - DEBUG - covValues: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+[2020-07-13 13:09:42,480] - AnalyzePDB.CovSubmatrix - DEBUG - len(covValues):10
+[2020-07-13 13:09:42,480] - AnalyzePDB.CovSubmatrix - DEBUG - shape of covValues: (10,)
+[2020-07-13 13:09:42,481] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/dtn067/CryoEMCovariance/GapToyModel/subMatrices/subMatrix8.npy
+[2020-07-13 13:09:42,483] - AnalyzePDB.CovSubmatrix - DEBUG - i: 9
+[2020-07-13 13:09:42,483] - AnalyzePDB.CovSubmatrix - DEBUG - residuePair: (3, 4)
+[2020-07-13 13:09:42,483] - AnalyzePDB.CovSubmatrix - DEBUG - Match at key: 9
+[2020-07-13 13:09:42,483] - AnalyzePDB.CovSubmatrix - DEBUG - Covariance Matrix at key: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+[2020-07-13 13:09:42,483] - AnalyzePDB.CovSubmatrix - INFO - Axes Length: 5.0
+[2020-07-13 13:09:42,483] - AnalyzePDB.CovSubmatrix - DEBUG - subMatrix: 0.0
+[2020-07-13 13:09:42,483] - AnalyzePDB.CovSubmatrix - DEBUG - covMatrix Shape: (10, 10)
+[2020-07-13 13:09:42,484] - AnalyzePDB.CovSubmatrix - DEBUG - covValues: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+[2020-07-13 13:09:42,484] - AnalyzePDB.CovSubmatrix - DEBUG - len(covValues):10
+[2020-07-13 13:09:42,484] - AnalyzePDB.CovSubmatrix - DEBUG - shape of covValues: (10,)
+[2020-07-13 13:09:42,484] - AnalyzePDB.CovSubmatrix - INFO - Outputting Covariance Submatrix at: /home/dtn067/CryoEMCovariance/GapToyModel/subMatrices/subMatrix9.npy
+[2020-07-13 13:09:42,486] - AnalyzePDB - INFO - Choosing scale of: 10.0
+[2020-07-13 13:09:42,486] - AnalyzePDB - INFO - Outputting covariance matrix plot
+[2020-07-13 13:09:42,520] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: CovarianceMatrix.html
+[2020-07-13 13:09:42,593] - AnalyzePDB - INFO - Reference used: toy-model-2-3.pdb
+[2020-07-13 13:09:42,594] - AnalyzePDB - INFO - [[ 6.16984346e-08  5.69014603e-06 -3.78767027e-05 -9.52374646e-06
+  -2.62404019e-09 -4.92894696e-06 -4.87654618e-06  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 5.69014603e-06  2.24804617e-01  1.98857440e-01  1.57619673e-01
+   1.17778963e-05  2.21233754e-02  2.18881766e-02  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-3.78767027e-05  1.98857440e-01  7.92009440e-01  6.66212660e-01
+   3.46548730e-05  6.50950514e-02  6.44030108e-02  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-9.52374646e-06  1.57619673e-01  6.66212660e-01  5.91469914e-01
+   4.38473703e-05  8.23620628e-02  8.14864525e-02  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-2.62404019e-09  1.17778963e-05  3.46548730e-05  4.38473703e-05
+   2.30325575e-08  4.32639160e-05  4.28039673e-05  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-4.92894696e-06  2.21233754e-02  6.50950514e-02  8.23620628e-02
+   4.32639160e-05  8.12661135e-02  8.04021545e-02  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-4.87654618e-06  2.18881766e-02  6.44030108e-02  8.14864525e-02
+   4.28039673e-05  8.04021545e-02  7.95473805e-02  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]]
+[2020-07-13 13:09:42,595] - AnalyzePDB - INFO - Total Computation Time: 3.639545440673828 seconds

@@ -16,6 +16,7 @@ import time
 import logging
 import inspect
 import numpy as np
+import math
 from ast import literal_eval
 
 """ Covariance Submatrix Splitting Class
@@ -121,8 +122,6 @@ class CovSubmatrix:
             dirList = os.listdir(baseDirectory)
 
         if relativePath not in dirList:       
-            print('relativePath: ' + relativePath)
-            print('osListDir: ' + str(os.listdir()))
             os.mkdir(outputDirectory)
 
         if not isinstance(residuePairList, list):
@@ -153,7 +152,7 @@ class CovSubmatrix:
                 self.logger.debug('Covariance Matrix at key: ' + str(covValues))
 
             # Initializing the covariance submatrix
-            axesLength = max(np.roots([1, -1, -2*len(covValues)]))
+            axesLength = math.ceil(max(np.roots([1, -1, -2*len(covValues)])))
             self.logger.info('Axes Length: ' + str(axesLength))
 
             subMatrix = np.reshape(np.zeros(int(axesLength)*int(axesLength)),
@@ -165,6 +164,10 @@ class CovSubmatrix:
             xIndex = 1
             yIndex = int(0)
             minXIndex = xIndex
+            self.logger.debug('covMatrix Shape: ' + str(np.shape(covMatrix)))
+            self.logger.debug('covValues: ' + str(covValues))
+            self.logger.debug('len(covValues):'  + str(len(covValues)))
+            self.logger.debug('shape of covValues: ' + str(np.shape(covValues)))
             for covValue in covValues:
                 subMatrix[yIndex][xIndex] = covValue
                 subMatrix[xIndex][yIndex] = covValue

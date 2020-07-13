@@ -107,15 +107,14 @@ class PlotInterface:
 
     """ Plots the passed matrices
     """
-    def plotMatrix(self, filename, npyPath, covPath, covMapDict):
+    def plotMatrix(self, filename, basePath, npyPath, covPath, covMapDict):
 
         # Naming the output file
-        output_file(filename)
+        output_file(os.path.join(basePath, filename))
 
         # Loading distance difference matrices
         npyNameList = [npyFile for npyFile in os.listdir(npyPath) \
                        if npyFile[-3:] == 'npy']
-        print(npyNameList)
 
         npyList = [None]*len(npyNameList)
         for i, npyName in enumerate(npyNameList):

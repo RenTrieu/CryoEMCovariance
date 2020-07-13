@@ -124,9 +124,12 @@ class AnalyzePDB:
         if args.outDirectory is not None:
             outDirectory = args.outDirectory
             if os.getcwd() not in outDirectory:
-                if args.directory is not None:
-                    directory = os.path.join(os.getcwd(), args.directory)
-                else:
+                try: 
+                    if args.directory is not None:
+                        directory = os.path.join(os.getcwd(), args.directory)
+                    else:
+                        directory = os.getcwd()
+                except AttributeError:
                     directory = os.getcwd()
                 outDirectory = os.path.join(directory, outDirectory)
 
@@ -163,7 +166,7 @@ class AnalyzePDB:
 
         # Initializing log file
         logFile = self.__class__.__name__ + '.log'
-        if args.directory is not None:
+        if directory is not None:
             logFile = os.path.join(directory, logFile)
         else:
             logFile = logFile
@@ -290,10 +293,10 @@ class AnalyzePDB:
             for j in range(i+1, differenceMatrixList[0][0].size):
                 covMapDict[n] = (i,j)
                 n += 1
-        if args.directory is None:
+        if directory is None:
             np.save('covMapDict.npy', covMapDict)
         else:
-            np.save(os.path.join(args.directory, 'covMapDict.npy'), covMapDict)
+            np.save(os.path.join(directory, 'covMapDict.npy'), covMapDict)
 
         # Plotting distance difference matrices if specified
         if args.plot:
@@ -308,19 +311,23 @@ class AnalyzePDB:
         covarianceMatrix = gCovarianceMatrix.calcCovarianceMatrix(
                         differenceDistanceList
                     )
-        if args.directory is None:
+        if directory is None:
             np.save('CovarianceMatrix.npy', covarianceMatrix)
         else:
-            np.save(os.path.join(args.directory, 'CovarianceMatrix.npy'), \
+            np.save(os.path.join(directory, 'CovarianceMatrix.npy'), \
                     covarianceMatrix)
 
         # Generating covariance submatrices 
-        covSubmatrix = CovSubmatrix()
-        covSubmatrix.generateSubmatrix(covarianceMatrix,
-                                       covMapDict,
-                                       subDirectory,
-                                       allResidues=True,
-                                       baseDirectory=directory)
+        if not len(covarianceMatrix.shape) == 0:
+            covSubmatrix = CovSubmatrix()
+            covSubmatrix.generateSubmatrix(covarianceMatrix,
+                                           covMapDict,
+                                           subDirectory,
+                                           allResidues=True,
+                                           baseDirectory=directory)
+        else:
+            logger.warning('Covariance Matrix is too small'\
+                           ' to generate submatrices.')
 
         # Setting up default resolution for covariance matrix if none is
         # specified
@@ -349,12 +356,18 @@ class AnalyzePDB:
                              ' too small to plot.')
 
         # Generating Interface
-        pInterface = PlotInterface()
-        if args.plot:
-            pInterface.plotMatrix('output.html', 
-                                  outDirectory, 
-                                  subDirectory, 
-                                  covMapDict)
+        if not len(covarianceMatrix.shape) == 0:
+            pInterface = PlotInterface()
+            if args.plot:
+                pInterface.plotMatrix('output.html', 
+                                      directory,
+                                      outDirectory, 
+                                      subDirectory, 
+                                      covMapDict)
+        else:
+            logger.warning('Covariance Matrix is too small'\
+                           ' to generate a plot interface')
+
 
         # Creating a map between covariance coordinate and residue pairs
         # x -> index of one covariance axis of n length
