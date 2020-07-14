@@ -3,3 +3,5 @@
 *.npy
 *.swp
 *.log
+*.pyc
+__pycache__
