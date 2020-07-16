@@ -15,14 +15,16 @@ import re
 # TODO: Generalize the inputs that this takes:
 #-----------------------------------------------------------------
 # Naming the output file
-output_file('js_on_change.html')
+#output_file('js_on_change.html')
 
 # Loading in data
 curPath = os.getcwd()
 
 # Loading distance difference matrices
 npyPath = os.path.join(curPath, 'ddMatrices')
-npyNameList = os.listdir(npyPath)
+npyNameList = [npyFile for npyFile in os.listdir(npyPath) \
+                       if npyFile[-3:] == 'npy']
+
 
 npyList = [None]*len(npyNameList)
 for i, npyName in enumerate(npyNameList):
