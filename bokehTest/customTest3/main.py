@@ -1,4 +1,4 @@
-# Custom JS Test
+# Custom JS Test with Python callbacks
 from bokeh.layouts import column, row
 from bokeh.models import (ColumnDataSource, CustomJS, Slider, 
                           LinearColorMapper, BasicTicker, ColorBar, 
@@ -6,11 +6,11 @@ from bokeh.models import (ColumnDataSource, CustomJS, Slider,
 from bokeh.plotting import figure, output_file, show, curdoc
 from bokeh.events import Tap, DoubleTap, ButtonClick
 from bokeh.core.properties import Enum
+import math
 import numpy as np
 import pandas as pd
 import os
 import re
-
 
 # TODO: Generalize the inputs that this takes:
 #-----------------------------------------------------------------
@@ -158,160 +158,105 @@ covarianceSource = ColumnDataSource(covarianceDF)
 # indices to residuePairs
 covMapDF = pd.DataFrame.from_records([invCovMapDict], index='(0, 1)')
 covMapSource = ColumnDataSource(covMapDF)
+# ------------------------------------------------------------------
 
-# Setting up slider callback for switching between matrices
-sliderCallback = CustomJS(args=dict(source=source, \
-                                    matrixSource=matrixSource, \
-                                    matrixNameList=npyNameList, \
-                                    title=plot.title), \
-                                    
-code="""
-    var data = source.data;
-    var f = cb_obj.value.toString();
-    var covValues = data['covValues'];
-    var axesLength = Math.sqrt(covValues.length);
-    for (var i = 0; i < covValues.length; i++) {
-        covValues[i] = matrixSource.data[f][i];
-    }
-    title.text = 'Distance Difference Matrix: ' + matrixNameList[cb_obj.value];
-    source.change.emit();
-""")
+def patchMatrixValues(newMatrix):
+    patch_id = [i for i in range(len(source.data['covValues']))]
+    patch = newMatrix
+    source.patch({'covValues' : list(zip(patch_id, patch))})
+
+def sliderCallback(attr, old, new):
+    f = str(new)
+    covValues = source.data['covValues']
+    axesLength = math.sqrt(len(covValues))
+
+    patchMatrixValues(matrixDict[f])
+
+    plot.title.text = 'Distance Difference Matrix: ' + npyNameList[new]
 
 # Double click call back for moving from distance difference matrices to
-# covariance matrices
-# TODO: Check on either possible python code call backs
-#       or pass all generated covariance submatrices to click callback
-clickCallback = CustomJS(args=dict(source=source, \
-                                   covarianceSource=covarianceSource, \
-                                   covMapSource=covMapSource, \
-                                   title=plot.title), \
-code="""
-    var data = source.data;
-    var covValues = data['covValues'];
-    var axesLength = Math.sqrt(data['covValues'].length);
-    var xCoord = Math.floor(cb_obj.x - 0.5);
-    var yCoord = Math.floor(cb_obj.y - 0.5);
-    console.log('Tap at: ' + xCoord + ', ' + yCoord);
-    if ((xCoord != yCoord) && (xCoord >= 0) && (xCoord < axesLength+1)
-         && (yCoord >= 0) && (yCoord < axesLength+1)) {
-        if (xCoord > yCoord) {
-            var temp = xCoord;
-            xCoord = yCoord;
+# covariance submatrices
+def clickCallback(event):
+    axesLength = math.sqrt(len(source.data['covValues']))
+    xCoord = math.floor(event.x - 0.5)
+    yCoord = math.floor(event.y - 0.5)
+
+    # Only accessing covariance submatrix if the click is not along the diagonal
+    # Also managing "mirrored" coordinates across the diagonal
+    if ((xCoord != yCoord) and (xCoord >= 0) and (xCoord < axesLength + 1)
+        and (yCoord >= 0) and (yCoord < axesLength + 1)):
+        if (xCoord > yCoord):
+            temp = xCoord
+            xCoord = yCoord
             yCoord = temp;
-        }
-        var coordString = '(' + xCoord + ', ' + yCoord + ')';
-        var covIndex = covMapSource.data[coordString][0];
-        console.log('coordString: ' + coordString);
-        console.log(covIndex);
-        console.log(covarianceSource.data[covIndex]);
-        for (var i = 0; i < covValues.length; i++) {
-            covValues[i] = covarianceSource.data[covIndex][i];
-        }
-        xCoord += 1;
-        yCoord += 1;
-        var displayString = '(' + xCoord + ', ' + yCoord + ')';
-        title.text = 'Covariance Submatrix: Residue Pair: ' + displayString;
-        source.change.emit();
-    }
-""")
+        coordString = '(' + str(xCoord) + ', ' + str(yCoord) + ')'
+        covIndex = invCovMapDict[coordString];
 
-slider = Slider(start=0, end=len(npyList)-1, value=0, step=1, title="index")
-slider.js_on_change('value', sliderCallback)
+        patchMatrixValues(covarianceDict[str(covIndex)])
 
-# Distance Difference Matrix Display
-# If the distance difference matrix is not on display (i.e. covariance
-# submatrices
-ddCallback = CustomJS(args=dict(source=source,\
-                                matrixSource=matrixSource, \
-                                matrixNameList=npyNameList, \
-                                slider=slider, \
-                                title=plot.title), \
-code="""
-    var data = source.data;
-    var f = slider.value.toString();
-    var covValues = data['covValues'];
-    for (var i = 0; i < covValues.length; i++) {
-        covValues[i] = matrixSource.data[f][i];
-    }
-    title.text = 'Distance Difference Matrix: ' + matrixNameList[slider.value];
-    source.change.emit();
-""")
+        # Changing plot title name to reflect the covariance pair
+        # with which the covariance submatrix is plotted in respect to
+        xCoord += 1
+        yCoord += 1
+        displayString = '(' + str(xCoord) + ', ' + str(yCoord) + ')'
+        plot.title.text = 'Covariance Submatrix: Residue Pair: ' + displayString;
 
-# Reset button callback
-resetCallback = CustomJS(args=dict(source=source, \
-                                   matrixSource=matrixSource, \
-                                   matrixNameList=npyNameList, \
-                                   slider=slider, \
-                                   title=plot.title), \
-code="""
-    var data = source.data;
-    slider.value = 0;
-    var f = slider.value.toString();
-    var covValues = data['covValues'];
-    for (var i = 0; i < covValues.length; i++) {
-        covValues[i] = matrixSource.data[f][i];
-    }
-    title.text = 'Distance Difference Matrix: ' + matrixNameList[0];
-    source.change.emit();
-""")
+# Distance Difference Matrix Display Callback
+# Shows current distance difference matrix if not already shown
+def ddCallback(event):
+    f = str(slider.value)
+    patchMatrixValues(matrixDict[f])
+    plot.title.text = 'Distance Difference Matrix: ' + npyNameList[int(f)]
 
-# Forward Button Callback (Moves DD Index forward by 1)
-forwardCallback = CustomJS(args=dict(source=source,\
-                                     matrixSource=matrixSource, \
-                                     matrixNameList=npyNameList, \
-                                     slider=slider, \
-                                     title=plot.title), \
-code="""
-    var data = source.data;
-    slider.value = slider.value + 1;
-    var f = slider.value.toString();
-    var covValues = data['covValues'];
-    for (var i = 0; i < covValues.length; i++) {
-        covValues[i] = matrixSource.data[f][i];
-    }
-    title.text = 'Distance Difference Matrix: ' + matrixNameList[slider.value];
-    source.change.emit();
-""")
+# Reset Button Callback
+# Resets display to the 0th index distance difference matrix
+def resetCallback(event):
+    slider.value = 0
+    f = str(slider.value)
+    patchMatrixValues(matrixDict[f])
+    plot.title.text = 'Distance Difference Matrix: ' + npyNameList[0]
 
-# Backward Button Callback (Moves DD Index backward by 1)
-backwardCallback = CustomJS(args=dict(source=source,\
-                                      matrixSource=matrixSource, \
-                                      matrixNameList=npyNameList, \
-                                      slider=slider, \
-                                      title=plot.title), \
-code="""
-    var data = source.data;
-    slider.value = slider.value - 1;
-    var f = slider.value.toString();
-    var covValues = data['covValues'];
-    for (var i = 0; i < covValues.length; i++) {
-        covValues[i] = matrixSource.data[f][i];
-    }
-    title.text = 'Distance Difference Matrix: ' + matrixNameList[slider.value];
-    source.change.emit();
-""")
+# Forward Button Callback
+# Moves DD Index forward by 1 and displays DD matrix
+def forwardCallback(event):
+    slider.value = slider.value + 1
+    f = str(slider.value)
+    patchMatrixValues(matrixDict[f])
+    plot.title.text = 'Distance Difference Matrix: ' + npyNameList[int(f)]
+
+# Backward Button Callback
+# Moves DD Index backward by 1 and displays DD matrix
+def backwardCallback(event):
+    slider.value = slider.value - 1
+    f = str(slider.value)
+    patchMatrixValues(matrixDict[f])
+    plot.title.text = 'Distance Difference Matrix: ' + npyNameList[int(f)]
+
+# ------------------------------------------------------------------
 
 # Creating buttons and linking them to their corresponding callbacks
 buttonBack = Button(label="Back", button_type="success")
-buttonBack.js_on_event(ButtonClick, backwardCallback)
+buttonBack.on_event(ButtonClick, backwardCallback)
 buttonDD = Button(label="Show Distance Difference", button_type="success")
-buttonDD.js_on_event(ButtonClick, ddCallback)
+buttonDD.on_event(ButtonClick, ddCallback)
 buttonForward = Button(label="Forward", button_type="success")
-buttonForward.js_on_event(ButtonClick, forwardCallback)
+buttonForward.on_event(ButtonClick, forwardCallback)
 
 buttonBar = row(buttonBack, buttonDD, buttonForward)
 
 buttonReset = Button(label="Reset", button_type="success")
-buttonReset.js_on_event(ButtonClick, resetCallback)
+buttonReset.on_event(ButtonClick, resetCallback)
 
+
+slider = Slider(start=0, end=len(npyList)-1, value=0, step=1, title="index")
+slider.on_change('value', sliderCallback)
+
+# Creating a layout from plot elements
+plot.on_event('tap', clickCallback)
 layout = column(plot, buttonBar, slider, buttonReset)
-
-plot.js_on_event('tap', clickCallback)
 
 # Adding the plot to the server's document
 server_doc = curdoc()
 server_doc.add_root(layout)
 server_doc.title = "Distance Difference App"
 
-# Fix indices
-#show(layout)

@@ -1,4 +1,4 @@
-# Custom JS Test
+# Custom JS Test with Python callbacks
 from bokeh.layouts import column, row
 from bokeh.models import (ColumnDataSource, CustomJS, Slider, 
                           LinearColorMapper, BasicTicker, ColorBar, 
@@ -10,7 +10,6 @@ import numpy as np
 import pandas as pd
 import os
 import re
-
 
 # TODO: Generalize the inputs that this takes:
 #-----------------------------------------------------------------
