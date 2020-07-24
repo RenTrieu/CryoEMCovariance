@@ -6,6 +6,7 @@ from bokeh.models import (ColumnDataSource, CustomJS, Slider,
 from bokeh.plotting import figure, output_file, show, curdoc
 from bokeh.events import Tap, DoubleTap, ButtonClick
 from bokeh.core.properties import Enum
+from covSubmatrix import CovSubmatrix
 import math
 import numpy as np
 import pandas as pd
@@ -14,52 +15,26 @@ import re
 
 # TODO: Generalize the inputs that this takes:
 #-----------------------------------------------------------------
-# Naming the output file
-#output_file('js_on_change.html')
-
 # Loading in data
 curPath = os.getcwd()
 
 # Loading distance difference matrices
 npyPath = os.path.join(curPath, 'ddMatrices')
 npyNameList = [npyFile for npyFile in os.listdir(npyPath) \
-                       if npyFile[-3:] == 'npy']
-
+                       if (npyFile[-3:] == 'npy') and ('Formatted' not in npyFile)]
 
 npyList = [None]*len(npyNameList)
 for i, npyName in enumerate(npyNameList):
     npyList[i] = np.load(os.path.join(npyPath, npyName))
 
-# Loading covariance matrices
-covPath = os.path.join(curPath, 'subMatrices')
-covNameList = sorted(os.listdir(covPath))
-
-# Attempting to natural sort
-# Lambda function from 
-# https://stackoverflow.com/questions/4836710/
-# is-there-a-built-in-function-for-string-natural-sort
-
-natSort = lambda covName: [int(t) if t.isdigit() else t  \
-                     for t in re.split('(\d+)', covName)]
-covNameSplitList = [natSort(covName) for covName in covNameList]
-digitIndex = 0
-for i, labelPart in enumerate(covNameSplitList[0]):
-    if str(labelPart).isdigit():
-        digitIndex = i
-covNameSplitList.sort(key = lambda x: x[digitIndex])
-for i, covName in enumerate(covNameSplitList):
-    covNameString = ''
-    for j, part in enumerate(covName):
-        covNameString = covNameString + str(part)
-    covNameList[i] = covNameString
-    
-covList = [None]*len(covNameList)
-for i, covName in enumerate(covNameList):
-    covList[i] = np.load(os.path.join(covPath, covName))
-
+# Loading and defining dictionaries to map to and fro residue pairs to
+# the corresponding submatrices
 covMapDict = np.load('covMapDict.npy', allow_pickle=True).item()
 invCovMapDict = {str(value): key for key, value in covMapDict.items()}
 
+# Loading Covariance Matrix and helper class to split submatrices
+covarianceMatrix = np.load('CovarianceMatrix.npy')
+cSubmatrix = CovSubmatrix()
 #-----------------------------------------------------------------
 
 # Interactive Plot Tools
@@ -130,48 +105,29 @@ plot.title = Title(text='Distance Difference Matrix: ' + npyNameList[0], \
 
 plot.add_layout(color_bar, 'right')
 
-# Creating ColumnDataSource to pass the covValues of all matrices
-# to the slider and button callback
+# Creating a dictionary of distance difference matrices based off of
+# order they are loaded in
 matrixDict = {}
 for i, npy in enumerate(npyList):
     if i not in matrixDict.keys():
         matrixDict[str(i)] = npyList[i].flatten()
-matrixDF = pd.DataFrame(
-                matrixDict
-           )
 
-matrixSource = ColumnDataSource(matrixDF)
-
-# Creating ColumnDataSource to pass the covariance submatrix covValues 
-# to the click callback
-covarianceDict = {}
-for i, cov in enumerate(covList):
-    if i not in covarianceDict.keys():
-        covarianceDict[str(i)] = covList[i].flatten()
-covarianceDF = pd.DataFrame(
-                    covarianceDict
-               )
-
-covarianceSource = ColumnDataSource(covarianceDF)
-
-# Creating ColumnDataSource to pass the covariance submatrix mapping from
-# indices to residuePairs
-covMapDF = pd.DataFrame.from_records([invCovMapDict], index='(0, 1)')
-covMapSource = ColumnDataSource(covMapDF)
 # ------------------------------------------------------------------
 
+# Takes a flattened matrix and updates the plot to its values
 def patchMatrixValues(newMatrix):
     patch_id = [i for i in range(len(source.data['covValues']))]
     patch = newMatrix
     source.patch({'covValues' : list(zip(patch_id, patch))})
 
+# Slider Callback
+# Changes the distance difference matrix displayed based off of the index
+# that the slider is set to
 def sliderCallback(attr, old, new):
     f = str(new)
     covValues = source.data['covValues']
     axesLength = math.sqrt(len(covValues))
-
     patchMatrixValues(matrixDict[f])
-
     plot.title.text = 'Distance Difference Matrix: ' + npyNameList[new]
 
 # Double click call back for moving from distance difference matrices to
@@ -191,8 +147,12 @@ def clickCallback(event):
             yCoord = temp;
         coordString = '(' + str(xCoord) + ', ' + str(yCoord) + ')'
         covIndex = invCovMapDict[coordString];
-
-        patchMatrixValues(covarianceDict[str(covIndex)])
+        residuePairString = '[' + coordString + ']'
+        subMatrix = cSubmatrix.generateSubmatrix(covarianceMatrix, covMapDict, 
+                             residuePairList=residuePairString, 
+                             allResidues=False,
+                             baseDirectory=None).flatten()
+        patchMatrixValues(subMatrix)
 
         # Changing plot title name to reflect the covariance pair
         # with which the covariance submatrix is plotted in respect to
@@ -219,18 +179,20 @@ def resetCallback(event):
 # Forward Button Callback
 # Moves DD Index forward by 1 and displays DD matrix
 def forwardCallback(event):
-    slider.value = slider.value + 1
-    f = str(slider.value)
-    patchMatrixValues(matrixDict[f])
-    plot.title.text = 'Distance Difference Matrix: ' + npyNameList[int(f)]
+    if slider.value < len(matrixDict.keys()) - 1:
+        slider.value = slider.value + 1
+        f = str(slider.value)
+        patchMatrixValues(matrixDict[f])
+        plot.title.text = 'Distance Difference Matrix: ' + npyNameList[int(f)]
 
 # Backward Button Callback
 # Moves DD Index backward by 1 and displays DD matrix
 def backwardCallback(event):
-    slider.value = slider.value - 1
-    f = str(slider.value)
-    patchMatrixValues(matrixDict[f])
-    plot.title.text = 'Distance Difference Matrix: ' + npyNameList[int(f)]
+    if slider.value > 0:
+        slider.value = slider.value - 1
+        f = str(slider.value)
+        patchMatrixValues(matrixDict[f])
+        plot.title.text = 'Distance Difference Matrix: ' + npyNameList[int(f)]
 
 # ------------------------------------------------------------------
 

@@ -91,7 +91,7 @@ class CovSubmatrix:
         covMatrix
     """
     def generateSubmatrix(self, covMatrix, covMap, \
-                          outputDirectory=None, residuePairList=None, 
+                          outputDirectory, residuePairList=None, 
                           allResidues=True, baseDirectory=None):
 
         # Loading .npy files and parsing using the information given 
@@ -106,24 +106,23 @@ class CovSubmatrix:
 
         # Parsing outputDirectory and converting relative paths to
         # absolute paths if applicable
-        if outputDirectory is not None:
-            if os.getcwd() not in outputDirectory:
-                outputDirectory = os.path.join(os.getcwd(), outputDirectory)
+        if os.getcwd() not in outputDirectory:
+            outputDirectory = os.path.join(os.getcwd(), outputDirectory)
 
-            # Creating outputDirectory if it doesn't already exist
+        # Creating outputDirectory if it doesn't already exist
+        relativePath = outputDirectory.split('/') \
+                       [len(outputDirectory.split('/'))-1]
+        if len(relativePath) <= 0:
             relativePath = outputDirectory.split('/') \
-                           [len(outputDirectory.split('/'))-1]
-            if len(relativePath) <= 0:
-                relativePath = outputDirectory.split('/') \
-                           [len(outputDirectory.split('/'))-2]
+                       [len(outputDirectory.split('/'))-2]
 
-            if baseDirectory is None:
-                dirList = os.listdir()
-            else:
-                dirList = os.listdir(baseDirectory)
+        if baseDirectory is None:
+            dirList = os.listdir()
+        else:
+            dirList = os.listdir(baseDirectory)
 
-            if relativePath not in dirList:
-                os.mkdir(outputDirectory)
+        if relativePath not in dirList:       
+            os.mkdir(outputDirectory)
 
         if not isinstance(residuePairList, list):
             if isinstance(residuePairList, tuple):
@@ -179,13 +178,10 @@ class CovSubmatrix:
                 else:
                     xIndex += 1
 
-            if outputDirectory is not None:
-                fullOutputString = os.path.join(outputDirectory, 'subMatrix' \
-                                                + str(i) + '.npy')
-                self.logger.info('Outputting Covariance Submatrix at: ' \
-                                 + fullOutputString)
-                np.save(fullOutputString, subMatrix)
-
-            return subMatrix
+            fullOutputString = os.path.join(outputDirectory, 'subMatrix' \
+                                            + str(i) + '.npy')
+            self.logger.info('Outputting Covariance Submatrix at: ' \
+                             + fullOutputString)
+            np.save(fullOutputString, subMatrix)
 
 covSubmatrix = CovSubmatrix()
