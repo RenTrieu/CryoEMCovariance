@@ -171,7 +171,7 @@ class DashboardServer:
         self.logger.debug('npyPath: ' + str(npyPath))
         self.logger.debug('covMapDict: ' + str(covMapDict))
 
-        # TODO: Generalize the inputs that this takes:
+        # Retrieving Data
         #-----------------------------------------------------------------
         # Loading in data
         curPath = os.getcwd()
@@ -275,6 +275,7 @@ class DashboardServer:
             if i not in matrixDict.keys():
                 matrixDict[str(i)] = npyList[i].flatten()
 
+        # Python Callbacks
         # ------------------------------------------------------------------
 
         # Takes a flattened matrix and updates the plot to its values

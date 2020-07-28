@@ -12,6 +12,7 @@ import os
 import numpy as np
 import pandas as pd
 import logging
+import math
 from itertools import combinations
 from comparePDB import ComparePDB
 from pdbReader import PDBReader
@@ -298,8 +299,8 @@ class AnalyzePDB:
         # Setting up default resolution for covariance matrix if none is
         # specified
         if args.scale is None:
-            scale = ((differenceMatrixList[0][0].size)
-                     *(differenceMatrixList[0][0].size-1))/2
+            scale = math.ceil(((differenceMatrixList[0][0].size)
+                     *(differenceMatrixList[0][0].size-1))/2)
         else:
             scale = args.scale
         logger.info('Choosing scale of: ' + str(scale))
