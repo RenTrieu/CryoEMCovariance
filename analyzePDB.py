@@ -21,6 +21,7 @@ from generateCovarianceMatrix import GenerateCovarianceMatrix
 from covSubmatrix import CovSubmatrix
 from plotGenerator import PlotGenerator
 from plotInterface import PlotInterface
+from plotDashboard import DashboardServer
 
 
 """ Class that houses Analyze PDB
@@ -53,9 +54,6 @@ class AnalyzePDB:
         parser.add_argument('--outDirectory', nargs='?', default='ddMatrices',
                             help='Specifies a directory to which files will'\
                             ' be outputted')
-        parser.add_argument('--subDirectory', nargs='?', default='subMatrices',
-                            help='Specifies a dirctory to which covariance'\
-                            ' submatrices will be outputted')
         parser.add_argument('--strip', help='Removes side chains',\
                             action='store_true')
         parser.add_argument('-v', '--verbose',
@@ -145,25 +143,6 @@ class AnalyzePDB:
         else:
             outDirectory = None
 
-        # Parsing and converting relative paths to
-        # absolute paths if applicable
-        if args.subDirectory is not None:
-            subDirectory = args.subDirectory
-            if os.getcwd() not in subDirectory:
-                subDirectory = os.path.join(directory, subDirectory)
-
-            # Creating subDirectory if it doesn't already exist
-            relativePath = subDirectory.split('/') \
-                           [len(subDirectory.split('/'))-1]
-            if len(relativePath) <= 0:
-                relativePath = subDirectory.split('/') \
-                           [len(subDirectory.split('/'))-2]
-            if relativePath not in os.listdir(directory):       
-                os.mkdir(subDirectory)
-            relativePath = None
-        else:
-            subDirectory = None
-
         # Initializing log file
         logFile = self.__class__.__name__ + '.log'
         if directory is not None:
@@ -172,7 +151,6 @@ class AnalyzePDB:
             logFile = logFile
 
         # Initializing logging handlers
-
         logLevel = args.log
         logger = logging.getLogger(self.__class__.__name__)
 
@@ -317,18 +295,6 @@ class AnalyzePDB:
             np.save(os.path.join(directory, 'CovarianceMatrix.npy'), \
                     covarianceMatrix)
 
-        # Generating covariance submatrices 
-        if not len(covarianceMatrix.shape) == 0:
-            covSubmatrix = CovSubmatrix()
-            covSubmatrix.generateSubmatrix(covarianceMatrix,
-                                           covMapDict,
-                                           subDirectory,
-                                           allResidues=True,
-                                           baseDirectory=directory)
-        else:
-            logger.warning('Covariance Matrix is too small'\
-                           ' to generate submatrices.')
-
         # Setting up default resolution for covariance matrix if none is
         # specified
         if args.scale is None:
@@ -357,13 +323,11 @@ class AnalyzePDB:
 
         # Generating Interface
         if not len(covarianceMatrix.shape) == 0:
-            pInterface = PlotInterface()
-            if args.plot:
-                pInterface.plotMatrix('output.html', 
-                                      directory,
-                                      outDirectory, 
-                                      subDirectory, 
-                                      covMapDict)
+            dashboardServer = DashboardServer(basePath=directory, \
+                                              npyPath=outDirectory, \
+                                              covMapDict=covMapDict)
+            server = dashboardServer.returnServer()
+            server.io_loop.add_callback(server.show, "/")
         else:
             logger.warning('Covariance Matrix is too small'\
                            ' to generate a plot interface')
@@ -380,5 +344,9 @@ class AnalyzePDB:
         logger.info('Total Computation Time: %s seconds'\
                     %(time.time() -start_time))
         print('Complete')
+
+        if args.plot and not (len(covarianceMatrix.shape) == 0):
+            server.io_loop.start()
+
 
 analyzePDB = AnalyzePDB()
