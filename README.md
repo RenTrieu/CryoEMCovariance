@@ -47,6 +47,13 @@ Notes:
   the interface uses raw .npy matrix files for distance difference matrices
   and covariance submatrices and has not been integrated with the rest of the
   scripts.
+- After creating the initial Bokeh interface (which created a local .html file
+  as a way to access the plots/data), I was able to convert the interface into
+  a true server. In this server, the covariance submatrices are not 
+  pregenerated, but rather are generated as needed through python callbacks.
+  Running this with the `Initial5/` pdb files requires enough memory such that
+  the process is killed on our aida server. I'm looking to flesh out image
+  scaling to lighten the memory load for these matrices.
 
 In-Development Notes/Changes:
 
@@ -60,6 +67,8 @@ In-Development Notes/Changes:
 - Implementing interactive plots using Bokeh
 - Changed default scaling from being 1500 units down each axis to
   matching the real resolution of the covariance matrix
+- Reworked `plotGenerator.py` into `plotDashboard.py` complete with python
+  callbacks
 
 To Do:
 
@@ -72,7 +81,8 @@ To Do:
 - ~~Shift indices from starting with 0 to starting with 1 to match pdb format
   numbering~~
 - ~~Add proper logging~~
-- Reintegrate interface into the rest of the suite of scripts
+- ~~Reintegrate interface into the rest of the suite of scripts~~
+- Add scaling feature/support for larger datasets
 
 Version 0.6
 -----------
