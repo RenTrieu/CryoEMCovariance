@@ -49,8 +49,9 @@ print('indexDict: ' + str(indexDict))
 # Reformatting axes splits into usable format (ColumnDataSource)
 #------------------------------------------------------------------------------
 tickDict = {}
-tickDict['x'] = list(indexDict.values())
-tickDict['y'] = list(indexDict.values())
+tickDict['-1'] = [len(indexDict.keys())]
+for key in indexDict.keys():
+    tickDict[str(key)] = list(indexDict[key])
 print('tickDict: ' + str(tickDict))
 
 #------------------------------------------------------------------------------
@@ -63,15 +64,26 @@ fFormatter.args[string1] = tickSource
 print(fFormatter.args)
 
 fFormatter.code = '''
-    console.log(tickDict)
+    var tickData = tickDict.data
+    for (var i = 0; i < tickData['-1']; i++) {
+        var curTickRange = tickData[i.toString()]
+        var minTick = curTickRange[0];
+        var maxTick = 0;
+        for (var j = 0; j < curTickRange.length; j++) {
+            if (curTickRange[j] > maxTick) {
+                maxTick = curTickRange[j];
+            }
+        }
+        console.log("minTick: " + minTick);
+        console.log("maxTick: " + maxTick);
+        // ticks[i] = minTick.toString() + "-" + maxTick.toString();
+    }
+    console.log("tick: " + tick)
 '''
 
-
-"""
 p = figure()
 p.circle([1,2,3,4,6], [5,7,3,2,4], size=20)
 p.xaxis.formatter = fFormatter
 p.yaxis.formatter = fFormatter
 
 show(p)
-"""
