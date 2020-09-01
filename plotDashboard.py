@@ -10,7 +10,7 @@ from bokeh.models import (ColumnDataSource, CustomJS, Slider,
                           HoverTool, Button, Title, FactorRange)
 from bokeh.plotting import figure, output_file, show, curdoc
 from bokeh.events import Tap, DoubleTap, ButtonClick
-from bokeh.core.properties import Enum
+from bokeh.core.properties import Enum, MinMaxBounds
 from bokeh.server.server import Server
 
 from covSubmatrix import CovSubmatrix
@@ -252,11 +252,27 @@ class DashboardServer:
                                 desired_num_ticks=len(blueRedColors)))
 
         # Plotting 
-        plot = figure(x_range=(0.5, axesLength+0.5),
+        plotLabel = FactorRange(factors=["#: " + str(i+1) for i in range(axesLength)],
+                                bounds=(0.5, axesLength + 0.5))
+        numericLabel = FactorRange(factors=[str(int(i)) for i in range(axesLength)], 
+                                   bounds=(0.5, axesLength + 0.5))
+        plot = figure(x_range=numericLabel,
+                      y_range=numericLabel,
+                      tools=TOOLS, 
+                      toolbar_location='below',
+                      tooltips=tooltipList)
+        """
+        plot = figure(x_range=plotLabel,
                       y_range=(0.5, axesLength+0.5),
                       tools=TOOLS, 
                       toolbar_location='below',
                       tooltips=tooltipList)
+        """
+        plot.x_range = plotLabel
+        print('DEBUG TYPE: ' + str(type(plot.x_range)))
+        print('DEBUG RAW: ' + str(plot.x_range))
+
+        #print(type(plot.x_range))
         plot.rect(x='x', y='y', width=1, height=1,
                   source=source,
                   fill_color={'field': 'covValues', 'transform' : color_mapper},
