@@ -304,10 +304,26 @@ class DashboardServer:
 
         # Checks to see if the specified scale matches
         axesLength = int(np.sqrt(len(covVals)))
+        self.indexDict = None
+        self.scaledRangeDict = None
         if axesLength != int(self.scale):
             axesLength = self.scale
-            newMatrix, indexDict = self.rescaleMatrix(covVals, self.scale)
+            newMatrix, self.indexDict = self.rescaleMatrix(covVals, self.scale)
             covVals = newMatrix.flatten()
+
+        # Creating a dictionary mapping the new indices to 
+        # strings describing the ranges of the original indices
+        if self.indexDict is not None:
+            self.scaledRangeDict = {}
+            for key in self.indexDict.keys():
+                for index, value in enumerate(self.indexDict[key]):
+                    if key not in self.scaledRangeDict.keys():
+                        self.scaledRangeDict[key] = \
+                                str(self.indexDict[key][index]+1)
+                    else:
+                        self.scaledRangeDict[key] += '-' \
+                                            + str(self.indexDict[key][index]+1)
+        self.logger.debug('scaledRangeDict: ' + str(self.scaledRangeDict))
 
         # Defining fields to be displayed in hover tooltips
         source = ColumnDataSource(data={
@@ -330,17 +346,26 @@ class DashboardServer:
 
         # Plotting 
         # TODO: Change these to regular numbers and/or ranges
-        plotLabel = FactorRange(factors=["#: " + str(i+1) for i in range(axesLength)],
-                                bounds=(0.5, axesLength + 0.5))
-        numericLabel = FactorRange(factors=[str(int(i+1)) for i in range(axesLength)], 
-                                   bounds=(0.5, axesLength + 0.5))
-        plot = figure(x_range=numericLabel,
-                      y_range=numericLabel,
+        if self.scaledRangeDict is not None:
+            plotLabel = FactorRange(
+                            factors=[self.scaledRangeDict[i] \
+                                     for i in range(axesLength)],
+                            bounds=(0.5, axesLength + 0.5))
+        else:
+            plotLabel = FactorRange(
+                            factors=[str(int(i+1)) \
+                                     for i in range(axesLength)], 
+                           bounds=(0.5, axesLength + 0.5))
+        plot = figure(x_range=plotLabel,
+                      y_range=plotLabel,
                       tools=TOOLS, 
                       toolbar_location='below',
                       tooltips=tooltipList)
 
+        # TODO: Remove this, it's redundant, but I'm keeping it here for
+        #       reference
         plot.x_range = plotLabel
+        plot.y_range = plotLabel
 
         plot.rect(x='x', y='y', width=1, height=1,
                   source=source,
