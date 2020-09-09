@@ -299,8 +299,11 @@ class AnalyzePDB:
         # Setting up default resolution for covariance matrix if none is
         # specified
         if args.scale is None:
+            """
             scale = math.ceil(((differenceMatrixList[0][0].size)
                      *(differenceMatrixList[0][0].size-1))/2)
+            """
+            scale = differenceMatrixList[0][0].size
         else:
             scale = args.scale
         logger.info('Choosing scale of: ' + str(scale))
@@ -326,7 +329,8 @@ class AnalyzePDB:
         if not len(covarianceMatrix.shape) == 0:
             dashboardServer = DashboardServer(basePath=directory, \
                                               npyPath=outDirectory, \
-                                              covMapDict=covMapDict)
+                                              covMapDict=covMapDict,
+                                              scale=scale)
             server = dashboardServer.returnServer()
             server.io_loop.add_callback(server.show, "/")
         else:

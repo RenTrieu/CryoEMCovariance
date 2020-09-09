@@ -15,6 +15,8 @@ from bokeh.server.server import Server
 
 from covSubmatrix import CovSubmatrix
 
+from PIL import Image
+
 import time
 import math
 import numpy as np
@@ -32,7 +34,8 @@ class DashboardServer:
 
     """ Initialization function
     """
-    def __init__(self, basePath=None, npyPath=None, covMapDict=None):
+    def __init__(self, basePath=None, npyPath=None, 
+                 covMapDict=None, scale=None):
         # When called directly from script
         if __name__ == "__main__":
             version = 0.7
@@ -57,6 +60,11 @@ class DashboardServer:
                                 help='Controls logging verbosity based off of'\
                                 ' log message priority. Levels include:' \
                                 'DEBUG, INFO, WARNING, ERROR, CRITICAL')
+            parser.add_argument('--scale', default=None,
+                                help='Specifies the length the matrix axes' \
+                                ' to which to scale. Not specifying,' \
+                                ' defaults to original length of the matrix' \
+                                ' axes')
 
             # TODO: Add an option to specify port
             args = parser.parse_args()
@@ -88,6 +96,7 @@ class DashboardServer:
 
             self.basePath = args.basePath
             self.npyPath = args.npyPath
+            self.scale = args.scale
 
             if isinstance(args.covMapDict, str):
                 self.covMapDict = np.load(args.covMapDict, \
@@ -128,6 +137,7 @@ class DashboardServer:
 
             self.basePath = basePath
             self.npyPath = npyPath
+            self.scale = scale
 
             if isinstance(covMapDict, str):
                 self.covMapDict = np.load(covMapDict, allow_pickle=True).item()
@@ -146,16 +156,65 @@ class DashboardServer:
     """
     def rescaleMatrix(self, npy, length):
 
-        # Converting the covarianceMatrix into an image to scale
+        # Converting the given matrix into an image to scale
         # it to an aspect ratio that is plottable
         # (There are memory errors if the array passed to plot is
         #  too big)
-        # ratio = float(args.scale)/float(len(covarianceMatrix))
-        covarianceImage = Image.fromarray(npy)
-        covarianceImage = covarianceImage.resize((length, length),
+        # ratio = float(args.scale)/float(len(matrix))
+        originalLength = int(math.ceil(math.sqrt(len(npy))))
+        npy = npy.reshape(originalLength, originalLength)
+        self.logger.debug('Matrix Before Image Rescaling: ' + str(npy))
+        matrixImage = Image.fromarray(npy)
+        matrixImage = matrixImage.resize((length, length),
                                                  Image.ANTIALIAS)
-        covarianceMatrix = np.array(covarianceImage)
-        return covarianceMatrix
+        matrix = np.array(matrixImage)
+        self.logger.debug('Matrix After Image Rescaling: ' + str(matrix))
+
+        # Scaling the covarianceMatrix as an image means that the
+        # axes won't necessarily scale perfectly
+        # indexDict acts as an approximate mapping from the old axes
+        # scale to the new one
+
+        # ---------------------------------------------------------------------
+        # Defines the current max column indices (i.e. number of current 
+        # elements)
+        n = npy.shape[0]
+
+        # Defines the max scaled column indices
+        scale = length
+
+        # Defines the max height for scaled column index lists
+        h = 1
+
+        # Defining dictionary to hold the list of column indices
+        indexDict = {}
+
+        # Number of columns at max height h
+        # (All other columns should be at h-1 height except for the last column
+        #  which can be any height less than or equal to h-1)
+        hColumns = n % scale
+
+        # Max height
+        h = math.ceil(n/scale)
+
+        j = 0
+        for i in range(n):
+            if j not in indexDict.keys():
+                indexDict[j] = [i]
+            elif hColumns > 0 and len(indexDict[j]) < h:
+                indexDict[j].append(i)
+            elif len(indexDict[j]) < h-1:
+                indexDict[j].append(i)
+
+            if hColumns > 0 and len(indexDict[j]) == h:
+                j += 1
+                hColumns -= 1
+            elif hColumns == 0 and len(indexDict[j]) == h-1:
+                j += 1
+
+        # ---------------------------------------------------------------------
+
+        return matrix, indexDict
 
 
     """ Plots the given data
@@ -217,20 +276,38 @@ class DashboardServer:
                      '#6666FF', '#5555FF', '#4444FF', '#3333FF',
                      '#2222FF', '#1111FF', '#0000FF']
 
-        xyPairList = [None]*npyList[0].shape[0]*npyList[0].shape[1]
 
         # Creating list
-        for i in range(0, npyList[0].shape[0]):
-            for j in range(0, npyList[0].shape[1]):
-                xyPairList[i+j*npyList[0].shape[0]] = (i+1, j+1)
+        axesXMax = npyList[0].shape[0]
+        if int(self.scale) != int(npyList[0].shape[0]):
+            axesXMax = self.scale
+        axesYMax = npyList[0].shape[1]
+        if int(self.scale) != int(npyList[0].shape[1]):
+            axesYMax = self.scale
 
-        # Reshaping source values in order to shift incides from starting with 0 to
-        # starting with 1
+        xyPairList = [None]*axesXMax*axesYMax
+
+        for i in range(0, axesXMax):
+            for j in range(0, axesYMax):
+                xyPairList[i+j*axesXMax] = (i+1, j+1)
+
+        self.logger.debug('xyPairList: ' + str(xyPairList))
+        self.logger.debug('type: xyPairList: ' + str(type(xyPairList)))
+
+        # Reshaping source values in order to shift incides from starting 
+        # with 0 to starting with 1
         xVals = np.transpose(xyPairList)[0]
         yVals = np.transpose(xyPairList)[1]
         covVals = npyList[0].flatten()
+        self.logger.debug('npyList: ' + str(npyList))
+        self.logger.debug('covVals: ' + str(covVals))
 
+        # Checks to see if the specified scale matches
         axesLength = int(np.sqrt(len(covVals)))
+        if axesLength != int(self.scale):
+            axesLength = self.scale
+            newMatrix, indexDict = self.rescaleMatrix(covVals, self.scale)
+            covVals = newMatrix.flatten()
 
         # Defining fields to be displayed in hover tooltips
         source = ColumnDataSource(data={
@@ -252,27 +329,19 @@ class DashboardServer:
                                 desired_num_ticks=len(blueRedColors)))
 
         # Plotting 
+        # TODO: Change these to regular numbers and/or ranges
         plotLabel = FactorRange(factors=["#: " + str(i+1) for i in range(axesLength)],
                                 bounds=(0.5, axesLength + 0.5))
-        numericLabel = FactorRange(factors=[str(int(i)) for i in range(axesLength)], 
+        numericLabel = FactorRange(factors=[str(int(i+1)) for i in range(axesLength)], 
                                    bounds=(0.5, axesLength + 0.5))
         plot = figure(x_range=numericLabel,
                       y_range=numericLabel,
                       tools=TOOLS, 
                       toolbar_location='below',
                       tooltips=tooltipList)
-        """
-        plot = figure(x_range=plotLabel,
-                      y_range=(0.5, axesLength+0.5),
-                      tools=TOOLS, 
-                      toolbar_location='below',
-                      tooltips=tooltipList)
-        """
-        plot.x_range = plotLabel
-        print('DEBUG TYPE: ' + str(type(plot.x_range)))
-        print('DEBUG RAW: ' + str(plot.x_range))
 
-        #print(type(plot.x_range))
+        plot.x_range = plotLabel
+
         plot.rect(x='x', y='y', width=1, height=1,
                   source=source,
                   fill_color={'field': 'covValues', 'transform' : color_mapper},
@@ -296,6 +365,11 @@ class DashboardServer:
 
         # Takes a flattened matrix and updates the plot to its values
         def patchMatrixValues(newMatrix):
+            if (int(self.scale) \
+                    != int(math.ceil(math.sqrt(newMatrix.shape[0])))):
+
+                newMatrix, indexDict = self.rescaleMatrix(newMatrix, self.scale)
+                newMatrix = newMatrix.flatten()
             patch_id = [i for i in range(len(source.data['covValues']))]
             patch = newMatrix
             source.patch({'covValues' : list(zip(patch_id, patch))})
@@ -317,9 +391,11 @@ class DashboardServer:
             xCoord = math.floor(event.x - 0.5)
             yCoord = math.floor(event.y - 0.5)
 
-            # Only accessing covariance submatrix if the click is not along the diagonal
+            # Only accessing covariance submatrix if the click is not along 
+            # the diagonal
             # Also managing "mirrored" coordinates across the diagonal
-            if ((xCoord != yCoord) and (xCoord >= 0) and (xCoord < axesLength + 1)
+            if ((xCoord != yCoord) and (xCoord >= 0) 
+                and (xCoord < axesLength + 1)
                 and (yCoord >= 0) and (yCoord < axesLength + 1)):
                 if (xCoord > yCoord):
                     temp = xCoord
@@ -328,10 +404,14 @@ class DashboardServer:
                 coordString = '(' + str(xCoord) + ', ' + str(yCoord) + ')'
                 covIndex = invCovMapDict[coordString];
                 residuePairString = '[' + coordString + ']'
-                subMatrix = cSubmatrix.generateSubmatrix(covarianceMatrix, covMapDict, 
+                subMatrix = cSubmatrix.generateSubmatrix(covarianceMatrix, 
+                                     covMapDict, 
                                      residuePairList=residuePairString, 
                                      allResidues=False,
                                      baseDirectory=None).flatten()
+                self.logger.debug('Submatrix for x=' + str(xCoord) \
+                                   + ', y=' + str(yCoord) + ': ' \
+                                   + str(subMatrix))
                 patchMatrixValues(subMatrix)
 
                 # Changing plot title name to reflect the covariance pair

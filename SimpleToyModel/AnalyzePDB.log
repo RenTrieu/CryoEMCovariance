@@ -1,0 +1,489 @@
+[2020-09-09 16:05:37,161] - AnalyzePDB - INFO - Logger Initialized
+[2020-09-09 16:05:37,161] - AnalyzePDB - INFO - outDirectory: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices
+[2020-09-09 16:05:37,259] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-4.pdb
+[2020-09-09 16:05:37,259] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-4.pdb
+[2020-09-09 16:05:37,261] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-2.pdb
+[2020-09-09 16:05:37,262] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-2.pdb
+[2020-09-09 16:05:37,263] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-1.pdb
+[2020-09-09 16:05:37,263] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-1.pdb
+[2020-09-09 16:05:37,265] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-4.pdb
+[2020-09-09 16:05:37,265] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-4.pdb
+[2020-09-09 16:05:37,267] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-1.pdb
+[2020-09-09 16:05:37,267] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-1.pdb
+[2020-09-09 16:05:37,269] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-3.pdb
+[2020-09-09 16:05:37,269] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-3.pdb
+[2020-09-09 16:05:37,271] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-3.pdb
+[2020-09-09 16:05:37,271] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-3.pdb
+[2020-09-09 16:05:37,273] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-2.pdb
+[2020-09-09 16:05:37,273] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-2.pdb
+[2020-09-09 16:05:37,309] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.pdb
+[2020-09-09 16:05:37,310] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.csv
+[2020-09-09 16:05:37,317] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.csv
+[2020-09-09 16:05:37,319] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.csv
+[2020-09-09 16:05:37,322] - AnalyzePDB - INFO - Recognizing common chain A
+[2020-09-09 16:05:37,323] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.pdb
+[2020-09-09 16:05:37,323] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.csv
+[2020-09-09 16:05:37,329] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.csv
+[2020-09-09 16:05:37,331] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.csv
+[2020-09-09 16:05:37,335] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.pdb
+[2020-09-09 16:05:37,335] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.csv
+[2020-09-09 16:05:37,341] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.csv
+[2020-09-09 16:05:37,343] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.csv
+[2020-09-09 16:05:37,347] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.pdb
+[2020-09-09 16:05:37,347] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.csv
+[2020-09-09 16:05:37,353] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.csv
+[2020-09-09 16:05:37,355] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.csv
+[2020-09-09 16:05:37,359] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.pdb
+[2020-09-09 16:05:37,359] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.csv
+[2020-09-09 16:05:37,365] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.csv
+[2020-09-09 16:05:37,367] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.csv
+[2020-09-09 16:05:37,371] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.pdb
+[2020-09-09 16:05:37,371] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.csv
+[2020-09-09 16:05:37,377] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.csv
+[2020-09-09 16:05:37,379] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.csv
+[2020-09-09 16:05:37,383] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.pdb
+[2020-09-09 16:05:37,383] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.csv
+[2020-09-09 16:05:37,390] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.csv
+[2020-09-09 16:05:37,392] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.csv
+[2020-09-09 16:05:37,397] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.pdb
+[2020-09-09 16:05:37,397] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.csv
+[2020-09-09 16:05:37,402] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.csv
+[2020-09-09 16:05:37,404] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.csv
+[2020-09-09 16:05:37,408] - AnalyzePDB - INFO - Detected the following chains common to all pdb files:
+[2020-09-09 16:05:37,408] - AnalyzePDB - INFO - Chain: A Max Residue: 6
+[2020-09-09 16:05:37,408] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.pdb
+[2020-09-09 16:05:37,540] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80203222  6.41183515  7.89381517 11.68923505 14.33579558]
+ [ 3.80203222  0.          3.8021895   6.90481998 10.47861351 13.80905232]
+ [ 6.41183515  3.8021895   0.          3.80201026  6.90460904 10.47812106]
+ [ 7.89381517  6.90481998  3.80201026  0.          3.80188611  6.9042324 ]
+ [11.68923505 10.47861351  6.90460904  3.80188611  0.          3.80166003]
+ [14.33579558 13.80905232 10.47812106  6.9042324   3.80166003  0.        ]]
+[2020-09-09 16:05:37,541] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.pdb
+[2020-09-09 16:05:37,668] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80203761  6.68245239  9.67673881 12.87178931 12.40479004]
+ [ 3.80203761  0.          3.80190557  6.37149888  9.95096227  9.45310245]
+ [ 6.68245239  3.80190557  0.          3.80201026  6.90460904  7.39235889]
+ [ 9.67673881  6.37149888  3.80201026  0.          3.80188611  3.84914458]
+ [12.87178931  9.95096227  6.90460904  3.80188611  0.          2.9530215 ]
+ [12.40479004  9.45310245  7.39235889  3.84914458  2.9530215   0.        ]]
+[2020-09-09 16:05:37,669] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.pdb
+[2020-09-09 16:05:37,796] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80161137  7.15688557  8.9506664  12.22787508 11.01296441]
+ [ 3.80161137  0.          3.80190557  6.37149888  9.95096227  9.45310245]
+ [ 7.15688557  3.80190557  0.          3.80201026  6.90460904  7.39235889]
+ [ 8.9506664   6.37149888  3.80201026  0.          3.80188611  3.84914458]
+ [12.22787508  9.95096227  6.90460904  3.80188611  0.          2.9530215 ]
+ [11.01296441  9.45310245  7.39235889  3.84914458  2.9530215   0.        ]]
+[2020-09-09 16:05:37,797] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.pdb
+[2020-09-09 16:05:37,922] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.8018723   5.86920991  8.77628355 12.41060687 12.33604033]
+ [ 3.8018723   0.          3.80190557  6.37149888  9.95096227  9.45310245]
+ [ 5.86920991  3.80190557  0.          3.80201026  6.90460904  7.39235889]
+ [ 8.77628355  6.37149888  3.80201026  0.          3.80188611  3.84914458]
+ [12.41060687  9.95096227  6.90460904  3.80188611  0.          2.9530215 ]
+ [12.33604033  9.45310245  7.39235889  3.84914458  2.9530215   0.        ]]
+[2020-09-09 16:05:37,923] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.pdb
+[2020-09-09 16:05:38,052] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80179024  6.90480543 10.47858531 13.80941425 17.33426713]
+ [ 3.80179024  0.          3.8021895   6.90481998 10.47861351 13.80905232]
+ [ 6.90480543  3.8021895   0.          3.80201026  6.90460904 10.47812106]
+ [10.47858531  6.90481998  3.80201026  0.          3.80188611  6.9042324 ]
+ [13.80941425 10.47861351  6.90460904  3.80188611  0.          3.80166003]
+ [17.33426713 13.80905232 10.47812106  6.9042324   3.80166003  0.        ]]
+[2020-09-09 16:05:38,053] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.pdb
+[2020-09-09 16:05:38,181] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.8016478   6.0833813   9.57415511 12.92945498 12.92889748]
+ [ 3.8016478   0.          3.80190557  6.37149888  9.95096227  9.45310245]
+ [ 6.0833813   3.80190557  0.          3.80201026  6.90460904  7.39235889]
+ [ 9.57415511  6.37149888  3.80201026  0.          3.80188611  3.84914458]
+ [12.92945498  9.95096227  6.90460904  3.80188611  0.          2.9530215 ]
+ [12.92889748  9.45310245  7.39235889  3.84914458  2.9530215   0.        ]]
+[2020-09-09 16:05:38,182] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.pdb
+[2020-09-09 16:05:38,308] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80202446  7.17746104 10.1352735  13.67985705 16.92127271]
+ [ 3.80202446  0.          3.8021895   6.90481998 10.47861351 13.80905232]
+ [ 7.17746104  3.8021895   0.          3.80201026  6.90460904 10.47812106]
+ [10.1352735   6.90481998  3.80201026  0.          3.80188611  6.9042324 ]
+ [13.67985705 10.47861351  6.90460904  3.80188611  0.          3.80166003]
+ [16.92127271 13.80905232 10.47812106  6.9042324   3.80166003  0.        ]]
+[2020-09-09 16:05:38,309] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.pdb
+[2020-09-09 16:05:38,438] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80138541  6.36471413  9.73936199 12.9972424  16.44955467]
+ [ 3.80138541  0.          3.8021895   6.90481998 10.47861351 13.80905232]
+ [ 6.36471413  3.8021895   0.          3.80201026  6.90460904 10.47812106]
+ [ 9.73936199  6.90481998  3.80201026  0.          3.80188611  6.9042324 ]
+ [12.9972424  10.47861351  6.90460904  3.80188611  0.          3.80166003]
+ [16.44955467 13.80905232 10.47812106  6.9042324   3.80166003  0.        ]]
+[2020-09-09 16:05:38,439] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00 -5.39184948e-06 -2.70617243e-01 -1.78292364e+00
+  -1.18255426e+00  1.93100554e+00]
+ [-5.39184948e-06  0.00000000e+00  2.83925961e-04  5.33321101e-01
+   5.27651241e-01  4.35594987e+00]
+ [-2.70617243e-01  2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  3.08576217e+00]
+ [-1.78292364e+00  5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  3.05508782e+00]
+ [-1.18255426e+00  5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  8.48638529e-01]
+ [ 1.93100554e+00  4.35594987e+00  3.08576217e+00  3.05508782e+00
+   8.48638529e-01  0.00000000e+00]]
+[2020-09-09 16:05:38,440] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4_Minus_toy-model-2-2.npy
+[2020-09-09 16:05:38,441] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  4.20850867e-04 -7.45050415e-01 -1.05685123e+00
+  -5.38640033e-01  3.32283118e+00]
+ [ 4.20850867e-04  0.00000000e+00  2.83925961e-04  5.33321101e-01
+   5.27651241e-01  4.35594987e+00]
+ [-7.45050415e-01  2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  3.08576217e+00]
+ [-1.05685123e+00  5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  3.05508782e+00]
+ [-5.38640033e-01  5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  8.48638529e-01]
+ [ 3.32283118e+00  4.35594987e+00  3.08576217e+00  3.05508782e+00
+   8.48638529e-01  0.00000000e+00]]
+[2020-09-09 16:05:38,441] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4_Minus_toy-model-2-1.npy
+[2020-09-09 16:05:38,442] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  1.59917842e-04  5.42625238e-01 -8.82468379e-01
+  -7.21371827e-01  1.99975525e+00]
+ [ 1.59917842e-04  0.00000000e+00  2.83925961e-04  5.33321101e-01
+   5.27651241e-01  4.35594987e+00]
+ [ 5.42625238e-01  2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  3.08576217e+00]
+ [-8.82468379e-01  5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  3.05508782e+00]
+ [-7.21371827e-01  5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  8.48638529e-01]
+ [ 1.99975525e+00  4.35594987e+00  3.08576217e+00  3.05508782e+00
+   8.48638529e-01  0.00000000e+00]]
+[2020-09-09 16:05:38,442] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4_Minus_toy-model-2-4.npy
+[2020-09-09 16:05:38,443] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  2.41983556e-04 -4.92970277e-01 -2.58477013e+00
+  -2.12017920e+00 -2.99847155e+00]
+ [ 2.41983556e-04  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-4.92970277e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-2.58477013e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-2.12017920e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-2.99847155e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]]
+[2020-09-09 16:05:38,444] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4_Minus_toy-model-1-1.npy
+[2020-09-09 16:05:38,444] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  3.84419122e-04  3.28453854e-01 -1.68033993e+00
+  -1.24021993e+00  1.40689810e+00]
+ [ 3.84419122e-04  0.00000000e+00  2.83925961e-04  5.33321101e-01
+   5.27651241e-01  4.35594987e+00]
+ [ 3.28453854e-01  2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  3.08576217e+00]
+ [-1.68033993e+00  5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  3.05508782e+00]
+ [-1.24021993e+00  5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  8.48638529e-01]
+ [ 1.40689810e+00  4.35594987e+00  3.08576217e+00  3.05508782e+00
+   8.48638529e-01  0.00000000e+00]]
+[2020-09-09 16:05:38,445] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4_Minus_toy-model-2-3.npy
+[2020-09-09 16:05:38,445] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  7.75901634e-06 -7.65625891e-01 -2.24145833e+00
+  -1.99062201e+00 -2.58547712e+00]
+ [ 7.75901634e-06  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-7.65625891e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-2.24145833e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-1.99062201e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-2.58547712e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]]
+[2020-09-09 16:05:38,446] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4_Minus_toy-model-1-3.npy
+[2020-09-09 16:05:38,447] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  6.46814399e-04  4.71210173e-02 -1.84554682e+00
+  -1.30800735e+00 -2.11375909e+00]
+ [ 6.46814399e-04  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 4.71210173e-02  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-1.84554682e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-1.30800735e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-2.11375909e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]]
+[2020-09-09 16:05:38,447] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4_Minus_toy-model-1-2.npy
+[2020-09-09 16:05:38,447] - AnalyzePDB - INFO - Generating covariance index to residue pair map
+[2020-09-09 16:05:38,471] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4_Minus_toy-model-2-2.html
+[2020-09-09 16:05:38,491] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4_Minus_toy-model-2-1.html
+[2020-09-09 16:05:38,547] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4_Minus_toy-model-2-4.html
+[2020-09-09 16:05:38,566] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4_Minus_toy-model-1-1.html
+[2020-09-09 16:05:38,586] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4_Minus_toy-model-2-3.html
+[2020-09-09 16:05:38,605] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4_Minus_toy-model-1-3.html
+[2020-09-09 16:05:38,624] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4_Minus_toy-model-1-2.html
+[2020-09-09 16:05:38,624] - AnalyzePDB - INFO - Generating covariance matrix
+[2020-09-09 16:05:38,626] - AnalyzePDB - INFO - Choosing scale of: 5
+[2020-09-09 16:05:38,626] - AnalyzePDB - INFO - Outputting covariance matrix plot
+[2020-09-09 16:05:38,646] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: CovarianceMatrix.html
+[2020-09-09 16:05:38,649] - AnalyzePDB - INFO - Reference used: toy-model-1-4.pdb
+[2020-09-09 16:05:38,649] - AnalyzePDB - INFO - [[ 5.58648476e-08  2.76349575e-05  2.38680558e-05  3.77857509e-05
+  -1.99225020e-05 -4.77833831e-09 -8.97553941e-06 -8.88011836e-06
+  -7.33085558e-05  0.00000000e+00  0.00000000e+00 -5.19319035e-05
+   0.00000000e+00 -5.14156688e-05 -1.42821811e-05]
+ [ 2.76349575e-05  2.66563288e-01  1.33902882e-01  1.11162446e-01
+   3.48925863e-01  2.98266581e-05  5.60258249e-02  5.54302013e-02
+   4.57596154e-01  0.00000000e+00  0.00000000e+00  3.24161880e-01
+   0.00000000e+00  3.20939514e-01  8.91501827e-02]
+ [ 2.38680558e-05  1.33902882e-01  3.63682891e-01  3.42481606e-01
+   1.33733168e+00  7.08419040e-05  1.33068079e-01  1.31653402e-01
+   1.08684596e+00  0.00000000e+00  0.00000000e+00  7.69923493e-01
+   0.00000000e+00  7.62269986e-01  2.11742417e-01]
+ [ 3.77857509e-05  1.11162446e-01  3.42481606e-01  3.46927193e-01
+   1.37664909e+00  7.18391906e-05  1.34941363e-01  1.33506770e-01
+   1.10214618e+00  0.00000000e+00  0.00000000e+00  7.80762196e-01
+   0.00000000e+00  7.73000945e-01  2.14723250e-01]
+ [-1.99225020e-05  3.48925863e-01  1.33733168e+00  1.37664909e+00
+   6.79324208e+00  3.83788814e-04  7.20901577e-01  7.13237505e-01
+   5.88803091e+00  0.00000000e+00  0.00000000e+00  4.17109094e+00
+   0.00000000e+00  4.12962776e+00  1.14712291e+00]
+ [-4.77833831e-09  2.98266581e-05  7.08419040e-05  7.18391906e-05
+   3.83788814e-04  2.30325575e-08  4.32639160e-05  4.28039673e-05
+   3.53362072e-04  0.00000000e+00  0.00000000e+00  2.50322282e-04
+   0.00000000e+00  2.47833927e-04  6.88430027e-05]
+ [-8.97553941e-06  5.60258249e-02  1.33068079e-01  1.34941363e-01
+   7.20901577e-01  4.32639160e-05  8.12661135e-02  8.04021545e-02
+   6.63748566e-01  0.00000000e+00  0.00000000e+00  4.70200594e-01
+   0.00000000e+00  4.65526514e-01  1.29313381e-01]
+ [-8.88011836e-06  5.54302013e-02  1.31653402e-01  1.33506770e-01
+   7.13237505e-01  4.28039673e-05  8.04021545e-02  7.95473805e-02
+   6.56692100e-01  0.00000000e+00  0.00000000e+00  4.65201782e-01
+   0.00000000e+00  4.60577393e-01  1.27938621e-01]
+ [-7.33085558e-05  4.57596154e-01  1.08684596e+00  1.10214618e+00
+   5.88803091e+00  3.53362072e-04  6.63748566e-01  6.56692100e-01
+   5.42122836e+00  0.00000000e+00  0.00000000e+00  3.84040723e+00
+   0.00000000e+00  3.80223125e+00  1.05617911e+00]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00]
+ [-5.19319035e-05  3.24161880e-01  7.69923493e-01  7.80762196e-01
+   4.17109094e+00  2.50322282e-04  4.70200594e-01  4.65201782e-01
+   3.84040723e+00  0.00000000e+00  0.00000000e+00  2.72055091e+00
+   0.00000000e+00  2.69350697e+00  7.48199048e-01]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00  0.00000000e+00]
+ [-5.14156688e-05  3.20939514e-01  7.62269986e-01  7.73000945e-01
+   4.12962776e+00  2.47833927e-04  4.65526514e-01  4.60577393e-01
+   3.80223125e+00  0.00000000e+00  0.00000000e+00  2.69350697e+00
+   0.00000000e+00  2.66673188e+00  7.40761494e-01]
+ [-1.42821811e-05  8.91501827e-02  2.11742417e-01  2.14723250e-01
+   1.14712291e+00  6.88430027e-05  1.29313381e-01  1.27938621e-01
+   1.05617911e+00  0.00000000e+00  0.00000000e+00  7.48199048e-01
+   0.00000000e+00  7.40761494e-01  2.05767815e-01]]
+[2020-09-09 16:05:38,652] - AnalyzePDB - INFO - Total Computation Time: 1.4927120208740234 seconds
+[2020-09-09 16:05:38,907] - AnalyzePDB.DashboardServer - DEBUG - basePath: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/
+[2020-09-09 16:05:38,907] - AnalyzePDB.DashboardServer - DEBUG - npyPath: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices
+[2020-09-09 16:05:38,907] - AnalyzePDB.DashboardServer - DEBUG - covMapDict: {0: (0, 1), 1: (0, 2), 2: (0, 3), 3: (0, 4), 4: (0, 5), 5: (1, 2), 6: (1, 3), 7: (1, 4), 8: (1, 5), 9: (2, 3), 10: (2, 4), 11: (2, 5), 12: (3, 4), 13: (3, 5), 14: (4, 5)}
+[2020-09-09 16:05:38,907] - AnalyzePDB.DashboardServer - INFO - Reading npy matrices from: /home/recovery1/ExtraPrograms/CryoEMCovariance/SimpleToyModel/ddMatrices
+[2020-09-09 16:05:38,907] - AnalyzePDB.DashboardServer - DEBUG - npyNameList: ['toy-model-1-4_Minus_toy-model-1-1.npy', 'toy-model-1-4_Minus_toy-model-1-2.npy', 'toy-model-1-4_Minus_toy-model-2-2.npy', 'toy-model-1-4_Minus_toy-model-2-3.npy', 'toy-model-1-4_Minus_toy-model-1-3.npy', 'toy-model-1-4_Minus_toy-model-2-4.npy', 'toy-model-1-4_Minus_toy-model-2-1.npy']
+[2020-09-09 16:05:38,910] - AnalyzePDB.DashboardServer - DEBUG - npyList: [array([[ 0.00000000e+00,  2.41983556e-04, -4.92970277e-01,
+        -2.58477013e+00, -2.12017920e+00, -2.99847155e+00],
+       [ 2.41983556e-04,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-4.92970277e-01,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-2.58477013e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-2.12017920e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-2.99847155e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00]]), array([[ 0.00000000e+00,  6.46814399e-04,  4.71210173e-02,
+        -1.84554682e+00, -1.30800735e+00, -2.11375909e+00],
+       [ 6.46814399e-04,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 4.71210173e-02,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-1.84554682e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-1.30800735e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-2.11375909e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00]]), array([[ 0.00000000e+00, -5.39184948e-06, -2.70617243e-01,
+        -1.78292364e+00, -1.18255426e+00,  1.93100554e+00],
+       [-5.39184948e-06,  0.00000000e+00,  2.83925961e-04,
+         5.33321101e-01,  5.27651241e-01,  4.35594987e+00],
+       [-2.70617243e-01,  2.83925961e-04,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.08576217e+00],
+       [-1.78292364e+00,  5.33321101e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.05508782e+00],
+       [-1.18255426e+00,  5.27651241e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  8.48638529e-01],
+       [ 1.93100554e+00,  4.35594987e+00,  3.08576217e+00,
+         3.05508782e+00,  8.48638529e-01,  0.00000000e+00]]), array([[ 0.00000000e+00,  3.84419122e-04,  3.28453854e-01,
+        -1.68033993e+00, -1.24021993e+00,  1.40689810e+00],
+       [ 3.84419122e-04,  0.00000000e+00,  2.83925961e-04,
+         5.33321101e-01,  5.27651241e-01,  4.35594987e+00],
+       [ 3.28453854e-01,  2.83925961e-04,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.08576217e+00],
+       [-1.68033993e+00,  5.33321101e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.05508782e+00],
+       [-1.24021993e+00,  5.27651241e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  8.48638529e-01],
+       [ 1.40689810e+00,  4.35594987e+00,  3.08576217e+00,
+         3.05508782e+00,  8.48638529e-01,  0.00000000e+00]]), array([[ 0.00000000e+00,  7.75901634e-06, -7.65625891e-01,
+        -2.24145833e+00, -1.99062201e+00, -2.58547712e+00],
+       [ 7.75901634e-06,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-7.65625891e-01,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-2.24145833e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-1.99062201e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-2.58547712e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00]]), array([[ 0.00000000e+00,  1.59917842e-04,  5.42625238e-01,
+        -8.82468379e-01, -7.21371827e-01,  1.99975525e+00],
+       [ 1.59917842e-04,  0.00000000e+00,  2.83925961e-04,
+         5.33321101e-01,  5.27651241e-01,  4.35594987e+00],
+       [ 5.42625238e-01,  2.83925961e-04,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.08576217e+00],
+       [-8.82468379e-01,  5.33321101e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.05508782e+00],
+       [-7.21371827e-01,  5.27651241e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  8.48638529e-01],
+       [ 1.99975525e+00,  4.35594987e+00,  3.08576217e+00,
+         3.05508782e+00,  8.48638529e-01,  0.00000000e+00]]), array([[ 0.00000000e+00,  4.20850867e-04, -7.45050415e-01,
+        -1.05685123e+00, -5.38640033e-01,  3.32283118e+00],
+       [ 4.20850867e-04,  0.00000000e+00,  2.83925961e-04,
+         5.33321101e-01,  5.27651241e-01,  4.35594987e+00],
+       [-7.45050415e-01,  2.83925961e-04,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.08576217e+00],
+       [-1.05685123e+00,  5.33321101e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.05508782e+00],
+       [-5.38640033e-01,  5.27651241e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  8.48638529e-01],
+       [ 3.32283118e+00,  4.35594987e+00,  3.08576217e+00,
+         3.05508782e+00,  8.48638529e-01,  0.00000000e+00]])]
+[2020-09-09 16:05:38,911] - AnalyzePDB.DashboardServer - DEBUG - xyPairList: [(1, 1), (2, 1), (3, 1), (4, 1), (5, 1), (1, 2), (2, 2), (3, 2), (4, 2), (5, 2), (1, 3), (2, 3), (3, 3), (4, 3), (5, 3), (1, 4), (2, 4), (3, 4), (4, 4), (5, 4), (1, 5), (2, 5), (3, 5), (4, 5), (5, 5)]
+[2020-09-09 16:05:38,911] - AnalyzePDB.DashboardServer - DEBUG - type: xyPairList: <class 'list'>
+[2020-09-09 16:05:38,913] - AnalyzePDB.DashboardServer - DEBUG - npyList: [array([[ 0.00000000e+00,  2.41983556e-04, -4.92970277e-01,
+        -2.58477013e+00, -2.12017920e+00, -2.99847155e+00],
+       [ 2.41983556e-04,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-4.92970277e-01,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-2.58477013e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-2.12017920e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-2.99847155e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00]]), array([[ 0.00000000e+00,  6.46814399e-04,  4.71210173e-02,
+        -1.84554682e+00, -1.30800735e+00, -2.11375909e+00],
+       [ 6.46814399e-04,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 4.71210173e-02,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-1.84554682e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-1.30800735e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-2.11375909e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00]]), array([[ 0.00000000e+00, -5.39184948e-06, -2.70617243e-01,
+        -1.78292364e+00, -1.18255426e+00,  1.93100554e+00],
+       [-5.39184948e-06,  0.00000000e+00,  2.83925961e-04,
+         5.33321101e-01,  5.27651241e-01,  4.35594987e+00],
+       [-2.70617243e-01,  2.83925961e-04,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.08576217e+00],
+       [-1.78292364e+00,  5.33321101e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.05508782e+00],
+       [-1.18255426e+00,  5.27651241e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  8.48638529e-01],
+       [ 1.93100554e+00,  4.35594987e+00,  3.08576217e+00,
+         3.05508782e+00,  8.48638529e-01,  0.00000000e+00]]), array([[ 0.00000000e+00,  3.84419122e-04,  3.28453854e-01,
+        -1.68033993e+00, -1.24021993e+00,  1.40689810e+00],
+       [ 3.84419122e-04,  0.00000000e+00,  2.83925961e-04,
+         5.33321101e-01,  5.27651241e-01,  4.35594987e+00],
+       [ 3.28453854e-01,  2.83925961e-04,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.08576217e+00],
+       [-1.68033993e+00,  5.33321101e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.05508782e+00],
+       [-1.24021993e+00,  5.27651241e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  8.48638529e-01],
+       [ 1.40689810e+00,  4.35594987e+00,  3.08576217e+00,
+         3.05508782e+00,  8.48638529e-01,  0.00000000e+00]]), array([[ 0.00000000e+00,  7.75901634e-06, -7.65625891e-01,
+        -2.24145833e+00, -1.99062201e+00, -2.58547712e+00],
+       [ 7.75901634e-06,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-7.65625891e-01,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-2.24145833e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-1.99062201e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-2.58547712e+00,  0.00000000e+00,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  0.00000000e+00]]), array([[ 0.00000000e+00,  1.59917842e-04,  5.42625238e-01,
+        -8.82468379e-01, -7.21371827e-01,  1.99975525e+00],
+       [ 1.59917842e-04,  0.00000000e+00,  2.83925961e-04,
+         5.33321101e-01,  5.27651241e-01,  4.35594987e+00],
+       [ 5.42625238e-01,  2.83925961e-04,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.08576217e+00],
+       [-8.82468379e-01,  5.33321101e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.05508782e+00],
+       [-7.21371827e-01,  5.27651241e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  8.48638529e-01],
+       [ 1.99975525e+00,  4.35594987e+00,  3.08576217e+00,
+         3.05508782e+00,  8.48638529e-01,  0.00000000e+00]]), array([[ 0.00000000e+00,  4.20850867e-04, -7.45050415e-01,
+        -1.05685123e+00, -5.38640033e-01,  3.32283118e+00],
+       [ 4.20850867e-04,  0.00000000e+00,  2.83925961e-04,
+         5.33321101e-01,  5.27651241e-01,  4.35594987e+00],
+       [-7.45050415e-01,  2.83925961e-04,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.08576217e+00],
+       [-1.05685123e+00,  5.33321101e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  3.05508782e+00],
+       [-5.38640033e-01,  5.27651241e-01,  0.00000000e+00,
+         0.00000000e+00,  0.00000000e+00,  8.48638529e-01],
+       [ 3.32283118e+00,  4.35594987e+00,  3.08576217e+00,
+         3.05508782e+00,  8.48638529e-01,  0.00000000e+00]])]
+[2020-09-09 16:05:38,913] - AnalyzePDB.DashboardServer - DEBUG - covVals: [ 0.00000000e+00  2.41983556e-04 -4.92970277e-01 -2.58477013e+00
+ -2.12017920e+00 -2.99847155e+00  2.41983556e-04  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+ -4.92970277e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+  0.00000000e+00  0.00000000e+00 -2.58477013e+00  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+ -2.12017920e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+  0.00000000e+00  0.00000000e+00 -2.99847155e+00  0.00000000e+00
+  0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00]
+[2020-09-09 16:05:38,914] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  2.41983556e-04 -4.92970277e-01 -2.58477013e+00
+  -2.12017920e+00 -2.99847155e+00]
+ [ 2.41983556e-04  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-4.92970277e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-2.58477013e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-2.12017920e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-2.99847155e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]]
+[2020-09-09 16:05:38,914] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.02446538  0.04912671 -1.3883307  -2.034159   -2.342471  ]
+ [ 0.0491267  -0.0057648   0.08338604  0.12114634  0.13950817]
+ [-1.3883306   0.08338604 -0.04092147 -0.02998262 -0.03452701]
+ [-2.034159    0.12114634 -0.02998262  0.          0.        ]
+ [-2.342471    0.13950817 -0.03452701  0.          0.        ]]
+[2020-09-09 16:10:53,236] - AnalyzePDB.DashboardServer - DEBUG - Submatrix for x=0, y=4: [0.00000000e+00 3.77857509e-05 1.11162446e-01 3.42481606e-01
+ 3.46927193e-01 1.37664909e+00 3.77857509e-05 0.00000000e+00
+ 7.18391906e-05 1.34941363e-01 1.33506770e-01 1.10214618e+00
+ 1.11162446e-01 7.18391906e-05 0.00000000e+00 0.00000000e+00
+ 0.00000000e+00 7.80762196e-01 3.42481606e-01 1.34941363e-01
+ 0.00000000e+00 0.00000000e+00 0.00000000e+00 7.73000945e-01
+ 3.46927193e-01 1.33506770e-01 0.00000000e+00 0.00000000e+00
+ 0.00000000e+00 2.14723250e-01 1.37664909e+00 1.10214618e+00
+ 7.80762196e-01 7.73000945e-01 2.14723250e-01 0.00000000e+00]
+[2020-09-09 16:10:53,236] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[0.00000000e+00 3.77857509e-05 1.11162446e-01 3.42481606e-01
+  3.46927193e-01 1.37664909e+00]
+ [3.77857509e-05 0.00000000e+00 7.18391906e-05 1.34941363e-01
+  1.33506770e-01 1.10214618e+00]
+ [1.11162446e-01 7.18391906e-05 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 7.80762196e-01]
+ [3.42481606e-01 1.34941363e-01 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 7.73000945e-01]
+ [3.46927193e-01 1.33506770e-01 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 2.14723250e-01]
+ [1.37664909e+00 1.10214618e+00 7.80762196e-01 7.73000945e-01
+  2.14723250e-01 0.00000000e+00]]
+[2020-09-09 16:10:53,236] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.00291722  0.01045315  0.22845799  0.2900525   1.1912587 ]
+ [ 0.01045315 -0.02033567  0.05061159  0.04458627  0.8328314 ]
+ [ 0.228458    0.05061159  0.01103671 -0.04589765  0.6747409 ]
+ [ 0.2900525   0.04458627 -0.04589766 -0.03338387  0.34518033]
+ [ 1.1912587   0.8328314   0.6747409   0.3451803  -0.01393864]]
