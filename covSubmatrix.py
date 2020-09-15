@@ -89,6 +89,8 @@ class CovSubmatrix:
 
     """ Generates a submatrix for the given residuePair from the given
         covMatrix
+        Returns: A list of submatrices (if multiple are specified/generated)
+                 One submatrix if only one is specified/generated
     """
     def generateSubmatrix(self, covMatrix, covMap, \
                           outputDirectory=None, residuePairList=None, 
@@ -130,6 +132,7 @@ class CovSubmatrix:
                 residuePairList = [residuePair]
 
         # Looping over all given residuePairs to generate submatrices
+        subMatrixList = []
         for i, residuePair in enumerate(residuePairList):
             self.logger.debug('i: ' + str(i))
             self.logger.debug('residuePair: ' + str(residuePair))
@@ -186,6 +189,11 @@ class CovSubmatrix:
                                  + fullOutputString)
                 np.save(fullOutputString, subMatrix)
 
+            subMatrixList.append(subMatrix)
+
+        if len(subMatrixList) <= 1:
             return subMatrix
+        else:
+            return subMatrixList
 
 covSubmatrix = CovSubmatrix()

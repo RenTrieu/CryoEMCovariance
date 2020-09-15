@@ -161,7 +161,11 @@ class DashboardServer:
         # (There are memory errors if the array passed to plot is
         #  too big)
         # ratio = float(args.scale)/float(len(matrix))
-        originalLength = int(math.ceil(math.sqrt(len(npy))))
+        originalLength = None
+        if len(npy.shape) <= 1:
+            originalLength = int(math.ceil(math.sqrt(len(npy))))
+        elif len(npy.shape) > 1:
+            originalLength = int(math.ceil(npy.shape[0]))
         npy = npy.reshape(originalLength, originalLength)
         self.logger.debug('Matrix Before Image Rescaling: ' + str(npy))
         matrixImage = Image.fromarray(npy)
@@ -345,7 +349,6 @@ class DashboardServer:
                                 desired_num_ticks=len(blueRedColors)))
 
         # Plotting 
-        # TODO: Change these to regular numbers and/or ranges
         if self.scaledRangeDict is not None:
             plotLabel = FactorRange(
                             factors=[self.scaledRangeDict[i] \
@@ -418,26 +421,54 @@ class DashboardServer:
 
             # Only accessing covariance submatrix if the click is not along 
             # the diagonal
-            # Also managing "mirrored" coordinates across the diagonal
             if ((xCoord != yCoord) and (xCoord >= 0) 
                 and (xCoord < axesLength + 1)
                 and (yCoord >= 0) and (yCoord < axesLength + 1)):
+                # Handles coordinates "mirrored" across the diagonal
                 if (xCoord > yCoord):
                     temp = xCoord
                     xCoord = yCoord
                     yCoord = temp;
                 coordString = '(' + str(xCoord) + ', ' + str(yCoord) + ')'
-                covIndex = invCovMapDict[coordString];
-                residuePairString = '[' + coordString + ']'
-                subMatrix = cSubmatrix.generateSubmatrix(covarianceMatrix, 
-                                     covMapDict, 
-                                     residuePairList=residuePairString, 
-                                     allResidues=False,
-                                     baseDirectory=None).flatten()
-                self.logger.debug('Submatrix for x=' + str(xCoord) \
-                                   + ', y=' + str(yCoord) + ': ' \
-                                   + str(subMatrix))
+                # Handles submatrix access for non-scaled indices
+                subMatrix = None
+                if self.indexDict is None:
+                    covIndex = invCovMapDict[coordString];
+                    resPairString = '[' + coordString + ']'
+                    subMatrix = cSubmatrix.generateSubmatrix(covarianceMatrix, 
+                                         covMapDict, 
+                                         residuePairList=resPairString, 
+                                         allResidues=False,
+                                         baseDirectory=None).flatten()
+                    self.logger.debug('Submatrix for x=' + str(xCoord) \
+                                       + ', y=' + str(yCoord) + ': ' \
+                                       + str(subMatrix))
+                # Handles submatrix access for scaled/mapped indices/ranges
+                else: 
+                    resPairString = ''
+                    for xIndex in self.indexDict[xCoord]:
+                        for yIndex in self.indexDict[yCoord]:
+                            if len(resPairString) > 0:
+                                resPairString += ','
+                            resPairString += '(' + str(xIndex) \
+                                             + ', ' + str(yIndex) + ')'
+                    resPairString = '[' + resPairString + ']'
+                    subMatrixList = cSubmatrix.generateSubmatrix(
+                                        covarianceMatrix, 
+                                        covMapDict, 
+                                        residuePairList=resPairString, 
+                                        allResidues=False,
+                                        baseDirectory=None)
+                    subMatrixArray = np.array(subMatrixList)
+                    # Multiple submatrices case, takes the average of
+                    # given submatrices
+                    if len(subMatrixArray.shape) >= 3:
+                        subMatrix = np.average(subMatrixArray, axis=0)
+                    else:
+                        subMatrix = subMatrixList
+
                 patchMatrixValues(subMatrix)
+
 
                 # Changing plot title name to reflect the covariance pair
                 # with which the covariance submatrix is plotted in respect to
