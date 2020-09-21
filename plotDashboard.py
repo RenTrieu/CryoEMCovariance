@@ -258,8 +258,10 @@ class DashboardServer:
         invCovMapDict = {str(value): key for key, value in covMapDict.items()}
 
         # Loading Covariance Matrix and helper class to split submatrices
+        self.logger.info('Loading CovarianceMatrix.npy')
         covarianceMatrix = np.load(os.path.join(basePath, \
                                                 'CovarianceMatrix.npy'))
+        self.logger.info('Loaded CovarianceMatrix.npy')
         cSubmatrix = CovSubmatrix()
         #-----------------------------------------------------------------
 
@@ -298,7 +300,7 @@ class DashboardServer:
         self.logger.debug('xyPairList: ' + str(xyPairList))
         self.logger.debug('type: xyPairList: ' + str(type(xyPairList)))
 
-        # Reshaping source values in order to shift incides from starting 
+        # Reshaping source values in order to shift indices from starting 
         # with 0 to starting with 1
         xVals = np.transpose(xyPairList)[0]
         yVals = np.transpose(xyPairList)[1]

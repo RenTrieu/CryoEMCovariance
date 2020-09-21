@@ -12,6 +12,7 @@ import numpy as np
 import pandas as pd
 import logging
 import inspect
+import collections
 from pdbReader import PDBReader
 
 """ Class that houses Compare PDB
@@ -174,13 +175,17 @@ class ComparePDB:
         for index, pdbFrame in enumerate(pdbFrameList):
             commonChains = commonChains.intersection(set(pdbFrame['Chain']))
 
+        # Creating a set of all chains that are not common to all pdb files
         uncommonChains = set(commonDict.keys()).difference(commonChains)
+
+        # Removing uncommon chains from the common chains dictionary
         for chain in uncommonChains:
             commonDict.pop(chain)
             self.logger.info('Chain ' + str(chain) + ' not common')
 
         # Removing amino acids that do not match
         for index, pdbFrame in enumerate(pdbFrameList):
+            self.logger.debug('pdbFrame Length:' + str(len(list(pdbFrame['Chain']))))
             pdbCommon = []
             # Residue numbers are only unique within a given chain so we iterate 
             # through the chains to filter
@@ -190,13 +195,67 @@ class ComparePDB:
                                         pdbFrameList[index]['Chain']\
                                     .str.strip() == chain]
 
+                    # Extracts a set of all possible residues
                     pdbIndexSet = [int(i) for i \
                                    in set(chainFrame['Residue Number'])]
+
+                    # Getting a list of duplicate residues
+                    residueCnt = collections.Counter(\
+                                    list(chainFrame['Residue Number']))
+
+                    # For duplicate residues, takes the average of the 
+                    # Cartesian coordinate values
+                    for dupRes in residueCnt.keys():
+                        if residueCnt[dupRes] > 1:
+                            # Retrieving dataframe of duplicate residue
+                            tempFrame = chainFrame.loc[\
+                                            chainFrame['Residue Number'] \
+                                            == str(dupRes)]
+                            firstIndex = tempFrame.index[0]
+                            dupIndices = [tempFrame.index[i] for i\
+                                          in range(1, len(tempFrame.index))]
+
+                            # Averaging the spatial coordinates
+                            averagedRow = tempFrame.iloc[0]
+                            averagedRow['X-Coord'] = \
+                                    np.average(\
+                                        [float(i) for i in \
+                                         tempFrame['X-Coord']] \
+                                    )
+                            averagedRow['Y-Coord'] = \
+                                    np.average(\
+                                        [float(i) for i in \
+                                         tempFrame['Y-Coord']] \
+                                    )
+                            averagedRow['Z-Coord'] = \
+                                    np.average(\
+                                        [float(i) for i in \
+                                         tempFrame['Z-Coord']] \
+                                    )
+                            # Of the rows corresponding to the duplicate
+                            # residue, we set the first one to the averaged
+                            # row and then wipe the rest
+                            chainFrame.loc[firstIndex] = averagedRow
+                            chainFrame.drop(index=dupIndices, inplace=True)
+                            self.logger.debug('dupRes: ' + str(dupRes) \
+                                              + '\nFrame: ' + str(tempFrame))
+
 
                     pdbCommonBool = pd.Series(
                             sorted(pdbIndexSet)
                         ).isin(commonDict[chain])
 
+                    self.logger.debug('pdbCommonBool Length: ' \
+                                      + str(len(pdbCommonBool)))
+
+                    # When rows with duplicate Residue Numbers are found,
+                    # take the average of the Cartesian coordinate values
+                    # TODO: Set B-Factor t o 1
+
+                    self.logger.debug('chainFrameLoc: ' \
+                                    + str(chainFrame.loc[pdbCommonBool.array]))
+
+                    # Adding valid rows into the filtered list
                     pdbFrameFilteredList[index] = pd.concat(
                         [pdbFrameFilteredList[index], 
                         chainFrame.loc[pdbCommonBool.array]]
