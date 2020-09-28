@@ -354,8 +354,8 @@ class DashboardServer:
         self.logger.info('Determining axis scaling.')
         if self.scaledRangeDict is not None:
             plotLabel = FactorRange(
-                            factors=[i for i in self.scaledRangeDict.keys()],
-                            bounds=(0.5, axesLength + 0.5))
+                            factors=[str(i) for i in self.scaledRangeDict.keys()],
+                            bounds=(0.5, len(self.scaledRangeDict.keys()) + 0.5))
         else:
             plotLabel = FactorRange(
                             factors=[str(int(i+1)) \
