@@ -351,6 +351,7 @@ class DashboardServer:
                                 desired_num_ticks=len(blueRedColors)))
 
         # Plotting 
+        self.logger.info('Determining axis scaling.')
         if self.scaledRangeDict is not None:
             plotLabel = FactorRange(
                             factors=[self.scaledRangeDict[i] \
@@ -361,6 +362,8 @@ class DashboardServer:
                             factors=[str(int(i+1)) \
                                      for i in range(axesLength)], 
                            bounds=(0.5, axesLength + 0.5))
+
+        self.logger.info('Creating initial figure')
         plot = figure(x_range=plotLabel,
                       y_range=plotLabel,
                       tools=TOOLS, 
@@ -372,6 +375,7 @@ class DashboardServer:
         plot.x_range = plotLabel
         plot.y_range = plotLabel
 
+        self.logger.info('Creating initial plot')
         plot.rect(x='x', y='y', width=1, height=1,
                   source=source,
                   fill_color={'field': 'covValues', 'transform' : color_mapper},
@@ -385,6 +389,7 @@ class DashboardServer:
 
         # Creating a dictionary of distance difference matrices based off of
         # order they are loaded in
+        self.logger.debug('Creating distance difference matrix mapping')
         matrixDict = {}
         for i, npy in enumerate(npyList):
             if i not in matrixDict.keys():

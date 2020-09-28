@@ -1,22 +1,22 @@
-[2020-09-21 12:21:20,117] - AnalyzePDB - INFO - Logger Initialized
-[2020-09-21 12:21:20,117] - AnalyzePDB - INFO - outDirectory: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices
-[2020-09-21 12:21:20,269] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 5IF1.pdb
-[2020-09-21 12:21:20,269] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 5IF1.pdb
-[2020-09-21 12:21:20,273] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 5A14.pdb
-[2020-09-21 12:21:20,273] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 5A14.pdb
-[2020-09-21 12:21:20,276] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 4FKP.pdb
-[2020-09-21 12:21:20,276] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 4FKP.pdb
-[2020-09-21 12:21:20,280] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 4FKU.pdb
-[2020-09-21 12:21:20,280] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 4FKU.pdb
-[2020-09-21 12:21:20,283] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 4FKO.pdb
-[2020-09-21 12:21:20,283] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 4FKO.pdb
-[2020-09-21 12:21:20,455] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:299
-[2020-09-21 12:21:20,466] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 22
+[2020-09-21 12:22:52,179] - AnalyzePDB - INFO - Logger Initialized
+[2020-09-21 12:22:52,179] - AnalyzePDB - INFO - outDirectory: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices
+[2020-09-21 12:22:52,331] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 5IF1.pdb
+[2020-09-21 12:22:52,331] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 5IF1.pdb
+[2020-09-21 12:22:52,335] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 5A14.pdb
+[2020-09-21 12:22:52,335] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 5A14.pdb
+[2020-09-21 12:22:52,339] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 4FKP.pdb
+[2020-09-21 12:22:52,339] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 4FKP.pdb
+[2020-09-21 12:22:52,342] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 4FKU.pdb
+[2020-09-21 12:22:52,342] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 4FKU.pdb
+[2020-09-21 12:22:52,346] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 4FKO.pdb
+[2020-09-21 12:22:52,346] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 4FKO.pdb
+[2020-09-21 12:22:52,516] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:299
+[2020-09-21 12:22:52,527] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 22
 Frame:     Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 725      ATOM         169               CA        ARG     A             22  29.3445  3.1635 -7.6525      0.50    37.92       C
 726      ATOM         170               CA        ARG     A             22   29.341   3.146  -7.615      0.50    38.59       C
-[2020-09-21 12:21:20,466] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 298
-[2020-09-21 12:21:20,477] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
+[2020-09-21 12:22:52,528] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 298
+[2020-09-21 12:22:52,538] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 558       ATOM           2               CA        MET     A              1  39.880   0.949  -5.401      1.00    57.33       C
 566       ATOM          10               CA        GLU     A              2  39.965   0.723  -9.249      1.00    62.26       C
 575       ATOM          19               CA        ASN     A              3  36.456  -0.755  -9.344      1.00    44.94       C
@@ -30,13 +30,13 @@ Frame:     Atom Type Atom Number Positional Label Amino Acid Chain Residue Numbe
 2930      ATOM        2374               CA        LEU     A            296  12.290  12.654   0.548      1.00    45.82       C
 
 [276 rows x 12 columns]
-[2020-09-21 12:21:20,477] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:285
-[2020-09-21 12:21:20,486] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 268
+[2020-09-21 12:22:52,539] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:285
+[2020-09-21 12:22:52,548] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 268
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 4427      ATOM        2005               CA        HIS     A            268  14.485   9.557  33.653      0.50    33.46       C
 4429      ATOM        2006               CA        HIS     A            268  14.526   9.563  33.632      0.50    32.49       C
-[2020-09-21 12:21:20,487] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 284
-[2020-09-21 12:21:20,497] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord  Z-Coord Occupancy B-Factor Element
+[2020-09-21 12:22:52,548] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 284
+[2020-09-21 12:22:52,558] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord  Z-Coord Occupancy B-Factor Element
 427       ATOM           5               CA        MET     A              1  38.541   2.585   -7.802      1.00    51.82       C
 443       ATOM          13               CA        GLU     A              2  38.107   2.617  -11.656      1.00    59.99       C
 461       ATOM          22               CA        ASN     A              3  34.468   1.349  -11.415      1.00    56.89       C
@@ -50,132 +50,132 @@ Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Numb
 4881      ATOM        2232               CA        LEU     A            296  11.307  12.430   -0.363      1.00    73.60       C
 
 [276 rows x 12 columns]
-[2020-09-21 12:21:20,497] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:312
-[2020-09-21 12:21:20,506] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 10
+[2020-09-21 12:22:52,559] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:312
+[2020-09-21 12:22:52,569] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 10
 Frame:     Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord  Y-Coord Z-Coord Occupancy B-Factor Element
 619      ATOM          84               CA        ILE     A             10  28.513  14.6015  2.1955      0.50    24.69       C
 621      ATOM          85               CA        ILE     A             10  28.512   14.592   2.203      0.50    25.43       C
-[2020-09-21 12:21:20,515] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 22
+[2020-09-21 12:22:52,577] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 22
 Frame:     Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord  Y-Coord  Z-Coord Occupancy B-Factor Element
 797      ATOM         173               CA        ARG     A             22  32.1453  4.48533 -6.04167      0.35    21.51       C
 799      ATOM         174               CA        ARG     A             22   32.142    4.475   -6.024      0.35    21.35       C
 801      ATOM         175               CA        ARG     A             22   32.146    4.487   -6.046      0.30    21.05       C
-[2020-09-21 12:21:20,524] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 24
+[2020-09-21 12:22:52,586] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 24
 Frame:     Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 869      ATOM         209               CA        LYS     A             24  35.766  0.5745  -9.144      0.80    41.09       C
 871      ATOM         210               CA        LYS     A             24  35.727   0.568  -9.159      0.20    40.81       C
-[2020-09-21 12:21:20,532] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 32
+[2020-09-21 12:22:52,594] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 32
 Frame:     Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 997      ATOM         273               CA        LEU     A             32  33.8575   6.737    2.76      0.70    17.87       C
 999      ATOM         274               CA        LEU     A             32   33.873   6.760   2.747      0.30    16.58       C
-[2020-09-21 12:21:20,541] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 47
+[2020-09-21 12:22:52,603] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 47
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 1097      ATOM         323               CA        THR     A             47  43.7015  -0.329   20.03      0.70    37.86       C
 1099      ATOM         324               CA        THR     A             47   43.701  -0.354  20.022      0.30    38.08       C
-[2020-09-21 12:21:20,549] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 57
+[2020-09-21 12:22:52,613] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 57
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 1263      ATOM         406               CA        GLU     A             57  30.6885  -8.092  12.986      0.50    28.13       C
 1265      ATOM         407               CA        GLU     A             57   30.669  -8.088  12.931      0.50    27.90       C
-[2020-09-21 12:21:20,558] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 61
+[2020-09-21 12:22:52,621] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 61
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 1345      ATOM         447               CA        PRO     A             61  19.1375  -4.031   9.487      0.50    15.77       C
 1347      ATOM         448               CA        PRO     A             61   19.139  -4.028   9.487      0.50    16.08       C
-[2020-09-21 12:21:20,567] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 63
+[2020-09-21 12:22:52,630] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 63
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord  Z-Coord Occupancy B-Factor Element
 1383      ATOM         466               CA        ILE     A             63  22.7205 -0.3085  11.7755      0.50    12.68       C
 1385      ATOM         467               CA        ILE     A             63   22.716  -0.294   11.773      0.50    12.02       C
-[2020-09-21 12:21:20,575] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 65
+[2020-09-21 12:22:52,639] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 65
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 1423      ATOM         486               CA        LYS     A             65  26.8905 -1.5835   7.694      0.50    16.19       C
 1425      ATOM         487               CA        LYS     A             65   26.888  -1.587   7.682      0.50    16.46       C
-[2020-09-21 12:21:20,584] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 66
+[2020-09-21 12:22:52,647] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 66
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 1453      ATOM         501               CA        LEU     A             66  30.6525 -1.1195   8.178      0.70    16.94       C
 1455      ATOM         502               CA        LEU     A             66   30.656  -1.125   8.197      0.30    18.44       C
-[2020-09-21 12:21:20,593] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 78
+[2020-09-21 12:22:52,657] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 78
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 1661      ATOM         605               CA        LEU     A             78  36.173  3.4435  6.9135      0.70    18.52       C
 1663      ATOM         606               CA        LEU     A             78  36.179   3.441   6.918      0.30    18.30       C
-[2020-09-21 12:21:20,601] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 113
+[2020-09-21 12:22:52,666] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 113
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord  Z-Coord Occupancy B-Factor Element
 2243      ATOM         896               CA        GLN     A            113  15.469 -2.3435  17.6835      0.50    12.75       C
 2245      ATOM         897               CA        GLN     A            113  15.473  -2.343   17.700      0.50    12.42       C
-[2020-09-21 12:21:20,610] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 115
+[2020-09-21 12:22:52,675] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 115
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 2281      ATOM         915               CA        LEU     A            115  19.8555  -0.055  20.072      0.50    10.66       C
 2283      ATOM         916               CA        LEU     A            115   19.838  -0.038  20.081      0.50    13.93       C
-[2020-09-21 12:21:20,618] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 118
+[2020-09-21 12:22:52,683] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 118
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord  Z-Coord Occupancy B-Factor Element
 2339      ATOM         944               CA        CYS     A            118  23.9375  -3.255  19.9775      0.50    14.59       C
 2341      ATOM         945               CA        CYS     A            118   23.953  -3.311   19.982      0.50    13.65       C
-[2020-09-21 12:21:20,627] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 128
+[2020-09-21 12:22:52,692] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 128
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 2519      ATOM        1034               CA        LEU     A            128  23.255   9.731  18.628      0.60    14.55       C
 2521      ATOM        1035               CA        LEU     A            128  23.274   9.741  18.614      0.40    13.03       C
-[2020-09-21 12:21:20,636] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 131
+[2020-09-21 12:22:52,701] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 131
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord  Y-Coord Z-Coord Occupancy B-Factor Element
 2577      ATOM        1063               CA        GLN     A            131  23.0435  13.6375  11.483      0.60    14.98       C
 2579      ATOM        1064               CA        GLN     A            131   23.010   13.615  11.446      0.40    13.75       C
-[2020-09-21 12:21:20,644] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 132
+[2020-09-21 12:22:52,710] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 132
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 2609      ATOM        1079               CA        ASN     A            132  23.8435  10.019  12.453      0.50    12.14       C
 2611      ATOM        1080               CA        ASN     A            132   23.805  10.029  12.676      0.50    11.86       C
-[2020-09-21 12:21:20,653] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 148
+[2020-09-21 12:22:52,719] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 148
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 2859      ATOM        1204               CA        LEU     A            148  33.2935   4.732  16.872      0.50    30.24       C
 2861      ATOM        1205               CA        LEU     A            148   33.293   4.737  16.876      0.50    30.23       C
-[2020-09-21 12:21:20,661] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 169
+[2020-09-21 12:22:52,728] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 169
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 3059      ATOM        1304               CA        ARG     A            169  24.088  14.457  25.586      0.50    10.09       C
 3061      ATOM        1305               CA        ARG     A            169  24.093  14.472  25.607      0.50    10.71       C
-[2020-09-21 12:21:20,670] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 212
+[2020-09-21 12:22:52,736] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 212
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 3751      ATOM        1650               CA        LEU     A            212  22.713   21.13  31.753      0.50    12.02       C
 3753      ATOM        1651               CA        LEU     A            212  22.717  21.121  31.741      0.50    11.68       C
-[2020-09-21 12:21:20,678] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 232
+[2020-09-21 12:22:52,745] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 232
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 4087      ATOM        1818               CA        SER     A            232  28.438  13.146  44.543      0.50    19.63       C
 4089      ATOM        1819               CA        SER     A            232  28.435  13.129  44.543      0.50    19.96       C
-[2020-09-21 12:21:20,687] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 233
+[2020-09-21 12:22:52,754] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 233
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord  Z-Coord Occupancy B-Factor Element
 4105      ATOM        1827               CA        MET     A            233  29.0125  13.316  40.7505      0.50    15.44       C
 4107      ATOM        1828               CA        MET     A            233   28.978  13.336   40.721      0.50    18.72       C
-[2020-09-21 12:21:20,695] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 242
+[2020-09-21 12:22:52,763] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 242
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 4265      ATOM        1907               CA        LYS     A            242  16.8845  24.796  41.793      0.50    20.83       C
 4267      ATOM        1908               CA        LYS     A            242   16.886  24.792  41.783      0.50    21.16       C
-[2020-09-21 12:21:20,704] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 250
+[2020-09-21 12:22:52,772] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 250
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord  Z-Coord Occupancy B-Factor Element
 4423      ATOM        1986               CA        LYS     A            250  3.70233  21.389  28.0337      0.33    21.13       C
 4425      ATOM        1987               CA        LYS     A            250    3.696  21.392   28.024      0.33    20.62       C
 4427      ATOM        1988               CA        LYS     A            250    3.709  21.382   28.040      0.33    21.09       C
-[2020-09-21 12:21:20,712] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 252
+[2020-09-21 12:22:52,781] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 252
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 4479      ATOM        2014               CA        VAL     A            252    5.81   17.77  23.746      0.60    17.49       C
 4481      ATOM        2015               CA        VAL     A            252   5.832  17.775  23.746      0.40    18.84       C
-[2020-09-21 12:21:20,721] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 257
+[2020-09-21 12:22:52,789] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 257
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 4563      ATOM        2056               CA        GLU     A            257  -0.365   9.862  26.706      0.50    13.18       C
 4565      ATOM        2057               CA        GLU     A            257  -0.487   9.802  26.669      0.50    16.31       C
-[2020-09-21 12:21:20,730] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 264
+[2020-09-21 12:22:52,799] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 264
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord  Y-Coord  Z-Coord Occupancy B-Factor Element
 4687      ATOM        2118               CA        SER     A            264  9.28667  10.3747  30.3027      0.33    11.10       C
 4689      ATOM        2119               CA        SER     A            264    9.292   10.376   30.298      0.33    11.33       C
 4691      ATOM        2120               CA        SER     A            264    9.273   10.367   30.310      0.33    11.81       C
-[2020-09-21 12:21:20,738] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 265
+[2020-09-21 12:22:52,808] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 265
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 4711      ATOM        2130               CA        GLN     A            265  10.8865  6.9385   30.85      0.50    11.52       C
 4713      ATOM        2131               CA        GLN     A            265   10.883   6.932  30.844      0.50    11.91       C
-[2020-09-21 12:21:20,746] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 272
+[2020-09-21 12:22:52,816] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 272
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord  Z-Coord Occupancy B-Factor Element
 4847      ATOM        2198               CA        ASN     A            272  19.335   2.955  36.3235      0.50    19.41       C
 4849      ATOM        2199               CA        ASN     A            272  19.323   2.962   36.326      0.50    19.30       C
-[2020-09-21 12:21:20,755] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 287
+[2020-09-21 12:22:52,825] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 287
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord  Z-Coord Occupancy B-Factor Element
 5093      ATOM        2321               CA        GLN     A            287   0.705  -1.413  19.9615      0.50    20.30       C
 5095      ATOM        2322               CA        GLN     A            287   0.721  -1.426   19.954      0.50    20.61       C
-[2020-09-21 12:21:20,755] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 279
-[2020-09-21 12:21:20,765] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
+[2020-09-21 12:22:52,825] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 279
+[2020-09-21 12:22:52,835] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 461       ATOM           5               CA        MET     A              1  42.049   3.972  -1.815      1.00    37.92       C
 477       ATOM          13               CA        GLU     A              2  42.731   3.807  -5.580      1.00    34.45       C
 495       ATOM          22               CA        ASN     A              3  39.805   1.334  -5.824      1.00    31.09       C
@@ -189,93 +189,93 @@ Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Numb
 5237      ATOM        2393               CA        LEU     A            296  11.579  11.615  -0.107      1.00    35.64       C
 
 [276 rows x 12 columns]
-[2020-09-21 12:21:20,766] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:314
-[2020-09-21 12:21:20,775] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 22
+[2020-09-21 12:22:52,836] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:314
+[2020-09-21 12:22:52,846] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 22
 Frame:     Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 846      ATOM         171               CA        ARG     A             22  32.319  5.0635  -6.298      0.49    19.35       C
 848      ATOM         172               CA        ARG     A             22  32.314   5.051  -6.285      0.51    19.09       C
-[2020-09-21 12:21:20,784] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 55
+[2020-09-21 12:22:52,855] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 55
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord  Z-Coord Occupancy B-Factor Element
 1290      ATOM         393               CA        LEU     A             55  32.364 -3.3515  14.2925      0.55    29.74       C
 1292      ATOM         394               CA        LEU     A             55  32.351  -3.372   14.282      0.45    30.73       C
-[2020-09-21 12:21:20,792] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 65
+[2020-09-21 12:22:52,864] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 65
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 1464      ATOM         480               CA        LYS     A             65  26.649 -1.7415   7.144      0.50    16.90       C
 1466      ATOM         481               CA        LYS     A             65  26.649  -1.740   7.152      0.50    16.47       C
-[2020-09-21 12:21:20,801] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 91
+[2020-09-21 12:22:52,873] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 91
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord  Y-Coord Z-Coord Occupancy B-Factor Element
 1934      ATOM         715               CA        MET     A             91    13.2  16.9255  9.6565      0.49    14.15       C
 1936      ATOM         716               CA        MET     A             91  13.235   16.922   9.691      0.51    14.64       C
-[2020-09-21 12:21:20,809] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 118
+[2020-09-21 12:22:52,881] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 118
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 2354      ATOM         925               CA        CYS     A            118  24.0645  -2.947  20.088      0.66    14.48       C
 2356      ATOM         926               CA        CYS     A            118   24.092  -3.071  20.054      0.34    14.30       C
-[2020-09-21 12:21:20,818] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 120
+[2020-09-21 12:22:52,890] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 120
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord  Z-Coord Occupancy B-Factor Element
 2392      ATOM         944               CA        SER     A            120  23.033   -6.62  24.0315      0.62    16.82       C
 2394      ATOM         945               CA        SER     A            120  23.029  -6.623   24.021      0.38    17.55       C
-[2020-09-21 12:21:20,827] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 128
+[2020-09-21 12:22:52,899] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 128
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 2540      ATOM        1018               CA        LEU     A            128  23.279   9.849  18.787      0.50    14.51       C
 2542      ATOM        1019               CA        LEU     A            128  23.293   9.838  18.794      0.50    14.10       C
-[2020-09-21 12:21:20,836] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 132
+[2020-09-21 12:22:52,908] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 132
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord  Y-Coord Z-Coord Occupancy B-Factor Element
 2618      ATOM        1057               CA        ASN     A            132  23.9925  10.2905  12.391      0.44    15.80       C
 2620      ATOM        1058               CA        ASN     A            132   24.032   10.306  12.194      0.56    14.95       C
-[2020-09-21 12:21:20,844] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 158
+[2020-09-21 12:22:52,917] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 158
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord  Y-Coord Z-Coord Occupancy B-Factor Element
 3008      ATOM        1252               CA        THR     A            158  38.185  18.9935  19.402      0.52    38.75       C
 3010      ATOM        1253               CA        THR     A            158  38.185   19.006  19.412      0.48    39.08       C
-[2020-09-21 12:21:20,853] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 169
+[2020-09-21 12:22:52,925] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 169
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 3216      ATOM        1356               CA        ARG     A            169  23.8055  14.561  25.683      0.54    11.51       C
 3218      ATOM        1357               CA        ARG     A            169   23.810  14.605  25.710      0.46    11.82       C
-[2020-09-21 12:21:20,862] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 177
+[2020-09-21 12:22:52,934] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 177
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord  Y-Coord Z-Coord Occupancy B-Factor Element
 3352      ATOM        1424               CA        CYS     A            177  30.5665  10.4225  34.617      0.70    18.81       C
 3354      ATOM        1425               CA        CYS     A            177   30.606   10.416  34.590      0.30    19.77       C
-[2020-09-21 12:21:20,870] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 200
+[2020-09-21 12:22:52,944] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 200
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord  Y-Coord Z-Coord Occupancy B-Factor Element
 3726      ATOM        1611               CA        ARG     A            200  11.978  22.0375  17.647      0.51    15.79       C
 3728      ATOM        1612               CA        ARG     A            200  12.026   22.020  17.581      0.49    15.30       C
-[2020-09-21 12:21:20,879] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 206
+[2020-09-21 12:22:52,952] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 206
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 3834      ATOM        1665               CA        ASP     A            206  25.4645   25.93  23.286      0.50    22.90       C
 3836      ATOM        1666               CA        ASP     A            206   25.466  25.920  23.280      0.50    22.53       C
-[2020-09-21 12:21:20,887] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 212
+[2020-09-21 12:22:52,961] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 212
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord  Y-Coord Z-Coord Occupancy B-Factor Element
 3940      ATOM        1718               CA        LEU     A            212  22.5195  21.2425   31.87      0.50    14.22       C
 3942      ATOM        1719               CA        LEU     A            212   22.509   21.256  31.890      0.50    14.15       C
-[2020-09-21 12:21:20,896] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 232
+[2020-09-21 12:22:52,969] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 232
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord  Y-Coord  Z-Coord Occupancy B-Factor Element
 4276      ATOM        1886               CA        SER     A            232   28.37  12.8815  44.3515      0.50    20.16       C
 4278      ATOM        1887               CA        SER     A            232  28.378   12.897   44.356      0.50    20.76       C
-[2020-09-21 12:21:20,904] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 246
+[2020-09-21 12:22:52,978] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 246
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 4522      ATOM        2009               CA        GLN     A            246   7.504  21.942  35.029      0.50    22.77       C
 4524      ATOM        2010               CA        GLN     A            246   7.496  21.937  35.040      0.50    22.49       C
-[2020-09-21 12:21:20,913] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 247
+[2020-09-21 12:22:52,988] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 247
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord  Y-Coord Z-Coord Occupancy B-Factor Element
 4552      ATOM        2024               CA        ASP     A            247  4.2855  20.3135  34.036      0.54    23.41       C
 4554      ATOM        2025               CA        ASP     A            247   4.236   20.373  34.002      0.46    23.75       C
-[2020-09-21 12:21:20,922] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 249
+[2020-09-21 12:22:52,996] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 249
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 4600      ATOM        2048               CA        SER     A            249   2.286  18.895  29.149      0.53    23.50       C
 4602      ATOM        2049               CA        SER     A            249   2.307  18.875  29.128      0.47    23.52       C
-[2020-09-21 12:21:20,930] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 252
+[2020-09-21 12:22:53,005] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 252
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 4650      ATOM        2073               CA        VAL     A            252  5.8265  17.406  23.536      0.50    16.64       C
 4652      ATOM        2074               CA        VAL     A            252   5.842  17.389  23.547      0.50    17.12       C
-[2020-09-21 12:21:20,939] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 261
+[2020-09-21 12:22:53,014] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 261
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 4796      ATOM        2146               CA        SER     A            261   4.601   8.279  29.123      0.73    13.07       C
 4798      ATOM        2147               CA        SER     A            261   4.624   8.310  29.142      0.27    12.54       C
-[2020-09-21 12:21:20,947] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 287
+[2020-09-21 12:22:53,022] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 287
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord  Z-Coord Occupancy B-Factor Element
 5218      ATOM        2357               CA        GLN     A            287  0.9215 -1.5625  19.9775      0.57    20.35       C
 5220      ATOM        2358               CA        GLN     A            287   0.897  -1.547   19.996      0.43    20.09       C
-[2020-09-21 12:21:20,948] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 293
-[2020-09-21 12:21:20,958] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
+[2020-09-21 12:22:53,023] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 293
+[2020-09-21 12:22:53,034] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 512       ATOM           4               CA        MET     A              1  42.374   4.406  -2.049      1.00    45.20       C
 528       ATOM          12               CA        GLU     A              2  42.996   4.689  -5.811      1.00    43.78       C
 546       ATOM          21               CA        ASN     A              3  40.122   2.125  -6.026      1.00    35.05       C
@@ -289,73 +289,73 @@ Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Numb
 5372      ATOM        2434               CA        LEU     A            296  11.893  11.624   0.193      1.00    23.66       C
 
 [276 rows x 12 columns]
-[2020-09-21 12:21:20,958] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:307
-[2020-09-21 12:21:20,968] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 2
+[2020-09-21 12:22:53,034] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:307
+[2020-09-21 12:22:53,043] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 2
 Frame:     Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 507      ATOM          13               CA        GLU     A              2  42.928  4.0305 -5.3295      0.51    43.01       C
 509      ATOM          14               CA        GLU     A              2  42.927   4.036  -5.328      0.49    43.32       C
-[2020-09-21 12:21:20,976] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 28
+[2020-09-21 12:22:53,052] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 28
 Frame:     Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 917      ATOM         218               CA        GLU     A             28  28.9065   0.338 -5.5545      0.56    30.99       C
 919      ATOM         219               CA        GLU     A             28   28.906   0.335  -5.552      0.44    31.20       C
-[2020-09-21 12:21:20,985] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 29
+[2020-09-21 12:22:53,060] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 29
 Frame:     Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 947      ATOM         233               CA        VAL     A             29  28.3455  3.7725 -3.9625      0.51    21.88       C
 949      ATOM         234               CA        VAL     A             29   28.291   3.775  -3.971      0.49    22.08       C
-[2020-09-21 12:21:20,993] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 32
+[2020-09-21 12:22:53,069] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 32
 Frame:     Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 993      ATOM         256               CA        LEU     A             32  33.636   6.896   3.242      0.61    22.74       C
 995      ATOM         257               CA        LEU     A             32  33.651   6.917   3.241      0.39    22.94       C
-[2020-09-21 12:21:21,002] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 57
+[2020-09-21 12:22:53,078] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 57
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 1281      ATOM         400               CA        GLU     A             57  30.4535 -8.2155  12.686      0.53    32.35       C
 1283      ATOM         401               CA        GLU     A             57   30.450  -8.214  12.674      0.47    32.56       C
-[2020-09-21 12:21:21,011] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 78
+[2020-09-21 12:22:53,086] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 78
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 1623      ATOM         571               CA        LEU     A             78  35.789  3.4485  7.3895      0.54    26.58       C
 1625      ATOM         572               CA        LEU     A             78  35.786   3.452   7.397      0.46    26.05       C
-[2020-09-21 12:21:21,020] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 89
+[2020-09-21 12:22:53,095] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 89
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 1829      ATOM         674               CA        LYS     A             89  17.619  16.659  6.1075      0.55    18.39       C
 1831      ATOM         675               CA        LYS     A             89  17.621  16.662   6.109      0.45    18.43       C
-[2020-09-21 12:21:21,029] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 91
+[2020-09-21 12:22:53,104] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 91
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 1881      ATOM         700               CA        MET     A             91  13.2715  16.836   9.523      0.50    17.91       C
 1883      ATOM         701               CA        MET     A             91   13.303  16.840   9.549      0.50    17.72       C
-[2020-09-21 12:21:21,038] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 118
+[2020-09-21 12:22:53,112] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 118
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord  Z-Coord Occupancy B-Factor Element
 2301      ATOM         910               CA        CYS     A            118  23.841 -3.3515  19.8935      0.61    18.93       C
 2303      ATOM         911               CA        CYS     A            118  23.823  -3.285   19.907      0.39    19.09       C
-[2020-09-21 12:21:21,046] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 138
+[2020-09-21 12:22:53,121] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 138
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 2641      ATOM        1080               CA        GLU     A            138  11.453   1.899    1.87      0.50    23.99       C
 2643      ATOM        1081               CA        GLU     A            138  11.436   1.912   1.864      0.50    24.16       C
-[2020-09-21 12:21:21,055] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 165
+[2020-09-21 12:22:53,130] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 165
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord  Y-Coord  Z-Coord Occupancy B-Factor Element
 3053      ATOM        1286               CA        THR     A            165  26.7025  19.3025  19.1675      0.52    26.07       C
 3055      ATOM        1287               CA        THR     A            165   26.694   19.280   19.146      0.48    26.03       C
-[2020-09-21 12:21:21,064] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 206
+[2020-09-21 12:22:53,139] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 206
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 3715      ATOM        1617               CA        ASP     A            206  25.5715  25.877  23.152      0.68    26.08       C
 3717      ATOM        1618               CA        ASP     A            206   25.558  25.947  23.173      0.32    26.49       C
-[2020-09-21 12:21:21,073] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 233
+[2020-09-21 12:22:53,147] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 233
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number  X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 4159      ATOM        1839               CA        MET     A            233  29.0605  13.227  40.762      0.70    21.69       C
 4161      ATOM        1840               CA        MET     A            233   29.025  13.254  40.737      0.30    22.29       C
-[2020-09-21 12:21:21,081] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 246
+[2020-09-21 12:22:53,156] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 246
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord  Y-Coord  Z-Coord Occupancy B-Factor Element
 4397      ATOM        1958               CA        GLN     A            246  7.6575  21.1675  33.9185      0.58    31.93       C
 4399      ATOM        1959               CA        GLN     A            246   7.654   21.172   33.929      0.42    31.74       C
-[2020-09-21 12:21:21,090] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 261
+[2020-09-21 12:22:53,165] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 261
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 4641      ATOM        2080               CA        SER     A            261   4.823   8.323  29.202      0.51    16.59       C
 4643      ATOM        2081               CA        SER     A            261   4.830   8.328  29.210      0.49    16.50       C
-[2020-09-21 12:21:21,099] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 287
+[2020-09-21 12:22:53,173] - AnalyzePDB.ComparePDB - DEBUG - dupRes: 287
 Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 5063      ATOM        2291               CA        GLN     A            287  0.6425  -1.334  20.043      0.51    23.70       C
 5065      ATOM        2292               CA        GLN     A            287   0.669  -1.355  20.032      0.49    24.00       C
-[2020-09-21 12:21:21,099] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 291
-[2020-09-21 12:21:21,109] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
+[2020-09-21 12:22:53,174] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 291
+[2020-09-21 12:22:53,183] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Number X-Coord Y-Coord Z-Coord Occupancy B-Factor Element
 491       ATOM           5               CA        MET     A              1  42.107   4.178  -1.578      1.00    40.33       C
 507       ATOM          13               CA        GLU     A              2  42.928  4.0305 -5.3295      0.51    43.01       C
 537       ATOM          28               CA        ASN     A              3  39.758   1.850  -5.591      1.00    39.12       C
@@ -369,31 +369,31 @@ Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Numb
 5207      ATOM        2363               CA        LEU     A            296  11.799  11.628   0.078      1.00    28.83       C
 
 [276 rows x 12 columns]
-[2020-09-21 12:21:21,282] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1Formatted.pdb
-[2020-09-21 12:21:21,282] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1Formatted.csv
-[2020-09-21 12:21:21,290] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1Formatted.csv
-[2020-09-21 12:21:21,292] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1Formatted.csv
-[2020-09-21 12:21:21,295] - AnalyzePDB - INFO - Recognizing common chain A
-[2020-09-21 12:21:21,297] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5A14Formatted.pdb
-[2020-09-21 12:21:21,297] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5A14Formatted.csv
-[2020-09-21 12:21:21,304] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5A14Formatted.csv
-[2020-09-21 12:21:21,306] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5A14Formatted.csv
-[2020-09-21 12:21:21,310] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKPFormatted.pdb
-[2020-09-21 12:21:21,310] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKPFormatted.csv
-[2020-09-21 12:21:21,316] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKPFormatted.csv
-[2020-09-21 12:21:21,318] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKPFormatted.csv
-[2020-09-21 12:21:21,322] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKUFormatted.pdb
-[2020-09-21 12:21:21,323] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKUFormatted.csv
-[2020-09-21 12:21:21,330] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKUFormatted.csv
-[2020-09-21 12:21:21,332] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKUFormatted.csv
-[2020-09-21 12:21:21,336] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKOFormatted.pdb
-[2020-09-21 12:21:21,336] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKOFormatted.csv
-[2020-09-21 12:21:21,342] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKOFormatted.csv
-[2020-09-21 12:21:21,344] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKOFormatted.csv
-[2020-09-21 12:21:21,348] - AnalyzePDB - INFO - Detected the following chains common to all pdb files:
-[2020-09-21 12:21:21,348] - AnalyzePDB - INFO - Chain: A Max Residue: 296
-[2020-09-21 12:21:21,348] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1Formatted.pdb
-[2020-09-21 12:21:22,285] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.85556805  5.49314491 ... 33.54547244 33.79801324
+[2020-09-21 12:22:53,352] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1Formatted.pdb
+[2020-09-21 12:22:53,352] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1Formatted.csv
+[2020-09-21 12:22:53,360] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1Formatted.csv
+[2020-09-21 12:22:53,363] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1Formatted.csv
+[2020-09-21 12:22:53,366] - AnalyzePDB - INFO - Recognizing common chain A
+[2020-09-21 12:22:53,368] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5A14Formatted.pdb
+[2020-09-21 12:22:53,369] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5A14Formatted.csv
+[2020-09-21 12:22:53,376] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5A14Formatted.csv
+[2020-09-21 12:22:53,378] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5A14Formatted.csv
+[2020-09-21 12:22:53,383] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKPFormatted.pdb
+[2020-09-21 12:22:53,383] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKPFormatted.csv
+[2020-09-21 12:22:53,390] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKPFormatted.csv
+[2020-09-21 12:22:53,392] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKPFormatted.csv
+[2020-09-21 12:22:53,396] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKUFormatted.pdb
+[2020-09-21 12:22:53,396] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKUFormatted.csv
+[2020-09-21 12:22:53,404] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKUFormatted.csv
+[2020-09-21 12:22:53,406] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKUFormatted.csv
+[2020-09-21 12:22:53,410] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKOFormatted.pdb
+[2020-09-21 12:22:53,410] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKOFormatted.csv
+[2020-09-21 12:22:53,416] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKOFormatted.csv
+[2020-09-21 12:22:53,418] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKOFormatted.csv
+[2020-09-21 12:22:53,422] - AnalyzePDB - INFO - Detected the following chains common to all pdb files:
+[2020-09-21 12:22:53,422] - AnalyzePDB - INFO - Chain: A Max Residue: 296
+[2020-09-21 12:22:53,422] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1Formatted.pdb
+[2020-09-21 12:22:54,362] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.85556805  5.49314491 ... 33.54547244 33.79801324
   30.55496238]
  [ 3.85556805  0.          3.80875176 ... 34.93988875 34.90436497
   31.68967647]
@@ -406,8 +406,8 @@ Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Numb
    3.81069193]
  [30.55496238 31.68967647 29.35384985 ...  5.87468203  3.81069193
    0.        ]]
-[2020-09-21 12:21:22,286] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5A14Formatted.pdb
-[2020-09-21 12:21:23,217] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.87849146  5.58308105 ... 32.60832552 33.15338765
+[2020-09-21 12:22:54,363] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5A14Formatted.pdb
+[2020-09-21 12:22:55,295] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.87849146  5.58308105 ... 32.60832552 33.15338765
   29.8990552 ]
  [ 3.87849146  0.          3.8611172  ... 33.77796313 33.97698005
   30.69310701]
@@ -420,8 +420,8 @@ Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Numb
    3.86444058]
  [29.8990552  30.69310701 27.95294593 ...  5.96828376  3.86444058
    0.        ]]
-[2020-09-21 12:21:23,218] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKPFormatted.pdb
-[2020-09-21 12:21:24,148] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.82982689  5.29779775 ... 34.43545959 35.03962769
+[2020-09-21 12:22:55,296] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKPFormatted.pdb
+[2020-09-21 12:22:56,229] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.82982689  5.29779775 ... 34.43545959 35.03962769
   31.46034986]
  [ 3.82982689  0.          3.83884631 ... 35.90466394 36.23578768
   32.57860797]
@@ -434,8 +434,8 @@ Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Numb
    3.85243455]
  [31.46034986 32.57860797 30.57924339 ...  5.77919199  3.85243455
    0.        ]]
-[2020-09-21 12:21:24,149] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKUFormatted.pdb
-[2020-09-21 12:21:25,081] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.82356077  5.10793442 ... 34.58343645 34.91257763
+[2020-09-21 12:22:56,230] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKUFormatted.pdb
+[2020-09-21 12:22:57,163] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.82356077  5.10793442 ... 34.58343645 34.91257763
   31.40409924]
  [ 3.82356077  0.          3.85748584 ... 35.97059068 35.98546031
   32.42743977]
@@ -448,8 +448,8 @@ Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Numb
    3.79388429]
  [31.40409924 32.42743977 30.42668899 ...  5.82947613  3.79388429
    0.        ]]
-[2020-09-21 12:21:25,082] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKOFormatted.pdb
-[2020-09-21 12:21:26,011] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.84362446  5.20014942 ... 34.37972416 34.81104552
+[2020-09-21 12:22:57,164] - AnalyzePDB - INFO - Calculating distance matrix for: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/4FKOFormatted.pdb
+[2020-09-21 12:22:58,095] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.84362446  5.20014942 ... 34.37972416 34.81104552
   31.25411493]
  [ 3.84362446  0.          3.85608882 ... 35.95929368 36.10502817
   32.49601066]
@@ -462,7 +462,7 @@ Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Numb
    3.82690606]
  [31.25411493 32.49601066 30.1571306  ...  5.80780828  3.82690606
    0.        ]]
-[2020-09-21 12:21:26,013] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.         -0.02292341 -0.08993614 ...  0.93714692  0.64462559
+[2020-09-21 12:22:58,097] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.         -0.02292341 -0.08993614 ...  0.93714692  0.64462559
    0.65590718]
  [-0.02292341  0.         -0.05236543 ...  1.16192563  0.92738493
    0.99656946]
@@ -475,8 +475,8 @@ Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Numb
   -0.05374865]
  [ 0.65590718  0.99656946  1.40090392 ... -0.09360172 -0.05374865
    0.        ]]
-[2020-09-21 12:21:26,014] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_5A14.npy
-[2020-09-21 12:21:26,015] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.          0.02574116  0.19534716 ... -0.88998715 -1.24161445
+[2020-09-21 12:22:58,098] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_5A14.npy
+[2020-09-21 12:22:58,099] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.          0.02574116  0.19534716 ... -0.88998715 -1.24161445
   -0.90538748]
  [ 0.02574116  0.         -0.03009455 ... -0.96477519 -1.33142271
   -0.88893149]
@@ -489,8 +489,8 @@ Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Numb
   -0.04174262]
  [-0.90538748 -0.88893149 -1.22539354 ...  0.09549005 -0.04174262
    0.        ]]
-[2020-09-21 12:21:26,016] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_4FKP.npy
-[2020-09-21 12:21:26,017] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.          0.03200728  0.38521049 ... -1.03796402 -1.11456439
+[2020-09-21 12:22:58,100] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_4FKP.npy
+[2020-09-21 12:22:58,101] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.          0.03200728  0.38521049 ... -1.03796402 -1.11456439
   -0.84913686]
  [ 0.03200728  0.         -0.04873408 ... -1.03070193 -1.08109534
   -0.7377633 ]
@@ -503,8 +503,8 @@ Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Numb
    0.01680764]
  [-0.84913686 -0.7377633  -1.07283914 ...  0.0452059   0.01680764
    0.        ]]
-[2020-09-21 12:21:26,017] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_4FKU.npy
-[2020-09-21 12:21:26,018] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.          0.01194359  0.29299549 ... -0.83425172 -1.01303228
+[2020-09-21 12:22:58,102] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_4FKU.npy
+[2020-09-21 12:22:58,103] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.          0.01194359  0.29299549 ... -0.83425172 -1.01303228
   -0.69915255]
  [ 0.01194359  0.         -0.04733706 ... -1.01940493 -1.2006632
   -0.80633419]
@@ -517,10 +517,12 @@ Frame:      Atom Type Atom Number Positional Label Amino Acid Chain Residue Numb
   -0.01621413]
  [-0.69915255 -0.80633419 -0.80328075 ...  0.06687376 -0.01621413
    0.        ]]
-[2020-09-21 12:21:26,019] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_4FKO.npy
-[2020-09-21 12:21:26,020] - AnalyzePDB - INFO - Generating covariance index to residue pair map
-[2020-09-21 12:21:26,315] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_5A14.html
-[2020-09-21 12:21:26,569] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_4FKP.html
-[2020-09-21 12:21:26,823] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_4FKU.html
-[2020-09-21 12:21:27,076] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_4FKO.html
-[2020-09-21 12:21:27,079] - AnalyzePDB - INFO - Generating covariance matrix
+[2020-09-21 12:22:58,103] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_4FKO.npy
+[2020-09-21 12:22:58,104] - AnalyzePDB - INFO - Generating covariance index to residue pair map
+[2020-09-21 12:22:58,408] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_5A14.html
+[2020-09-21 12:22:58,671] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_4FKP.html
+[2020-09-21 12:22:58,932] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_4FKU.html
+[2020-09-21 12:22:59,201] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/recovery1/ExtraPrograms/CryoEMCovariance/Initial5/ddMatrices/5IF1_Minus_4FKO.html
+[2020-09-21 12:22:59,204] - AnalyzePDB - INFO - Generating covariance matrix
+[2020-09-21 12:23:13,844] - AnalyzePDB - INFO - Choosing scale of: 10
+[2020-09-21 12:23:13,847] - AnalyzePDB - INFO - Outputting covariance matrix plot
