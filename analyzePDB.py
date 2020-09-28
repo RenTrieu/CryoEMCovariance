@@ -314,6 +314,8 @@ class AnalyzePDB:
         else:
             covMapString = os.path.join(directory, 'covMapDict.npy')
 
+        # TODO: Memory issue starts here
+        """
         if args.plot:
             if covarianceMatrix.size > 4:
                 logger.info('Outputting covariance matrix plot')
@@ -324,6 +326,7 @@ class AnalyzePDB:
             else:
                 logger.error('Dimensions of Covariance Matrix are' \
                              ' too small to plot.')
+        """
 
         # Generating Interface
         if not len(covarianceMatrix.shape) == 0:
