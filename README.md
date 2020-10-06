@@ -54,6 +54,9 @@ Notes:
   Running this with the `Initial5/` pdb files requires enough memory such that
   the process is killed on our aida server. I'm looking to flesh out image
   scaling to lighten the memory load for these matrices.
+- Fixed memory issue by removing redundant code and fixed small issue with the
+  display of the residue ranges. Can run the `Initial5/` pdb files, however,
+  the generation of the covariance matrix takes a few seconds.
 
 In-Development Notes/Changes:
 

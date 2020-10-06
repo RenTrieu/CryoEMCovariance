@@ -1,24 +1,24 @@
-[2020-09-28 15:44:30,248] - AnalyzePDB - INFO - Logger Initialized
-[2020-09-28 15:44:30,249] - AnalyzePDB - INFO - outDirectory: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices
-[2020-09-28 15:44:31,020] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-2.pdb
-[2020-09-28 15:44:31,020] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-2.pdb
-[2020-09-28 15:44:31,024] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-4.pdb
-[2020-09-28 15:44:31,024] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-4.pdb
-[2020-09-28 15:44:31,028] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-3.pdb
-[2020-09-28 15:44:31,028] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-3.pdb
-[2020-09-28 15:44:31,031] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-3.pdb
-[2020-09-28 15:44:31,031] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-3.pdb
-[2020-09-28 15:44:31,035] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-4.pdb
-[2020-09-28 15:44:31,035] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-4.pdb
-[2020-09-28 15:44:31,038] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-2.pdb
-[2020-09-28 15:44:31,038] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-2.pdb
-[2020-09-28 15:44:31,042] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-1.pdb
-[2020-09-28 15:44:31,042] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-1.pdb
-[2020-09-28 15:44:31,045] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-1.pdb
-[2020-09-28 15:44:31,045] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-1.pdb
-[2020-09-28 15:44:31,065] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
-[2020-09-28 15:44:31,067] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
-[2020-09-28 15:44:31,079] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
+[2020-10-06 12:15:27,321] - AnalyzePDB - INFO - Logger Initialized
+[2020-10-06 12:15:27,321] - AnalyzePDB - INFO - outDirectory: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices
+[2020-10-06 12:15:28,383] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-2.pdb
+[2020-10-06 12:15:28,384] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-2.pdb
+[2020-10-06 12:15:28,388] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-4.pdb
+[2020-10-06 12:15:28,388] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-4.pdb
+[2020-10-06 12:15:28,391] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-3.pdb
+[2020-10-06 12:15:28,391] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-3.pdb
+[2020-10-06 12:15:28,395] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-3.pdb
+[2020-10-06 12:15:28,395] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-3.pdb
+[2020-10-06 12:15:28,398] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-4.pdb
+[2020-10-06 12:15:28,398] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-4.pdb
+[2020-10-06 12:15:28,402] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-2.pdb
+[2020-10-06 12:15:28,402] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-2.pdb
+[2020-10-06 12:15:28,405] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-1-1.pdb
+[2020-10-06 12:15:28,405] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-1-1.pdb
+[2020-10-06 12:15:28,408] - AnalyzePDB.ComparePDB - INFO - Removing side chains for toy-model-2-1.pdb
+[2020-10-06 12:15:28,408] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for toy-model-2-1.pdb
+[2020-10-06 12:15:28,429] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
+[2020-10-06 12:15:28,430] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
+[2020-10-06 12:15:28,442] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
 1       ATOM            2               CA        ASP     A  ...   -3.220   -3.523        1.0       0.0        C
 9       ATOM           10               CA        ALA     A  ...   -1.639   -0.671        1.0       0.0        C
 14      ATOM           15               CA        ARG     A  ...   -2.428    0.022        1.0       0.0        C
@@ -27,9 +27,9 @@
 45      ATOM           46               CA        ASN     A  ...    3.696   -0.191        1.0       0.0        C
 
 [6 rows x 12 columns]
-[2020-09-28 15:44:31,081] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
-[2020-09-28 15:44:31,082] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
-[2020-09-28 15:44:31,094] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
+[2020-10-06 12:15:28,444] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
+[2020-10-06 12:15:28,445] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
+[2020-10-06 12:15:28,456] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
 1       ATOM            2               CA        ASP     A  ...   -0.346    2.313        1.0       0.0        C
 9       ATOM           10               CA        ALA     A  ...   -3.148    0.615        1.0       0.0        C
 14      ATOM           15               CA        ARG     A  ...   -2.428    0.022        1.0       0.0        C
@@ -38,9 +38,9 @@
 45      ATOM           46               CA        ASN     A  ...    4.393    1.188        1.0       0.0        C
 
 [6 rows x 12 columns]
-[2020-09-28 15:44:31,095] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
-[2020-09-28 15:44:31,096] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
-[2020-09-28 15:44:31,108] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
+[2020-10-06 12:15:28,458] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
+[2020-10-06 12:15:28,459] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
+[2020-10-06 12:15:28,471] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
 1       ATOM            2               CA        ASP     A  ...   -5.161    2.865        1.0       0.0        C
 9       ATOM           10               CA        ALA     A  ...   -3.148    0.615        1.0       0.0        C
 14      ATOM           15               CA        ARG     A  ...   -2.428    0.022        1.0       0.0        C
@@ -49,9 +49,9 @@
 45      ATOM           46               CA        ASN     A  ...    4.393    1.188        1.0       0.0        C
 
 [6 rows x 12 columns]
-[2020-09-28 15:44:31,110] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
-[2020-09-28 15:44:31,111] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
-[2020-09-28 15:44:31,123] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
+[2020-10-06 12:15:28,473] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
+[2020-10-06 12:15:28,474] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
+[2020-10-06 12:15:28,485] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
 1       ATOM            2               CA        ASP     A  ...   -4.986   -1.120        1.0       0.0        C
 9       ATOM           10               CA        ALA     A  ...   -1.639   -0.671        1.0       0.0        C
 14      ATOM           15               CA        ARG     A  ...   -2.428    0.022        1.0       0.0        C
@@ -60,9 +60,9 @@
 45      ATOM           46               CA        ASN     A  ...    3.696   -0.191        1.0       0.0        C
 
 [6 rows x 12 columns]
-[2020-09-28 15:44:31,124] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
-[2020-09-28 15:44:31,125] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
-[2020-09-28 15:44:31,137] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
+[2020-10-06 12:15:28,487] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
+[2020-10-06 12:15:28,488] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
+[2020-10-06 12:15:28,500] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
 1       ATOM            2               CA        ASP     A  ...   -3.883    1.868        1.0       0.0        C
 9       ATOM           10               CA        ALA     A  ...   -1.639   -0.671        1.0       0.0        C
 14      ATOM           15               CA        ARG     A  ...   -2.428    0.022        1.0       0.0        C
@@ -71,9 +71,9 @@
 45      ATOM           46               CA        ASN     A  ...    3.696   -0.191        1.0       0.0        C
 
 [6 rows x 12 columns]
-[2020-09-28 15:44:31,139] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
-[2020-09-28 15:44:31,140] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
-[2020-09-28 15:44:31,152] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
+[2020-10-06 12:15:28,501] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
+[2020-10-06 12:15:28,502] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
+[2020-10-06 12:15:28,515] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
 1       ATOM            2               CA        ASP     A  ...   -4.489   -2.450        1.0       0.0        C
 9       ATOM           10               CA        ALA     A  ...   -3.148    0.615        1.0       0.0        C
 14      ATOM           15               CA        ARG     A  ...   -2.428    0.022        1.0       0.0        C
@@ -82,9 +82,9 @@
 45      ATOM           46               CA        ASN     A  ...    4.393    1.188        1.0       0.0        C
 
 [6 rows x 12 columns]
-[2020-09-28 15:44:31,154] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
-[2020-09-28 15:44:31,155] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
-[2020-09-28 15:44:31,167] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
+[2020-10-06 12:15:28,517] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
+[2020-10-06 12:15:28,518] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
+[2020-10-06 12:15:28,529] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
 1       ATOM            2               CA        ASP     A  ...   -6.171   -0.323        1.0       0.0        C
 9       ATOM           10               CA        ALA     A  ...   -3.148    0.615        1.0       0.0        C
 14      ATOM           15               CA        ARG     A  ...   -2.428    0.022        1.0       0.0        C
@@ -93,9 +93,9 @@
 45      ATOM           46               CA        ASN     A  ...    4.393    1.188        1.0       0.0        C
 
 [6 rows x 12 columns]
-[2020-09-28 15:44:31,169] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
-[2020-09-28 15:44:31,170] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
-[2020-09-28 15:44:31,182] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
+[2020-10-06 12:15:28,531] - AnalyzePDB.ComparePDB - DEBUG - pdbFrame Length:6
+[2020-10-06 12:15:28,532] - AnalyzePDB.ComparePDB - DEBUG - pdbCommonBool Length: 6
+[2020-10-06 12:15:28,544] - AnalyzePDB.ComparePDB - DEBUG - chainFrameLoc:    Atom Type  Atom Number Positional Label Amino Acid Chain  ...  Y-Coord  Z-Coord  Occupancy  B-Factor  Element
 1       ATOM            2               CA        ASP     A  ...    0.143   -3.221        1.0       0.0        C
 9       ATOM           10               CA        ALA     A  ...   -1.639   -0.671        1.0       0.0        C
 14      ATOM           15               CA        ARG     A  ...   -2.428    0.022        1.0       0.0        C
@@ -104,98 +104,98 @@
 45      ATOM           46               CA        ASN     A  ...    3.696   -0.191        1.0       0.0        C
 
 [6 rows x 12 columns]
-[2020-09-28 15:44:31,223] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.pdb
-[2020-09-28 15:44:31,223] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.csv
-[2020-09-28 15:44:31,261] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.csv
-[2020-09-28 15:44:31,266] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.csv
-[2020-09-28 15:44:31,299] - AnalyzePDB - INFO - Recognizing common chain A
-[2020-09-28 15:44:31,306] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.pdb
-[2020-09-28 15:44:31,307] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.csv
-[2020-09-28 15:44:31,348] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.csv
-[2020-09-28 15:44:31,353] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.csv
-[2020-09-28 15:44:31,367] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.pdb
-[2020-09-28 15:44:31,368] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.csv
-[2020-09-28 15:44:31,409] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.csv
-[2020-09-28 15:44:31,414] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.csv
-[2020-09-28 15:44:31,435] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.pdb
-[2020-09-28 15:44:31,436] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.csv
-[2020-09-28 15:44:31,471] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.csv
-[2020-09-28 15:44:31,476] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.csv
-[2020-09-28 15:44:31,493] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.pdb
-[2020-09-28 15:44:31,494] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.csv
-[2020-09-28 15:44:31,549] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.csv
-[2020-09-28 15:44:31,555] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.csv
-[2020-09-28 15:44:31,579] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.pdb
-[2020-09-28 15:44:31,580] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.csv
-[2020-09-28 15:44:31,628] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.csv
-[2020-09-28 15:44:31,633] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.csv
-[2020-09-28 15:44:31,657] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.pdb
-[2020-09-28 15:44:31,658] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.csv
-[2020-09-28 15:44:31,696] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.csv
-[2020-09-28 15:44:31,701] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.csv
-[2020-09-28 15:44:31,716] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.pdb
-[2020-09-28 15:44:31,717] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.csv
-[2020-09-28 15:44:31,759] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.csv
-[2020-09-28 15:44:31,764] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.csv
-[2020-09-28 15:44:31,790] - AnalyzePDB - INFO - Detected the following chains common to all pdb files:
-[2020-09-28 15:44:31,790] - AnalyzePDB - INFO - Chain: A Max Residue: 6
-[2020-09-28 15:44:31,790] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.pdb
-[2020-09-28 15:44:32,008] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80203761  6.68245239  9.67673881 12.87178931 12.40479004]
+[2020-10-06 12:15:28,591] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.pdb
+[2020-10-06 12:15:28,591] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.csv
+[2020-10-06 12:15:28,638] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.csv
+[2020-10-06 12:15:28,643] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.csv
+[2020-10-06 12:15:28,673] - AnalyzePDB - INFO - Recognizing common chain A
+[2020-10-06 12:15:28,692] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.pdb
+[2020-10-06 12:15:28,693] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.csv
+[2020-10-06 12:15:28,781] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.csv
+[2020-10-06 12:15:28,793] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.csv
+[2020-10-06 12:15:28,818] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.pdb
+[2020-10-06 12:15:28,819] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.csv
+[2020-10-06 12:15:28,874] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.csv
+[2020-10-06 12:15:28,878] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.csv
+[2020-10-06 12:15:28,895] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.pdb
+[2020-10-06 12:15:28,896] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.csv
+[2020-10-06 12:15:28,936] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.csv
+[2020-10-06 12:15:28,941] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.csv
+[2020-10-06 12:15:28,979] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.pdb
+[2020-10-06 12:15:28,980] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.csv
+[2020-10-06 12:15:29,018] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.csv
+[2020-10-06 12:15:29,022] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.csv
+[2020-10-06 12:15:29,051] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.pdb
+[2020-10-06 12:15:29,051] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.csv
+[2020-10-06 12:15:29,103] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.csv
+[2020-10-06 12:15:29,109] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.csv
+[2020-10-06 12:15:29,129] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.pdb
+[2020-10-06 12:15:29,130] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.csv
+[2020-10-06 12:15:29,173] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.csv
+[2020-10-06 12:15:29,177] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.csv
+[2020-10-06 12:15:29,206] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.pdb
+[2020-10-06 12:15:29,207] - AnalyzePDB.PDBReader - DEBUG - Writing to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.csv
+[2020-10-06 12:15:29,265] - AnalyzePDB.PDBReader - DEBUG - Reading from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.csv
+[2020-10-06 12:15:29,270] - AnalyzePDB.PDBReader - DEBUG - Deleting: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.csv
+[2020-10-06 12:15:29,294] - AnalyzePDB - INFO - Detected the following chains common to all pdb files:
+[2020-10-06 12:15:29,294] - AnalyzePDB - INFO - Chain: A Max Residue: 6
+[2020-10-06 12:15:29,294] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2Formatted.pdb
+[2020-10-06 12:15:29,648] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80203761  6.68245239  9.67673881 12.87178931 12.40479004]
  [ 3.80203761  0.          3.80190557  6.37149888  9.95096227  9.45310245]
  [ 6.68245239  3.80190557  0.          3.80201026  6.90460904  7.39235889]
  [ 9.67673881  6.37149888  3.80201026  0.          3.80188611  3.84914458]
  [12.87178931  9.95096227  6.90460904  3.80188611  0.          2.9530215 ]
  [12.40479004  9.45310245  7.39235889  3.84914458  2.9530215   0.        ]]
-[2020-09-28 15:44:32,009] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.pdb
-[2020-09-28 15:44:32,210] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80203222  6.41183515  7.89381517 11.68923505 14.33579558]
+[2020-10-06 12:15:29,649] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-4Formatted.pdb
+[2020-10-06 12:15:29,859] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80203222  6.41183515  7.89381517 11.68923505 14.33579558]
  [ 3.80203222  0.          3.8021895   6.90481998 10.47861351 13.80905232]
  [ 6.41183515  3.8021895   0.          3.80201026  6.90460904 10.47812106]
  [ 7.89381517  6.90481998  3.80201026  0.          3.80188611  6.9042324 ]
  [11.68923505 10.47861351  6.90460904  3.80188611  0.          3.80166003]
  [14.33579558 13.80905232 10.47812106  6.9042324   3.80166003  0.        ]]
-[2020-09-28 15:44:32,212] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.pdb
-[2020-09-28 15:44:32,400] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80202446  7.17746104 10.1352735  13.67985705 16.92127271]
+[2020-10-06 12:15:29,860] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-3Formatted.pdb
+[2020-10-06 12:15:30,070] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80202446  7.17746104 10.1352735  13.67985705 16.92127271]
  [ 3.80202446  0.          3.8021895   6.90481998 10.47861351 13.80905232]
  [ 7.17746104  3.8021895   0.          3.80201026  6.90460904 10.47812106]
  [10.1352735   6.90481998  3.80201026  0.          3.80188611  6.9042324 ]
  [13.67985705 10.47861351  6.90460904  3.80188611  0.          3.80166003]
  [16.92127271 13.80905232 10.47812106  6.9042324   3.80166003  0.        ]]
-[2020-09-28 15:44:32,401] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.pdb
-[2020-09-28 15:44:32,607] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.8016478   6.0833813   9.57415511 12.92945498 12.92889748]
+[2020-10-06 12:15:30,072] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-3Formatted.pdb
+[2020-10-06 12:15:30,294] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.8016478   6.0833813   9.57415511 12.92945498 12.92889748]
  [ 3.8016478   0.          3.80190557  6.37149888  9.95096227  9.45310245]
  [ 6.0833813   3.80190557  0.          3.80201026  6.90460904  7.39235889]
  [ 9.57415511  6.37149888  3.80201026  0.          3.80188611  3.84914458]
  [12.92945498  9.95096227  6.90460904  3.80188611  0.          2.9530215 ]
  [12.92889748  9.45310245  7.39235889  3.84914458  2.9530215   0.        ]]
-[2020-09-28 15:44:32,608] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.pdb
-[2020-09-28 15:44:32,823] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.8018723   5.86920991  8.77628355 12.41060687 12.33604033]
+[2020-10-06 12:15:30,295] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-4Formatted.pdb
+[2020-10-06 12:15:30,527] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.8018723   5.86920991  8.77628355 12.41060687 12.33604033]
  [ 3.8018723   0.          3.80190557  6.37149888  9.95096227  9.45310245]
  [ 5.86920991  3.80190557  0.          3.80201026  6.90460904  7.39235889]
  [ 8.77628355  6.37149888  3.80201026  0.          3.80188611  3.84914458]
  [12.41060687  9.95096227  6.90460904  3.80188611  0.          2.9530215 ]
  [12.33604033  9.45310245  7.39235889  3.84914458  2.9530215   0.        ]]
-[2020-09-28 15:44:32,824] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.pdb
-[2020-09-28 15:44:33,019] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80138541  6.36471413  9.73936199 12.9972424  16.44955467]
+[2020-10-06 12:15:30,528] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-2Formatted.pdb
+[2020-10-06 12:15:30,747] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80138541  6.36471413  9.73936199 12.9972424  16.44955467]
  [ 3.80138541  0.          3.8021895   6.90481998 10.47861351 13.80905232]
  [ 6.36471413  3.8021895   0.          3.80201026  6.90460904 10.47812106]
  [ 9.73936199  6.90481998  3.80201026  0.          3.80188611  6.9042324 ]
  [12.9972424  10.47861351  6.90460904  3.80188611  0.          3.80166003]
  [16.44955467 13.80905232 10.47812106  6.9042324   3.80166003  0.        ]]
-[2020-09-28 15:44:33,020] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.pdb
-[2020-09-28 15:44:33,225] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80179024  6.90480543 10.47858531 13.80941425 17.33426713]
+[2020-10-06 12:15:30,748] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-1-1Formatted.pdb
+[2020-10-06 12:15:30,938] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80179024  6.90480543 10.47858531 13.80941425 17.33426713]
  [ 3.80179024  0.          3.8021895   6.90481998 10.47861351 13.80905232]
  [ 6.90480543  3.8021895   0.          3.80201026  6.90460904 10.47812106]
  [10.47858531  6.90481998  3.80201026  0.          3.80188611  6.9042324 ]
  [13.80941425 10.47861351  6.90460904  3.80188611  0.          3.80166003]
  [17.33426713 13.80905232 10.47812106  6.9042324   3.80166003  0.        ]]
-[2020-09-28 15:44:33,226] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.pdb
-[2020-09-28 15:44:33,425] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80161137  7.15688557  8.9506664  12.22787508 11.01296441]
+[2020-10-06 12:15:30,939] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-1Formatted.pdb
+[2020-10-06 12:15:31,150] - AnalyzePDB.GenerateDistanceMatrix - DEBUG - [[ 0.          3.80161137  7.15688557  8.9506664  12.22787508 11.01296441]
  [ 3.80161137  0.          3.80190557  6.37149888  9.95096227  9.45310245]
  [ 7.15688557  3.80190557  0.          3.80201026  6.90460904  7.39235889]
  [ 8.9506664   6.37149888  3.80201026  0.          3.80188611  3.84914458]
  [12.22787508  9.95096227  6.90460904  3.80188611  0.          2.9530215 ]
  [11.01296441  9.45310245  7.39235889  3.84914458  2.9530215   0.        ]]
-[2020-09-28 15:44:33,430] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  5.39184948e-06  2.70617243e-01  1.78292364e+00
+[2020-10-06 12:15:31,155] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  5.39184948e-06  2.70617243e-01  1.78292364e+00
    1.18255426e+00 -1.93100554e+00]
  [ 5.39184948e-06  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
   -5.27651241e-01 -4.35594987e+00]
@@ -207,8 +207,8 @@
    0.00000000e+00 -8.48638529e-01]
  [-1.93100554e+00 -4.35594987e+00 -3.08576217e+00 -3.05508782e+00
   -8.48638529e-01  0.00000000e+00]]
-[2020-09-28 15:44:33,431] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-4.npy
-[2020-09-28 15:44:33,438] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  1.31508658e-05 -4.95008647e-01 -4.58534694e-01
+[2020-10-06 12:15:31,156] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-4.npy
+[2020-10-06 12:15:31,161] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  1.31508658e-05 -4.95008647e-01 -4.58534694e-01
   -8.08067745e-01 -4.51648266e+00]
  [ 1.31508658e-05  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
   -5.27651241e-01 -4.35594987e+00]
@@ -220,8 +220,8 @@
    0.00000000e+00 -8.48638529e-01]
  [-4.51648266e+00 -4.35594987e+00 -3.08576217e+00 -3.05508782e+00
   -8.48638529e-01  0.00000000e+00]]
-[2020-09-28 15:44:33,439] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-3.npy
-[2020-09-28 15:44:33,445] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  3.89810972e-04  5.99071098e-01  1.02583704e-01
+[2020-10-06 12:15:31,162] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-3.npy
+[2020-10-06 12:15:31,167] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  3.89810972e-04  5.99071098e-01  1.02583704e-01
   -5.76656685e-02 -5.24107436e-01]
  [ 3.89810972e-04  0.00000000e+00  0.00000000e+00  0.00000000e+00
    0.00000000e+00  0.00000000e+00]
@@ -233,8 +233,8 @@
    0.00000000e+00  0.00000000e+00]
  [-5.24107436e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
    0.00000000e+00  0.00000000e+00]]
-[2020-09-28 15:44:33,446] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-3.npy
-[2020-09-28 15:44:33,452] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[0.00000000e+00 1.65309691e-04 8.13242481e-01 9.00455257e-01
+[2020-10-06 12:15:31,168] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-3.npy
+[2020-10-06 12:15:31,173] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[0.00000000e+00 1.65309691e-04 8.13242481e-01 9.00455257e-01
   4.61182434e-01 6.87497135e-02]
  [1.65309691e-04 0.00000000e+00 0.00000000e+00 0.00000000e+00
   0.00000000e+00 0.00000000e+00]
@@ -246,8 +246,8 @@
   0.00000000e+00 0.00000000e+00]
  [6.87497135e-02 0.00000000e+00 0.00000000e+00 0.00000000e+00
   0.00000000e+00 0.00000000e+00]]
-[2020-09-28 15:44:33,452] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-4.npy
-[2020-09-28 15:44:33,458] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  6.52206248e-04  3.17738261e-01 -6.26231813e-02
+[2020-10-06 12:15:31,174] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-4.npy
+[2020-10-06 12:15:31,179] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  6.52206248e-04  3.17738261e-01 -6.26231813e-02
   -1.25453091e-01 -4.04476463e+00]
  [ 6.52206248e-04  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
   -5.27651241e-01 -4.35594987e+00]
@@ -259,8 +259,8 @@
    0.00000000e+00 -8.48638529e-01]
  [-4.04476463e+00 -4.35594987e+00 -3.08576217e+00 -3.05508782e+00
   -8.48638529e-01  0.00000000e+00]]
-[2020-09-28 15:44:33,459] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-2.npy
-[2020-09-28 15:44:33,465] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  2.47375406e-04 -2.22353034e-01 -8.01846495e-01
+[2020-10-06 12:15:31,180] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-2.npy
+[2020-10-06 12:15:31,185] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  2.47375406e-04 -2.22353034e-01 -8.01846495e-01
   -9.37624944e-01 -4.92947709e+00]
  [ 2.47375406e-04  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
   -5.27651241e-01 -4.35594987e+00]
@@ -272,8 +272,8 @@
    0.00000000e+00 -8.48638529e-01]
  [-4.92947709e+00 -4.35594987e+00 -3.08576217e+00 -3.05508782e+00
   -8.48638529e-01  0.00000000e+00]]
-[2020-09-28 15:44:33,466] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-1.npy
-[2020-09-28 15:44:33,471] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  4.26242717e-04 -4.74433172e-01  7.26072410e-01
+[2020-10-06 12:15:31,186] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-1.npy
+[2020-10-06 12:15:31,191] - AnalyzePDB.GenerateDifferenceMatrix - DEBUG - [[ 0.00000000e+00  4.26242717e-04 -4.74433172e-01  7.26072410e-01
    6.43914227e-01  1.39182564e+00]
  [ 4.26242717e-04  0.00000000e+00  0.00000000e+00  0.00000000e+00
    0.00000000e+00  0.00000000e+00]
@@ -285,19 +285,19 @@
    0.00000000e+00  0.00000000e+00]
  [ 1.39182564e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
    0.00000000e+00  0.00000000e+00]]
-[2020-09-28 15:44:33,472] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-1.npy
-[2020-09-28 15:44:33,476] - AnalyzePDB - INFO - Generating covariance index to residue pair map
-[2020-09-28 15:44:33,516] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-4.html
-[2020-09-28 15:44:33,549] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-3.html
-[2020-09-28 15:44:33,582] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-3.html
-[2020-09-28 15:44:33,616] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-4.html
-[2020-09-28 15:44:33,649] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-2.html
-[2020-09-28 15:44:33,682] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-1.html
-[2020-09-28 15:44:33,716] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-1.html
-[2020-09-28 15:44:33,716] - AnalyzePDB - INFO - Generating covariance matrix
-[2020-09-28 15:44:33,735] - AnalyzePDB - INFO - Choosing scale of: 6
-[2020-09-28 15:44:33,748] - AnalyzePDB - INFO - Reference used: toy-model-2-2.pdb
-[2020-09-28 15:44:33,748] - AnalyzePDB - INFO - [[ 5.53826827e-08  1.55701373e-05 -5.52161937e-05 -1.45278897e-05
+[2020-10-06 12:15:31,192] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-1.npy
+[2020-10-06 12:15:31,195] - AnalyzePDB - INFO - Generating covariance index to residue pair map
+[2020-10-06 12:15:31,244] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-4.html
+[2020-10-06 12:15:31,277] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-3.html
+[2020-10-06 12:15:31,311] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-3.html
+[2020-10-06 12:15:31,343] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-4.html
+[2020-10-06 12:15:31,376] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-2.html
+[2020-10-06 12:15:31,410] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-1-1.html
+[2020-10-06 12:15:31,447] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices/toy-model-2-2_Minus_toy-model-2-1.html
+[2020-10-06 12:15:31,448] - AnalyzePDB - INFO - Generating covariance matrix
+[2020-10-06 12:15:31,475] - AnalyzePDB - INFO - Choosing scale of: 4
+[2020-10-06 12:15:31,509] - AnalyzePDB - INFO - Reference used: toy-model-2-2.pdb
+[2020-10-06 12:15:31,509] - AnalyzePDB - INFO - [[ 5.53826827e-08  1.55701373e-05 -5.52161937e-05 -1.45278897e-05
    6.72853597e-05  7.91666979e-09  1.48705213e-05  1.47124293e-05
    1.21456371e-04  0.00000000e+00  0.00000000e+00  8.60398960e-05
    0.00000000e+00  8.51846071e-05  2.36624752e-05]
@@ -357,13 +357,13 @@
    1.01050747e+00  6.88430027e-05  1.29313381e-01  1.27938621e-01
    1.05617911e+00  0.00000000e+00  0.00000000e+00  7.48199048e-01
    0.00000000e+00  7.40761494e-01  2.05767815e-01]]
-[2020-09-28 15:44:33,751] - AnalyzePDB - INFO - Total Computation Time: 3.5275137424468994 seconds
-[2020-09-28 15:44:51,286] - AnalyzePDB.DashboardServer - DEBUG - basePath: /home/dtn067/CryoEMCovariance/SimpleToyModel/
-[2020-09-28 15:44:51,286] - AnalyzePDB.DashboardServer - DEBUG - npyPath: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices
-[2020-09-28 15:44:51,287] - AnalyzePDB.DashboardServer - DEBUG - covMapDict: {0: (0, 1), 1: (0, 2), 2: (0, 3), 3: (0, 4), 4: (0, 5), 5: (1, 2), 6: (1, 3), 7: (1, 4), 8: (1, 5), 9: (2, 3), 10: (2, 4), 11: (2, 5), 12: (3, 4), 13: (3, 5), 14: (4, 5)}
-[2020-09-28 15:44:51,287] - AnalyzePDB.DashboardServer - INFO - Reading npy matrices from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices
-[2020-09-28 15:44:51,290] - AnalyzePDB.DashboardServer - DEBUG - npyNameList: ['toy-model-2-2_Minus_toy-model-2-4.npy', 'toy-model-2-2_Minus_toy-model-2-3.npy', 'toy-model-2-2_Minus_toy-model-1-2.npy', 'toy-model-2-2_Minus_toy-model-1-3.npy', 'toy-model-2-2_Minus_toy-model-1-4.npy', 'toy-model-2-2_Minus_toy-model-2-1.npy', 'toy-model-2-2_Minus_toy-model-1-1.npy']
-[2020-09-28 15:44:51,305] - AnalyzePDB.DashboardServer - DEBUG - npyList: [array([[0.00000000e+00, 1.65309691e-04, 8.13242481e-01, 9.00455257e-01,
+[2020-10-06 12:15:31,512] - AnalyzePDB - INFO - Total Computation Time: 4.255367279052734 seconds
+[2020-10-06 12:15:46,643] - AnalyzePDB.DashboardServer - DEBUG - basePath: /home/dtn067/CryoEMCovariance/SimpleToyModel/
+[2020-10-06 12:15:46,643] - AnalyzePDB.DashboardServer - DEBUG - npyPath: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices
+[2020-10-06 12:15:46,644] - AnalyzePDB.DashboardServer - DEBUG - covMapDict: {0: (0, 1), 1: (0, 2), 2: (0, 3), 3: (0, 4), 4: (0, 5), 5: (1, 2), 6: (1, 3), 7: (1, 4), 8: (1, 5), 9: (2, 3), 10: (2, 4), 11: (2, 5), 12: (3, 4), 13: (3, 5), 14: (4, 5)}
+[2020-10-06 12:15:46,644] - AnalyzePDB.DashboardServer - INFO - Reading npy matrices from: /home/dtn067/CryoEMCovariance/SimpleToyModel/ddMatrices
+[2020-10-06 12:15:46,647] - AnalyzePDB.DashboardServer - DEBUG - npyNameList: ['toy-model-2-2_Minus_toy-model-2-4.npy', 'toy-model-2-2_Minus_toy-model-2-3.npy', 'toy-model-2-2_Minus_toy-model-1-2.npy', 'toy-model-2-2_Minus_toy-model-1-3.npy', 'toy-model-2-2_Minus_toy-model-1-4.npy', 'toy-model-2-2_Minus_toy-model-2-1.npy', 'toy-model-2-2_Minus_toy-model-1-1.npy']
+[2020-10-06 12:15:46,655] - AnalyzePDB.DashboardServer - DEBUG - npyList: [array([[0.00000000e+00, 1.65309691e-04, 8.13242481e-01, 9.00455257e-01,
         4.61182434e-01, 6.87497135e-02],
        [1.65309691e-04, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
         0.00000000e+00, 0.00000000e+00],
@@ -441,11 +441,11 @@
          0.00000000e+00,  0.00000000e+00, -8.48638529e-01],
        [-4.92947709e+00, -4.35594987e+00, -3.08576217e+00,
         -3.05508782e+00, -8.48638529e-01,  0.00000000e+00]])]
-[2020-09-28 15:44:51,307] - AnalyzePDB.DashboardServer - INFO - Loading CovarianceMatrix.npy
-[2020-09-28 15:44:51,310] - AnalyzePDB.DashboardServer - INFO - Loaded CovarianceMatrix.npy
-[2020-09-28 15:44:51,311] - AnalyzePDB.DashboardServer - DEBUG - xyPairList: [(1, 1), (2, 1), (3, 1), (4, 1), (5, 1), (6, 1), (1, 2), (2, 2), (3, 2), (4, 2), (5, 2), (6, 2), (1, 3), (2, 3), (3, 3), (4, 3), (5, 3), (6, 3), (1, 4), (2, 4), (3, 4), (4, 4), (5, 4), (6, 4), (1, 5), (2, 5), (3, 5), (4, 5), (5, 5), (6, 5), (1, 6), (2, 6), (3, 6), (4, 6), (5, 6), (6, 6)]
-[2020-09-28 15:44:51,311] - AnalyzePDB.DashboardServer - DEBUG - type: xyPairList: <class 'list'>
-[2020-09-28 15:44:51,317] - AnalyzePDB.DashboardServer - DEBUG - npyList: [array([[0.00000000e+00, 1.65309691e-04, 8.13242481e-01, 9.00455257e-01,
+[2020-10-06 12:15:46,655] - AnalyzePDB.DashboardServer - INFO - Loading CovarianceMatrix.npy
+[2020-10-06 12:15:46,657] - AnalyzePDB.DashboardServer - INFO - Loaded CovarianceMatrix.npy
+[2020-10-06 12:15:46,657] - AnalyzePDB.DashboardServer - DEBUG - xyPairList: [(1, 1), (2, 1), (3, 1), (4, 1), (1, 2), (2, 2), (3, 2), (4, 2), (1, 3), (2, 3), (3, 3), (4, 3), (1, 4), (2, 4), (3, 4), (4, 4)]
+[2020-10-06 12:15:46,657] - AnalyzePDB.DashboardServer - DEBUG - type: xyPairList: <class 'list'>
+[2020-10-06 12:15:46,659] - AnalyzePDB.DashboardServer - DEBUG - npyList: [array([[0.00000000e+00, 1.65309691e-04, 8.13242481e-01, 9.00455257e-01,
         4.61182434e-01, 6.87497135e-02],
        [1.65309691e-04, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
         0.00000000e+00, 0.00000000e+00],
@@ -523,7 +523,7 @@
          0.00000000e+00,  0.00000000e+00, -8.48638529e-01],
        [-4.92947709e+00, -4.35594987e+00, -3.08576217e+00,
         -3.05508782e+00, -8.48638529e-01,  0.00000000e+00]])]
-[2020-09-28 15:44:51,319] - AnalyzePDB.DashboardServer - DEBUG - covVals: [0.00000000e+00 1.65309691e-04 8.13242481e-01 9.00455257e-01
+[2020-10-06 12:15:46,660] - AnalyzePDB.DashboardServer - DEBUG - covVals: [0.00000000e+00 1.65309691e-04 8.13242481e-01 9.00455257e-01
  4.61182434e-01 6.87497135e-02 1.65309691e-04 0.00000000e+00
  0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
  8.13242481e-01 0.00000000e+00 0.00000000e+00 0.00000000e+00
@@ -532,35 +532,408 @@
  4.61182434e-01 0.00000000e+00 0.00000000e+00 0.00000000e+00
  0.00000000e+00 0.00000000e+00 6.87497135e-02 0.00000000e+00
  0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00]
-[2020-09-28 15:44:51,319] - AnalyzePDB.DashboardServer - DEBUG - scaledRangeDict: None
-[2020-09-28 15:44:51,321] - AnalyzePDB.DashboardServer - INFO - Determining axis scaling.
-[2020-09-28 15:44:51,322] - AnalyzePDB.DashboardServer - INFO - Creating initial figure
-[2020-09-28 15:44:51,326] - AnalyzePDB.DashboardServer - INFO - Creating initial plot
-[2020-09-28 15:44:51,329] - AnalyzePDB.DashboardServer - DEBUG - Creating distance difference matrix mapping
-[2020-09-28 15:44:54,910] - AnalyzePDB.DashboardServer - DEBUG - Submatrix for x=0, y=5: [0.00000000e+00 6.72853597e-05 3.79911462e-01 1.39710461e+00
- 1.36603906e+00 6.17152819e+00 6.72853597e-05 0.00000000e+00
- 3.38081873e-04 6.35046533e-01 6.28295205e-01 5.18680182e+00
- 3.79911462e-01 3.38081873e-04 0.00000000e+00 0.00000000e+00
- 0.00000000e+00 3.67433908e+00 1.39710461e+00 6.35046533e-01
- 0.00000000e+00 0.00000000e+00 0.00000000e+00 3.63781392e+00
- 1.36603906e+00 6.28295205e-01 0.00000000e+00 0.00000000e+00
- 0.00000000e+00 1.01050747e+00 6.17152819e+00 5.18680182e+00
- 3.67433908e+00 3.63781392e+00 1.01050747e+00 0.00000000e+00]
-[2020-09-28 15:44:55,437] - AnalyzePDB.DashboardServer - DEBUG - Submatrix for x=0, y=4: [ 0.00000000e+00 -1.45278897e-05  1.47031750e-01  6.67214955e-01
-  5.93088677e-01  1.36603906e+00 -1.45278897e-05  0.00000000e+00
-  4.22880579e-05  7.94330801e-02  7.85886086e-02  6.48777095e-01
-  1.47031750e-01  4.22880579e-05  0.00000000e+00  0.00000000e+00
-  0.00000000e+00  4.59594779e-01  6.67214955e-01  7.94330801e-02
-  0.00000000e+00  0.00000000e+00  0.00000000e+00  4.55026127e-01
-  5.93088677e-01  7.85886086e-02  0.00000000e+00  0.00000000e+00
-  0.00000000e+00  1.26396597e-01  1.36603906e+00  6.48777095e-01
-  4.59594779e-01  4.55026127e-01  1.26396597e-01  0.00000000e+00]
-[2020-09-28 15:44:56,159] - AnalyzePDB.DashboardServer - DEBUG - Submatrix for x=1, y=5: [0.00000000e+00 1.21456371e-04 4.29220797e-01 5.74227000e-01
- 6.48777095e-01 5.18680182e+00 1.21456371e-04 0.00000000e+00
- 3.53362072e-04 6.63748566e-01 6.56692100e-01 5.42122836e+00
- 4.29220797e-01 3.53362072e-04 0.00000000e+00 0.00000000e+00
- 0.00000000e+00 3.84040723e+00 5.74227000e-01 6.63748566e-01
- 0.00000000e+00 0.00000000e+00 0.00000000e+00 3.80223125e+00
- 6.48777095e-01 6.56692100e-01 0.00000000e+00 0.00000000e+00
- 0.00000000e+00 1.05617911e+00 5.18680182e+00 5.42122836e+00
- 3.84040723e+00 3.80223125e+00 1.05617911e+00 0.00000000e+00]
+[2020-10-06 12:15:46,660] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[0.00000000e+00 1.65309691e-04 8.13242481e-01 9.00455257e-01
+  4.61182434e-01 6.87497135e-02]
+ [1.65309691e-04 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [8.13242481e-01 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [9.00455257e-01 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [4.61182434e-01 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [6.87497135e-02 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]]
+[2020-10-06 12:15:46,661] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.1036166   0.38379285  0.55323493  0.09997054]
+ [ 0.38379285 -0.07939126 -0.04879529 -0.01048848]
+ [ 0.55323493 -0.04879529  0.02750205  0.00247908]
+ [ 0.09997053 -0.01048848  0.00247908  0.        ]]
+[2020-10-06 12:15:46,661] - AnalyzePDB.DashboardServer - DEBUG - scaledRangeDict: {0: '1-2', 1: '3-4', 2: '5', 3: '6'}
+[2020-10-06 12:15:46,662] - AnalyzePDB.DashboardServer - INFO - Determining axis scaling.
+[2020-10-06 12:15:46,662] - AnalyzePDB.DashboardServer - INFO - Creating initial figure
+[2020-10-06 12:15:46,664] - AnalyzePDB.DashboardServer - INFO - Creating initial plot
+[2020-10-06 12:15:46,665] - AnalyzePDB.DashboardServer - DEBUG - Creating distance difference matrix mapping
+[2020-10-06 12:15:53,518] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  3.89810972e-04  5.99071098e-01  1.02583704e-01
+  -5.76656685e-02 -5.24107436e-01]
+ [ 3.89810972e-04  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 5.99071098e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 1.02583704e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-5.76656685e-02  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-5.24107436e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]]
+[2020-10-06 12:15:53,519] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.06310813  0.258173    0.09468485 -0.26265585]
+ [ 0.258173   -0.05347815 -0.00369592  0.02755672]
+ [ 0.09468485 -0.00369592  0.00473481 -0.00651336]
+ [-0.26265585  0.02755672 -0.00651336  0.        ]]
+[2020-10-06 12:15:53,522] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  3.89810972e-04  5.99071098e-01  1.02583704e-01
+  -5.76656685e-02 -5.24107436e-01]
+ [ 3.89810972e-04  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 5.99071098e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 1.02583704e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-5.76656685e-02  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-5.24107436e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]]
+[2020-10-06 12:15:53,523] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.06310813  0.258173    0.09468485 -0.26265585]
+ [ 0.258173   -0.05347815 -0.00369592  0.02755672]
+ [ 0.09468485 -0.00369592  0.00473481 -0.00651336]
+ [-0.26265585  0.02755672 -0.00651336  0.        ]]
+[2020-10-06 12:15:54,468] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  6.52206248e-04  3.17738261e-01 -6.26231813e-02
+  -1.25453091e-01 -4.04476463e+00]
+ [ 6.52206248e-04  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
+  -5.27651241e-01 -4.35594987e+00]
+ [ 3.17738261e-01 -2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.08576217e+00]
+ [-6.26231813e-02 -5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.05508782e+00]
+ [-1.25453091e-01 -5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -8.48638529e-01]
+ [-4.04476463e+00 -4.35594987e+00 -3.08576217e+00 -3.05508782e+00
+  -8.48638529e-01  0.00000000e+00]]
+[2020-10-06 12:15:54,470] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.02493895  0.06523144  0.02397032 -2.9118426 ]
+ [ 0.06523145 -0.15893027  0.00564663 -2.5066173 ]
+ [ 0.02397034  0.00564663  0.413333   -1.4968288 ]
+ [-2.9118426  -2.5066173  -1.4968288  -0.16328998]]
+[2020-10-06 12:15:54,474] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  6.52206248e-04  3.17738261e-01 -6.26231813e-02
+  -1.25453091e-01 -4.04476463e+00]
+ [ 6.52206248e-04  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
+  -5.27651241e-01 -4.35594987e+00]
+ [ 3.17738261e-01 -2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.08576217e+00]
+ [-6.26231813e-02 -5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.05508782e+00]
+ [-1.25453091e-01 -5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -8.48638529e-01]
+ [-4.04476463e+00 -4.35594987e+00 -3.08576217e+00 -3.05508782e+00
+  -8.48638529e-01  0.00000000e+00]]
+[2020-10-06 12:15:54,475] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.02493895  0.06523144  0.02397032 -2.9118426 ]
+ [ 0.06523145 -0.15893027  0.00564663 -2.5066173 ]
+ [ 0.02397034  0.00564663  0.413333   -1.4968288 ]
+ [-2.9118426  -2.5066173  -1.4968288  -0.16328998]]
+[2020-10-06 12:15:55,631] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  3.89810972e-04  5.99071098e-01  1.02583704e-01
+  -5.76656685e-02 -5.24107436e-01]
+ [ 3.89810972e-04  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 5.99071098e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 1.02583704e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-5.76656685e-02  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-5.24107436e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]]
+[2020-10-06 12:15:55,632] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.06310813  0.258173    0.09468485 -0.26265585]
+ [ 0.258173   -0.05347815 -0.00369592  0.02755672]
+ [ 0.09468485 -0.00369592  0.00473481 -0.00651336]
+ [-0.26265585  0.02755672 -0.00651336  0.        ]]
+[2020-10-06 12:15:55,636] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  3.89810972e-04  5.99071098e-01  1.02583704e-01
+  -5.76656685e-02 -5.24107436e-01]
+ [ 3.89810972e-04  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 5.99071098e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 1.02583704e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-5.76656685e-02  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-5.24107436e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]]
+[2020-10-06 12:15:55,637] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.06310813  0.258173    0.09468485 -0.26265585]
+ [ 0.258173   -0.05347815 -0.00369592  0.02755672]
+ [ 0.09468485 -0.00369592  0.00473481 -0.00651336]
+ [-0.26265585  0.02755672 -0.00651336  0.        ]]
+[2020-10-06 12:15:56,480] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[0.00000000e+00 1.65309691e-04 8.13242481e-01 9.00455257e-01
+  4.61182434e-01 6.87497135e-02]
+ [1.65309691e-04 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [8.13242481e-01 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [9.00455257e-01 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [4.61182434e-01 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [6.87497135e-02 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]]
+[2020-10-06 12:15:56,481] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.1036166   0.38379285  0.55323493  0.09997054]
+ [ 0.38379285 -0.07939126 -0.04879529 -0.01048848]
+ [ 0.55323493 -0.04879529  0.02750205  0.00247908]
+ [ 0.09997053 -0.01048848  0.00247908  0.        ]]
+[2020-10-06 12:15:56,483] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[0.00000000e+00 1.65309691e-04 8.13242481e-01 9.00455257e-01
+  4.61182434e-01 6.87497135e-02]
+ [1.65309691e-04 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [8.13242481e-01 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [9.00455257e-01 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [4.61182434e-01 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [6.87497135e-02 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]]
+[2020-10-06 12:15:56,483] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.1036166   0.38379285  0.55323493  0.09997054]
+ [ 0.38379285 -0.07939126 -0.04879529 -0.01048848]
+ [ 0.55323493 -0.04879529  0.02750205  0.00247908]
+ [ 0.09997053 -0.01048848  0.00247908  0.        ]]
+[2020-10-06 12:15:57,290] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  3.89810972e-04  5.99071098e-01  1.02583704e-01
+  -5.76656685e-02 -5.24107436e-01]
+ [ 3.89810972e-04  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 5.99071098e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 1.02583704e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-5.76656685e-02  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-5.24107436e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]]
+[2020-10-06 12:15:57,292] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.06310813  0.258173    0.09468485 -0.26265585]
+ [ 0.258173   -0.05347815 -0.00369592  0.02755672]
+ [ 0.09468485 -0.00369592  0.00473481 -0.00651336]
+ [-0.26265585  0.02755672 -0.00651336  0.        ]]
+[2020-10-06 12:15:57,296] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  3.89810972e-04  5.99071098e-01  1.02583704e-01
+  -5.76656685e-02 -5.24107436e-01]
+ [ 3.89810972e-04  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 5.99071098e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 1.02583704e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-5.76656685e-02  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-5.24107436e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]]
+[2020-10-06 12:15:57,298] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.06310813  0.258173    0.09468485 -0.26265585]
+ [ 0.258173   -0.05347815 -0.00369592  0.02755672]
+ [ 0.09468485 -0.00369592  0.00473481 -0.00651336]
+ [-0.26265585  0.02755672 -0.00651336  0.        ]]
+[2020-10-06 12:15:57,663] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  6.52206248e-04  3.17738261e-01 -6.26231813e-02
+  -1.25453091e-01 -4.04476463e+00]
+ [ 6.52206248e-04  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
+  -5.27651241e-01 -4.35594987e+00]
+ [ 3.17738261e-01 -2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.08576217e+00]
+ [-6.26231813e-02 -5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.05508782e+00]
+ [-1.25453091e-01 -5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -8.48638529e-01]
+ [-4.04476463e+00 -4.35594987e+00 -3.08576217e+00 -3.05508782e+00
+  -8.48638529e-01  0.00000000e+00]]
+[2020-10-06 12:15:57,665] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.02493895  0.06523144  0.02397032 -2.9118426 ]
+ [ 0.06523145 -0.15893027  0.00564663 -2.5066173 ]
+ [ 0.02397034  0.00564663  0.413333   -1.4968288 ]
+ [-2.9118426  -2.5066173  -1.4968288  -0.16328998]]
+[2020-10-06 12:15:57,670] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  6.52206248e-04  3.17738261e-01 -6.26231813e-02
+  -1.25453091e-01 -4.04476463e+00]
+ [ 6.52206248e-04  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
+  -5.27651241e-01 -4.35594987e+00]
+ [ 3.17738261e-01 -2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.08576217e+00]
+ [-6.26231813e-02 -5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.05508782e+00]
+ [-1.25453091e-01 -5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -8.48638529e-01]
+ [-4.04476463e+00 -4.35594987e+00 -3.08576217e+00 -3.05508782e+00
+  -8.48638529e-01  0.00000000e+00]]
+[2020-10-06 12:15:57,671] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.02493895  0.06523144  0.02397032 -2.9118426 ]
+ [ 0.06523145 -0.15893027  0.00564663 -2.5066173 ]
+ [ 0.02397034  0.00564663  0.413333   -1.4968288 ]
+ [-2.9118426  -2.5066173  -1.4968288  -0.16328998]]
+[2020-10-06 12:15:58,657] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  1.31508658e-05 -4.95008647e-01 -4.58534694e-01
+  -8.08067745e-01 -4.51648266e+00]
+ [ 1.31508658e-05  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
+  -5.27651241e-01 -4.35594987e+00]
+ [-4.95008647e-01 -2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.08576217e+00]
+ [-4.58534694e-01 -5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.05508782e+00]
+ [-8.08067745e-01 -5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -8.48638529e-01]
+ [-4.51648266e+00 -4.35594987e+00 -3.08576217e+00 -3.05508782e+00
+  -8.48638529e-01  0.00000000e+00]]
+[2020-10-06 12:15:58,658] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[ 0.05360967 -0.2713539  -0.35985258 -3.2750359 ]
+ [-0.27135393 -0.0891687   0.03777337 -2.4685128 ]
+ [-0.35985255  0.03777337  0.39424855 -1.5058353 ]
+ [-3.275036   -2.4685128  -1.5058353  -0.16328998]]
+[2020-10-06 12:15:58,661] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  1.31508658e-05 -4.95008647e-01 -4.58534694e-01
+  -8.08067745e-01 -4.51648266e+00]
+ [ 1.31508658e-05  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
+  -5.27651241e-01 -4.35594987e+00]
+ [-4.95008647e-01 -2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.08576217e+00]
+ [-4.58534694e-01 -5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.05508782e+00]
+ [-8.08067745e-01 -5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -8.48638529e-01]
+ [-4.51648266e+00 -4.35594987e+00 -3.08576217e+00 -3.05508782e+00
+  -8.48638529e-01  0.00000000e+00]]
+[2020-10-06 12:15:58,662] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[ 0.05360967 -0.2713539  -0.35985258 -3.2750359 ]
+ [-0.27135393 -0.0891687   0.03777337 -2.4685128 ]
+ [-0.35985255  0.03777337  0.39424855 -1.5058353 ]
+ [-3.275036   -2.4685128  -1.5058353  -0.16328998]]
+[2020-10-06 12:15:58,923] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  5.39184948e-06  2.70617243e-01  1.78292364e+00
+   1.18255426e+00 -1.93100554e+00]
+ [ 5.39184948e-06  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
+  -5.27651241e-01 -4.35594987e+00]
+ [ 2.70617243e-01 -2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.08576217e+00]
+ [ 1.78292364e+00 -5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.05508782e+00]
+ [ 1.18255426e+00 -5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -8.48638529e-01]
+ [-1.93100554e+00 -4.35594987e+00 -3.08576217e+00 -3.05508782e+00
+  -8.48638529e-01  0.00000000e+00]]
+[2020-10-06 12:15:58,925] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.0637556   0.12862246  1.0400512  -1.7066777 ]
+ [ 0.12862246 -0.17180443 -0.09948521 -2.633058  ]
+ [ 1.0400512  -0.09948523  0.46375057 -1.466943  ]
+ [-1.7066776  -2.633058   -1.466943   -0.16328998]]
+[2020-10-06 12:15:58,929] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  5.39184948e-06  2.70617243e-01  1.78292364e+00
+   1.18255426e+00 -1.93100554e+00]
+ [ 5.39184948e-06  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
+  -5.27651241e-01 -4.35594987e+00]
+ [ 2.70617243e-01 -2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.08576217e+00]
+ [ 1.78292364e+00 -5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.05508782e+00]
+ [ 1.18255426e+00 -5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -8.48638529e-01]
+ [-1.93100554e+00 -4.35594987e+00 -3.08576217e+00 -3.05508782e+00
+  -8.48638529e-01  0.00000000e+00]]
+[2020-10-06 12:15:58,930] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.0637556   0.12862246  1.0400512  -1.7066777 ]
+ [ 0.12862246 -0.17180443 -0.09948521 -2.633058  ]
+ [ 1.0400512  -0.09948523  0.46375057 -1.466943  ]
+ [-1.7066776  -2.633058   -1.466943   -0.16328998]]
+[2020-10-06 12:15:59,115] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  4.26242717e-04 -4.74433172e-01  7.26072410e-01
+   6.43914227e-01  1.39182564e+00]
+ [ 4.26242717e-04  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-4.74433172e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 7.26072410e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 6.43914227e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 1.39182564e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]]
+[2020-10-06 12:15:59,115] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[ 0.03215867 -0.16880728  0.37548265  0.7649665 ]
+ [-0.16880728  0.03506709 -0.04349646 -0.08025699]
+ [ 0.37548265 -0.04349646  0.01860272  0.0189697 ]
+ [ 0.7649664  -0.08025699  0.0189697   0.        ]]
+[2020-10-06 12:15:59,116] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  4.26242717e-04 -4.74433172e-01  7.26072410e-01
+   6.43914227e-01  1.39182564e+00]
+ [ 4.26242717e-04  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [-4.74433172e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 7.26072410e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 6.43914227e-01  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 1.39182564e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]]
+[2020-10-06 12:15:59,117] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[ 0.03215867 -0.16880728  0.37548265  0.7649665 ]
+ [-0.16880728  0.03506709 -0.04349646 -0.08025699]
+ [ 0.37548265 -0.04349646  0.01860272  0.0189697 ]
+ [ 0.7649664  -0.08025699  0.0189697   0.        ]]
+[2020-10-06 12:15:59,576] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  2.47375406e-04 -2.22353034e-01 -8.01846495e-01
+  -9.37624944e-01 -4.92947709e+00]
+ [ 2.47375406e-04  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
+  -5.27651241e-01 -4.35594987e+00]
+ [-2.22353034e-01 -2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.08576217e+00]
+ [-8.01846495e-01 -5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.05508782e+00]
+ [-9.37624944e-01 -5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -8.48638529e-01]
+ [-4.92947709e+00 -4.35594987e+00 -3.08576217e+00 -3.05508782e+00
+  -8.48638529e-01  0.00000000e+00]]
+[2020-10-06 12:15:59,576] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[ 0.03789392 -0.17895904 -0.49853656 -3.4811592 ]
+ [-0.17895904 -0.10838305  0.05457382 -2.446887  ]
+ [-0.49853656  0.05457383  0.38738003 -1.5109468 ]
+ [-3.4811592  -2.4468873  -1.5109468  -0.16328998]]
+[2020-10-06 12:15:59,577] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[ 0.00000000e+00  2.47375406e-04 -2.22353034e-01 -8.01846495e-01
+  -9.37624944e-01 -4.92947709e+00]
+ [ 2.47375406e-04  0.00000000e+00 -2.83925961e-04 -5.33321101e-01
+  -5.27651241e-01 -4.35594987e+00]
+ [-2.22353034e-01 -2.83925961e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.08576217e+00]
+ [-8.01846495e-01 -5.33321101e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -3.05508782e+00]
+ [-9.37624944e-01 -5.27651241e-01  0.00000000e+00  0.00000000e+00
+   0.00000000e+00 -8.48638529e-01]
+ [-4.92947709e+00 -4.35594987e+00 -3.08576217e+00 -3.05508782e+00
+  -8.48638529e-01  0.00000000e+00]]
+[2020-10-06 12:15:59,578] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[ 0.03789392 -0.17895904 -0.49853656 -3.4811592 ]
+ [-0.17895904 -0.10838305  0.05457382 -2.446887  ]
+ [-0.49853656  0.05457383  0.38738003 -1.5109468 ]
+ [-3.4811592  -2.4468873  -1.5109468  -0.16328998]]
+[2020-10-06 12:16:00,949] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[0.00000000e+00 9.43708651e-05 4.04566129e-01 9.85665804e-01
+  1.00740808e+00 5.67916501e+00]
+ [9.43708651e-05 0.00000000e+00 3.45721972e-04 6.49397549e-01
+  6.42493653e-01 5.30401509e+00]
+ [4.04566129e-01 3.45721972e-04 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 3.75737316e+00]
+ [9.85665804e-01 6.49397549e-01 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 3.72002258e+00]
+ [1.00740808e+00 6.42493653e-01 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 1.03334329e+00]
+ [5.67916501e+00 5.30401509e+00 3.75737316e+00 3.72002258e+00
+  1.03334329e+00 0.00000000e+00]]
+[2020-10-06 12:16:00,950] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.0622559   0.27971518  0.5996053   4.0563927 ]
+ [ 0.27971518  0.11918098 -0.06418072  2.998588  ]
+ [ 0.5996053  -0.06418072 -0.47205156  1.8352778 ]
+ [ 4.0563927   2.998588    1.8352777   0.19882977]]
+[2020-10-06 12:16:01,651] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[0.00000000e+00 9.22698317e-08 9.95123731e-02 3.68386527e-01
+  3.35838643e-01 9.97167133e-01]
+ [9.22698317e-08 0.00000000e+00 4.25460126e-05 7.99176173e-02
+  7.90679945e-02 6.52734598e-01]
+ [9.95123731e-02 4.25460126e-05 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 4.62398280e-01]
+ [3.68386527e-01 7.99176173e-02 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 4.57801760e-01]
+ [3.35838643e-01 7.90679945e-02 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 1.27167609e-01]
+ [9.97167133e-01 6.52734598e-01 4.62398280e-01 4.57801760e-01
+  1.27167609e-01 0.00000000e+00]]
+[2020-10-06 12:16:01,651] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.01741755  0.06449602  0.2229719   0.67645115]
+ [ 0.06449602  0.00846403 -0.0228295   0.35042223]
+ [ 0.2229719  -0.02282951 -0.05068782  0.23025262]
+ [ 0.67645115  0.35042223  0.23025262  0.02446883]]
+[2020-10-06 12:16:02,105] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[0.00000000e+00 8.56122516e-05 3.02549456e-01 4.04761530e-01
+  4.57310453e-01 3.65607650e+00]
+ [8.56122516e-05 0.00000000e+00 2.49078105e-04 4.67863554e-01
+  4.62889588e-01 3.82131924e+00]
+ [3.02549456e-01 2.49078105e-04 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 2.70702894e+00]
+ [4.04761530e-01 4.67863554e-01 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 2.68011943e+00]
+ [4.57310453e-01 4.62889588e-01 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 7.44480271e-01]
+ [3.65607650e+00 3.82131924e+00 2.70702894e+00 2.68011943e+00
+  7.44480271e-01 0.00000000e+00]]
+[2020-10-06 12:16:02,106] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.03996607  0.19460729  0.25416633  2.6707778 ]
+ [ 0.19460729  0.08726222 -0.02774175  2.1867619 ]
+ [ 0.2541663  -0.02774175 -0.34891567  1.315999  ]
+ [ 2.6707778   2.1867616   1.315999    0.14324845]]
+[2020-10-06 12:16:02,659] - AnalyzePDB.DashboardServer - DEBUG - Matrix Before Image Rescaling: [[0.00000000e+00 2.36624752e-05 8.36220151e-02 1.11872536e-01
+  1.26396597e-01 1.01050747e+00]
+ [2.36624752e-05 0.00000000e+00 6.88430027e-05 1.29313381e-01
+  1.27938621e-01 1.05617911e+00]
+ [8.36220151e-02 6.88430027e-05 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 7.48199048e-01]
+ [1.11872536e-01 1.29313381e-01 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 7.40761494e-01]
+ [1.26396597e-01 1.27938621e-01 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 2.05767815e-01]
+ [1.01050747e+00 1.05617911e+00 7.48199048e-01 7.40761494e-01
+  2.05767815e-01 0.00000000e+00]]
+[2020-10-06 12:16:02,659] - AnalyzePDB.DashboardServer - DEBUG - Matrix After Image Rescaling: [[-0.01104627  0.05378775  0.07024934  0.73817956]
+ [ 0.05378775  0.02411851 -0.00766758  0.60440177]
+ [ 0.07024934 -0.00766758 -0.09643722  0.36373058]
+ [ 0.73817956  0.60440177  0.36373058  0.03959261]]

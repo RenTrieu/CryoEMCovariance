@@ -326,7 +326,7 @@ class DashboardServer:
                     if key not in self.scaledRangeDict.keys():
                         self.scaledRangeDict[key] = \
                                 str(self.indexDict[key][index]+1)
-                    else:
+                    elif index == len(self.indexDict[key]) - 1:
                         self.scaledRangeDict[key] += '-' \
                                             + str(self.indexDict[key][index]+1)
         self.logger.debug('scaledRangeDict: ' + str(self.scaledRangeDict))
@@ -354,7 +354,7 @@ class DashboardServer:
         self.logger.info('Determining axis scaling.')
         if self.scaledRangeDict is not None:
             plotLabel = FactorRange(
-                            factors=[str(i) for i in self.scaledRangeDict.keys()],
+                            factors=[i for i in self.scaledRangeDict.values()],
                             bounds=(0.5, len(self.scaledRangeDict.keys()) + 0.5))
         else:
             plotLabel = FactorRange(
@@ -369,6 +369,8 @@ class DashboardServer:
                       toolbar_location='below',
                       tooltips=tooltipList)
 
+        plot.xaxis.major_label_orientation = math.pi/2
+
         # TODO: Remove this, it's redundant, but I'm keeping it here for
         #       reference
         plot.x_range = plotLabel
@@ -380,7 +382,8 @@ class DashboardServer:
                   fill_color={'field': 'covValues', 'transform' : color_mapper},
                   line_color=None)
 
-        plot.title = Title(text='Distance Difference Matrix: ' + npyNameList[0], \
+        plot.title = Title(text='Distance Difference Matrix: ' \
+                           + npyNameList[0], \
                            align='center')
 
 
@@ -474,7 +477,6 @@ class DashboardServer:
                         subMatrix = subMatrixList
 
                 patchMatrixValues(subMatrix)
-
 
                 # Changing plot title name to reflect the covariance pair
                 # with which the covariance submatrix is plotted in respect to
