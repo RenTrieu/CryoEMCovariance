@@ -8,6 +8,13 @@ Version 0.8
 -----------
 To Do:
 
+- Take screenshots of various distance difference matrices
+  and covariance submatrices representing interesting residue pairs to
+  send to Andres
+- Set up a system where the user can queue up residue pairs for which to
+  compute the covariance submatrices
+- Design and implement the pipeline for zooming into and displaying
+  areas around/residue pairs of interest
 - Read Chimera documentation to try to map matrix/plot information into
   the protein structure
 

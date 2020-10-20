@@ -136,6 +136,8 @@ class CovSubmatrix:
         for i, residuePair in enumerate(residuePairList):
             self.logger.debug('i: ' + str(i))
             self.logger.debug('residuePair: ' + str(residuePair))
+            print('i: ' + str(i))
+            print('residuePair: ' + str(residuePair))
 
             # Checking to see if residue pair exists in the covariance matrix
             residueKey = None

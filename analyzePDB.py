@@ -277,12 +277,37 @@ class AnalyzePDB:
         else:
             np.save(os.path.join(directory, 'covMapDict.npy'), covMapDict)
 
+        # Setting up default resolution for covariance matrix if none is
+        # specified
+        if args.scale is None:
+            scale = differenceMatrixList[0][0].size
+        else:
+            scale = args.scale
+        logger.info('Choosing scale of: ' + str(scale))
+
         # Plotting distance difference matrices if specified
         if args.plot:
+            dashboardServer = DashboardServer(basePath=directory, \
+                                              npyPath=outDirectory, \
+                                              covMapDict=covMapDict,
+                                              scale=scale)
             pGenerator = PlotGenerator()
             for index, differenceMatrix in enumerate(differenceMatrixList):
                 pGenerator.plotMatrix(differenceMatrix, 
                                       differenceDistanceList[index][:-4])
+
+        # Scaling down the difference distance matrices
+        for i, ddMatrix in enumerate(differenceDistanceList):
+            matrix = np.load(ddMatrix)
+            scaledMatrix, indexDict = \
+                dashboardServer.rescaleMatrix(matrix, scale)
+            ddMatrixBase = os.path.basename(ddMatrix).split('.')[0]
+            ddMatrixDir = os.path.dirname(ddMatrix)
+
+            scaledPath = os.path.join(ddMatrixDir, \
+                                        ddMatrixBase + '_Scaled.npy')
+            np.save(scaledPath, scaledMatrix)
+            differenceDistanceList[i] = scaledPath
 
         # Computing covariance matrix for all of the residue pairs
         logger.info('Generating covariance matrix')
@@ -295,18 +320,6 @@ class AnalyzePDB:
         else:
             np.save(os.path.join(directory, 'CovarianceMatrix.npy'), \
                     covarianceMatrix)
-
-        # Setting up default resolution for covariance matrix if none is
-        # specified
-        if args.scale is None:
-            """
-            scale = math.ceil(((differenceMatrixList[0][0].size)
-                     *(differenceMatrixList[0][0].size-1))/2)
-            """
-            scale = differenceMatrixList[0][0].size
-        else:
-            scale = args.scale
-        logger.info('Choosing scale of: ' + str(scale))
 
         # Plotting covariance matrix if specified
         if directory is None:
@@ -330,10 +343,6 @@ class AnalyzePDB:
 
         # Generating Interface
         if not len(covarianceMatrix.shape) == 0:
-            dashboardServer = DashboardServer(basePath=directory, \
-                                              npyPath=outDirectory, \
-                                              covMapDict=covMapDict,
-                                              scale=scale)
             server = dashboardServer.returnServer()
             server.io_loop.add_callback(server.show, "/")
         else:
