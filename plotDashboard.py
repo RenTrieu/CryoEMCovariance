@@ -329,6 +329,13 @@ class DashboardServer:
                     elif index == len(self.indexDict[key]) - 1:
                         self.scaledRangeDict[key] += '-' \
                                             + str(self.indexDict[key][index]+1)
+
+            # Saving the scaled index mapping to file
+            indexDictFilepath = os.path.join(basePath, 'scaledIndexMap.npy')
+            np.save(indexDictFilepath, self.indexDict, allow_pickle=True)
+            self.logger.info('Saving the scaled index mapping to: ' \
+                             + str(indexDictFilepath))
+
         self.logger.debug('scaledRangeDict: ' + str(self.scaledRangeDict))
 
         # Defining fields to be displayed in hover tooltips

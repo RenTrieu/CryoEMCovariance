@@ -11,6 +11,12 @@ To Do:
 - Take screenshots of various distance difference matrices
   and covariance submatrices representing interesting residue pairs to
   send to Andres
+- Attempt to speed up the covariance submatrix computation by changing
+  the pipeline from computing covariance submatrices directly from the
+  distance difference matrices and then binning to computing the binned
+  covariance submatrices from binned/scaled distance difference matrices
+  - When implementing this, make sure that the features made up of the 
+    lower covariance values are not lost
 - Set up a system where the user can queue up residue pairs for which to
   compute the covariance submatrices
 - Design and implement the pipeline for zooming into and displaying
