@@ -98,7 +98,7 @@ To Do:
   numbering~~
 - ~~Add proper logging~~
 - ~~Reintegrate interface into the rest of the suite of scripts~~
-- Add scaling feature/support for larger datasets
+- ~~Add scaling feature/support for larger datasets~~
 
 Version 0.6
 -----------

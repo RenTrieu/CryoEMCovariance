@@ -474,7 +474,8 @@ class DashboardServer:
                                         covMapDict, 
                                         residuePairList=resPairString, 
                                         allResidues=False,
-                                        baseDirectory=None)
+                                        baseDirectory=None,
+                                        scale=self.scale)
                     subMatrixArray = np.array(subMatrixList)
                     # Multiple submatrices case, takes the average of
                     # given submatrices

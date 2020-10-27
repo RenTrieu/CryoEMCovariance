@@ -94,7 +94,7 @@ class CovSubmatrix:
     """
     def generateSubmatrix(self, covMatrix, covMap, \
                           outputDirectory=None, residuePairList=None, 
-                          allResidues=True, baseDirectory=None):
+                          allResidues=True, baseDirectory=None, scale=None):
 
         # Loading .npy files and parsing using the information given 
         if isinstance(covMatrix, str):
@@ -146,6 +146,8 @@ class CovSubmatrix:
                     residueKey = key
                     self.logger.debug('Match at key: ' + str(key))
 
+            print('covMapShape: ' + str(len(covMap)))
+
             # If the residue pair doesn't exist, then exit
             # Otherwise, extract the covariance values corresponding to the
             # residue pair to form a covariance submatrix
@@ -154,8 +156,17 @@ class CovSubmatrix:
                                      + str(residuePair))
                 sys.exit()
             else:
+                resSize = list(covMap.values())[len(covMap.values())-1][1]
+                print('resSize: ' + str(resSize))
+                if (len(covMap) != len(covMatrix[0])):
+                    residueKey = math.ceil(residueKey*scale*(scale-1) \
+                                          /(resSize*(resSize-1)))
+
+                print('Residue Key: ' + str(residueKey))
                 covValues = covMatrix[residueKey]
                 self.logger.debug('Covariance Matrix at key: ' + str(covValues))
+
+            print('TEST')
 
             # Initializing the covariance submatrix
             axesLength = math.ceil(max(np.roots([1, -1, -2*len(covValues)])))
