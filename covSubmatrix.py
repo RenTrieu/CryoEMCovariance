@@ -136,8 +136,6 @@ class CovSubmatrix:
         for i, residuePair in enumerate(residuePairList):
             self.logger.debug('i: ' + str(i))
             self.logger.debug('residuePair: ' + str(residuePair))
-            print('i: ' + str(i))
-            print('residuePair: ' + str(residuePair))
 
             # Checking to see if residue pair exists in the covariance matrix
             residueKey = None
@@ -146,7 +144,6 @@ class CovSubmatrix:
                     residueKey = key
                     self.logger.debug('Match at key: ' + str(key))
 
-            print('covMapShape: ' + str(len(covMap)))
 
             # If the residue pair doesn't exist, then exit
             # Otherwise, extract the covariance values corresponding to the
@@ -157,16 +154,13 @@ class CovSubmatrix:
                 sys.exit()
             else:
                 resSize = list(covMap.values())[len(covMap.values())-1][1]
-                print('resSize: ' + str(resSize))
                 if (len(covMap) != len(covMatrix[0])):
                     residueKey = math.ceil(residueKey*scale*(scale-1) \
                                           /(resSize*(resSize-1)))
 
-                print('Residue Key: ' + str(residueKey))
                 covValues = covMatrix[residueKey]
                 self.logger.debug('Covariance Matrix at key: ' + str(covValues))
 
-            print('TEST')
 
             # Initializing the covariance submatrix
             axesLength = math.ceil(max(np.roots([1, -1, -2*len(covValues)])))

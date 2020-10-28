@@ -431,6 +431,7 @@ class DashboardServer:
         # Double click call back for moving from distance difference matrices to
         # covariance submatrices
         def clickCallback(event):
+            start_time = time.time()
             axesLength = math.sqrt(len(source.data['covValues']))
             xCoord = math.floor(event.x - 0.5)
             yCoord = math.floor(event.y - 0.5)
@@ -492,6 +493,7 @@ class DashboardServer:
                 yCoord += 1
                 displayString = '(' + str(xCoord) + ', ' + str(yCoord) + ')'
                 plot.title.text = 'Covariance Submatrix: Residue Pair: ' + displayString;
+            print('Time to compute submatrix: ' + str(time.time() - start_time))
 
         # Distance Difference Matrix Display Callback
         # Shows current distance difference matrix if not already shown

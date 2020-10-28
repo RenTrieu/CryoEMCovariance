@@ -19,8 +19,23 @@ To Do:
     lower covariance values are not lost
 - Set up a system where the user can queue up residue pairs for which to
   compute the covariance submatrices
+  - Check out these items in the Bokeh documentation:
+    - MenuItemClick
+    - Press/PressUp
+    - MouseEnter/MouseLeave
+  - Goals:
+    - Create a "queue" button that initiates a new mode where you can
+      click each bin without immediately calling the usual clickCallback event
+      to generate a covariance submatrix. Instead, it will take the 
+      coordinates and map it to the given residue (pair) range/binning, then
+      add the residue (pair) to a list. Will remain in this mode until the
+      "queue" button is clicked again.
 - Design and implement the pipeline for zooming into and displaying
   areas around/residue pairs of interest
+  - Check out these items in the Bokeh documentation:
+      - Selection Geometry
+      - LODEnd/LODStart 
+      - Maybe use Pan/PanStart/PanEnd to move around after zooming
 - Read Chimera documentation to try to map matrix/plot information into
   the protein structure
 
