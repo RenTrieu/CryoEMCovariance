@@ -65,8 +65,8 @@ class PDBReader:
         pdbCSV = self.PDBToCSV(pdb)
         self.logger.debug("Reading from: " + pdbCSV)
         pdbFrame = pd.read_csv(pdbCSV, error_bad_lines=False)
-        self.logger.debug("Deleting: " + pdbCSV)
-        subprocess.call(["rm", pdbCSV])
+        #self.logger.debug("Deleting: " + pdbCSV)
+        #subprocess.call(["rm", pdbCSV])
         return pdbFrame
 
 

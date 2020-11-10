@@ -154,9 +154,20 @@ class CovSubmatrix:
                 sys.exit()
             else:
                 resSize = list(covMap.values())[len(covMap.values())-1][1]
+                # TODO: scale and resSize are the same, this wrong
+                #print(covMap.values())
+                print('prev ResidueKey: ' + str(residueKey))
+                print('len(covMap): ' + str(len(covMap)))
+                print('len(covMatrix[0]): ' + str(len(covMatrix[0])))
                 if (len(covMap) != len(covMatrix[0])):
+                    print('confirm')
+                    print(math.ceil(residueKey*scale*(scale-1) \
+                                          /(resSize*(resSize-1))))
                     residueKey = math.ceil(residueKey*scale*(scale-1) \
                                           /(resSize*(resSize-1)))
+                print('scale: ' + str(scale))
+                print('resSize: ' + str(resSize))
+                print('residueKey: ' + str(residueKey))
 
                 covValues = covMatrix[residueKey]
                 self.logger.debug('Covariance Matrix at key: ' + str(covValues))

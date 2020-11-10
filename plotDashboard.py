@@ -470,29 +470,37 @@ class DashboardServer:
                             resPairString += '(' + str(xIndex) \
                                              + ', ' + str(yIndex) + ')'
                     resPairString = '[' + resPairString + ']'
-                    subMatrixList = cSubmatrix.generateSubmatrix(
-                                        covarianceMatrix, 
-                                        covMapDict, 
-                                        residuePairList=resPairString, 
-                                        allResidues=False,
-                                        baseDirectory=None,
-                                        scale=self.scale)
-                    subMatrixArray = np.array(subMatrixList)
-                    # Multiple submatrices case, takes the average of
-                    # given submatrices
-                    if len(subMatrixArray.shape) >= 3:
-                        subMatrix = np.average(subMatrixArray, axis=0)
+                    if self.queueState == False:
+                        subMatrixList = cSubmatrix.generateSubmatrix(
+                                            covarianceMatrix, 
+                                            covMapDict, 
+                                            residuePairList=resPairString, 
+                                            allResidues=False,
+                                            baseDirectory=None,
+                                            scale=self.scale)
+                        subMatrixArray = np.array(subMatrixList)
+                        # Multiple submatrices case, takes the average of
+                        # given submatrices
+                        if len(subMatrixArray.shape) >= 3:
+                            subMatrix = np.average(subMatrixArray, axis=0)
+                        else:
+                            subMatrix = subMatrixList
                     else:
-                        subMatrix = subMatrixList
+                        print('Appending ' + str(resPairString) + ' to queueList')
+                        self.queueList.append(resPairString)
 
-                patchMatrixValues(subMatrix)
+                if self.queueState == False:
+                    patchMatrixValues(subMatrix)
 
-                # Changing plot title name to reflect the covariance pair
-                # with which the covariance submatrix is plotted in respect to
-                xCoord += 1
-                yCoord += 1
-                displayString = '(' + str(xCoord) + ', ' + str(yCoord) + ')'
-                plot.title.text = 'Covariance Submatrix: Residue Pair: ' + displayString;
+                    # Changing plot title name to reflect the covariance pair
+                    # with which the covariance submatrix is plotted in respect to
+                    xCoord += 1
+                    yCoord += 1
+                    displayString = '(' + str(xCoord) + ', ' + str(yCoord) + ')'
+                    plot.title.text = 'Covariance Submatrix: Residue Pair: ' \
+                                      + displayString;
+
+            # TODO: When speed comparisons are done, remove the time printouts
             print('Time to compute submatrix: ' + str(time.time() - start_time))
 
         # Distance Difference Matrix Display Callback
@@ -528,9 +536,23 @@ class DashboardServer:
                 patchMatrixValues(matrixDict[f])
                 plot.title.text = 'Distance Difference Matrix: ' + npyNameList[int(f)]
 
+        # Queue Button Callback
+        # Toggles queueing mode for residue pairs/ranges
+        def queueCallback(event):
+            if self.queueState == False:
+                self.queueState = True
+            else:
+                self.queueState = False
+                self.queueList = []
+            print('Setting self.queueState: ' + str(self.queueState))
+
         # ------------------------------------------------------------------
 
         # Creating buttons and linking them to their corresponding callbacks
+        queueButton = Button(label="Queue", button_type="success")
+        queueButton.on_event(ButtonClick, queueCallback)
+        qBar = row(queueButton)
+
         buttonBack = Button(label="Back", button_type="success")
         buttonBack.on_event(ButtonClick, backwardCallback)
         buttonDD = Button(label="Show Distance Difference", button_type="success")
@@ -548,8 +570,10 @@ class DashboardServer:
         slider.on_change('value', sliderCallback)
 
         # Creating a layout from plot elements
+        self.queueList = []
+        self.queueState = False
         plot.on_event('tap', clickCallback)
-        layout = column(plot, buttonBar, slider, buttonReset)
+        layout = column(plot, qBar, buttonBar, slider, buttonReset)
 
         # Adding the plot to the server's document
         server_doc = doc

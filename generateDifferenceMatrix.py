@@ -100,8 +100,10 @@ class GenerateDifferenceMatrix:
             distanceMatrix1 = np.load(npy1)
             distanceMatrix2 = np.load(npy2)
         else:
-            distanceMatrix1 = np.load(os.path.join(path, npy1))
-            distanceMatrix2 = np.load(os.path.join(path, npy2))
+            distanceMatrix1 = np.load(os.path.join(path, \
+                                        os.path.basename(npy1)))
+            distanceMatrix2 = np.load(os.path.join(path, 
+                                        os.path.basename(npy2)))
 
         # If there is a path as part of the name of npy2, removes it
         npy2 = npy2.split('/')[len(npy2.split('/'))-1]
@@ -125,7 +127,8 @@ class GenerateDifferenceMatrix:
         self.logger.debug(differenceMatrix)
 
         if path is not None:
-            differenceMatrixName = os.path.join(path, differenceMatrixName)
+            differenceMatrixName = os.path.join(path, \
+                                    os.path.basename(differenceMatrixName))
 
         self.logger.info('Saving difference matrix to: ' \
                          + differenceMatrixName + '.npy')

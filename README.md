@@ -30,6 +30,9 @@ To Do:
       coordinates and map it to the given residue (pair) range/binning, then
       add the residue (pair) to a list. Will remain in this mode until the
       "queue" button is clicked again.
+    - Create a separate plot for calculated covariance submatrices, or
+      add some visual indicators/buttons to the interface to flip through
+      calculated covariance submatrices
 - Design and implement the pipeline for zooming into and displaying
   areas around/residue pairs of interest
   - Check out these items in the Bokeh documentation:
@@ -38,6 +41,22 @@ To Do:
       - Maybe use Pan/PanStart/PanEnd to move around after zooming
 - Read Chimera documentation to try to map matrix/plot information into
   the protein structure
+
+Notes:
+- Some nomenclature:
+  - Residue Numbers
+    - These are the numbers that exist in the original pdb files
+      to label each residue
+  - Residue Indices
+    - Numbers all consecutive common residues starting from 0
+    - Skips/does not account for non-common residues
+    - Even if shifted such that the residue indices start at 1,
+      the residue indices will only match up with the residue numbers
+      if all residues are common between all pdb files
+  - Covariance Indices
+    - Numbered from 0 to len(ResidueIndices)(len(ResidueIndices)-1)/2 -1
+    - Numbers all non-redundant values in the covariance matrix
+      - TODO: Specify the ordering system
 
 Version 0.7
 -----------
