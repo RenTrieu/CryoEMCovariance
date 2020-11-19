@@ -344,6 +344,7 @@ class DashboardServer:
             'y' : yVals.flatten(),
             'covValues' : covVals.flatten()
         })
+
         tooltipList = [('xCoord', '@x'), ('yCoord', '@y'),
                        ('Magnitude', '@covValues')]
 
@@ -370,6 +371,7 @@ class DashboardServer:
                            bounds=(0.5, axesLength + 0.5))
 
         self.logger.info('Creating initial figure')
+        # Primary display for directly interacting with the matrices
         plot = figure(x_range=plotLabel,
                       y_range=plotLabel,
                       tools=TOOLS, 
@@ -383,7 +385,7 @@ class DashboardServer:
         plot.x_range = plotLabel
         plot.y_range = plotLabel
 
-        self.logger.info('Creating initial plot')
+        self.logger.info('Creating initial primary plot')
         plot.rect(x='x', y='y', width=1, height=1,
                   source=source,
                   fill_color={'field': 'covValues', 'transform' : color_mapper},
@@ -393,8 +395,37 @@ class DashboardServer:
                            + npyNameList[0], \
                            align='center')
 
-
         plot.add_layout(color_bar, 'right')
+
+        # Secondary display for interacting with queued covariance submatrices
+        plot2 = figure(x_range=plotLabel,
+                      y_range=plotLabel,
+                      tools=TOOLS, 
+                      toolbar_location='below',
+                      tooltips=tooltipList)
+        plot2.xaxis.major_label_orientation = math.pi/2
+
+        source2 = ColumnDataSource(data={
+            'x' : xVals.flatten(),
+            'y' : yVals.flatten(),
+            'covValues' : [0 for i in covVals.flatten()]
+        })
+
+        # TODO: Remove this, it's redundant, but I'm keeping it here for
+        #       reference
+        plot2.x_range = plotLabel
+        plot2.y_range = plotLabel
+
+        self.logger.info('Creating initial secondary plot')
+        plot2.rect(x='x', y='y', width=1, height=1,
+                  source=source2,
+                  fill_color={'field': 'covValues', 'transform' : color_mapper},
+                  line_color=None)
+
+        plot2.title = Title(text='Queued Covariance Submatrices',
+                            align='center')
+
+        plot2.add_layout(color_bar, 'right')
 
         # Creating a dictionary of distance difference matrices based off of
         # order they are loaded in
@@ -408,7 +439,7 @@ class DashboardServer:
         # ------------------------------------------------------------------
 
         # Takes a flattened matrix and updates the plot to its values
-        def patchMatrixValues(newMatrix):
+        def patchMatrixValues(newMatrix, source=source):
             if (int(self.scale) \
                     != int(math.ceil(math.sqrt(newMatrix.shape[0])))):
 
@@ -487,7 +518,9 @@ class DashboardServer:
                             subMatrix = subMatrixList
                     else:
                         print('Appending ' + str(resPairString) + ' to queueList')
-                        self.queueList.append(resPairString)
+                        self.queueList.append([int(xCoord+1), 
+                                               int(yCoord+1), 
+                                               str(resPairString)])
 
                 if self.queueState == False:
                     patchMatrixValues(subMatrix)
@@ -498,7 +531,7 @@ class DashboardServer:
                     yCoord += 1
                     displayString = '(' + str(xCoord) + ', ' + str(yCoord) + ')'
                     plot.title.text = 'Covariance Submatrix: Residue Pair: ' \
-                                      + displayString;
+                                      + displayString
 
             # TODO: When speed comparisons are done, remove the time printouts
             print('Time to compute submatrix: ' + str(time.time() - start_time))
@@ -539,20 +572,60 @@ class DashboardServer:
         # Queue Button Callback
         # Toggles queueing mode for residue pairs/ranges
         def queueCallback(event):
+            # Turning on queuing
             if self.queueState == False:
                 self.queueState = True
+            # Turning off queuing and then patching the covariance submatrices
+            # to secondary plot
             else:
                 self.queueState = False
+                qList = self.queueList
                 self.queueList = []
+                for matrixPak in qList:
+                    xCoord = int(matrixPak[0])
+                    yCoord = int(matrixPak[1])
+                    resPairString = str(matrixPak[2])
+                    subMatrixArray = np.array(cSubmatrix.generateSubmatrix(
+                                            covarianceMatrix, 
+                                            covMapDict, 
+                                            residuePairList=resPairString, 
+                                            allResidues=False,
+                                            baseDirectory=None,
+                                            scale=self.scale))
+                    # Multiple submatrices case, takes the average of
+                    # given submatrices
+                    if len(subMatrixArray.shape) >= 3:
+                        subMatrix = np.average(subMatrixArray, axis=0)
+                    else:
+                        subMatrix = subMatrixList
+
+                    patchMatrixValues(subMatrix, source2)
+
+                    # Changing plot title name to reflect the covariance pair
+                    # with which the covariance submatrix is plotted in respect 
+                    # to
+                    xCoord += 1
+                    yCoord += 1
+                    displayString = '(' + str(xCoord) + ', ' + str(yCoord) + ')'
+                    plot.title.text = 'Queued Covariance Submatrix: ' \
+                                      + 'Residue Pair: ' \
+                                      + displayString
+
+
+                    
             print('Setting self.queueState: ' + str(self.queueState))
 
         # ------------------------------------------------------------------
+
+        # Formatting primary and secondary plots so they are side by side
+        plotBar = row(plot, plot2)
 
         # Creating buttons and linking them to their corresponding callbacks
         queueButton = Button(label="Queue", button_type="success")
         queueButton.on_event(ButtonClick, queueCallback)
         qBar = row(queueButton)
 
+        # Buttons to navigate distance difference matrices
         buttonBack = Button(label="Back", button_type="success")
         buttonBack.on_event(ButtonClick, backwardCallback)
         buttonDD = Button(label="Show Distance Difference", button_type="success")
@@ -565,7 +638,7 @@ class DashboardServer:
         buttonReset = Button(label="Reset", button_type="success")
         buttonReset.on_event(ButtonClick, resetCallback)
 
-
+        # Slider to also navigate distance difference matrices
         slider = Slider(start=0, end=len(npyList)-1, value=0, step=1, title="index")
         slider.on_change('value', sliderCallback)
 
@@ -573,7 +646,7 @@ class DashboardServer:
         self.queueList = []
         self.queueState = False
         plot.on_event('tap', clickCallback)
-        layout = column(plot, qBar, buttonBar, slider, buttonReset)
+        layout = column(plotBar, qBar, buttonBar, slider, buttonReset)
 
         # Adding the plot to the server's document
         server_doc = doc
