@@ -8,13 +8,13 @@ Version 0.8
 -----------
 To Do:
 
-- Take screenshots of various distance difference matrices
+- ~Take screenshots of various distance difference matrices
   and covariance submatrices representing interesting residue pairs to
-  send to Andres
-- Attempt to speed up the covariance submatrix computation by changing
+  send to Andres~
+- ~Attempt to speed up the covariance submatrix computation by changing
   the pipeline from computing covariance submatrices directly from the
   distance difference matrices and then binning to computing the binned
-  covariance submatrices from binned/scaled distance difference matrices
+  covariance submatrices from binned/scaled distance difference matrices~
   - When implementing this, make sure that the features made up of the 
     lower covariance values are not lost
 - Set up a system where the user can queue up residue pairs for which to
@@ -57,6 +57,12 @@ Notes:
     - Numbered from 0 to len(ResidueIndices)(len(ResidueIndices)-1)/2 -1
     - Numbers all non-redundant values in the covariance matrix
       - TODO: Specify the ordering system
+- Implemented the covariance submatrix approximation to speed up computation,
+  however, there is a loss of smaller covariance values. Computation time is
+  reduced by a factor of .25.
+- Added a Jupyter notebook for accessing specific covariance values
+  - Code needs to be cleaned up so that paths align well with the
+    rest of the scripts
 
 Version 0.7
 -----------
