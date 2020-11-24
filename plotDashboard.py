@@ -517,7 +517,8 @@ class DashboardServer:
                         else:
                             subMatrix = subMatrixList
                     else:
-                        print('Appending ' + str(resPairString) + ' to queueList')
+                        self.logger.debug('Appending ' + str(resPairString) \
+                                          + ' to queueList')
                         self.queueList.append([int(xCoord+1), 
                                                int(yCoord+1), 
                                                str(resPairString)])
@@ -569,6 +570,36 @@ class DashboardServer:
                 patchMatrixValues(matrixDict[f])
                 plot.title.text = 'Distance Difference Matrix: ' + npyNameList[int(f)]
 
+        # Forward Queue Callback
+        # Moves down the queue to display the next covariance submatrix
+        def forwardQCallback(event):
+            if ((self.curQueue is None) and (len(self.queueMatrices) == 0)):
+                return;
+            elif ((self.curQueue is None) and (len(self.queueMatrices) >= 0)):
+                self.curQueue = 0
+                patchMatrixValues(self.queueMatrices[self.curQueue], source2)
+            elif (self.curQueue >= len(self.queueMatrices)):
+                return;
+            elif (self.curQueue < (len(self.queueMatrices)-1)):
+                self.curQueue += 1
+                print('Acessing curQueue: ' + str(self.curQueue))
+                patchMatrixValues(self.queueMatrices[self.curQueue], source2)
+
+        # Backward Queue Callback
+        # Moves up the queue to display the next covariance submatrix
+        def backwardQCallback(event):
+            if ((self.curQueue is None) and (len(self.queueMatrices) == 0)):
+                return;
+            elif ((self.curQueue is None) and (len(self.queueMatrices) >= 0)):
+                self.curQueue = 0
+                patchMatrixValues(self.queueMatrices[self.curQueue], source2)
+            elif (self.curQueue >= len(self.queueMatrices)):
+                return;
+            elif (self.curQueue > 0):
+                self.curQueue -= 1
+                print('Acessing curQueue: ' + str(self.curQueue))
+                patchMatrixValues(self.queueMatrices[self.curQueue], source2)
+
         # Queue Button Callback
         # Toggles queueing mode for residue pairs/ranges
         def queueCallback(event):
@@ -599,6 +630,7 @@ class DashboardServer:
                     else:
                         subMatrix = subMatrixList
 
+                    self.queueMatrices.append(subMatrix)
                     patchMatrixValues(subMatrix, source2)
 
                     # Changing plot title name to reflect the covariance pair
@@ -607,23 +639,14 @@ class DashboardServer:
                     xCoord += 1
                     yCoord += 1
                     displayString = '(' + str(xCoord) + ', ' + str(yCoord) + ')'
+                    self.queueNameList.append(displayString)
                     plot.title.text = 'Queued Covariance Submatrix: ' \
                                       + 'Residue Pair: ' \
                                       + displayString
 
-
-                    
-            print('Setting self.queueState: ' + str(self.queueState))
-
         # ------------------------------------------------------------------
 
-        # Formatting primary and secondary plots so they are side by side
-        plotBar = row(plot, plot2)
-
         # Creating buttons and linking them to their corresponding callbacks
-        queueButton = Button(label="Queue", button_type="success")
-        queueButton.on_event(ButtonClick, queueCallback)
-        qBar = row(queueButton)
 
         # Buttons to navigate distance difference matrices
         buttonBack = Button(label="Back", button_type="success")
@@ -645,8 +668,26 @@ class DashboardServer:
         # Creating a layout from plot elements
         self.queueList = []
         self.queueState = False
+        self.curQueue = None
+        self.queueMatrices = []
+        self.queueNameList = []
         plot.on_event('tap', clickCallback)
-        layout = column(plotBar, qBar, buttonBar, slider, buttonReset)
+
+        # Queue Buttons
+        queueButton = Button(label="Queue", button_type="success")
+        queueButton.on_event(ButtonClick, queueCallback)
+        qBar = row(queueButton)
+
+        # Buttons to navigate queued covariance submatrices
+        qButtonBack = Button(label="Back", button_type="success")
+        qButtonBack.on_event(ButtonClick, backwardQCallback)
+
+        qButtonForward = Button(label="Forward", button_type="success")
+        qButtonForward.on_event(ButtonClick, forwardQCallback)
+        qNavBar = row(qButtonBack, qButtonForward)
+
+        layout = row(column(plot, qBar, buttonBar, slider, buttonReset), 
+                     column(plot2, qNavBar))
 
         # Adding the plot to the server's document
         server_doc = doc
