@@ -1,36 +1,36 @@
-[2020-11-23 22:00:39,125] - AnalyzePDB - INFO - Logger Initialized
-[2020-11-23 22:00:39,125] - AnalyzePDB - INFO - outDirectory: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices
-[2020-11-23 22:00:39,819] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 4FKP.pdb
-[2020-11-23 22:00:39,819] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 4FKP.pdb
-[2020-11-23 22:00:39,824] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 5IF1.pdb
-[2020-11-23 22:00:39,824] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 5IF1.pdb
-[2020-11-23 22:00:39,828] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 4FKU.pdb
-[2020-11-23 22:00:39,829] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 4FKU.pdb
-[2020-11-23 22:00:39,833] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 5A14.pdb
-[2020-11-23 22:00:39,833] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 5A14.pdb
-[2020-11-23 22:00:39,838] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 4FKO.pdb
-[2020-11-23 22:00:39,838] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 4FKO.pdb
-[2020-11-23 22:00:41,303] - AnalyzePDB - INFO - Recognizing common chain A
-[2020-11-23 22:00:41,538] - AnalyzePDB - INFO - Detected the following chains common to all pdb files:
-[2020-11-23 22:00:41,538] - AnalyzePDB - INFO - Chain: A Max Residue: 296
-[2020-11-23 22:00:41,538] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKPFormatted.pdb
-[2020-11-23 22:00:44,251] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/5IF1Formatted.pdb
-[2020-11-23 22:00:46,964] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKUFormatted.pdb
-[2020-11-23 22:00:49,663] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/5A14Formatted.pdb
-[2020-11-23 22:00:52,341] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKOFormatted.pdb
-[2020-11-23 22:00:55,031] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_5IF1.npy
-[2020-11-23 22:00:55,039] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_4FKU.npy
-[2020-11-23 22:00:55,047] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_5A14.npy
-[2020-11-23 22:00:55,054] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_4FKO.npy
-[2020-11-23 22:00:55,060] - AnalyzePDB - INFO - Generating covariance index to residue pair map
-[2020-11-23 22:00:55,076] - AnalyzePDB - INFO - Choosing scale of: 10
-[2020-11-23 22:00:55,322] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_5IF1.html
-[2020-11-23 22:00:55,535] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_4FKU.html
-[2020-11-23 22:00:55,755] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_5A14.html
-[2020-11-23 22:00:55,978] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_4FKO.html
-[2020-11-23 22:00:56,007] - AnalyzePDB - INFO - Generating covariance matrix
-[2020-11-23 22:00:56,018] - AnalyzePDB - INFO - Reference used: 4FKP.pdb
-[2020-11-23 22:00:56,018] - AnalyzePDB - INFO - [[ 0.08763466 -0.00535195  0.07919169 ...  0.00637878  0.02358759
+[2020-11-23 22:24:07,297] - AnalyzePDB - INFO - Logger Initialized
+[2020-11-23 22:24:07,297] - AnalyzePDB - INFO - outDirectory: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices
+[2020-11-23 22:24:07,747] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 4FKP.pdb
+[2020-11-23 22:24:07,748] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 4FKP.pdb
+[2020-11-23 22:24:07,752] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 5IF1.pdb
+[2020-11-23 22:24:07,752] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 5IF1.pdb
+[2020-11-23 22:24:07,757] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 4FKU.pdb
+[2020-11-23 22:24:07,757] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 4FKU.pdb
+[2020-11-23 22:24:07,762] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 5A14.pdb
+[2020-11-23 22:24:07,762] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 5A14.pdb
+[2020-11-23 22:24:07,766] - AnalyzePDB.ComparePDB - INFO - Removing side chains for 4FKO.pdb
+[2020-11-23 22:24:07,766] - AnalyzePDB.ComparePDB - INFO - Stripping down to alpha carbons for 4FKO.pdb
+[2020-11-23 22:24:09,244] - AnalyzePDB - INFO - Recognizing common chain A
+[2020-11-23 22:24:09,408] - AnalyzePDB - INFO - Detected the following chains common to all pdb files:
+[2020-11-23 22:24:09,408] - AnalyzePDB - INFO - Chain: A Max Residue: 296
+[2020-11-23 22:24:09,408] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKPFormatted.pdb
+[2020-11-23 22:24:12,107] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/5IF1Formatted.pdb
+[2020-11-23 22:24:14,800] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKUFormatted.pdb
+[2020-11-23 22:24:17,494] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/5A14Formatted.pdb
+[2020-11-23 22:24:20,153] - AnalyzePDB - INFO - Calculating distance matrix for: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKOFormatted.pdb
+[2020-11-23 22:24:22,862] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_5IF1.npy
+[2020-11-23 22:24:22,871] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_4FKU.npy
+[2020-11-23 22:24:22,878] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_5A14.npy
+[2020-11-23 22:24:22,887] - AnalyzePDB.GenerateDifferenceMatrix - INFO - Saving difference matrix to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_4FKO.npy
+[2020-11-23 22:24:22,892] - AnalyzePDB - INFO - Generating covariance index to residue pair map
+[2020-11-23 22:24:22,909] - AnalyzePDB - INFO - Choosing scale of: 10
+[2020-11-23 22:24:23,161] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_5IF1.html
+[2020-11-23 22:24:23,380] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_4FKU.html
+[2020-11-23 22:24:23,598] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_5A14.html
+[2020-11-23 22:24:23,818] - AnalyzePDB.PlotGenerator - INFO - Computation complete, plot outputted to: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices/4FKP_Minus_4FKO.html
+[2020-11-23 22:24:23,852] - AnalyzePDB - INFO - Generating covariance matrix
+[2020-11-23 22:24:23,867] - AnalyzePDB - INFO - Reference used: 4FKP.pdb
+[2020-11-23 22:24:23,867] - AnalyzePDB - INFO - [[ 0.08763466 -0.00535195  0.07919169 ...  0.00637878  0.02358759
    0.02117322]
  [-0.00535195  0.02721844  0.09132102 ... -0.00926679  0.00112314
    0.00868576]
@@ -43,12 +43,12 @@
    0.00615897]
  [ 0.02117322  0.00868576  0.0487054  ... -0.00275309  0.00615897
    0.01010039]]
-[2020-11-23 22:00:56,019] - AnalyzePDB - INFO - Total Computation Time: 16.93694281578064 seconds
-[2020-11-23 22:00:58,950] - AnalyzePDB.DashboardServer - INFO - Reading npy matrices from: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices
-[2020-11-23 22:00:58,995] - AnalyzePDB.DashboardServer - INFO - Loading CovarianceMatrix.npy
-[2020-11-23 22:00:58,996] - AnalyzePDB.DashboardServer - INFO - Loaded CovarianceMatrix.npy
-[2020-11-23 22:00:59,008] - AnalyzePDB.DashboardServer - INFO - Saving the scaled index mapping to: /home/dtn067/CryoEMCovariance/Initial5/scaledIndexMap.npy
-[2020-11-23 22:00:59,009] - AnalyzePDB.DashboardServer - INFO - Determining axis scaling.
-[2020-11-23 22:00:59,009] - AnalyzePDB.DashboardServer - INFO - Creating initial figure
-[2020-11-23 22:00:59,011] - AnalyzePDB.DashboardServer - INFO - Creating initial primary plot
-[2020-11-23 22:00:59,013] - AnalyzePDB.DashboardServer - INFO - Creating initial secondary plot
+[2020-11-23 22:24:23,868] - AnalyzePDB - INFO - Total Computation Time: 16.57504940032959 seconds
+[2020-11-23 22:24:25,390] - AnalyzePDB.DashboardServer - INFO - Reading npy matrices from: /home/dtn067/CryoEMCovariance/Initial5/ddMatrices
+[2020-11-23 22:24:25,422] - AnalyzePDB.DashboardServer - INFO - Loading CovarianceMatrix.npy
+[2020-11-23 22:24:25,425] - AnalyzePDB.DashboardServer - INFO - Loaded CovarianceMatrix.npy
+[2020-11-23 22:24:25,437] - AnalyzePDB.DashboardServer - INFO - Saving the scaled index mapping to: /home/dtn067/CryoEMCovariance/Initial5/scaledIndexMap.npy
+[2020-11-23 22:24:25,439] - AnalyzePDB.DashboardServer - INFO - Determining axis scaling.
+[2020-11-23 22:24:25,439] - AnalyzePDB.DashboardServer - INFO - Creating initial figure
+[2020-11-23 22:24:25,441] - AnalyzePDB.DashboardServer - INFO - Creating initial primary plot
+[2020-11-23 22:24:25,443] - AnalyzePDB.DashboardServer - INFO - Creating initial secondary plot

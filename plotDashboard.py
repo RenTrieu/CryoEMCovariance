@@ -578,12 +578,19 @@ class DashboardServer:
             elif ((self.curQueue is None) and (len(self.queueMatrices) >= 0)):
                 self.curQueue = 0
                 patchMatrixValues(self.queueMatrices[self.curQueue], source2)
+                plot2.title.text = 'Queued Covariance Submatrices: '\
+                                   + 'Residue Pair: ' \
+                                   + self.queueNameList[self.curQueue]
             elif (self.curQueue >= len(self.queueMatrices)):
                 return;
             elif (self.curQueue < (len(self.queueMatrices)-1)):
                 self.curQueue += 1
                 print('Acessing curQueue: ' + str(self.curQueue))
+                print('len(self.queueMatrices): ' + str(len(self.queueMatrices)))
                 patchMatrixValues(self.queueMatrices[self.curQueue], source2)
+                plot2.title.text = 'Queued Covariance Submatrices: '\
+                                   + 'Residue Pair: ' \
+                                   + self.queueNameList[self.curQueue]
 
         # Backward Queue Callback
         # Moves up the queue to display the next covariance submatrix
@@ -593,12 +600,19 @@ class DashboardServer:
             elif ((self.curQueue is None) and (len(self.queueMatrices) >= 0)):
                 self.curQueue = 0
                 patchMatrixValues(self.queueMatrices[self.curQueue], source2)
+                plot2.title.text = 'Queued Covariance Submatrices: '\
+                                   + 'Residue Pair: ' \
+                                   + self.queueNameList[self.curQueue]
             elif (self.curQueue >= len(self.queueMatrices)):
                 return;
             elif (self.curQueue > 0):
                 self.curQueue -= 1
-                print('Acessing curQueue: ' + str(self.curQueue))
+                print('Accessing curQueue: ' + str(self.curQueue))
+                print('len(self.queueMatrices): ' + str(len(self.queueMatrices)))
                 patchMatrixValues(self.queueMatrices[self.curQueue], source2)
+                plot2.title.text = 'Queued Covariance Submatrices: '\
+                                   + 'Residue Pair: ' \
+                                   + self.queueNameList[self.curQueue]
 
         # Queue Button Callback
         # Toggles queueing mode for residue pairs/ranges
@@ -640,7 +654,7 @@ class DashboardServer:
                     yCoord += 1
                     displayString = '(' + str(xCoord) + ', ' + str(yCoord) + ')'
                     self.queueNameList.append(displayString)
-                    plot.title.text = 'Queued Covariance Submatrix: ' \
+                    plot2.title.text = 'Queued Covariance Submatrix: ' \
                                       + 'Residue Pair: ' \
                                       + displayString
 
@@ -649,7 +663,8 @@ class DashboardServer:
         # Creating buttons and linking them to their corresponding callbacks
 
         # Buttons to navigate distance difference matrices
-        buttonBack = Button(label="Back", button_type="success")
+        buttonBvigate distance difference matrices
+        679         slider = Slider(stack = Button(label="Back", button_type="success")
         buttonBack.on_event(ButtonClick, backwardCallback)
         buttonDD = Button(label="Show Distance Difference", button_type="success")
         buttonDD.on_event(ButtonClick, ddCallback)
