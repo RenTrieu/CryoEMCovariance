@@ -17,28 +17,29 @@ To Do:
   covariance submatrices from binned/scaled distance difference matrices~
   - When implementing this, make sure that the features made up of the 
     lower covariance values are not lost
-- Set up a system where the user can queue up residue pairs for which to
-  compute the covariance submatrices
-  - Check out these items in the Bokeh documentation:
-    - MenuItemClick
-    - Press/PressUp
-    - MouseEnter/MouseLeave
-  - Goals:
-    - Create a "queue" button that initiates a new mode where you can
+- ~Set up a system where the user can queue up residue pairs for which to
+  compute the covariance submatrices~
+  - ~Check out these items in the Bokeh documentation:~
+    - ~MenuItemClick~
+    - ~Press/PressUp~
+    - ~MouseEnter/MouseLeave~
+  - ~Goals:~
+    - ~Create a "queue" button that initiates a new mode where you can
       click each bin without immediately calling the usual clickCallback event
       to generate a covariance submatrix. Instead, it will take the 
       coordinates and map it to the given residue (pair) range/binning, then
       add the residue (pair) to a list. Will remain in this mode until the
-      "queue" button is clicked again.
-    - Create a separate plot for calculated covariance submatrices, or
+      "queue" button is clicked again.~
+    - ~Create a separate plot for calculated covariance submatrices, or
       add some visual indicators/buttons to the interface to flip through
-      calculated covariance submatrices
+      calculated covariance submatrices~
 - Design and implement the pipeline for zooming into and displaying
   areas around/residue pairs of interest
   - Check out these items in the Bokeh documentation:
       - Selection Geometry
       - LODEnd/LODStart 
       - Maybe use Pan/PanStart/PanEnd to move around after zooming
+- Explore Holoviews/Datashaders to handle even larger datasets
 - Read Chimera documentation to try to map matrix/plot information into
   the protein structure
 

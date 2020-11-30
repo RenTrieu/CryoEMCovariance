@@ -7,7 +7,7 @@
 from bokeh.layouts import column, row
 from bokeh.models import (ColumnDataSource, CustomJS, Slider, 
                           LinearColorMapper, BasicTicker, ColorBar, 
-                          HoverTool, Button, Title, FactorRange)
+                          HoverTool, Button, Title, FactorRange, Div)
 from bokeh.plotting import figure, output_file, show, curdoc
 from bokeh.events import Tap, DoubleTap, ButtonClick
 from bokeh.core.properties import Enum, MinMaxBounds
@@ -243,7 +243,8 @@ class DashboardServer:
         self.logger.info('Reading npy matrices from: ' + str(npyPath))
         npyNameList = [npyFile for npyFile in os.listdir(npyPath) \
                                if (npyFile[-3:] == 'npy') \
-                               and ('Minus' in npyFile)]
+                               and ('Minus' in npyFile) \
+                               and ('Scaled' not in npyFile)]
 
         self.logger.debug('npyNameList: ' + str(npyNameList))
 
@@ -522,6 +523,8 @@ class DashboardServer:
                         self.queueList.append([int(xCoord+1), 
                                                int(yCoord+1), 
                                                str(resPairString)])
+                        toQueueDiv.text += ' (' + str(xCoord+1) + ','\
+                                        + str(yCoord+1)+'),'
 
                 if self.queueState == False:
                     patchMatrixValues(subMatrix)
@@ -552,6 +555,7 @@ class DashboardServer:
             patchMatrixValues(matrixDict[f])
             plot.title.text = 'Distance Difference Matrix: ' + npyNameList[0]
 
+
         # Forward Button Callback
         # Moves DD Index forward by 1 and displays DD matrix
         def forwardCallback(event):
@@ -581,6 +585,7 @@ class DashboardServer:
                 plot2.title.text = 'Queued Covariance Submatrices: '\
                                    + 'Residue Pair: ' \
                                    + self.queueNameList[self.curQueue]
+                indexDiv.text = 'Index: ' + str(self.curQueue)
             elif (self.curQueue >= len(self.queueMatrices)):
                 return;
             elif (self.curQueue < (len(self.queueMatrices)-1)):
@@ -591,6 +596,7 @@ class DashboardServer:
                 plot2.title.text = 'Queued Covariance Submatrices: '\
                                    + 'Residue Pair: ' \
                                    + self.queueNameList[self.curQueue]
+                indexDiv.text = 'Index: ' + str(self.curQueue)
 
         # Backward Queue Callback
         # Moves up the queue to display the next covariance submatrix
@@ -603,6 +609,7 @@ class DashboardServer:
                 plot2.title.text = 'Queued Covariance Submatrices: '\
                                    + 'Residue Pair: ' \
                                    + self.queueNameList[self.curQueue]
+                indexDiv.text = 'Index: ' + str(self.curQueue)
             elif (self.curQueue >= len(self.queueMatrices)):
                 return;
             elif (self.curQueue > 0):
@@ -613,6 +620,7 @@ class DashboardServer:
                 plot2.title.text = 'Queued Covariance Submatrices: '\
                                    + 'Residue Pair: ' \
                                    + self.queueNameList[self.curQueue]
+                indexDiv.text = 'Index: ' + str(self.curQueue)
 
         # Queue Button Callback
         # Toggles queueing mode for residue pairs/ranges
@@ -620,12 +628,16 @@ class DashboardServer:
             # Turning on queuing
             if self.queueState == False:
                 self.queueState = True
+                toQueueDiv.text = 'Queued Covariance Submatrices:'
+                statusDiv.text = 'Status: Queuing residue pairs'
             # Turning off queuing and then patching the covariance submatrices
             # to secondary plot
             else:
                 self.queueState = False
                 qList = self.queueList
                 self.queueList = []
+                # TODO: Bokeh doesn't update display until after loop runs
+                statusDiv.text = 'Status: Computing covariance submatrices'
                 for matrixPak in qList:
                     xCoord = int(matrixPak[0])
                     yCoord = int(matrixPak[1])
@@ -657,14 +669,17 @@ class DashboardServer:
                     plot2.title.text = 'Queued Covariance Submatrix: ' \
                                       + 'Residue Pair: ' \
                                       + displayString
+                    computedDiv.text = 'Computed Submatrices: ' \
+                                       + str(sorted(set(self.queueNameList)))
+                    totalNumberDiv.text = '/' + str(len(self.queueMatrices))
+                statusDiv.text = 'Status: Submatrix computation complete. Idling'
 
         # ------------------------------------------------------------------
 
         # Creating buttons and linking them to their corresponding callbacks
 
         # Buttons to navigate distance difference matrices
-        buttonBvigate distance difference matrices
-        679         slider = Slider(stack = Button(label="Back", button_type="success")
+        buttonBack = Button(label="Back", button_type="success")
         buttonBack.on_event(ButtonClick, backwardCallback)
         buttonDD = Button(label="Show Distance Difference", button_type="success")
         buttonDD.on_event(ButtonClick, ddCallback)
@@ -701,8 +716,33 @@ class DashboardServer:
         qButtonForward.on_event(ButtonClick, forwardQCallback)
         qNavBar = row(qButtonBack, qButtonForward)
 
+        # TODO: Add a text widget to show all computed/queued covariance submatrices
+
+        # Div Widgets to show which submatrix is displayed
+        indexDiv = Div(text="""Index: N/A""", \
+                           width=70, height=25)
+        totalNumberDiv = Div(text="""/0""",\
+                             width=100, height=25)
+        indexDivBar = row(indexDiv, totalNumberDiv)
+
+        # Div Widget to show which residue pairs are queued
+        toQueueDiv = Div(text="""Queued Covariance Submatrices:""", \
+                      width=600, height=50)
+
+        # Div Widget to show which residue pairs are computed
+        computedDiv = Div(text="""Computed Submatrices:""", \
+                       width=600, height=50)
+
+        # Div Widget to show
+        statusDiv = Div(text="""Status: Nothing Queued""", \
+                        width=600, height=25)
+
+        testTitle = Title(text='Test Title', align='center')
+
         layout = row(column(plot, qBar, buttonBar, slider, buttonReset), 
-                     column(plot2, qNavBar))
+                     column(plot2, qNavBar, statusDiv,
+                            indexDivBar, toQueueDiv, computedDiv))
+
 
         # Adding the plot to the server's document
         server_doc = doc
