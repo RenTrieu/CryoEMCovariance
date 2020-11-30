@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Analyze PDB
 # Author: Darren Trieu Nguyen
-# Version: 0.7
+# Version: 0.8
 # Function: Handles the overhead management, taking in PDB files and
 #           running the scripts necessary to output a covariance matrix plot
 
@@ -327,20 +327,6 @@ class AnalyzePDB:
         else:
             covMapString = os.path.join(directory, 'covMapDict.npy')
 
-        # TODO: Memory issue starts here
-        """
-        if args.plot:
-            if covarianceMatrix.size > 4:
-                logger.info('Outputting covariance matrix plot')
-                pGenerator.plotMatrix(covarianceMatrix, 
-                                      'CovarianceMatrix',
-                                      scale=scale,
-                                      residueMapName=covMapString)
-            else:
-                logger.error('Dimensions of Covariance Matrix are' \
-                             ' too small to plot.')
-        """
-
         # Generating Interface
         if not len(covarianceMatrix.shape) == 0:
             server = dashboardServer.returnServer()
@@ -348,7 +334,6 @@ class AnalyzePDB:
         else:
             logger.warning('Covariance Matrix is too small'\
                            ' to generate a plot interface')
-
 
         # Creating a map between covariance coordinate and residue pairs
         # x -> index of one covariance axis of n length

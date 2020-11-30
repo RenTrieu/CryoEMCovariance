@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Generate Difference Matrix
 # Author: Darren Trieu Nguyen
-# Version: 0.7
+# Version: 0.8
 # Function: Takes in two DistanceMatrix.npy files and calculates the difference
 #           between them, then plots
 
@@ -30,7 +30,7 @@ class GenerateDifferenceMatrix:
     def __init__(self):
         # When called directly from script
         if __name__ == '__main__':
-            version = 0.7
+            version = 0.8
 
             # Parsing the CLI for options and parameters
             parser = argparse.ArgumentParser(description='Generate a'\

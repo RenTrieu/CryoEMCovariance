@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Bokeh Dashboard Server
 # Author: Darren Trieu Nguyen
-# Version: 0.7
+# Version: 0.8
 # Function: Generates and loops the Bokeh server for the plots
 
 from bokeh.layouts import column, row
@@ -38,7 +38,7 @@ class DashboardServer:
                  covMapDict=None, scale=None):
         # When called directly from script
         if __name__ == "__main__":
-            version = 0.7
+            version = 0.8
 
             # Parsing the CLI for options and parameters
             parser = argparse.ArgumentParser(description='Generate a'\
@@ -381,11 +381,6 @@ class DashboardServer:
 
         plot.xaxis.major_label_orientation = math.pi/2
 
-        # TODO: Remove this, it's redundant, but I'm keeping it here for
-        #       reference
-        plot.x_range = plotLabel
-        plot.y_range = plotLabel
-
         self.logger.info('Creating initial primary plot')
         plot.rect(x='x', y='y', width=1, height=1,
                   source=source,
@@ -411,11 +406,6 @@ class DashboardServer:
             'y' : yVals.flatten(),
             'covValues' : [0 for i in covVals.flatten()]
         })
-
-        # TODO: Remove this, it's redundant, but I'm keeping it here for
-        #       reference
-        plot2.x_range = plotLabel
-        plot2.y_range = plotLabel
 
         self.logger.info('Creating initial secondary plot')
         plot2.rect(x='x', y='y', width=1, height=1,
@@ -715,8 +705,6 @@ class DashboardServer:
         qButtonForward = Button(label="Forward", button_type="success")
         qButtonForward.on_event(ButtonClick, forwardQCallback)
         qNavBar = row(qButtonBack, qButtonForward)
-
-        # TODO: Add a text widget to show all computed/queued covariance submatrices
 
         # Div Widgets to show which submatrix is displayed
         indexDiv = Div(text="""Index: N/A""", \
