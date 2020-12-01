@@ -7,9 +7,9 @@
 from bokeh.layouts import column, row
 from bokeh.models import (ColumnDataSource, CustomJS, Slider, 
                           LinearColorMapper, BasicTicker, ColorBar, 
-                          HoverTool, Button, Title, FactorRange, Div)
+                          HoverTool, Button, Title, FactorRange, Div, Rect)
 from bokeh.plotting import figure, output_file, show, curdoc
-from bokeh.events import Tap, DoubleTap, ButtonClick
+from bokeh.events import Tap, DoubleTap, ButtonClick, SelectionGeometry
 from bokeh.core.properties import Enum, MinMaxBounds
 from bokeh.server.server import Server
 
@@ -267,7 +267,7 @@ class DashboardServer:
         #-----------------------------------------------------------------
 
         # Interactive Plot Tools
-        TOOLS = 'hover,save,pan,box_zoom,reset,wheel_zoom'
+        TOOLS = 'hover,save,pan,box_zoom,reset,wheel_zoom,box_select'
 
         # Defining color values
         vmin = -5
@@ -664,6 +664,25 @@ class DashboardServer:
                     totalNumberDiv.text = '/' + str(len(self.queueMatrices))
                 statusDiv.text = 'Status: Submatrix computation complete. Idling'
 
+        def zoomSelectCallback(event):
+            geometry = event.geometry
+            # Retrieving the boundaries of the rectangular selection
+            # The -0.5 offset accounts for the offset of each square from
+            # the original axis
+            x0 = round(geometry['x0'] - 0.5)
+            x1 = round(geometry['x1'] - 0.5)
+            y0 = round(geometry['y0'] - 0.5)
+            y1 = round(geometry['y1'] - 0.5)
+            print('x0: ' + str(x0))
+            print('x1: ' + str(x1))
+            print('y0: ' + str(x0))
+            print('y1: ' + str(y1))
+            width = x1 - x0
+            height = y1 - y0
+
+            # Mapping 
+            print('Geometry: ' + str(event.geometry))
+
         # ------------------------------------------------------------------
 
         # Creating buttons and linking them to their corresponding callbacks
@@ -684,6 +703,14 @@ class DashboardServer:
         # Slider to also navigate distance difference matrices
         slider = Slider(start=0, end=len(npyList)-1, value=0, step=1, title="index")
         slider.on_change('value', sliderCallback)
+
+        # Zoom button for distance difference matrices/non-queued 
+        # covariance submatrices
+        rect = Rect(x='x', y='y', 
+                    fill_alpha=0.3, fill_color='#009933')
+        plot.add_glyph(source, rect, selection_glyph=rect, \
+                       nonselection_glyph=rect)
+        plot.on_event(SelectionGeometry, zoomSelectCallback)
 
         # Creating a layout from plot elements
         self.queueList = []
@@ -730,7 +757,6 @@ class DashboardServer:
         layout = row(column(plot, qBar, buttonBar, slider, buttonReset), 
                      column(plot2, qNavBar, statusDiv,
                             indexDivBar, toQueueDiv, computedDiv))
-
 
         # Adding the plot to the server's document
         server_doc = doc
