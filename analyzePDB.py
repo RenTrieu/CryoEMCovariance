@@ -297,6 +297,7 @@ class AnalyzePDB:
                                       differenceDistanceList[index][:-4])
 
         # Scaling down the difference distance matrices
+        """
         for i, ddMatrix in enumerate(differenceDistanceList):
             matrix = np.load(ddMatrix)
             scaledMatrix, indexDict = \
@@ -308,6 +309,7 @@ class AnalyzePDB:
                                         ddMatrixBase + '_Scaled.npy')
             np.save(scaledPath, scaledMatrix)
             differenceDistanceList[i] = scaledPath
+        """
 
         # Computing covariance matrix for all of the residue pairs
         logger.info('Generating covariance matrix')
