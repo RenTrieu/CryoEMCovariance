@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Cov Submatrix
 # Author: Darren Trieu Nguyen
-# Version: 0.7
+# Version: 0.8
 # Function: Takes in the mapping from rows/columns of the covariance matrix of 
 #           the residue pairs, the covariance matrix, and a given residue pair.
 #           This script takes the given residue pair and extracts only
@@ -28,7 +28,7 @@ class CovSubmatrix:
     def __init__(self):
         # When called directly from script
         if __name__ == '__main__':
-            version = 0.7
+            version = 0.8
 
             # Parsing the CLI for options and parameters
             parser = argparse.ArgumentParser(

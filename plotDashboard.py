@@ -262,6 +262,7 @@ class DashboardServer:
         self.logger.info('Loading CovarianceMatrix.npy')
         covarianceMatrix = np.load(os.path.join(basePath, \
                                                 'CovarianceMatrix.npy'))
+        self.covSize = covarianceMatrix.shape[0]
         self.logger.info('Loaded CovarianceMatrix.npy')
         cSubmatrix = CovSubmatrix()
         #-----------------------------------------------------------------
@@ -282,7 +283,6 @@ class DashboardServer:
                      '#AAAAFF', '#9999FF', '#8888FF', '#7777FF',
                      '#6666FF', '#5555FF', '#4444FF', '#3333FF',
                      '#2222FF', '#1111FF', '#0000FF']
-
 
         # Creating list
         axesXMax = npyList[0].shape[0]
@@ -535,7 +535,8 @@ class DashboardServer:
         def ddCallback(event):
             f = str(slider.value)
             patchMatrixValues(matrixDict[f])
-            plot.title.text = 'Distance Difference Matrix: ' + npyNameList[int(f)]
+            plot.title.text = 'Distance Difference Matrix: ' \
+                              + npyNameList[int(f)]
 
         # Reset Button Callback
         # Resets display to the 0th index distance difference matrix
@@ -543,8 +544,8 @@ class DashboardServer:
             slider.value = 0
             f = str(slider.value)
             patchMatrixValues(matrixDict[f])
-            plot.title.text = 'Distance Difference Matrix: ' + npyNameList[0]
-
+            plot.title.text = 'Distance Difference Matrix: ' \
+                              + npyNameList[0]
 
         # Forward Button Callback
         # Moves DD Index forward by 1 and displays DD matrix
@@ -553,7 +554,8 @@ class DashboardServer:
                 slider.value = slider.value + 1
                 f = str(slider.value)
                 patchMatrixValues(matrixDict[f])
-                plot.title.text = 'Distance Difference Matrix: ' + npyNameList[int(f)]
+                plot.title.text = 'Distance Difference Matrix: ' \
+                                  + npyNameList[int(f)]
 
         # Backward Button Callback
         # Moves DD Index backward by 1 and displays DD matrix
@@ -666,19 +668,154 @@ class DashboardServer:
 
         def zoomSelectCallback(event):
             geometry = event.geometry
+            f = str(slider.value)
             # Retrieving the boundaries of the rectangular selection
             # The -0.5 offset accounts for the offset of each square from
             # the original axis
-            x0 = round(geometry['x0'] - 0.5)
-            x1 = round(geometry['x1'] - 0.5)
-            y0 = round(geometry['y0'] - 0.5)
-            y1 = round(geometry['y1'] - 0.5)
+            x0 = math.floor(geometry['x0'] - 0.5)
+            x1 = math.floor(geometry['x1'] - 0.5)
+            y0 = math.floor(geometry['y0'] - 0.5)
+            y1 = math.floor(geometry['y1'] - 0.5)
+            """
             print('x0: ' + str(x0))
             print('x1: ' + str(x1))
             print('y0: ' + str(x0))
             print('y1: ' + str(y1))
+            """
+            # Retrieving the boundaries of the current matrix
+            # (in terms of currently displayed coordinates)
+            sourceDF = source.to_df()
+            xi = min(sourceDF['x'])
+            xf = max(sourceDF['x'])
+            yi = min(sourceDF['y'])
+            yf = max(sourceDF['y'])
+            """
+            print('xi: ' + str(xi))
+            print('xf: ' + str(xf))
+            print('yi: ' + str(yi))
+            print('yf: ' + str(yf))
+            """
             width = x1 - x0
             height = y1 - y0
+
+            # Use these values to get information about what scale
+            # the matrix is and is going to be
+            # self.scale
+            # self.covSize -> need to find size for distance difference
+            #                 matrices and make a separate case for them?
+            # Also need to figure out how to deal with asymmetric boundaries
+            # where width/height are not equal
+            print('self.scale: ' + str(self.scale))
+            print('self.covSize: ' + str(self.covSize))
+            # binSize - the number of units in a given bin
+            axesSize = int(math.sqrt(len(list(matrixDict.values())[0])))
+            binSize = int(math.ceil(axesSize / self.scale))
+            print('axesSize: ' + str(axesSize))
+            print('binSize: ' + str(binSize))
+            print('slider.value: ' + str(slider.value))
+            matrix = matrixDict[str(slider.value)].reshape(axesSize, axesSize)
+            print('matrixShape: ' + str(matrix.shape))
+            if ((x0+max(width,height)) <= axesSize/binSize):
+                print('Check 1')
+                xUpperBound = x0+max(width,height)
+                xLowerBound = x0
+            else:
+                if ((x1-max(width,height)) >= 0):
+                    print('Check 2')
+                    xUpperBound = x1
+                    xLowerBound = x1-max(width,height)
+                else:
+                    print('Check 3')
+                    xUpperBound = int(axesSize/binSize)
+                    xLowerBound = int(axesSize/binSize-x1)
+
+            if ((y0+max(width,height)) <= axesSize/binSize):
+                print('Check 4')
+                yUpperBound = y0+max(width,height)
+                yLowerBound = y0
+            else:
+                if ((y1-max(width,height)) >= 0):
+                    print('Check 5')
+                    yUpperBound = y1
+                    yLowerBound = y1-max(width,height)
+                else:
+                    print('Check 6')
+                    yUpperBound = int(axesSize/binSize)
+                    yLowerBound = int(axesSize/binSize-y1)
+
+            if ((xUpperBound-xLowerBound) 
+                > (yUpperBound-yLowerBound)):
+                yUpperBound = xUpperBound
+                yLowerBound = xLowerBound
+            if ((xUpperBound-xLowerBound) 
+                < (yUpperBound-yLowerBound)):
+                xUpperBound = yUpperBound
+                xLowerBound = yLowerBound
+
+            print('x0: ' + str(x0))
+            print('x1: ' + str(x1))
+            print('y0: ' + str(y0))
+            print('y1: ' + str(y1))
+
+            print('xUpperBound: ' + str(xUpperBound))
+            print('xLowerBound: ' + str(xLowerBound))
+            print('yUpperBound: ' + str(yUpperBound))
+            print('yLowerBound: ' + str(yLowerBound))
+
+            zoomedMatrix = matrix[xLowerBound*binSize:xUpperBound*binSize,
+                                  yLowerBound*binSize:yUpperBound*binSize]
+
+            """
+            if (((x0+max(width,height)) <= axesSize/binSize) \
+               and ((y0+max(width,height)) <= axesSize/binSize) \
+               and ((x1-max(width,height)) >= 0) \
+               and ((y1-max(width,height) >= 0):
+                print('Check 1')
+                print('x0+max(width,height): ' + str(x0+max(width,height)))
+                print('y0+max(width,height): ' + str(y0+max(width,height)))
+                zoomedMatrix = matrix[binSize*x0:binSize*(x0+max(width,height)), \
+                                      binSize*y0:binSize*(y0+max(width,height))]
+            elif (((x0+max(width,height)) > axesSize/binSize) \
+               and ((y0+max(width,height)) <= axesSize/binSize) \
+               and ((x1-max(width,height)) <= 0) \
+               and ((y1-max(width,height) >= 0):
+                print('Check 2')
+                print('x0-max(width,height): ' + str(x0-max(width,height)))
+                print('y0+max(width,height): ' + str(y0+max(width,height)))
+                zoomedMatrix = matrix[binSize*(x1-max(width,height)):binSize*x1, \
+                                      binSize*y0:binSize*(y0+max(width,height))]
+            """
+
+            """
+            elif (((x1-max(width,height)) >= 0) \
+                and ((y0+max(width,height)) <= axesSize/binSize)):
+                print('Check 2')
+                print('x0-max(width,height): ' + str(x0-max(width,height)))
+                print('y0+max(width,height): ' + str(y0+max(width,height)))
+                zoomedMatrix = matrix[binSize*(x1-max(width,height)):binSize*x1, \
+                                      binSize*y0:binSize*(y0+max(width,height))]
+            elif (((x0+max(width,height)) <= axesSize/binSize) \
+                and ((y1-max(width,height)) >= 0)):
+                print('Check 3')
+                print('x0+max(width,height): ' + str(x0+max(width,height)))
+                print('y0-max(width,height): ' + str(y0-max(width,height)))
+                zoomedMatrix = matrix[binSize*x0:binSize*(x0+max(width,height)), \
+                                      binSize*(y1-max(width,height)):binSize*y1]
+            elif (((x1-max(width,height)) >= 0) \
+                and ((y1-max(width,height)) >= 0)):
+                print('Check 4')
+                print('x0-max(width,height): ' + str(x0-max(width,height)))
+                print('y0-max(width,height): ' + str(y0-max(width,height)))
+                zoomedMatrix = matrix[binSize*(x1-max(width,height)):binSize*x1, \
+                                      binSize*(y1-max(width,height)):binSize*y1]
+            """
+
+
+            # TODO: ^ This goes out of bounds sometimes, fix cases
+            print('ZoomedMatrix Shape: ' + str(zoomedMatrix.shape))
+            zoomedMatrix = zoomedMatrix.flatten()
+            patchMatrixValues(zoomedMatrix, source)
+
 
             # Mapping 
             print('Geometry: ' + str(event.geometry))

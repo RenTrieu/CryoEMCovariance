@@ -60,7 +60,19 @@ Notes:
       - TODO: Specify the ordering system
 - Implemented the covariance submatrix approximation to speed up computation,
   however, there is a loss of smaller covariance values. Computation time is
-  reduced by a factor of .25.
+  reduced by a factor of 4 (0.25\*the original computation time).
+  - Currently, in the approximated covariance submatrix calculation,
+    the program bins the distance difference matrices by the factor
+    that the user specifies should be displayed by the interface. 
+    For large datasets, the scaling factor will tend to be large such that
+    each bin represents larger amounts of data so that it is feasible for the
+    display itself.
+  - It may be possible to retain smaller
+    covariance values if the distance difference matrices are scaled by a
+    smaller factor for the covariance submatrix calculation first, and
+    then the covariance submatrices are binned with a larger scaling factor
+    for the display after.
+    
 - Added a Jupyter notebook for accessing specific covariance values
   - Code needs to be cleaned up so that paths align well with the
     rest of the scripts
