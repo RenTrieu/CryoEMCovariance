@@ -72,10 +72,22 @@ Notes:
     smaller factor for the covariance submatrix calculation first, and
     then the covariance submatrices are binned with a larger scaling factor
     for the display after.
+  - Covariance submatrix calculations actually just retrieve a subsection of
+    the complete covariance matrix. In doing so, each covariance submatrix
+    calculation must load the complete covariance matrix into memory. It may
+    be faster and more RAM-friendly to serialize each covariance submatrix
+    separately and retrieve each one when necessary. However, this will not be
+    mass storage-friendly.
     
 - Added a Jupyter notebook for accessing specific covariance values
   - Code needs to be cleaned up so that paths align well with the
     rest of the scripts
+
+- Standardize/normalize using: (value-mean)/stdev
+- Check binning/covariance submatrix code to see why there is a large amount 
+  of computation time
+  - Add option for user to determine "sensitivity" of the color scale
+
 
 Version 0.7
 -----------
