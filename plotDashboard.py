@@ -7,11 +7,14 @@
 from bokeh.layouts import column, row
 from bokeh.models import (ColumnDataSource, CustomJS, Slider, 
                           LinearColorMapper, BasicTicker, ColorBar, 
-                          HoverTool, Button, Title, FactorRange, Div, Rect)
+                          HoverTool, Button, Title, FactorRange, Div, Rect,
+                          BoxSelectTool)
+from bokeh.models.annotations import BoxAnnotation
 from bokeh.plotting import figure, output_file, show, curdoc
 from bokeh.events import Tap, DoubleTap, ButtonClick, SelectionGeometry
-from bokeh.core.properties import Enum, MinMaxBounds
+from bokeh.core.properties import Enum, MinMaxBounds, Instance
 from bokeh.server.server import Server
+from bokeh.core.enums import Enumeration, enumeration
 
 from covSubmatrix import CovSubmatrix
 
@@ -268,7 +271,7 @@ class DashboardServer:
         #-----------------------------------------------------------------
 
         # Interactive Plot Tools
-        TOOLS = 'hover,save,pan,box_zoom,reset,wheel_zoom,box_select'
+        TOOLS = 'hover,save,pan,box_zoom,reset,wheel_zoom'
 
         # Defining color values
         vmin = -5
@@ -378,6 +381,12 @@ class DashboardServer:
                       tools=TOOLS, 
                       toolbar_location='below',
                       tooltips=tooltipList)
+
+        # Adding the BoxSelectTool for zooming into areas on the matrix 
+        """
+        testOverlay = BoxAnnotation()
+        """
+        plot.add_tools(BoxSelectTool(mode="append"))
 
         plot.xaxis.major_label_orientation = math.pi/2
 
@@ -676,12 +685,7 @@ class DashboardServer:
             x1 = math.floor(geometry['x1'] - 0.5)
             y0 = math.floor(geometry['y0'] - 0.5)
             y1 = math.floor(geometry['y1'] - 0.5)
-            """
-            print('x0: ' + str(x0))
-            print('x1: ' + str(x1))
-            print('y0: ' + str(x0))
-            print('y1: ' + str(y1))
-            """
+
             # Retrieving the boundaries of the current matrix
             # (in terms of currently displayed coordinates)
             sourceDF = source.to_df()
@@ -689,12 +693,7 @@ class DashboardServer:
             xf = max(sourceDF['x'])
             yi = min(sourceDF['y'])
             yf = max(sourceDF['y'])
-            """
-            print('xi: ' + str(xi))
-            print('xf: ' + str(xf))
-            print('yi: ' + str(yi))
-            print('yf: ' + str(yf))
-            """
+
             width = x1 - x0
             height = y1 - y0
 
@@ -765,52 +764,6 @@ class DashboardServer:
             zoomedMatrix = matrix[xLowerBound*binSize:xUpperBound*binSize,
                                   yLowerBound*binSize:yUpperBound*binSize]
 
-            """
-            if (((x0+max(width,height)) <= axesSize/binSize) \
-               and ((y0+max(width,height)) <= axesSize/binSize) \
-               and ((x1-max(width,height)) >= 0) \
-               and ((y1-max(width,height) >= 0):
-                print('Check 1')
-                print('x0+max(width,height): ' + str(x0+max(width,height)))
-                print('y0+max(width,height): ' + str(y0+max(width,height)))
-                zoomedMatrix = matrix[binSize*x0:binSize*(x0+max(width,height)), \
-                                      binSize*y0:binSize*(y0+max(width,height))]
-            elif (((x0+max(width,height)) > axesSize/binSize) \
-               and ((y0+max(width,height)) <= axesSize/binSize) \
-               and ((x1-max(width,height)) <= 0) \
-               and ((y1-max(width,height) >= 0):
-                print('Check 2')
-                print('x0-max(width,height): ' + str(x0-max(width,height)))
-                print('y0+max(width,height): ' + str(y0+max(width,height)))
-                zoomedMatrix = matrix[binSize*(x1-max(width,height)):binSize*x1, \
-                                      binSize*y0:binSize*(y0+max(width,height))]
-            """
-
-            """
-            elif (((x1-max(width,height)) >= 0) \
-                and ((y0+max(width,height)) <= axesSize/binSize)):
-                print('Check 2')
-                print('x0-max(width,height): ' + str(x0-max(width,height)))
-                print('y0+max(width,height): ' + str(y0+max(width,height)))
-                zoomedMatrix = matrix[binSize*(x1-max(width,height)):binSize*x1, \
-                                      binSize*y0:binSize*(y0+max(width,height))]
-            elif (((x0+max(width,height)) <= axesSize/binSize) \
-                and ((y1-max(width,height)) >= 0)):
-                print('Check 3')
-                print('x0+max(width,height): ' + str(x0+max(width,height)))
-                print('y0-max(width,height): ' + str(y0-max(width,height)))
-                zoomedMatrix = matrix[binSize*x0:binSize*(x0+max(width,height)), \
-                                      binSize*(y1-max(width,height)):binSize*y1]
-            elif (((x1-max(width,height)) >= 0) \
-                and ((y1-max(width,height)) >= 0)):
-                print('Check 4')
-                print('x0-max(width,height): ' + str(x0-max(width,height)))
-                print('y0-max(width,height): ' + str(y0-max(width,height)))
-                zoomedMatrix = matrix[binSize*(x1-max(width,height)):binSize*x1, \
-                                      binSize*(y1-max(width,height)):binSize*y1]
-            """
-
-
             # TODO: ^ This goes out of bounds sometimes, fix cases
             print('ZoomedMatrix Shape: ' + str(zoomedMatrix.shape))
             zoomedMatrix = zoomedMatrix.flatten()
@@ -843,10 +796,13 @@ class DashboardServer:
 
         # Zoom button for distance difference matrices/non-queued 
         # covariance submatrices
-        rect = Rect(x='x', y='y', 
-                    fill_alpha=0.3, fill_color='#009933')
+        rect = Rect(x='x', y='y', width=0.5, height=0.5,
+                    fill_alpha=0, fill_color='#000000')
+        """
         plot.add_glyph(source, rect, selection_glyph=rect, \
                        nonselection_glyph=rect)
+        plot.add_glyph(source, rect, selection_glyph=rect)
+        """
         plot.on_event(SelectionGeometry, zoomSelectCallback)
 
         # Creating a layout from plot elements
