@@ -8,10 +8,11 @@ import random
 output_file('tool.html')
 
 TS_CODE = """
-import {BoxSelectTool, BoxSelectToolView} from "models/tools/gestures/box_select_tool"
-import {ColumnDataSource} from "models/sources/column_data_source"
-import {PanEvent} from "core/ui_events"
-import * as p from "core/properties"
+import {BoxSelectTool, BoxSelectToolView} from "models/tools/gestures/box_select_tool";
+import {ColumnDataSource} from "models/sources/column_data_source";
+import {PanEvent} from "core/ui_events";
+import * as p from "core/properties";
+import { bk_tool_icon_box_select } from "styles/icons";
 
 export class EnhanceToolView extends BoxSelectToolView {
 
@@ -39,20 +40,19 @@ export namespace EnhanceTool {
 export interface EnhanceTool extends EnhanceTool.Attrs {}
 
 export class EnhanceTool extends BoxSelectTool {
-  properties: EnhanceTool.Props
-  __view_type__: EnhanceToolView
+  properties: EnhanceTool.Props;
+  __view_type__: EnhanceToolView;
 
   constructor(attrs?: Partial<EnhanceTool.Attrs>) {
-    super(attrs)
+    super(attrs);
+      this.tool_name = "Enhance Select";
+      this.icon = bk_tool_icon_box_select;
+      this.event_type = "pan";
+      this.default_order = 30;
   }
 
-  tool_name = "Enhance Span"
-  icon = "bk-tool-icon-box_select"
-  event_type = "pan" as "pan"
-  default_order = 30
-
   static init_EnhanceTool(): void {
-    this.prototype.default_view = EnhanceToolView
+    this.prototype.default_view = EnhanceToolView;
 
     this.define<EnhanceTool.Props>({
       source: [ p.Instance ],
@@ -70,11 +70,11 @@ class EnhanceTool(Tool):
 
 source = ColumnDataSource(data=dict(x=[], y=[]))
 
-plot = figure(x_range=(0, 10), y_range=(0, 10), tools=[EnhanceTool(source=source)])
-plot.title.text = "Drag to draw on the plot"
-#plot.line('x', 'y', source=source)
-x = [random.randint(0, 10) for i in range(0,10)]
-y = [random.randint(0, 10) for i in range(0,10)]
-plot.scatter(x, y)
-
+plot = figure(x_range=(0, 1), y_range=(0, 1), tools=[EnhanceTool(source=source)])
 show(plot)
+#plot.title.text = "Drag to draw on the plot"
+#plot.line('x', 'y', source=source)
+#x = [random.randint(0, 10) for i in range(0,10)]
+#y = [random.randint(0, 10) for i in range(0,10)]
+#plot.scatter(x, y)
+
