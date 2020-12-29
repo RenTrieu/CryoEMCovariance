@@ -15,6 +15,7 @@ from bokeh.events import Tap, DoubleTap, ButtonClick, SelectionGeometry
 from bokeh.core.properties import Enum, MinMaxBounds, Instance
 from bokeh.server.server import Server
 from bokeh.core.enums import Enumeration, enumeration
+from enhance_tool import EnhanceTool
 
 from covSubmatrix import CovSubmatrix
 
@@ -382,11 +383,7 @@ class DashboardServer:
                       toolbar_location='below',
                       tooltips=tooltipList)
 
-        # Adding the BoxSelectTool for zooming into areas on the matrix 
-        """
-        testOverlay = BoxAnnotation()
-        """
-        plot.add_tools(BoxSelectTool(mode="append"))
+        plot.add_tools(EnhanceTool())
 
         plot.xaxis.major_label_orientation = math.pi/2
 
@@ -704,41 +701,29 @@ class DashboardServer:
             #                 matrices and make a separate case for them?
             # Also need to figure out how to deal with asymmetric boundaries
             # where width/height are not equal
-            print('self.scale: ' + str(self.scale))
-            print('self.covSize: ' + str(self.covSize))
             # binSize - the number of units in a given bin
             axesSize = int(math.sqrt(len(list(matrixDict.values())[0])))
             binSize = int(math.ceil(axesSize / self.scale))
-            print('axesSize: ' + str(axesSize))
-            print('binSize: ' + str(binSize))
-            print('slider.value: ' + str(slider.value))
             matrix = matrixDict[str(slider.value)].reshape(axesSize, axesSize)
-            print('matrixShape: ' + str(matrix.shape))
             if ((x0+max(width,height)) <= axesSize/binSize):
-                print('Check 1')
                 xUpperBound = x0+max(width,height)
                 xLowerBound = x0
             else:
                 if ((x1-max(width,height)) >= 0):
-                    print('Check 2')
                     xUpperBound = x1
                     xLowerBound = x1-max(width,height)
                 else:
-                    print('Check 3')
                     xUpperBound = int(axesSize/binSize)
                     xLowerBound = int(axesSize/binSize-x1)
 
             if ((y0+max(width,height)) <= axesSize/binSize):
-                print('Check 4')
                 yUpperBound = y0+max(width,height)
                 yLowerBound = y0
             else:
                 if ((y1-max(width,height)) >= 0):
-                    print('Check 5')
                     yUpperBound = y1
                     yLowerBound = y1-max(width,height)
                 else:
-                    print('Check 6')
                     yUpperBound = int(axesSize/binSize)
                     yLowerBound = int(axesSize/binSize-y1)
 
@@ -796,9 +781,13 @@ class DashboardServer:
 
         # Zoom button for distance difference matrices/non-queued 
         # covariance submatrices
-        rect = Rect(x='x', y='y', width=0.5, height=0.5,
-                    fill_alpha=0, fill_color='#000000')
         """
+        rect = Rect(x='x', y='y', width=1, height=1, \
+                  source=source, \
+                  fill_color={'field': 'covValues', 'transform' : color_mapper}, \
+                  line_color=None)
+        #rect = Rect(x='x', y='y', width=0.5, height=0.5,
+        #            fill_alpha=0, fill_color='#000000')
         plot.add_glyph(source, rect, selection_glyph=rect, \
                        nonselection_glyph=rect)
         plot.add_glyph(source, rect, selection_glyph=rect)
