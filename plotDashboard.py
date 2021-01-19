@@ -8,14 +8,14 @@ from bokeh.layouts import column, row
 from bokeh.models import (ColumnDataSource, CustomJS, Slider, 
                           LinearColorMapper, BasicTicker, ColorBar, 
                           HoverTool, Button, Title, FactorRange, Div, Rect,
-                          BoxSelectTool)
+                          BoxSelectTool, Tool)
 from bokeh.models.annotations import BoxAnnotation
 from bokeh.plotting import figure, output_file, show, curdoc
 from bokeh.events import Tap, DoubleTap, ButtonClick, SelectionGeometry
 from bokeh.core.properties import Enum, MinMaxBounds, Instance
 from bokeh.server.server import Server
 from bokeh.core.enums import Enumeration, enumeration
-from enhance_tool import EnhanceTool
+from selectionGeometryPlus import SelectionGeometryPlus
 
 from covSubmatrix import CovSubmatrix
 
@@ -30,6 +30,21 @@ import re
 import logging
 import inspect
 import sys
+
+""" Class that imports TypeScript code for a custom tool: EnhanceTool
+    This tool lets the user create a rectangular selection area that specifies
+    a range of residue pairs to be displayed at a higher resolution.
+    (In other words, it takes the range of residues and redisplays the plot so
+    it shows only this range of residues at the given resolution. In this
+    way, it "enhances" the region.)
+"""
+class EnhanceTool(Tool):
+    __implementation__ = 'enhance_tool.ts'
+    source = Instance(ColumnDataSource)
+
+source = ColumnDataSource(data=dict(x=[], y=[]))
+plot = figure(x_range=(0,1), y_range=(0,1), tools=[EnhanceTool(source=source)])
+show(plot)
 
 """ Class that initiates and loops the Bokeh server
     that houses a dashboard for the given plots
@@ -190,29 +205,41 @@ class DashboardServer:
 
         # Defines the max scaled column indices
         scale = length
+        indexDict = self.partitionIndices(n, scale)
 
-        # Defines the max height for scaled column index lists
-        h = 1
+        # ---------------------------------------------------------------------
 
-        # Defining dictionary to hold the list of column indices
-        indexDict = {}
+        return matrix, indexDict
+
+    """ Partitions the indices into bins given the total number number
+        of elements and the total number of bins to scale down to
+    """
+    def partitionIndices(self, numElements, numBins, offset=0):
+        # The maximum number of elements
+        n = numElements
+
+        # Max height
+        h = math.ceil(n/numBins)
 
         # Number of columns at max height h
         # (All other columns should be at h-1 height except for the last column
         #  which can be any height less than or equal to h-1)
-        hColumns = n % scale
 
-        # Max height
-        h = math.ceil(n/scale)
+        hColumns = n % numBins
+
+        # The partitioned indices returned in a dictionary with format
+        # Key: Column Number
+        # Value: List of indices binned into given column
+        indexDict = {}
 
         j = 0
         for i in range(n):
             if j not in indexDict.keys():
-                indexDict[j] = [i]
+                indexDict[j] = [i+offset]
             elif hColumns > 0 and len(indexDict[j]) < h:
-                indexDict[j].append(i)
+                indexDict[j].append(i+offset)
             elif len(indexDict[j]) < h-1:
-                indexDict[j].append(i)
+                indexDict[j].append(i+offset)
 
             if hColumns > 0 and len(indexDict[j]) == h:
                 j += 1
@@ -220,9 +247,24 @@ class DashboardServer:
             elif hColumns == 0 and len(indexDict[j]) == h-1:
                 j += 1
 
-        # ---------------------------------------------------------------------
+        return indexDict
 
-        return matrix, indexDict
+    """ Serializes the range of each column in an indexDict and returns a 
+        dictionary with the format:
+        Key: Column Number
+        Value (String): '(minIndex, maxIndex)' 
+    """
+    def serializeIndexDict(self, indexDict):
+        scaledRangeDict = {}
+        for key in indexDict.keys():
+            for index, value in enumerate(indexDict[key]):
+                if key not in scaledRangeDict.keys():
+                    scaledRangeDict[key] = \
+                            str(indexDict[key][index]+1)
+                elif index == len(indexDict[key]) - 1:
+                    scaledRangeDict[key] += '-' \
+                                        + str(indexDict[key][index]+1)
+        return scaledRangeDict
 
 
     """ Plots the given data
@@ -325,15 +367,7 @@ class DashboardServer:
         # Creating a dictionary mapping the new indices to 
         # strings describing the ranges of the original indices
         if self.indexDict is not None:
-            self.scaledRangeDict = {}
-            for key in self.indexDict.keys():
-                for index, value in enumerate(self.indexDict[key]):
-                    if key not in self.scaledRangeDict.keys():
-                        self.scaledRangeDict[key] = \
-                                str(self.indexDict[key][index]+1)
-                    elif index == len(self.indexDict[key]) - 1:
-                        self.scaledRangeDict[key] += '-' \
-                                            + str(self.indexDict[key][index]+1)
+            self.scaledRangeDict = self.serializeIndexDict(self.indexDict)
 
             # Saving the scaled index mapping to file
             indexDictFilepath = os.path.join(basePath, 'scaledIndexMap.npy')
@@ -368,7 +402,11 @@ class DashboardServer:
         if self.scaledRangeDict is not None:
             plotLabel = FactorRange(
                             factors=[i for i in self.scaledRangeDict.values()],
-                            bounds=(0.5, len(self.scaledRangeDict.keys()) + 0.5))
+                                    bounds=(0.5, 
+                                    len(self.scaledRangeDict.keys()) + 0.5),
+                            factor_padding=0.0,
+                            range_padding_units="percent",
+                            range_padding=0)
         else:
             plotLabel = FactorRange(
                             factors=[str(int(i+1)) \
@@ -405,6 +443,7 @@ class DashboardServer:
                       tools=TOOLS, 
                       toolbar_location='below',
                       tooltips=tooltipList)
+        plot2.add_tools(EnhanceTool())
         plot2.xaxis.major_label_orientation = math.pi/2
 
         source2 = ColumnDataSource(data={
@@ -450,6 +489,8 @@ class DashboardServer:
         # Changes the distance difference matrix displayed based off of the index
         # that the slider is set to
         def sliderCallback(attr, old, new):
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
             f = str(new)
             covValues = source.data['covValues']
             axesLength = math.sqrt(len(covValues))
@@ -459,6 +500,8 @@ class DashboardServer:
         # Double click call back for moving from distance difference matrices to
         # covariance submatrices
         def clickCallback(event):
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
             start_time = time.time()
             axesLength = math.sqrt(len(source.data['covValues']))
             xCoord = math.floor(event.x - 0.5)
@@ -539,6 +582,8 @@ class DashboardServer:
         # Distance Difference Matrix Display Callback
         # Shows current distance difference matrix if not already shown
         def ddCallback(event):
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
             f = str(slider.value)
             patchMatrixValues(matrixDict[f])
             plot.title.text = 'Distance Difference Matrix: ' \
@@ -547,6 +592,8 @@ class DashboardServer:
         # Reset Button Callback
         # Resets display to the 0th index distance difference matrix
         def resetCallback(event):
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
             slider.value = 0
             f = str(slider.value)
             patchMatrixValues(matrixDict[f])
@@ -556,6 +603,8 @@ class DashboardServer:
         # Forward Button Callback
         # Moves DD Index forward by 1 and displays DD matrix
         def forwardCallback(event):
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
             if slider.value < len(matrixDict.keys()) - 1:
                 slider.value = slider.value + 1
                 f = str(slider.value)
@@ -566,6 +615,8 @@ class DashboardServer:
         # Backward Button Callback
         # Moves DD Index backward by 1 and displays DD matrix
         def backwardCallback(event):
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
             if slider.value > 0:
                 slider.value = slider.value - 1
                 f = str(slider.value)
@@ -575,6 +626,8 @@ class DashboardServer:
         # Forward Queue Callback
         # Moves down the queue to display the next covariance submatrix
         def forwardQCallback(event):
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
             if ((self.curQueue is None) and (len(self.queueMatrices) == 0)):
                 return;
             elif ((self.curQueue is None) and (len(self.queueMatrices) >= 0)):
@@ -599,6 +652,8 @@ class DashboardServer:
         # Backward Queue Callback
         # Moves up the queue to display the next covariance submatrix
         def backwardQCallback(event):
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
+            plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
             if ((self.curQueue is None) and (len(self.queueMatrices) == 0)):
                 return;
             elif ((self.curQueue is None) and (len(self.queueMatrices) >= 0)):
@@ -612,8 +667,9 @@ class DashboardServer:
                 return;
             elif (self.curQueue > 0):
                 self.curQueue -= 1
-                print('Accessing curQueue: ' + str(self.curQueue))
-                print('len(self.queueMatrices): ' + str(len(self.queueMatrices)))
+                self.logger.debug('Accessing curQueue: ' + str(self.curQueue))
+                self.logger.debug('len(self.queueMatrices): ' \
+                                  + str(len(self.queueMatrices)))
                 patchMatrixValues(self.queueMatrices[self.curQueue], source2)
                 plot2.title.text = 'Queued Covariance Submatrices: '\
                                    + 'Residue Pair: ' \
@@ -672,8 +728,10 @@ class DashboardServer:
                     totalNumberDiv.text = '/' + str(len(self.queueMatrices))
                 statusDiv.text = 'Status: Submatrix computation complete. Idling'
 
-        def zoomSelectCallback(event):
+        def zoomSelectCallback(event, matrixType="dd"):
+            print('event: ' + str(event))
             geometry = event.geometry
+            print('event.geometry: ' + str(geometry))
             f = str(slider.value)
             # Retrieving the boundaries of the rectangular selection
             # The -0.5 offset accounts for the offset of each square from
@@ -703,8 +761,15 @@ class DashboardServer:
             # where width/height are not equal
             # binSize - the number of units in a given bin
             axesSize = int(math.sqrt(len(list(matrixDict.values())[0])))
+            if ((matrixType == "dd") or (matrixType is None)):
+                matrix = matrixDict[str(slider.value)].reshape(axesSize, 
+                                                               axesSize)
+            elif (matrixType == "covMatrix"):
+                indexDiv = int(self.curQueue)
+                matrix = self.queueMatrices[indexDiv].reshape(axesSize, 
+                                                               axesSize)
+
             binSize = int(math.ceil(axesSize / self.scale))
-            matrix = matrixDict[str(slider.value)].reshape(axesSize, axesSize)
             if ((x0+max(width,height)) <= axesSize/binSize):
                 xUpperBound = x0+max(width,height)
                 xLowerBound = x0
@@ -736,26 +801,36 @@ class DashboardServer:
                 xUpperBound = yUpperBound
                 xLowerBound = yLowerBound
 
-            print('x0: ' + str(x0))
-            print('x1: ' + str(x1))
-            print('y0: ' + str(y0))
-            print('y1: ' + str(y1))
-
-            print('xUpperBound: ' + str(xUpperBound))
-            print('xLowerBound: ' + str(xLowerBound))
-            print('yUpperBound: ' + str(yUpperBound))
-            print('yLowerBound: ' + str(yLowerBound))
-
             zoomedMatrix = matrix[xLowerBound*binSize:xUpperBound*binSize,
                                   yLowerBound*binSize:yUpperBound*binSize]
 
-            # TODO: ^ This goes out of bounds sometimes, fix cases
-            print('ZoomedMatrix Shape: ' + str(zoomedMatrix.shape))
+            # Modifying axes labels to reflect the zoomedMatrix
+            # Parsing the boundaries to determine the raw index range
+            xIndexMax = int(self.scaledRangeDict[xUpperBound].split('-')[1])
+            xIndexMin = int(self.scaledRangeDict[xLowerBound].split('-')[0])
+            yIndexMax = int(self.scaledRangeDict[yUpperBound].split('-')[1])
+            yIndexMin = int(self.scaledRangeDict[yLowerBound].split('-')[0])
+
+            # Partitioning the elements into self.scale number of bins
+            numElements = xIndexMax-xIndexMin
+            xIndexDict = self.partitionIndices(numElements,
+                                               self.scale,
+                                               offset=xIndexMin)
+            yIndexDict = self.partitionIndices(numElements,
+                                               self.scale,
+                                               offset=yIndexMin)
+
+            xRangeDict = self.serializeIndexDict(xIndexDict)
+            yRangeDict = self.serializeIndexDict(yIndexDict)
+
+            plot.x_range.factors=[i for i in xRangeDict.values()]
+            plot.y_range.factors=[i for i in yRangeDict.values()]
+            print('Factor Range Start:' + str(plot.x_range.start))
+
             zoomedMatrix = zoomedMatrix.flatten()
             patchMatrixValues(zoomedMatrix, source)
 
-
-            # Mapping 
+            # Mapping  TODO: Remove this
             print('Geometry: ' + str(event.geometry))
 
         # ------------------------------------------------------------------
@@ -781,18 +856,8 @@ class DashboardServer:
 
         # Zoom button for distance difference matrices/non-queued 
         # covariance submatrices
-        """
-        rect = Rect(x='x', y='y', width=1, height=1, \
-                  source=source, \
-                  fill_color={'field': 'covValues', 'transform' : color_mapper}, \
-                  line_color=None)
-        #rect = Rect(x='x', y='y', width=0.5, height=0.5,
-        #            fill_alpha=0, fill_color='#000000')
-        plot.add_glyph(source, rect, selection_glyph=rect, \
-                       nonselection_glyph=rect)
-        plot.add_glyph(source, rect, selection_glyph=rect)
-        """
         plot.on_event(SelectionGeometry, zoomSelectCallback)
+        plot2.on_event(SelectionGeometry, zoomSelectCallback)
 
         # Creating a layout from plot elements
         self.queueList = []
