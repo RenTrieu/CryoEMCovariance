@@ -68,6 +68,12 @@ class AnalyzePDB:
                             action='store_true',
                             help='If option is specified, will output plots'\
                             ' for all matrices generated.')
+        parser.add_argument('-d', '--display',
+                            action='store_true',
+                            help='If option is specified, will start an'\
+                            ' interactive bokeh server to display all'\
+                            ' generated matrices (These matrices are dependent'\
+                            ' on the scale specified in the --scale option).')
         parser.add_argument('--scale', type=int,
                             help='Specifies the elements (per axis) to which'\
                             ' the plot will be scaled')
@@ -118,35 +124,47 @@ class AnalyzePDB:
             else:
                 args.reference = args.directory + '/' + args.reference
 
-        # Parsing outputDirectory and converting relative paths to
-        # absolute paths if applicable
+        # Handling the input directory 
+        directoryPath = None
+        if (args.directory is not None) \
+            and (args.directory[0] is not '/'):
+            directoryPath = args.directory
+            directoryPath = os.path.normpath(directoryPath)
+            directoryPath = os.path.basename(directoryPath)
+            directory = os.path.join(os.getcwd(), directoryPath)
+            if not os.path.isdir(directory):
+                print('ERROR: Invalid Input Directory Specified')
+                sys.exit()
+        elif (args.directory is not None) \
+            and (args.directory[0] is '/'):
+            directory = args.directory
+            if not os.path.isdir(directory):
+                print('ERROR: Invalid Input Directory Specified')
+                sys.exit()
+        else:
+            directory = os.getcwd()
+
+        # Handling the output directory
+        # If the outDirectory is an absolute path then output files
+        # will go directly there
+        # If the outDirectory is a relative path, it will be treated as
+        # if it is relative to the input directory if there is one
         if args.outDirectory is not None:
             outDirectory = args.outDirectory
-            if os.getcwd() not in outDirectory:
-                try: 
-                    if args.directory is not None:
-                        directory = os.path.join(os.getcwd(), args.directory)
-                    else:
-                        directory = os.getcwd()
-                except AttributeError:
-                    directory = os.getcwd()
-                outDirectory = os.path.join(directory, outDirectory)
-
-            # Creating outDirectory if it doesn't already exist
-            relativePath = outDirectory.split('/') \
-                           [len(outDirectory.split('/'))-1]
-            if len(relativePath) <= 0:
-                relativePath = outDirectory.split('/') \
-                           [len(outDirectory.split('/'))-2]
-            if relativePath not in os.listdir(directory):       
+            if outDirectory[0] is not '/':
+                outDirectory = os.path.basename(outDirectory)
+                if directoryPath is not None:
+                    outDirectory = os.path.join(directoryPath, outDirectory)
+                outDirectory = os.path.join(os.getcwd(), outDirectory)
+            directoryPath = None
+            if not os.path.isdir(outDirectory):
                 os.mkdir(outDirectory)
-            relativePath = None
-        else:
-            outDirectory = None
 
         # Initializing log file
         logFile = self.__class__.__name__ + '.log'
-        if directory is not None:
+        if outDirectory is not None:
+            logFile = os.path.join(outDirectory, logFile)
+        elif directory is not None:
             logFile = os.path.join(directory, logFile)
         else:
             logFile = logFile
@@ -285,12 +303,15 @@ class AnalyzePDB:
             scale = args.scale
         logger.info('Choosing scale of: ' + str(scale))
 
-        # Plotting distance difference matrices if specified
+        dashboardServer = DashboardServer(basePath=directory, \
+                                          npyPath=outDirectory, \
+                                          covMapDict=covMapDict,
+                                          scale=scale)
+
+        # If the "plot" argument is specified, the script will
+        # generate a .png and an .html file containing the unscaled
+        # plot
         if args.plot:
-            dashboardServer = DashboardServer(basePath=directory, \
-                                              npyPath=outDirectory, \
-                                              covMapDict=covMapDict,
-                                              scale=scale)
             pGenerator = PlotGenerator()
             for index, differenceMatrix in enumerate(differenceMatrixList):
                 pGenerator.plotMatrix(differenceMatrix, 
@@ -349,7 +370,7 @@ class AnalyzePDB:
                     %(time.time() -start_time))
         print('Complete')
 
-        if args.plot and not (len(covarianceMatrix.shape) == 0):
+        if args.display and not (len(covarianceMatrix.shape) == 0):
             server.io_loop.start()
 
 

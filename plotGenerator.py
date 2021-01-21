@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 from covSubmatrix import CovSubmatrix
 
-from bokeh.io import show
+from bokeh.io import show, export_png
 from bokeh.layouts import column, row
 from bokeh.plotting import figure, output_file, save
 from bokeh.models import (ColumnDataSource, CustomJS, Slider, 
@@ -121,7 +121,6 @@ class PlotGenerator:
         if scale is not None:
             npy = self.rescaleMatrix(npy, scale)
 
-        # TODO: Add tool tips
         # Interactive Plot Tools
         TOOLS = 'hover,save,pan,box_zoom,reset,wheel_zoom'
 
@@ -202,15 +201,14 @@ class PlotGenerator:
 
         plot.add_layout(color_bar, 'right')
 
-        """
-        plot.add_tools(HoverTool(
-            tooltips=[('covValue', '@covValues')]
-        ))
-        """
-
         output_file(fileName + '.html')
         save(plot)
         self.logger.info('Computation complete, plot outputted to: '\
                          + fileName + '.html')
+
+        export_png(plot, filename=fileName + '.png')
+        self.logger.info('Computation complete, plot outputted to: '\
+                         + fileName + '.png')
+
 
 pGenerator = PlotGenerator()   
