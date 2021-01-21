@@ -5,13 +5,15 @@ Quickstart/User Manual
 
 To see all available flags and brief descriptions run:
 
-```./analyzePDB.py --help
+```
+./analyzePDB.py --help
 ```
 
 To compare two pdb files and create plots of the distance difference matrices, 
 run:
 
-```./analyzePDB.py --strip --plot <file1.pdb> <file2.pdb>
+```
+./analyzePDB.py --strip --plot <file1.pdb> <file2.pdb>
 ```
 The ``--plot`` flag creates .png and .html files containing the unscaled
 plots of the distance difference matrices.
@@ -22,7 +24,8 @@ Note: While there won't be much issue .png files for large plots, the
 To compare two pdb files and create an interactive plot hosted on a web server,
 run:
 
-```./analyzePDB.py --strip --display <file1.pdb> <file2.pdb>
+```
+./analyzePDB.py --strip --display <file1.pdb> <file2.pdb>
 ```
 
 The interactive plot that is generated when the ``--display`` flag is
@@ -38,7 +41,8 @@ residue pairs as opposed to just one residue pair. This can be done using the
 ``--scale`` flag, which takes an integer argument that determines how many
 bins there should be in the final plot. For example:
 
-```./analyzePDB.py --strip --scale 15 --display <file1.pdb> <file2.pdb>
+```
+./analyzePDB.py --strip --scale 15 --display <file1.pdb> <file2.pdb>
 ```
 would generate a display where all of the residue pairs along the
 axes of the plot are binned into 15 bins (for a total of 225 plotted points).
@@ -59,7 +63,8 @@ directory does not exist, the script will generate it. If the outDirectory
 specified is an absolute path, the script will take the
 path specifically as it is typed. Example of absolute path usage:
 
-```./analyzePDB.py --strip --plot --directory /path/to/directory/ --outDirectory /path/to/outDirectory/
+```
+./analyzePDB.py --strip --plot --directory /path/to/directory/ --outDirectory /path/to/outDirectory/
 ```
 
 However, if the outDirectory specified is a relative path and there is a
