@@ -1,5 +1,11 @@
 # CryoEMCovariance
 
+The CryoEMCovariance tool is a series of scripts written to facilitate
+the calculation and visualization of distance difference matrices and 
+covariance matrices of protein residues. It takes in text files in the
+[Protein Data Bank](https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html)
+(PDB) format, also referred to as "PDB files".
+
 Quickstart/User Manual
 ======================
 
