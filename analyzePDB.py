@@ -126,23 +126,26 @@ class AnalyzePDB:
 
         # Handling the input directory 
         directoryPath = None
-        if (args.directory is not None) \
-            and (args.directory[0] is not '/'):
-            directoryPath = args.directory
-            directoryPath = os.path.normpath(directoryPath)
-            directoryPath = os.path.basename(directoryPath)
-            directory = os.path.join(os.getcwd(), directoryPath)
-            if not os.path.isdir(directory):
-                print('ERROR: Invalid Input Directory Specified')
-                sys.exit()
-        elif (args.directory is not None) \
-            and (args.directory[0] is '/'):
-            directory = args.directory
-            if not os.path.isdir(directory):
-                print('ERROR: Invalid Input Directory Specified')
-                sys.exit()
-        else:
+        try:
+            if (args.directory is not None) \
+                and (args.directory[0] is not '/'):
+                directoryPath = args.directory
+                directoryPath = os.path.normpath(directoryPath)
+                directory = os.path.join(os.getcwd(), directoryPath)
+                if not os.path.isdir(directory):
+                    print('ERROR: Invalid Input Directory Specified')
+                    sys.exit()
+            elif (args.directory is not None) \
+                and (args.directory[0] is '/'):
+                directory = args.directory
+                if not os.path.isdir(directory):
+                    print('ERROR: Invalid Input Directory Specified')
+                    sys.exit()
+            else:
+                directory = os.getcwd()
+        except AttributeError:
             directory = os.getcwd()
+            pass
 
         # Handling the output directory
         # If the outDirectory is an absolute path then output files
@@ -152,7 +155,7 @@ class AnalyzePDB:
         if args.outDirectory is not None:
             outDirectory = args.outDirectory
             if outDirectory[0] is not '/':
-                outDirectory = os.path.basename(outDirectory)
+                outDirectory = os.path.normpath(outDirectory)
                 if directoryPath is not None:
                     outDirectory = os.path.join(directoryPath, outDirectory)
                 outDirectory = os.path.join(os.getcwd(), outDirectory)

@@ -49,12 +49,16 @@ axes of the plot are binned into 15 bins (for a total of 225 plotted points).
 Note: This scale only applies to the plots that are generated for the
 display and not the .png/.html plots.
 
+Using Directories
+-----------------
+
 When there are many pdb files, it may be convenient to put all of the pdb
 files to be processed into a directory. This directory can be specified using
 the ``--directory`` flag followed by either the absolute or relative path to
 the directory.
 
-```./analyzePDB.py --strip --plot --directory /path/to/directory/
+```
+./analyzePDB.py --strip --plot --directory /path/to/directory/
 ```
 
 An output directory can also be specified with the ``--outDirectory`` flag
@@ -75,4 +79,54 @@ If there is not specified directory, but the outDirectory is still specified
 as a relative path then the outDirectory will be treated as if it is relative
 to the current working directory (i.e. the directory from which the script
 is called).
+
+Using Text Files
+----------------
+
+In addition to reading multiple pdb files from a directory, the script
+can also read multiple specific files in its working directory. A list of
+pdb files to be processed can be written in a text file which
+can be specified using the ``--pdbTextList`` followed by the path to said
+text file. For example for a text file labeled "TextList.txt":
+
+```
+./analyzePDB.py --strip --plot --pdbTextList TextList.txt
+```
+
+would tell the script to process each pdb file listed in TextList.txt.
+The text file should contain the relative path to each pdb file on a separate 
+line. For example, the contents of the text file may look something like:
+
+```
+4FKO.pdb
+4FKP.pdb
+4FKU.pdb
+5A14.pdb
+5IF1.pdb
+```
+
+Choosing a Reference File
+-------------------------
+
+Any given distance difference matrix is calculated using two distance matrices,
+each generated from its own pdb file. For analyzing multiple pdb files, it is
+useful to choose a file from which all other distance matrices will be 
+subtracted. This file acts as a reference from which all distance differences
+are relative. When running the script directly with only two pdb files, the 
+first one that is specified will act as the reference. 
+
+When specifying multiple pdb files through a directory, the script 
+will choose one that will be consistent for that one run of the script.
+However, it may not be consistent between separate runs of the script.
+To remedy this, the reference file can be specified with the
+``--reference`` flag followed by the path to the reference file.
+
+Multiprocessing
+---------------
+
+The distance matrix calculation is written such that it can be processed
+using multiple cores. By default, the script will use the maximum number of
+cores that are available. But an arbitrary number can be specified using the
+``--processes`` flag followed by the number of separate processes into which the
+distance matrix computation is intended to split.
 
