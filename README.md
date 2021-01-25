@@ -4,7 +4,7 @@ The CryoEMCovariance tool is a series of scripts written to facilitate
 the calculation and visualization of distance difference matrices and 
 covariance matrices of protein residues. It takes in text files in the
 [Protein Data Bank](https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html)
-(PDB) format, also referred to as "PDB files".
+(PDB) format, also referred to as "PDB files". 
 
 Dependencies
 ============
@@ -67,6 +67,19 @@ would generate a display where all of the residue pairs along the
 axes of the plot are binned into 15 bins (for a total of 225 plotted points).
 Note: This scale only applies to the plots that are generated for the
 display and not the .png/.html plots.
+
+When the script generates a display, it will generate a Bokeh server that is
+hosted on port 5006 by default. This server can be accessed on non-local 
+clients by redirecting the clients' 5006 port to the Bokeh server using
+the following command:
+
+```
+ssh -NfL localhost:5006:localhost:5006 user@gateway.host
+```
+
+The interactive would then be accessible in the client's browser at the address
+``localhost:5006``.
+
 
 Using Directories
 -----------------
@@ -149,7 +162,6 @@ cores that are available. But an arbitrary number can be specified using the
 ``--processes`` flag followed by the number of separate processes into which the
 distance matrix computation is intended to split.
 
-
 Logging
 -------
 
@@ -184,5 +196,3 @@ such as ``INFO``, ``WARNING``, ``ERROR``, and ``CRITICAL`` will be logged.
 
 The logged events can also be piped to the standard output of the console
 by specifying the ``-v`` or ``--verbose`` flag. 
-
-
