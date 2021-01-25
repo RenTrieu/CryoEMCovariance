@@ -15,6 +15,8 @@ from bokeh.events import Tap, DoubleTap, ButtonClick, SelectionGeometry
 from bokeh.core.properties import Enum, MinMaxBounds, Instance
 from bokeh.server.server import Server
 from bokeh.core.enums import Enumeration, enumeration
+from bokeh.core.validation.warnings import MISSING_RENDERERS
+from bokeh.core import validation
 from selectionGeometryPlus import SelectionGeometryPlus
 
 from covSubmatrix import CovSubmatrix
@@ -42,9 +44,12 @@ class EnhanceTool(Tool):
     __implementation__ = 'enhance_tool.ts'
     source = Instance(ColumnDataSource)
 
+validation.silence(MISSING_RENDERERS, True)
 source = ColumnDataSource(data=dict(x=[], y=[]))
 plot = figure(x_range=(0,1), y_range=(0,1), tools=[EnhanceTool(source=source)])
 show(plot)
+validation.silence(MISSING_RENDERERS, False)
+
 
 """ Class that initiates and loops the Bokeh server
     that houses a dashboard for the given plots

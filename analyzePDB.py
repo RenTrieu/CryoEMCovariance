@@ -56,6 +56,7 @@ class AnalyzePDB:
                             help='Specifies a directory to which files will'\
                             ' be outputted')
         parser.add_argument('--strip', help='Removes side chains',\
+                            default=True,\
                             action='store_true')
         parser.add_argument('-v', '--verbose',
                             help='Increases output verbosity',\
@@ -63,7 +64,7 @@ class AnalyzePDB:
         parser.add_argument('--log', nargs='?', default='WARNING',
                             help='Controls logging verbosity based off of'\
                             ' log message priority. Levels include:'\
-                            'DEBUG, INFO, WARNING, ERROR, CRITICAL')
+                            ' DEBUG, INFO, WARNING, ERROR, CRITICAL')
         parser.add_argument('-p', '--plot',
                             action='store_true',
                             help='If option is specified, will output plots'\

@@ -17,8 +17,6 @@ import inspect
 from plotGenerator import PlotGenerator
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
-import mpld3
-from mpld3 import plugins
 
 """ Class that houses Generate Difference Matrix
 """

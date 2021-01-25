@@ -6,6 +6,19 @@ covariance matrices of protein residues. It takes in text files in the
 [Protein Data Bank](https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html)
 (PDB) format, also referred to as "PDB files".
 
+Dependencies
+============
+```
+numpy>=1.16.4
+pandas>=0.24.2
+bokeh>=2.2.3
+matplotlib>=2.2.3
+firefox>=84.0
+geckodriver>=0.28.0
+nodejs>=10.13.0
+pillow>=8.0.1
+```
+
 Quickstart/User Manual
 ======================
 
@@ -19,7 +32,7 @@ To compare two pdb files and create plots of the distance difference matrices,
 run:
 
 ```
-./analyzePDB.py --strip --plot <file1.pdb> <file2.pdb>
+./analyzePDB.py --plot <file1.pdb> <file2.pdb>
 ```
 The ``--plot`` flag creates .png and .html files containing the unscaled
 plots of the distance difference matrices.
@@ -31,7 +44,7 @@ To compare two pdb files and create an interactive plot hosted on a web server,
 run:
 
 ```
-./analyzePDB.py --strip --display <file1.pdb> <file2.pdb>
+./analyzePDB.py --display <file1.pdb> <file2.pdb>
 ```
 
 The interactive plot that is generated when the ``--display`` flag is
@@ -48,7 +61,7 @@ residue pairs as opposed to just one residue pair. This can be done using the
 bins there should be in the final plot. For example:
 
 ```
-./analyzePDB.py --strip --scale 15 --display <file1.pdb> <file2.pdb>
+./analyzePDB.py --scale 15 --display <file1.pdb> <file2.pdb>
 ```
 would generate a display where all of the residue pairs along the
 axes of the plot are binned into 15 bins (for a total of 225 plotted points).
@@ -64,7 +77,7 @@ the ``--directory`` flag followed by either the absolute or relative path to
 the directory.
 
 ```
-./analyzePDB.py --strip --plot --directory /path/to/directory/
+./analyzePDB.py --plot --directory /path/to/directory/
 ```
 
 An output directory can also be specified with the ``--outDirectory`` flag
@@ -74,7 +87,7 @@ specified is an absolute path, the script will take the
 path specifically as it is typed. Example of absolute path usage:
 
 ```
-./analyzePDB.py --strip --plot --directory /path/to/directory/ --outDirectory /path/to/outDirectory/
+./analyzePDB.py --plot --directory /path/to/directory/ --outDirectory /path/to/outDirectory/
 ```
 
 However, if the outDirectory specified is a relative path and there is a
@@ -96,7 +109,7 @@ can be specified using the ``--pdbTextList`` followed by the path to said
 text file. For example for a text file labeled "TextList.txt":
 
 ```
-./analyzePDB.py --strip --plot --pdbTextList TextList.txt
+./analyzePDB.py --plot --pdbTextList TextList.txt
 ```
 
 would tell the script to process each pdb file listed in TextList.txt.
@@ -135,4 +148,41 @@ using multiple cores. By default, the script will use the maximum number of
 cores that are available. But an arbitrary number can be specified using the
 ``--processes`` flag followed by the number of separate processes into which the
 distance matrix computation is intended to split.
+
+
+Logging
+-------
+
+The CryoEMCovariance scripts use Python's ``logging`` module to keep track of 
+notable events in a log file. This log file will be generated in either the
+specified outDirectory, specified directory, or current working directory 
+(in order of highest priority to lowest priority).
+
+Depending on the importance of the event, the corresponding log message will
+be assigned a priority. The possible priorities are:
+
+```
+DEBUG
+INFO
+WARNING
+ERROR
+CRITICAL
+```
+
+where ``CRITICAL`` is the highest priority and ``DEBUG`` is the lowest priority.
+The minimum priority necessary for an event to be logged can be specified using
+the ``--log`` flag followed by the specified priority. For example:
+
+```
+./analyzePDB.py --plot --directory /path/to/pdbFile --log INFO
+```
+
+will specify that the minimum priority necessary for an event to be logged is
+``INFO``. Events that are marked with a lower priority (such as ``DEBUG``)\
+will not be logged, but events that are marked with a priority equal or higher
+such as ``INFO``, ``WARNING``, ``ERROR``, and ``CRITICAL`` will be logged.
+
+The logged events can also be piped to the standard output of the console
+by specifying the ``-v`` or ``--verbose`` flag. 
+
 
