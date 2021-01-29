@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # Program: Generate Difference Matrix
 # Author: Darren Trieu Nguyen
-# Version: 0.8
+# Version: 1.0
 # Function: Takes in two DistanceMatrix.npy files and calculates the difference
-#           between them, then plots
+#           between them, then outputs an .npy file containing the
+#           distance difference matrix.
 
 import argparse
 import sys
@@ -28,7 +29,7 @@ class GenerateDifferenceMatrix:
     def __init__(self):
         # When called directly from script
         if __name__ == '__main__':
-            version = 0.8
+            version = 1.0
 
             # Parsing the CLI for options and parameters
             parser = argparse.ArgumentParser(description='Generate a'\
@@ -88,7 +89,7 @@ class GenerateDifferenceMatrix:
             self.logger = logger
 
     """ Calculates a difference matrix from the passed distance matrices
-        Plots it
+        Saves it as a .npy file
     """
     def generateMatrix(self, npy1, npy2, path=None):
 

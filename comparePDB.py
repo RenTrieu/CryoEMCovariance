@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Compare PDB
 # Author: Darren Trieu Nguyen
-# Version: 0.7
+# Version: 1.0
 # Function: Takes in two PDB files to compare
 #           Outputs two edited PDB files that are aligned for calculation
 
@@ -25,7 +25,7 @@ class ComparePDB:
     def __init__(self):
         # When called directly from script
         if __name__ == '__main__':
-            version = 0.7
+            version = 1.0
             
             # Parsing the CLI for options and parameters
             parser = argparse.ArgumentParser(
@@ -62,8 +62,8 @@ class ComparePDB:
                 logging.basicConfig(level=numeric_level)
 
             self.logger = logger
+
             # TODO: Doesn't accurately compare unless the stripped flag is true
-            #       Fix that lol
             self.compare(args.pdb, args.strip)
 
         # When called from another script
@@ -320,7 +320,6 @@ class ComparePDB:
             aminoAcidSeq.sort(key=lambda tup: tup[1])
             residueSeq, indexSeq = zip(*aminoAcidSeq)
             residueSeq = list(residueSeq)
-#            print(residueSeq)
             residueSeq = [AADict[aminoAcid] for aminoAcid\
                 in list(residueSeq)]
             aminoAcidQuadString += \

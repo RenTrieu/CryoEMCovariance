@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # Program: Generate Covariance Matrix
 # Author: Darren Trieu Nguyen
-# Version: 0.8
-# Function: Takes in an npy file
+# Version: 1.0
+# Function: Takes in multiple npy files containing distance difference matrices
+#           and calculates a covariance matrix. 
 
 import sys
 import argparse
@@ -44,7 +45,7 @@ class GenerateCovarianceMatrix:
 """ Handles options from the CLI when called as a script
 """
 if __name__ == '__main__':
-    version = 0.8
+    version = 1.0
 
     # Parsing the CLI for options and parameters
     parser = argparse.ArgumentParser(description='Generate a'\

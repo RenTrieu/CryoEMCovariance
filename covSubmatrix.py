@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Cov Submatrix
 # Author: Darren Trieu Nguyen
-# Version: 0.8
+# Version: 1.0
 # Function: Takes in the mapping from rows/columns of the covariance matrix of 
 #           the residue pairs, the covariance matrix, and a given residue pair.
 #           This script takes the given residue pair and extracts only
@@ -28,7 +28,7 @@ class CovSubmatrix:
     def __init__(self):
         # When called directly from script
         if __name__ == '__main__':
-            version = 0.8
+            version = 1.0
 
             # Parsing the CLI for options and parameters
             parser = argparse.ArgumentParser(
@@ -154,27 +154,9 @@ class CovSubmatrix:
                 sys.exit()
             else:
                 resSize = list(covMap.values())[len(covMap.values())-1][1]
-                # TODO: scale and resSize are the same, this wrong
-                #print(covMap.values())
-                """
-                print('prev ResidueKey: ' + str(residueKey))
-                print('len(covMap): ' + str(len(covMap)))
-                print('len(covMatrix[0]): ' + str(len(covMatrix[0])))
-                """
                 if (len(covMap) != len(covMatrix[0])):
-                    """
-                    print('confirm')
-                    print(math.ceil(residueKey*scale*(scale-1) \
-                                          /(resSize*(resSize-1))))
-                    """
                     residueKey = math.ceil(residueKey*scale*(scale-1) \
                                           /(resSize*(resSize-1)))
-                """
-                print('scale: ' + str(scale))
-                print('resSize: ' + str(resSize))
-                print('residueKey: ' + str(residueKey))
-                """
-
                 covValues = covMatrix[residueKey]
                 self.logger.debug('Covariance Matrix at key: ' + str(covValues))
 

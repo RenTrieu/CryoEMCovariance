@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # Program: Generate Distance Matrix
 # Author: Darren Trieu Nguyen
-# Version: 0.8
+# Version: 1.0
 # Function: Takes in a formatted PDB file (stripped down to alpha carbons)
-#           And outputs
+#           Calculates the distance matrix and then outputs it as a .npy file
 
 import argparse
 import sys
@@ -29,7 +29,7 @@ class GenerateDistanceMatrix:
     def __init__(self):
         # When called directly from script
         if __name__ == '__main__':
-            version = 0.8
+            version = 1.0
 
             # Parsing the CLI for options and parameters
             parser = argparse.ArgumentParser(description='Generate a distance'\

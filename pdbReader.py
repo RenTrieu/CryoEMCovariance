@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: PDB Reader
 # Author: Darren Trieu Nguyen
-# Version: 0.7
+# Version: 1.0
 # Description: A compilation of useful functions for reading/writing
 #              from/to PDB files
 
@@ -65,8 +65,6 @@ class PDBReader:
         pdbCSV = self.PDBToCSV(pdb)
         self.logger.debug("Reading from: " + pdbCSV)
         pdbFrame = pd.read_csv(pdbCSV, error_bad_lines=False)
-        #self.logger.debug("Deleting: " + pdbCSV)
-        #subprocess.call(["rm", pdbCSV])
         return pdbFrame
 
 
@@ -199,7 +197,8 @@ class PDBReader:
                         + '\n'
         return formattedLine 
 
-    """ Formats field with given spaces aligned to the specified side
+    """ Formats field such that the text is aligned to a specified side,
+        then adds spaces as padding
         Parameters: String field - String to be formatted
                     int totalLength - The total length that is allowed by the
                                       field
