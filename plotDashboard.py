@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Bokeh Dashboard Server
 # Author: Darren Trieu Nguyen
-# Version: 0.8
+# Version: 1.0
 # Function: Generates and loops the Bokeh server for the plots
 
 from bokeh.layouts import column, row
@@ -62,7 +62,7 @@ class DashboardServer:
                  covMapDict=None, scale=None):
         # When called directly from script
         if __name__ == "__main__":
-            version = 0.8
+            version = 1.0
 
             # Parsing the CLI for options and parameters
             parser = argparse.ArgumentParser(description='Generate a'\
@@ -216,7 +216,7 @@ class DashboardServer:
 
         return matrix, indexDict
 
-    """ Partitions the indices into bins given the total number number
+    """ Partitions the indices into bins given the total number 
         of elements and the total number of bins to scale down to
     """
     def partitionIndices(self, numElements, numBins, offset=0):
@@ -502,7 +502,7 @@ class DashboardServer:
             patchMatrixValues(matrixDict[f])
             plot.title.text = 'Distance Difference Matrix: ' + npyNameList[new]
 
-        # Double click call back for moving from distance difference matrices to
+        # Click callback for moving from distance difference matrices to
         # covariance submatrices
         def clickCallback(event):
             plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
@@ -655,7 +655,7 @@ class DashboardServer:
                 indexDiv.text = 'Index: ' + str(self.curQueue)
 
         # Backward Queue Callback
-        # Moves up the queue to display the next covariance submatrix
+        # Moves up the queue to display the previous covariance submatrix
         def backwardQCallback(event):
             plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
             plot.x_range.factors=[str(i) for i in self.scaledRangeDict.values()]
@@ -733,10 +733,11 @@ class DashboardServer:
                     totalNumberDiv.text = '/' + str(len(self.queueMatrices))
                 statusDiv.text = 'Status: Submatrix computation complete. Idling'
 
+        # "Enhances" the selected region by taking the range of residues and
+        # redisplays the plot so it shows only this range of residues at the
+        # given resolution
         def zoomSelectCallback(event, matrixType="dd"):
-            print('event: ' + str(event))
             geometry = event.geometry
-            print('event.geometry: ' + str(geometry))
             f = str(slider.value)
             # Retrieving the boundaries of the rectangular selection
             # The -0.5 offset accounts for the offset of each square from
@@ -830,13 +831,9 @@ class DashboardServer:
 
             plot.x_range.factors=[i for i in xRangeDict.values()]
             plot.y_range.factors=[i for i in yRangeDict.values()]
-            print('Factor Range Start:' + str(plot.x_range.start))
 
             zoomedMatrix = zoomedMatrix.flatten()
             patchMatrixValues(zoomedMatrix, source)
-
-            # Mapping  TODO: Remove this
-            print('Geometry: ' + str(event.geometry))
 
         # ------------------------------------------------------------------
 

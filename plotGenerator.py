@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Plot Generator
 # Author: Darren Trieu Nguyen
-# Version: 0.7
+# Version: 1.0
 # Function: To take a matrix and plot it according to parameters passed
 
 import time
@@ -15,7 +15,6 @@ import inspect
 import argparse
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
-from covSubmatrix import CovSubmatrix
 
 from bokeh.io import show, export_png
 from bokeh.layouts import column, row
@@ -37,7 +36,7 @@ class PlotGenerator:
     def __init__(self):
         # When called directly from script
         if __name__ == "__main__":
-            version = 0.7
+            version = 1.0
 
             # Parsing the CLI for options and parameters
             parser = argparse.ArgumentParser(description='Generate a'\
@@ -102,16 +101,16 @@ class PlotGenerator:
     """
     def rescaleMatrix(self, npy, length):
 
-        # Converting the covarianceMatrix into an image to scale
+        # Converting the rescaledMatrix into an image to scale
         # it to an aspect ratio that is plottable
         # (There are memory errors if the array passed to plot is
         #  too big)
-        # ratio = float(args.scale)/float(len(covarianceMatrix))
-        covarianceImage = Image.fromarray(npy)
-        covarianceImage = covarianceImage.resize((length, length),
+        # ratio = float(args.scale)/float(len(rescaledMatrix))
+        rescaledImage = Image.fromarray(npy)
+        rescaledImage = rescaledImage.resize((length, length),
                                                  Image.ANTIALIAS)
-        covarianceMatrix = np.array(covarianceImage)
-        return covarianceMatrix
+        rescaledMatrix = np.array(rescaledImage)
+        return rescaledMatrix
 
     """ Plots the passed matrix
     """

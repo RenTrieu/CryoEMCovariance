@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Program: Analyze PDB
 # Author: Darren Trieu Nguyen
-# Version: 0.8
+# Version: 1.0
 # Function: Handles the overhead management, taking in PDB files and
 #           running the scripts necessary to output a covariance matrix plot
 
@@ -19,9 +19,7 @@ from pdbReader import PDBReader
 from generateDistanceMatrix import GenerateDistanceMatrix
 from generateDifferenceMatrix import GenerateDifferenceMatrix
 from generateCovarianceMatrix import GenerateCovarianceMatrix
-from covSubmatrix import CovSubmatrix
 from plotGenerator import PlotGenerator
-from plotInterface import PlotInterface
 from plotDashboard import DashboardServer
 
 
@@ -35,7 +33,7 @@ class AnalyzePDB:
     def __init__(self):
 
         start_time = time.time()
-        version = 0.7
+        version = 1.0
 
         # Parsing the CLI for options and parameters
         parser = argparse.ArgumentParser(
@@ -361,12 +359,6 @@ class AnalyzePDB:
         else:
             logger.warning('Covariance Matrix is too small'\
                            ' to generate a plot interface')
-
-        # Creating a map between covariance coordinate and residue pairs
-        # x -> index of one covariance axis of n length
-        # Residue Pair Indices Given by:
-        #   First Index: floor(x/n)
-        #   Second Index: x % n - 1
 
         logger.info('Reference used: ' + args.reference)
         logger.info(covarianceMatrix)

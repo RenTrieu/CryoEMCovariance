@@ -15,7 +15,6 @@ import pandas as pd
 import time
 import logging
 import inspect
-from plotGenerator import PlotGenerator
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 
