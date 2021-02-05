@@ -3,7 +3,8 @@ ChangeLog/Notes
 Version 1.0
 -----------
 - Cleaned up unnecessary comments/code
-- Queue has been properly implemented
+- Implemented queue
+- Reimplemented midpoint calculation
 
 #### Future Extensions:
 - Fundamentals of the "Zoom" function (now called "Enhance" function)
@@ -32,7 +33,10 @@ Version 1.0
     distinguish from which plot the selection is made. I attempted to start
     extending this object in [selectionGeometryPlus.js](https://github.com/Tachycardia/CryoEMCovariance/blob/master/selectionGeometryPlus.js) 
     and [selectionGeometryPlus.py](https://github.com/Tachycardia/CryoEMCovariance/blob/master/selectionGeometryPlus.py)
-- 
+- Explore Holoview/Datashares to potentially handle even larger datasets
+- Explore Chimera documentation so that in the future, the covariance matrix
+  and other plots can be mapped into a 3D protein structure for better
+  visualization
 
 Version 0.8
 -----------
@@ -63,8 +67,8 @@ To Do:
     - ~Create a separate plot for calculated covariance submatrices, or
       add some visual indicators/buttons to the interface to flip through
       calculated covariance submatrices~
-- Design and implement the pipeline for zooming into and displaying
-  areas around/residue pairs of interest
+- ~Design and implement the pipeline for zooming into and displaying
+  areas around/residue pairs of interest~
   - Check out these items in the Bokeh documentation:
       - Selection Geometry
       - LODEnd/LODStart 
