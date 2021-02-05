@@ -88,6 +88,31 @@ class ComparePDB:
     """
     def compare(self, pdbList, strip, inPath=None, outPath=None):
 
+        # Defining a dictionary that points to the molecule furthest
+        # away from the alpha carbon in each type of amino acid
+        AAMidpointDict = { 
+            'ALA' : 'CB',
+            'ARG' : 'CZ',
+            'ASN' : 'CG',
+            'ASP' : 'CG',
+            'CYS' : 'SG',
+            'GLU' : 'CD',
+            'GLN' : 'CD',
+            'GLY' : 'CA',
+            'HIS' : 'CE1',
+            'ILE' : 'CD1',
+            'LEU' : 'CG',
+            'LYS' : 'NZ',
+            'MET' : 'CE',
+            'PHE' : 'CZ',
+            'PRO' : 'CD',
+            'SER' : 'OG',
+            'THR' : 'OG1',
+            'TRP' : 'CH2',
+            'TYR' : 'OH',
+            'VAL' : 'CB',
+        }
+
         # Reads the csv files into a Pandas dataframe
         # (Dataframes will allow for better manipulations for further
         #  expansions of this code)
@@ -112,10 +137,39 @@ class ComparePDB:
                             (pdbFrame['Atom Type'].str.strip() == 'ATOM')\
                         ]
 
+            # Changing the alpha carbon coordinates to the midpoint between
+            # the alpha carbon and the furthest atom of the given amino acid
+            alphaFrame = pdbFrame.loc[\
+                        ((pdbFrame['Positional Label'] == 'CA'))]
+
+            peripheralFrame = pdbFrame.loc[\
+                        ((pdbFrame['Positional Label'] != 'CA'))]
+
+            for i, row in alphaFrame.iterrows():
+                pRow = peripheralFrame.loc[\
+                            (peripheralFrame['Residue Number'] \
+                             == row['Residue Number'])]
+
+                aminoAcid = pRow['Amino Acid'].iloc[0]
+                furthestAtom = AAMidpointDict[aminoAcid]
+
+                pRow = pRow.loc[(pRow['Positional Label'] == furthestAtom)]
+
+                if (pRow.size != 0):
+                    if (pRow.size > 1):
+                        pRow = pRow.iloc[0]
+                    row['X-Coord'] = (float(row['X-Coord']) \
+                                     + float(pRow['X-Coord']))/2.0
+                    row['Y-Coord'] = (float(row['Y-Coord']) \
+                                     + float(pRow['Y-Coord']))/2.0
+                    row['Z-Coord'] = (float(row['Z-Coord']) \
+                                     + float(pRow['Z-Coord']))/2.0
+                    pRow = None
+
             # Stripping the sequence down to alpha carbons
             if strip:
-                pdbFrameList[index] = pdbFrame.loc[\
-                            ((pdbFrame['Positional Label'] == 'CA'))]
+                pdbFrameList[index] = alphaFrame
+
                 self.logger.info('Removing side chains for ' \
                                  + pdbList[index])
                 self.logger.info('Stripping down to alpha carbons for '\

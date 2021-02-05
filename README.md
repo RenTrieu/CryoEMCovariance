@@ -17,6 +17,7 @@ firefox>=84.0
 geckodriver>=0.28.0
 nodejs>=10.13.0
 pillow>=8.0.1
+selenium>=3.141.0
 ```
 
 Quickstart/User Manual

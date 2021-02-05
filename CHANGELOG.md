@@ -1,5 +1,38 @@
-ChangeLog
-=========
+ChangeLog/Notes
+===============
+Version 1.0
+-----------
+- Cleaned up unnecessary comments/code
+- Queue has been properly implemented
+
+#### Future Extensions:
+- Fundamentals of the "Zoom" function (now called "Enhance" function)
+  have been implemented. However, there is still more to be desired:
+  - The corresponding Python callback that enacts the "Enhancing" in 
+    [plotDashboard.py](https://github.com/Tachycardia/CryoEMCovariance/wiki/plotDashboard.py) is ``zoomSelectCallback()``.
+  - ``zoomSelectCallback()`` is called whenever the dashboard detects a 
+    ``SelectionGeometryEvent``. This is thrown by tools such as the
+    [BoxSelectTool](https://docs.bokeh.org/en/latest/docs/reference/models/tools.html?highlight=boxselecttool#bokeh.models.tools.BoxSelectTool). 
+  - However, the ``BoxSelectTool`` grays out parts of the plot that lie outside
+    of the selection. This is not ideal so I wrote [enhance_tool.ts](https://github.com/Tachycardia/CryoEMCovariance/wiki/enhance_tool.ts)
+    which extends ``BoxSelectTool`` and ``BoxSelectToolView``, the 
+    corresponding view object, which lacks the gray overlay. This works
+    well.
+  - The ``EnhanceTool``, like ``BoxSelectTool`` returns a 
+    [SelectionGeometry](https://docs.bokeh.org/en/latest/docs/reference/events.html?highlight=selectiongeometry#bokeh.events.SelectionGeometry) 
+    object which only has two fields: ``geometry`` and ``final``. 
+    The main issue is that the
+    ``SelectionGeometry`` object that is returned when the ``EnhanceTool``
+    is used in the Difference Distance Matrix plot (primary plot) is
+    identical to that returned when the ``EnhanceTool`` is used in the
+    Queue plot (secondary plot). Thus, the problem is that there is no way
+    to distinguish between selections made in either plot.
+  - In extensions of this project, it may be a good idea to try to extend
+    the ``SelectionGeometry`` object to include an extra field that would
+    distinguish from which plot the selection is made. I attempted to start
+    extending this object in [selectionGeometryPlus.js](https://github.com/Tachycardia/CryoEMCovariance/blob/master/selectionGeometryPlus.js) 
+    and [selectionGeometryPlus.py](https://github.com/Tachycardia/CryoEMCovariance/blob/master/selectionGeometryPlus.py)
+- 
 
 Version 0.8
 -----------
