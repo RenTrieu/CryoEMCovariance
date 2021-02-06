@@ -319,7 +319,11 @@ class AnalyzePDB:
                 pGenerator.plotMatrix(differenceMatrix, 
                                       differenceDistanceList[index][:-4])
 
-        # Scaling down the difference distance matrices
+        # Scaling down the difference distance matrices.
+        # This code excerpt was originally intended for scaling the difference 
+        # distance matrices before calculating the covariance.
+        # This does reduce runtime, but at the cost of precision loss in the
+        # final matrices.
         """
         for i, ddMatrix in enumerate(differenceDistanceList):
             matrix = np.load(ddMatrix)
