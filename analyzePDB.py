@@ -124,6 +124,7 @@ class AnalyzePDB:
                 args.reference = args.directory + '/' + args.reference
 
         # Handling the input directory 
+        basePDBPathList = []
         directoryPath = None
         try:
             if (args.directory is not None) \
@@ -142,8 +143,13 @@ class AnalyzePDB:
                     sys.exit()
             else:
                 directory = os.getcwd()
+
         except AttributeError:
             directory = os.getcwd()
+            for i, pdb in enumerate(args.pdb):
+                pdbPath = os.path.normpath(pdb)
+                basePDBPathList.append(os.path.split(pdbPath)[1])
+            args.directory = None
             pass
 
         # Handling the output directory
@@ -161,6 +167,7 @@ class AnalyzePDB:
             directoryPath = None
             if not os.path.isdir(outDirectory):
                 os.mkdir(outDirectory)
+            
 
         # Initializing log file
         logFile = self.__class__.__name__ + '.log'
@@ -213,21 +220,31 @@ class AnalyzePDB:
             if pdb != args.reference:
                 comparisonList[index] = (args.reference, pdb)
         comparisonList = list(filter(None, comparisonList))
-        cPDB.compare(args.pdb, args.strip, \
-                     inPath=directory, outPath=outDirectory)
+        if (len(basePDBPathList) == 0):
+            cPDB.compare(args.pdb, args.strip, \
+                         inPath=directory, outPath=outDirectory)
+        else:
+            cPDB.compare(args.pdb, args.strip, \
+                         inPath=directory, outPath=outDirectory, \
+                         baseList=basePDBPathList)
 
         # Finding the largest residue number in all passed pdb files
         # for each chain that is common to all pdb files
         pdbReader = PDBReader()
         residueDict = {}
         chainList = []
-        for pdb in args.pdb:
+        for i, pdb in enumerate(args.pdb):
             if outDirectory is None:
                 pdbFrame = pdbReader.PDBToDataFrame(pdb[:-4] + 'Formatted.pdb')
             else:
-                pdbFrame = pdbReader.PDBToDataFrame(\
-                            os.path.join(outDirectory, \
-                                pdb[:-4]+'Formatted.pdb'))
+                if ((len(args.pdb) > 2) or (args.directory is not None)):
+                    pdbFrame = pdbReader.PDBToDataFrame(\
+                                os.path.join(outDirectory, \
+                                    pdb[:-4]+'Formatted.pdb'))
+                else:
+                    pdbFrame = pdbReader.PDBToDataFrame(\
+                                os.path.join(outDirectory, \
+                                    basePDBPathList[i][:-4]+'Formatted.pdb'))
 
             # If there are redundancies in the residues, that means that the
             # pdbFrame should be handled as if it were not stripped
@@ -259,15 +276,22 @@ class AnalyzePDB:
                         + ' Max Residue: ' + str(residueDict[chain]))
 
         # Generating distance matrices for all passed pdb files
-        for pdb in args.pdb:
+        for i, pdb in enumerate(args.pdb):
             gDistanceMatrix = GenerateDistanceMatrix()
             logger.info(
                 'Calculating distance matrix for: '\
                 + pdb[:-4] + 'Formatted.pdb'
             )
-            gDistanceMatrix.generateMatrix(pdb[:-4] + 'Formatted.pdb', 
-                                            args.processQuantity,
-                                            path=outDirectory)
+            if ((len(args.pdb) > 2) or (args.directory is not None)):
+                gDistanceMatrix.generateMatrix(pdb[:-4] + 'Formatted.pdb', 
+                                                args.processQuantity,
+                                                path=outDirectory)
+            else:
+                gDistanceMatrix.generateMatrix( \
+                    basePDBPathList[i][:-4] + 'Formatted.pdb', \
+                    args.processQuantity, \
+                    path=outDirectory)
+
 
         differenceDistanceList = [None]*len(comparisonList)
         differenceMatrixList = [None]*len(comparisonList)

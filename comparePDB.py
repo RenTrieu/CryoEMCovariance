@@ -86,7 +86,7 @@ class ComparePDB:
     """ Takes in a list of paths to pdb files, compares the n number of passed 
         pdb files
     """
-    def compare(self, pdbList, strip, inPath=None, outPath=None):
+    def compare(self, pdbList, strip, inPath=None, outPath=None, baseList=None):
 
         # Defining a dictionary that points to the molecule furthest
         # away from the alpha carbon in each type of amino acid
@@ -322,8 +322,12 @@ class ComparePDB:
 
         # Printing out the reformatted PDB files
         for index, pdbFrame in enumerate(pdbFrameList):
-            pdbr.DataFrameToPDB(pdbList[index], 
-                                pdbFrameFilteredList[index])
+            if baseList is None:
+                pdbr.DataFrameToPDB(pdbList[index], 
+                                    pdbFrameFilteredList[index])
+            else:
+                pdbr.DataFrameToPDB(os.path.join(outPath, baseList[index]),
+                                    pdbFrameFilteredList[index])
 
         # This line is only here for testing
         # After the convertAminoAcidSeq is determined to work
