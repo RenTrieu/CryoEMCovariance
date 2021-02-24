@@ -5,6 +5,8 @@ Hotfix #1
 ---------
 - Fixed issue where in the case where two files are being compared/analyzed, the 
   script throws an error when the path to the files includes directories
+- Added final print line that displays the path to the directory in which the
+  files are being generated
 
 Version 1.0
 -----------

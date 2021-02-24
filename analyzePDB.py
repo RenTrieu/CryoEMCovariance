@@ -394,6 +394,13 @@ class AnalyzePDB:
                     %(time.time() -start_time))
         print('Complete')
 
+        if outDirectory is not None:
+            print('Output files outputted to: ' + str(outDirectory))
+        elif directory is not None:
+            print('Output files outputted to: ' + str(directory))
+        else:
+            print('Output files outputted to: ' + str(os.cwd()))
+
         if args.display and not (len(covarianceMatrix.shape) == 0):
             server.io_loop.start()
 
