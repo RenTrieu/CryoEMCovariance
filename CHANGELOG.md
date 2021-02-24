@@ -1,5 +1,11 @@
 ChangeLog/Notes
 ===============
+
+Hotfix #1
+---------
+- Fixed issue where in the case where two files are being compared/analyzed, the 
+  script throws an error when the path to the files includes directories
+
 Version 1.0
 -----------
 - Cleaned up unnecessary comments/code
